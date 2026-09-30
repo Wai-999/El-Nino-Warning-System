@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "checkedAt": "2026-09-30T06:05:26.373Z",
+  "enso": {
+    "status": "El Niño Advisory",
+    "issuedAt": "2026-09-10T00:00:00.000Z",
+    "validUntil": "2026-10-08T23:59:59.000Z",
+    "source": {
+      "name": "NOAA Climate Prediction Center",
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+      "retrievedAt": "2026-09-30T06:05:26.373Z"
+    },
+    "kind": "official-assessment",
+    "resolution": "Tropical Pacific; not a Myanmar forecast"
+  },
+  "ensoFetch": "ok",
+  "regionalCoverage": "unavailable",
+  "regionalCheckedAt": null,
+  "alerts": [],
+  "history": []
+}
