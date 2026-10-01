@@ -14,7 +14,7 @@ export const value = (
   unit = "",
   signed = false,
 ) =>
-  n === undefined || n === null
+  n === undefined || n === null || !Number.isFinite(n)
     ? "—"
     : `${signed && n > 0 ? "+" : ""}${n.toFixed(unit === "%" || unit === " km/h" ? 0 : 1)}${unit}`;
 export function Evidence({
@@ -118,6 +118,32 @@ export function SignalCard({
         )}
         {t(...hazardNames[signal.hazard])}
       </h3>
+      <p className="evidence-label">
+        {signal.source === "ecmwf"
+          ? t("FORECAST", "ခန့်မှန်းချက်")
+          : signal.source === "era5"
+            ? t("OBSERVED / REANALYSIS", "ပြန်လည်ဆန်းစစ်ထားသော အတိတ်ဒေတာ")
+            : signal.source === "combined"
+              ? t(
+                  "FORECAST + OBSERVED / REANALYSIS",
+                  "ခန့်မှန်းချက် + ပြန်လည်ဆန်းစစ်ဒေတာ",
+                )
+              : t("ENSO CONTEXT", "ENSO နောက်ခံ")}
+      </p>
+      {(signal.source === "ecmwf" || signal.source === "combined") &&
+        op.weather && (
+          <p className="meta">
+            ECMWF IFS · {mmt(op.weather.validAt, lang)} →{" "}
+            {mmt(op.weather.through, lang)}
+          </p>
+        )}
+      {(signal.source === "era5" || signal.source === "combined") &&
+        op.history && (
+          <p className="meta">
+            ERA5 · {op.history.start} → {op.history.end} ·{" "}
+            {t("Baseline", "ရည်ညွှန်းကာလ")} 1991–2020
+          </p>
+        )}
       <p>{t(...signal.evidence)}</p>
       <p className="signal-action">{t(...actions[signal.hazard])}</p>
       {!compact && (

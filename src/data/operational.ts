@@ -107,6 +107,11 @@ export const historySchema = z
       .length(15),
   })
   .superRefine((d, c) => {
+    if (Date.parse(d.end + "T23:59:59+06:30") >= Date.parse(d.fetchedAt))
+      c.addIssue({
+        code: "custom",
+        message: "Historical window must be completed before retrieval",
+      });
     if (
       new Set(d.regions.map((r) => r.id)).size !== 15 ||
       Date.parse(d.end) - Date.parse(d.start) !== 29 * 86400000
@@ -116,7 +121,31 @@ export const historySchema = z
         message: "Invalid regional historical coverage",
       });
     for (const r of d.regions) {
+      // Stored values are rounded to 0.01 mm; retain the raw-value threshold's
+      // possible interval, especially for values rounded to exactly 1 or 10 mm.
+      const normal = r.rainNormal30;
+      const percentError =
+        normal > 0.005
+          ? 0.02 + 0.5 / normal + (0.5 * r.rain30) / (normal * (normal - 0.005))
+          : 0;
+      const percentageConsistent =
+        r.rainPercent === null
+          ? normal < 10.005
+          : normal >= 9.995 &&
+            Math.abs(r.rainPercent - (r.rain30 / normal - 1) * 100) <=
+              percentError;
+      let minDry = 0,
+        maxDry = 0;
+      for (let i = r.rainDaily.length - 1; i >= 0 && r.rainDaily[i] < 1; i--)
+        minDry++;
+      for (let i = r.rainDaily.length - 1; i >= 0 && r.rainDaily[i] <= 1; i--)
+        maxDry++;
       if (
+        !percentageConsistent ||
+        r.dryDays < minDry ||
+        r.dryDays > maxDry ||
+        Math.abs(r.rainDaily.slice(-7).reduce((a, b) => a + b, 0) - r.rain7) >
+          0.05 ||
         Math.abs(r.temperature - r.temperatureNormal - r.temperatureAnomaly) >
           0.025 ||
         Math.abs(r.rain30 - r.rainNormal30 - r.rainDifference) > 0.025 ||
@@ -128,19 +157,38 @@ export const historySchema = z
         });
     }
   });
-export const indexSchema = z.object({
-  fetchedAt: stamp,
-  source: z.literal("https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices"),
-  months: z
-    .array(
-      z.object({
-        month: z.string().regex(/^\d{4}-\d{2}$/),
-        anomaly: z.number().min(-10).max(10),
-      }),
-    )
-    .min(2)
-    .max(6),
-});
+export const indexSchema = z
+  .object({
+    fetchedAt: stamp,
+    source: z.literal(
+      "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
+    ),
+    months: z
+      .array(
+        z.object({
+          month: z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/),
+          anomaly: z.number().min(-10).max(10),
+        }),
+      )
+      .min(2)
+      .max(6),
+  })
+  .superRefine((d, c) => {
+    for (const [i, m] of d.months.entries()) {
+      const nextMonth = new Date(m.month + "-01T00:00:00Z");
+      nextMonth.setUTCMonth(nextMonth.getUTCMonth() + 1);
+      if (
+        nextMonth.getTime() > Date.parse(d.fetchedAt) ||
+        (i > 0 &&
+          Date.parse(m.month + "-01") <=
+            Date.parse(d.months[i - 1].month + "-01"))
+      )
+        c.addIssue({
+          code: "custom",
+          message: "Duplicate, unordered or incomplete monthly observation",
+        });
+    }
+  });
 export const healthSchema = z.object({
   checkedAt: stamp,
   lastSuccess: stamp.nullable(),
@@ -183,7 +231,7 @@ export function historyFresh(h: History | null, now = Date.now()) {
     !!h &&
     Date.parse(h.fetchedAt) <= now + 60000 &&
     now - Date.parse(h.end + "T23:59:59+06:30") < 10 * DAY &&
-    Date.parse(h.end) < now
+    Date.parse(h.end + "T23:59:59+06:30") < now
   );
 }
 export function mmt(value: string, lang = "en") {
@@ -194,4 +242,49 @@ export function mmt(value: string, lang = "en") {
       timeZone: "Asia/Yangon",
     }).format(new Date(value)) + " MMT"
   );
+}
+
+export type DataState = "current" | "aging" | "stale" | "unavailable";
+export function weatherState(w: Weather | null, now = Date.now()): DataState {
+  if (!w) return "unavailable";
+  if (!weatherFresh(w, now)) return "stale";
+  return Math.max(now - Date.parse(w.fetchedAt), now - Date.parse(w.validAt)) >=
+    12 * HOUR
+    ? "aging"
+    : "current";
+}
+export function historyState(h: History | null, now = Date.now()): DataState {
+  if (!h) return "unavailable";
+  if (!historyFresh(h, now)) return "stale";
+  return now - Date.parse(h.end + "T23:59:59+06:30") >= 8 * DAY
+    ? "aging"
+    : "current";
+}
+
+// Runtime clock checks complement deterministic structural/provider validation.
+export function validateOperational(
+  input: unknown,
+  now = Date.now(),
+): Operational {
+  const data = operationalSchema.parse(input);
+  if (
+    [
+      data.generatedAt,
+      data.weather?.fetchedAt,
+      data.history?.fetchedAt,
+      data.nino?.fetchedAt,
+    ].some((stamp) => stamp && Date.parse(stamp) > now + 60000)
+  )
+    throw new Error("Snapshot retrieval date is in the future");
+  if (data.history && Date.parse(data.history.end + "T23:59:59+06:30") >= now)
+    throw new Error("Reanalysis includes an incomplete observation day");
+  if (
+    data.nino?.months.some((m) => {
+      const end = new Date(m.month + "-01T00:00:00Z");
+      end.setUTCMonth(end.getUTCMonth() + 1);
+      return end.getTime() > now;
+    })
+  )
+    throw new Error("Monthly observation is incomplete");
+  return data;
 }

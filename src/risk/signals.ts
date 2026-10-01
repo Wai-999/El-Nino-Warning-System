@@ -141,10 +141,15 @@ export function signalsFor(
       level: dry,
       source: "era5",
       historical: true,
-      evidence: [
-        "Rainfall-based planning proxy; reservoir and river levels are not measured.",
-        "မိုးရေအခြေခံ ပြင်ဆင်ရေးညွှန်းကိန်းဖြစ်သည်။ ဆည်နှင့် မြစ်ရေကို တိုင်းတာမထားပါ။",
-      ],
+      evidence: h
+        ? [
+            `30-day rainfall ${h.rain30.toFixed(1)} mm; normal ${h.rainNormal30.toFixed(1)} mm; departure ${h.rainPercent === null ? "unavailable" : h.rainPercent.toFixed(0) + "%"}; ${h.dryDays} trailing dry days. Rainfall proxy only; reservoir and river levels are not measured.`,
+            `ရက် ၃၀ မိုးရေ ${h.rain30.toFixed(1)} mm၊ ပုံမှန် ${h.rainNormal30.toFixed(1)} mm၊ ကွာဟချက် ${h.rainPercent === null ? "မရရှိ" : h.rainPercent.toFixed(0) + "%"}၊ မိုးပြတ် ${h.dryDays} ရက်။ မိုးရေအခြေခံသာဖြစ်ပြီး ဆည်နှင့် မြစ်ရေကို မတိုင်းတာပါ။`,
+          ]
+        : [
+            "Recent reanalysis unavailable or stale; local water supply is not assessed.",
+            "မကြာသေးမီ ပြန်လည်ဆန်းစစ်ဒေတာ မရရှိ သို့မဟုတ် သက်တမ်းကျော်နေ၍ ဒေသရေရရှိမှုကို မသတ်မှတ်နိုင်ပါ။",
+          ],
     },
     {
       hazard: "agriculture",

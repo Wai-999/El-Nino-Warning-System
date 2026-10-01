@@ -10,6 +10,8 @@ export const AppContext = createContext<{
   now: number;
   operational: Operational;
   operationalCached: boolean;
+  operationalError: boolean;
+  loading: boolean;
   lowData: boolean;
 }>(null!);
 export const useApp = () => useContext(AppContext);

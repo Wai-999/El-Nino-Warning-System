@@ -90,8 +90,8 @@ export function EnsoPanel() {
           )}
           <p>
             {t(
-              "SST anomaly series, not RONI or ONI; different indices must not be interchanged.",
-              "ပင်လယ်မျက်နှာပြင်အပူချိန်ကွာဟချက် ဖြစ်သည်။ RONI၊ ONI တို့နှင့် အစားထိုးမသုံးရပါ။",
+              "SST anomaly series, not RONI or ONI; different indices must not be interchanged. The feed does not state its anomaly baseline; do not compare these values directly with the regional 1991–2020 anomalies.",
+              "ပင်လယ်မျက်နှာပြင်အပူချိန်ကွာဟချက် ဖြစ်သည်။ RONI၊ ONI တို့နှင့် အစားထိုးမသုံးရပါ။ ဤဖိုင်တွင် ရည်ညွှန်းကာလ မဖော်ပြပါ။ ဒေသ ၁၉၉၁–၂၀၂၀ ကွာဟချက်နှင့် တိုက်ရိုက် မနှိုင်းယှဉ်ရပါ။",
             )}
           </p>
           <SourceLink href={nino!.source}>NOAA CPC SST indices</SourceLink>

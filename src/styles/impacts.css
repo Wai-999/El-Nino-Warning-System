@@ -1,0 +1,134 @@
+.impacts-page {
+  max-width: 1250px;
+}
+.impact-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.impact-filters > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  font-weight: 600;
+}
+.impact-filters select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+}
+.impact-evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.impact-data-block {
+  min-width: 0;
+  border-top: 2px solid #d4e1d8;
+  padding-top: 12px;
+}
+.evidence-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #375c4a;
+  letter-spacing: 0.03em;
+}
+.impact-snapshot .metric-grid dd {
+  font-size: 18px;
+}
+.impact-sources {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.impact-sources ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.impact-sources li {
+  margin-bottom: 8px;
+}
+.impact-sources .meta {
+  display: block;
+}
+.impacts-page summary {
+  min-height: 44px;
+  padding: 8px 0;
+}
+.impacts-page details,
+.impact-history-item {
+  margin-top: 20px;
+}
+.impact-history-item {
+  padding: 4px 0 22px;
+  border-bottom: 1px solid #d4e1d8;
+}
+.impact-drivers,
+.impact-history {
+  margin-top: 30px;
+}
+.impact-explanation dt {
+  font-weight: 700;
+  margin-top: 16px;
+}
+.impact-explanation dd {
+  margin: 6px 0 0;
+}
+.impact-chain {
+  padding-left: 24px;
+}
+.impact-chain li {
+  padding: 6px;
+}
+.impact-coverage li {
+  padding: 8px 0;
+}
+.data-state {
+  display: inline-block;
+  font-size: 14px;
+}
+.data-state-stale,
+.data-state-aging {
+  color: #795113;
+}
+.data-state-unavailable {
+  color: #526059;
+}
+.impacts-page .row.spread {
+  flex-wrap: wrap;
+}
+.impacts-page .signal-card {
+  min-width: 0;
+}
+.impacts-page .source-link {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  .impact-evidence-grid,
+  .impact-filters {
+    grid-template-columns: 1fr;
+  }
+  .impact-evidence-grid {
+    gap: 18px;
+  }
+  .impacts-page .action-strip {
+    align-items: flex-start;
+  }
+}
+
+.impact-filters label {
+  font-weight: 600;
+}
+.impacts-page .metric-grid small {
+  font-weight: 400;
+}
+@media (max-width: 760px) {
+  .impacts-page .sector-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .impacts-page .sector-tabs button {
+    min-width: 0;
+    width: auto;
+  }
+}

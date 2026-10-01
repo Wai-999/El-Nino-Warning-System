@@ -1,4 +1,4 @@
-import { operationalSchema, emptyOperational } from "./operational";
+import { validateOperational, emptyOperational } from "./operational";
 export async function loadOperational() {
   try {
     const r = await fetch(`${import.meta.env.BASE_URL}data/operational.json`, {
@@ -6,7 +6,7 @@ export async function loadOperational() {
       signal: AbortSignal.timeout(10000),
     });
     if (!r.ok) throw Error();
-    const data = operationalSchema.parse(await r.json());
+    const data = validateOperational(await r.json());
     try {
       localStorage.setItem("mokinn-operational", JSON.stringify(data));
     } catch {
@@ -20,7 +20,7 @@ export async function loadOperational() {
   } catch {
     try {
       return {
-        data: operationalSchema.parse(
+        data: validateOperational(
           JSON.parse(localStorage.getItem("mokinn-operational") || "null"),
         ),
         cached: true,

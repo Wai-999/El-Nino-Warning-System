@@ -28,11 +28,15 @@ export function SourceLink({
   href: string;
   children: React.ReactNode;
 }) {
+  const { t } = useApp();
   return (
     <a className="source-link" href={href} target="_blank" rel="noreferrer">
       {children}
       <ExternalLink size={13} aria-hidden="true" />
-      <span className="sr-only"> (opens in a new tab)</span>
+      <span className="sr-only">
+        {" "}
+        {t("(opens in a new tab)", "(တက်ဘ်အသစ်တွင် ဖွင့်မည်)")}
+      </span>
     </a>
   );
 }

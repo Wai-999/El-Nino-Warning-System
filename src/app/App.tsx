@@ -58,7 +58,7 @@ function setPref(key: string, value: string) {
     /* Optional device preference. */
   }
 }
-const getRoute = () => location.hash.slice(1) || "/";
+const getRoute = () => location.hash.slice(1).split("?")[0] || "/";
 type InstallEvent = Event & {
   prompt: () => Promise<void>;
   userChoice: Promise<{ outcome: string }>;
@@ -236,6 +236,8 @@ export default function App() {
         now,
         operational: operational.data,
         operationalCached: operational.cached || !online,
+        operationalError: operational.error,
+        loading,
         lowData,
       }}
     >
