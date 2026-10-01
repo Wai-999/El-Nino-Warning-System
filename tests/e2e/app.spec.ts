@@ -9,7 +9,7 @@ test("Burmese default, language, navigation, all requested screens", async ({
   await expect(page.locator("html")).toHaveAttribute("lang", "my");
   await expect(page.locator("h1")).toContainText("အခြေအနေ");
   await page.getByRole("button", { name: "Switch to English" }).click();
-  await expect(page.locator("h1")).toContainText("Know the situation");
+  await expect(page.locator("h1")).toContainText("Know the conditions");
   for (const route of [
     "map",
     "warnings",
@@ -37,13 +37,13 @@ test("map boundaries, keyboard region selection, layer controls and zoom", async
 }) => {
   await page.goto("./#/map");
   await page.getByRole("button", { name: "Switch to English" }).click();
-  await expect(page.locator(".region-shape")).toHaveCount(14);
+  await expect(page.locator(".region-shape")).toHaveCount(15);
   const path = page.locator('.region-shape[aria-label^="Shan"]');
   await path.focus();
   await page.keyboard.press("Enter");
-  await expect(page.locator(".local-summary h2")).toHaveText("Shan");
+  await expect(page.locator(".regional-profile h2")).toHaveText("Shan");
   await expect(path).toHaveAttribute("aria-pressed", "true");
-  await page.getByLabel("Map layer").selectOption("coverage");
+  await page.getByLabel("Map layer").selectOption("temperatureAnomaly");
   await page.getByRole("button", { name: "Zoom in", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "Pan north", exact: true }),
@@ -52,9 +52,7 @@ test("map boundaries, keyboard region selection, layer controls and zoom", async
   await page
     .getByLabel("State / Region", { exact: true })
     .selectOption("MM-18");
-  await expect(page.locator(".local-summary")).toContainText(
-    "not map it separately",
-  );
+  await expect(page.locator(".regional-profile")).toContainText("Nay Pyi Taw");
 });
 test("preparedness progress persists and remains group-specific", async ({
   page,
@@ -74,12 +72,15 @@ test("unavailable data cannot display an all-clear; history and filters work", a
 }) => {
   await page.goto("./#/warnings");
   await page.getByRole("button", { name: "Switch to English" }).click();
+  await page
+    .getByRole("button", { name: "Official warnings", exact: true })
+    .click();
   await expect(
     page.getByRole("heading", {
       name: "Regional warning status is unavailable",
     }),
   ).toBeVisible();
-  await page.getByLabel("Severity", { exact: true }).selectOption("emergency");
+  await page.getByLabel("Severity", { exact: true }).selectOption("severe");
   await page
     .getByLabel("State / Region", { exact: true })
     .selectOption("MM-04");
@@ -105,11 +106,11 @@ test("ENSO educational diagram and scenario controls change content", async ({
   await page.locator("summary").first().click();
   await expect(page.locator(".lesson-body").first()).toBeVisible();
   await page.goto("./#/impacts");
-  await page.getByRole("button", { name: "Human health" }).click();
-  await expect(page.locator(".sector-detail")).toContainText("heatstroke");
-  await page.getByRole("button", { name: "Higher impact" }).click();
-  await expect(page.locator(".scenario-content")).toContainText(
-    "Local likelihood not assessed",
+  await page.getByRole("button", { name: "Agriculture", exact: true }).click();
+  await expect(page.locator("main")).toContainText("crop loss");
+  await page.getByRole("button", { name: "Energy", exact: true }).click();
+  await expect(page.locator("main")).toContainText(
+    "No outage or generation forecast",
   );
 });
 test("invalid and failed data have explicit fallbacks", async ({ page }) => {
@@ -125,9 +126,11 @@ test("invalid and failed data have explicit fallbacks", async ({ page }) => {
   await expect(page.locator("main")).toContainText(
     "latest data could not be loaded",
   );
-  await expect(page.locator(".national-status")).toContainText("Not assessed");
-  await expect(page.locator(".situation-main")).toContainText(
-    "Current status unavailable",
+  await expect(page.locator(".national-strip")).toContainText(
+    "Coverage unavailable",
+  );
+  await expect(page.locator(".enso-v2")).toContainText(
+    "ENSO assessment unavailable",
   );
 });
 test("stale ENSO bulletin is visibly historical", async ({ page }) => {
@@ -140,10 +143,7 @@ test("stale ENSO bulletin is visibly historical", async ({ page }) => {
   });
   await page.goto("./");
   await page.getByRole("button", { name: "Switch to English" }).click();
-  await expect(page.locator(".situation-main")).toContainText("out of date");
-  await expect(page.locator(".situation-main h2")).toContainText(
-    "Check the latest",
-  );
+  await expect(page.locator(".enso-v2")).toContainText("Stale assessment");
 });
 test("map failure preserves the location list", async ({ page }) => {
   await page.route("**/data/myanmar.geojson", (r) => r.abort());
@@ -153,11 +153,11 @@ test("map failure preserves the location list", async ({ page }) => {
   await page
     .getByLabel("State / Region", { exact: true })
     .selectOption("MM-06");
-  await expect(page.locator(".local-summary h2")).toHaveText("Yangon");
+  await expect(page.locator(".regional-profile h2")).toHaveText("Yangon");
 });
 test("WCAG automated checks in both languages", async ({ page }) => {
   await page.goto("./");
-  await expect(page.locator(".region-shape")).toHaveCount(14);
+  await expect(page.locator(".region-shape")).toHaveCount(15);
   await page.evaluate(() => document.fonts.ready);
   let result = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
@@ -179,4 +179,50 @@ test("WCAG automated checks in both languages", async ({ page }) => {
       .analyze();
     expect(result.violations, `${route} accessibility`).toEqual([]);
   }
+});
+
+test("V2 regional metrics, layers, low data and stale operational safety", async ({
+  page,
+}) => {
+  await page.goto("./#/region/MM-04");
+  await page.getByRole("button", { name: "Switch to English" }).click();
+  await expect(page.locator(".weather-now strong")).toContainText("°C");
+  await expect(page.locator("main")).toContainText("1991–2020");
+  await expect(page.locator("tbody tr")).toHaveCount(7);
+  await page.getByRole("button", { name: /Low data/ }).click();
+  await page.goto("./#/map");
+  await expect(page.locator(".region-shape")).toHaveCount(0);
+  await expect(page.locator("main")).toContainText("Map paused");
+  await page.getByRole("button", { name: /Low data/ }).click();
+  await expect(page.locator(".region-shape")).toHaveCount(15);
+  for (const layer of [
+    "overall",
+    "temperature",
+    "temperatureAnomaly",
+    "rain",
+    "rainAnomaly",
+    "heat",
+    "dryness",
+    "agriculture",
+    "official",
+    "system",
+  ]) {
+    await page.getByLabel("Map layer").selectOption(layer);
+    await expect(page.locator(".map-legend")).toBeVisible();
+  }
+  await page.route("**/data/operational.json", async (route) => {
+    const response = await route.fetch();
+    const json = await response.json();
+    json.weather.fetchedAt = "2020-01-01T00:00:00Z";
+    await route.fulfill({ response, json });
+  });
+  await page.reload();
+  await expect(page.locator(".regional-profile")).toContainText(
+    "Stale — not current",
+  );
+  await page.getByLabel("Map layer").selectOption("temperature");
+  await expect(page.locator(".region-shape").first()).toHaveAttribute(
+    "fill",
+    /url/,
+  );
 });

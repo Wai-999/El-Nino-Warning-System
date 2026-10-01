@@ -13,6 +13,9 @@ test("offline restart retains checklist, pages, map and dated information", asyn
   await expect
     .poll(() => page.evaluate(() => !!navigator.serviceWorker.controller))
     .toBe(true);
+  await page.goto("./#/map");
+  await expect(page.locator(".region-shape")).toHaveCount(15);
+  await page.goto("./#/prepare");
   await context.setOffline(true);
   await page.reload();
   await expect(page.getByRole("checkbox").first()).toBeChecked();
@@ -22,6 +25,7 @@ test("offline restart retains checklist, pages, map and dated information", asyn
     page.getByRole("heading", { name: "One ocean. Connected weather." }),
   ).toBeVisible();
   await page.goto("./#/map");
-  await expect(page.locator(".region-shape")).toHaveCount(14);
+  await expect(page.locator(".region-shape")).toHaveCount(15);
+  await expect(page.locator("main")).toContainText("Cached — last updated");
   await context.setOffline(false);
 });

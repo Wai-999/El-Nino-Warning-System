@@ -5,7 +5,8 @@ import type { FeatureCollection, Geometry } from "geojson";
 import { Minus, Plus, RotateCcw, MapPinned } from "lucide-react";
 import { useApp } from "../app/context";
 import { regionName, regionIds } from "../data/regions";
-import { regionalLevel } from "../risk/engine";
+import { layers, layerScale, layerValue, type Layer } from "./layers";
+import { mmt } from "../data/operational";
 type MapData = FeatureCollection<
   Geometry,
   { shapeISO: string; shapeName: string }
@@ -19,13 +20,13 @@ export default function MyanmarMap({
   onSelect: (id: string) => void;
   compact?: boolean;
 }) {
-  const { lang, t, data, now } = useApp();
+  const { lang, t, data, now, operational } = useApp();
   const [geo, setGeo] = useState<MapData | null>(null);
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState([0, 0]);
-  const [layer, setLayer] = useState<"warnings" | "coverage">("warnings");
+  const [layer, setLayer] = useState<Layer>("overall");
   const pattern = useId().replace(/:/g, "");
   useEffect(() => {
     const ctrl = new AbortController();
@@ -39,7 +40,7 @@ export default function MyanmarMap({
       .then((g: MapData) => {
         if (
           g.type !== "FeatureCollection" ||
-          g.features.length !== 14 ||
+          g.features.length !== 15 ||
           g.features.some(
             (f) =>
               !regionIds.includes(
@@ -82,12 +83,11 @@ export default function MyanmarMap({
               value={layer}
               onChange={(e) => setLayer(e.target.value as typeof layer)}
             >
-              <option value="warnings">
-                {t("Warning severity", "သတိပေးအဆင့်")}
-              </option>
-              <option value="coverage">
-                {t("Data coverage", "အချက်အလက်ရရှိမှု")}
-              </option>
+              {layers.map(([id, en, my]) => (
+                <option key={id} value={id}>
+                  {t(en, my)}
+                </option>
+              ))}
             </select>
           </label>
           <span className="meta">
@@ -150,19 +150,14 @@ export default function MyanmarMap({
               transform={`translate(${265 + pan[0]},${290 + pan[1]}) scale(${zoom}) translate(-265,-290)`}
             >
               {paths.map((p) => {
-                const level = regionalLevel(data, p.id, now);
+                const metric = layerValue(layer, operational, data, p.id, now);
+                const scale = layerScale(layer);
                 const fill =
-                  p.id === selected
-                    ? "#17675d"
-                    : layer === "coverage" || level === "unknown"
-                      ? `url(#${pattern})`
-                      : {
-                          normal: "#c8ded4",
-                          advisory: "#f3dc9b",
-                          watch: "#edbb71",
-                          warning: "#dd864e",
-                          emergency: "#b54242",
-                        }[level];
+                  metric.value === null
+                    ? `url(#${pattern})`
+                    : scale.colors[
+                        scale.cuts.filter((c) => metric.value! >= c).length
+                      ];
                 return (
                   <path
                     className="region-shape"
@@ -175,7 +170,7 @@ export default function MyanmarMap({
                     tabIndex={0}
                     role="button"
                     aria-pressed={p.id === selected}
-                    aria-label={`${regionName(p.id, lang)} — ${level === "unknown" ? t("not assessed", "မသတ်မှတ်နိုင်သေး") : level}`}
+                    aria-label={`${regionName(p.id, lang)} — ${metric.value === null ? t("not assessed", "မသတ်မှတ်နိုင်သေး") : metric.label}`}
                     onClick={() => onSelect(p.id)}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
@@ -250,28 +245,49 @@ export default function MyanmarMap({
         )}
       </div>
       <div className="map-legend">
+        {layerScale(layer).labels.map((label, i) => (
+          <span key={label}>
+            <svg width="14" height="14" aria-hidden="true">
+              <rect width="14" height="14" fill={layerScale(layer).colors[i]} />
+            </svg>
+            {layers.find((l) => l[0] === layer)?.[3] === "level"
+              ? t(
+                  label,
+                  ["ပုံမှန်", "အသိပေး", "စောင့်ကြည့်", "သတိပေး", "ပြင်းထန်"][i],
+                )
+              : label}
+          </span>
+        ))}
         <span>
           <i className="legend-hatch" />
-          {t("Not assessed", "မသတ်မှတ်နိုင်သေး")}
-        </span>
-        <span>
-          <i className="legend-selected" />
-          {t("Selected area", "ရွေးထားသောဒေသ")}
+          {t("Unavailable / stale", "မရရှိ / သက်တမ်းကျော်")}
         </span>
       </div>
       <p className="map-credit">
-        ©{" "}
+        {layers.find((l) => l[0] === layer)?.[3]} ·{" "}
+        {layer === "official"
+          ? t("Official coverage unavailable", "တရားဝင်လွှမ်းခြုံဒေတာ မရရှိ")
+          : ["temperatureAnomaly", "rainAnomaly", "dryness"].includes(layer)
+            ? `ERA5 · 0.25° · ${operational.history?.start ?? "—"} → ${operational.history?.end ?? "—"} · 1991–2020`
+            : ["overall", "system", "agriculture"].includes(layer)
+              ? t(
+                  "Combined forecast and dated ERA5 screening; select a region for each input’s valid time.",
+                  "ခန့်မှန်းချက်နှင့် ရက်စွဲပါ ERA5 စစ်ဆေးမှု ပေါင်းစပ်ထားသည်။ ဒေတာတစ်ခုစီ၏အချိန်ကို ဒေသရွေး၍ ကြည့်ပါ။",
+                )
+              : `ECMWF IFS · 0.25° · ${operational.weather ? mmt(operational.weather.validAt, lang) : "—"}${layer !== "temperature" && operational.weather ? " → " + mmt(operational.weather.through, lang) : ""}`}
+      </p>
+      <p className="map-credit">
         <a
-          href="https://www.geoboundaries.org/api/current/gbOpen/MMR/ADM1/"
+          href="https://data.humdata.org/dataset/cod-ab-mmr"
           target="_blank"
           rel="noreferrer"
         >
-          geoBoundaries / Myanmar Analytics Project
+          MIMU / OCHA / HDX
         </a>{" "}
-        · CC BY 4.0 ·{" "}
+        · CC BY 3.0 IGO ·{" "}
         {t(
-          "2019 boundaries; simplified. Nay Pyi Taw is not separately mapped.",
-          "၂၀၁၉ နယ်နိမိတ်များကို ရိုးရှင်းထားသည်။ နေပြည်တော်ကို သီးခြား မဖော်ပြထားပါ။",
+          "2024 reference boundaries; simplified and merged to 15 regions. Selected area has a dark outline.",
+          "၂၀၂၄ ရည်ညွှန်းနယ်နိမိတ်ကို ရိုးရှင်း၍ ဒေသ ၁၅ ခုအဖြစ် ပေါင်းထားသည်။ ရွေးထားသောဒေသ အနားသတ်ကို အရောင်ရင့်ဖြင့် ပြသည်။",
         )}
       </p>
     </div>

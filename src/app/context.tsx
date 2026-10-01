@@ -1,4 +1,5 @@
 import { createContext, useContext } from "react";
+import type { Operational } from "../data/operational";
 import type { Snapshot } from "../data/schema";
 export type Lang = "my" | "en";
 export type Translate = (en: string, my: string) => string;
@@ -7,6 +8,9 @@ export const AppContext = createContext<{
   t: Translate;
   data: Snapshot;
   now: number;
+  operational: Operational;
+  operationalCached: boolean;
+  lowData: boolean;
 }>(null!);
 export const useApp = () => useContext(AppContext);
 export function dateLabel(value: string, lang: Lang) {

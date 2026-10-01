@@ -60,7 +60,7 @@ describe("Fail-closed warning policy", () => {
         ...alert,
         id: "other",
         regionId: "MM-06",
-        severity: "emergency" as const,
+        severity: "severe" as const,
       },
     ];
     expect(regionalLevel({ ...snapshot, alerts }, "MM-04", now)).toBe(

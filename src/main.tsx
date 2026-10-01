@@ -18,3 +18,5 @@ if ("serviceWorker" in navigator && import.meta.env.PROD)
         /* App remains usable without offline caching. */
       });
   });
+
+import "./styles/operational.css";

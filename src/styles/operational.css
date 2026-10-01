@@ -1,0 +1,370 @@
+.low-data-toggle {
+  position: fixed;
+  bottom: 14px;
+  left: 16px;
+  z-index: 40;
+  background: #fff;
+  border: 1px solid #57736a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #244e44;
+  font-size: 13px;
+  min-height: 44px;
+  max-width: 210px;
+}
+.v2-map-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 22px;
+  margin: 24px 0;
+  align-items: start;
+}
+.v2-map-grid .map-component {
+  position: relative;
+}
+.v2-map-grid .panel {
+  min-width: 0;
+}
+.v2-map-grid .regional-profile > h2 {
+  margin-top: 8px;
+}
+.v2-map-grid .map-panel .region-select {
+  margin: 0 22px 10px;
+}
+.national-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  border: 1px solid #d2dfd9;
+  border-radius: 14px;
+  background: #f0f5f1;
+  margin: 22px 0;
+}
+.national-strip > div {
+  padding: 20px;
+  display: flex;
+  gap: 9px;
+  flex-direction: column;
+  border-right: 1px solid #d2dfd9;
+}
+.national-strip > div:last-child {
+  border-right: 0;
+}
+.national-strip strong {
+  font-size: 19px;
+}
+.national-strip span,
+.national-strip small {
+  color: #405b51;
+}
+.priority-panel {
+  border-left: 5px solid #a65525;
+  padding: 16px 22px;
+  background: #fff6e8;
+  border-radius: 12px;
+}
+.priority-panel > .signal-card {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.signal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+.signal-card {
+  padding: 20px;
+  border: 1px solid #d4dfd8;
+  border-radius: 12px;
+  background: #fcfdfb;
+  margin: 12px 0;
+}
+.signal-card .eyebrow {
+  font-size: 11px;
+  color: #4c6258;
+}
+.signal-card h3 {
+  margin: 12px 0;
+}
+.signal-action {
+  border-left: 3px solid #40775f;
+  padding-left: 12px;
+}
+.signal-grid .signal-card {
+  margin: 0;
+}
+.weather-now {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 18px 0;
+}
+.weather-now > strong {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: #1e5545;
+}
+.weather-now > span {
+  line-height: 1.9;
+}
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 18px 0;
+}
+.metric-grid > div {
+  padding: 14px 12px 14px 0;
+  border-bottom: 1px solid #e0e7e2;
+}
+.metric-grid dt {
+  font-size: 14px;
+  color: #4b6055;
+}
+.metric-grid dd {
+  font-weight: 600;
+  font-size: 21px;
+  margin: 7px 0;
+}
+.metric-grid small {
+  color: #4b6055;
+  font-size: 13px;
+}
+.provenance {
+  background: #f3f6f2;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.provenance summary {
+  font-weight: 600;
+}
+.provenance p {
+  overflow-wrap: anywhere;
+}
+.regional-profile .signal-card {
+  margin-top: 22px;
+}
+.regional-profile > h3 {
+  margin-top: 26px;
+}
+.hazard-list > details {
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e7e2;
+}
+.hazard-list summary > .badge {
+  margin-left: 14px;
+}
+.table-scroll {
+  overflow-x: auto;
+  width: 100%;
+}
+.table-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+.table-scroll th,
+.table-scroll td {
+  padding: 12px;
+  border-bottom: 1px solid #d7e0d9;
+  vertical-align: top;
+}
+.table-scroll caption {
+  text-align: left;
+  font-size: 14px;
+  color: #4b6055;
+  padding: 10px;
+}
+.trend-chart {
+  width: 100%;
+  height: 110px;
+  margin-top: 15px;
+}
+.trend-chart text {
+  fill: #3e594d;
+  font-size: 11px;
+}
+.enso-v2 {
+  margin: 24px 0;
+}
+.map-legend {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.map-legend > span {
+  font-size: 12px;
+}
+.map-toolbar select {
+  max-width: 100%;
+  min-height: 44px;
+}
+.map-controls button,
+.pan-controls button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.map-toolbar {
+  gap: 12px;
+}
+.map-toolbar label {
+  min-width: 0;
+}
+.map-credit {
+  overflow-wrap: anywhere;
+}
+.region-shape[aria-pressed="true"] {
+  stroke: #092d24;
+  stroke-width: 3;
+}
+.low-data * {
+  animation: none !important;
+  transition: none !important;
+}
+.level-severe {
+  color: #912c2c;
+  background: #f8e2e2;
+}
+#selected-profile {
+  scroll-margin-top: 20px;
+}
+.panel.padded + .panel.padded {
+  margin-top: 22px;
+}
+details summary {
+  min-height: 28px;
+  cursor: pointer;
+}
+.signal-grid .row.spread {
+  flex-wrap: wrap;
+}
+footer {
+  padding-bottom: 75px;
+}
+@media (max-width: 1050px) {
+  .national-strip {
+    grid-template-columns: 1fr;
+  }
+  .national-strip > div {
+    border-right: 0;
+    border-bottom: 1px solid #d2dfd9;
+  }
+  .national-strip > div:last-child {
+    border-bottom: 0;
+  }
+  .v2-map-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .weather-now {
+    gap: 12px;
+  }
+  .weather-now > strong {
+    font-size: 34px;
+  }
+}
+@media (max-width: 760px) {
+  .v2-map-grid,
+  .signal-grid {
+    grid-template-columns: 1fr;
+  }
+  .v2-map-grid {
+    gap: 16px;
+  }
+  .low-data-toggle {
+    left: auto;
+    right: 14px;
+    bottom: 12px;
+    box-shadow: 0 2px 8px #183b2920;
+  }
+  .national-strip > div {
+    padding: 16px;
+  }
+  .weather-now > strong {
+    font-size: 40px;
+  }
+  .map-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .metric-grid dd {
+    font-size: 19px;
+  }
+  .priority-panel {
+    padding: 16px;
+  }
+  .signal-card {
+    padding: 16px;
+  }
+  .signal-card .row.spread {
+    align-items: flex-start;
+  }
+  .table-scroll th,
+  .table-scroll td {
+    padding: 10px 6px;
+  }
+  .v2-map-grid .map-panel .region-select {
+    margin: 0 14px 10px;
+  }
+  .trend-chart {
+    height: 95px;
+  }
+  .map-canvas {
+    max-height: 580px;
+  }
+  #selected-profile {
+    border-radius: 20px 20px 12px 12px;
+  }
+  .topbar-title {
+    max-width: 160px;
+  }
+}
+
+.source-link {
+  min-height: 28px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.enso-v2 > details {
+  margin-top: 10px;
+}
+.map-toolbar label {
+  max-width: 100%;
+  width: 100%;
+}
+.map-toolbar select {
+  width: 100%;
+  min-width: 0;
+}
+.v2-map-grid .map-panel .region-select {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.v2-map-grid .map-panel .region-select select {
+  width: 100%;
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .brand {
+    min-width: 0;
+    max-width: calc(100% - 60px);
+  }
+  .brand > div {
+    min-width: 0;
+  }
+  .brand span {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .brand img {
+    flex-shrink: 0;
+  }
+  .mobile-menu {
+    flex-shrink: 0;
+  }
+}

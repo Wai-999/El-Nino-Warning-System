@@ -1,17 +1,12 @@
 import { lazy, Suspense } from "react";
-import {
-  ArrowUpRight,
-  MapPin,
-  ClipboardCheck,
-  Radio,
-  ShieldCheck,
-  CloudSun,
-} from "lucide-react";
-import { useApp, dateLabel } from "../app/context";
-import { Level, SourceLink, Notice } from "../components/shared";
-import { regionalLevel, freshness, activeAlerts } from "../risk/engine";
-import { actions, sources } from "../data/content";
-import { regionName } from "../data/regions";
+import { useApp } from "../app/context";
+import { PageTitle, Level, Notice, AlertCard } from "../components/shared";
+import { RegionalProfile, SignalCard, value } from "../components/Operational";
+import { EnsoPanel, Updates } from "../components/Enso";
+import { priority, signalsFor, leadingSignal, actions } from "../risk/signals";
+import { activeAlerts, rank, coverageCurrent } from "../risk/engine";
+import { regions, regionName } from "../data/regions";
+import { historyFresh, mmt } from "../data/operational";
 const MyanmarMap = lazy(() => import("../map/MyanmarMap"));
 export default function Overview({
   selected,
@@ -20,229 +15,164 @@ export default function Overview({
   selected: string;
   onSelect: (id: string) => void;
 }) {
-  const { t, lang, data, now } = useApp();
-  const enso = data.enso;
-  const current =
-    enso && freshness(enso.issuedAt, enso.validUntil, now) === "current";
-  const active = activeAlerts(data, now);
-  const status = enso
-    ? {
-        "El Niño Advisory": t("El Niño advisory", "အယ်လ်နီညို အသိပေးချက်"),
-        "La Niña Advisory": t("La Niña advisory", "လာနီညာ အသိပေးချက်"),
-        "El Niño Watch": t("El Niño watch", "အယ်လ်နီညို စောင့်ကြည့်ရန်"),
-        "La Niña Watch": t("La Niña watch", "လာနီညာ စောင့်ကြည့်ရန်"),
-        "Not Active": t("No ENSO advisory", "ENSO အသိပေးချက် မရှိ"),
-      }[enso.status]
-    : t("Status unavailable", "အခြေအနေ မရရှိနိုင်");
+  const { t, lang, data, operational: op, now, lowData } = useApp();
+  const p = priority(op, data, now),
+    alerts = activeAlerts(data, now);
+  const ranked = regions
+    .map((r) => ({
+      id: r[0],
+      signal: leadingSignal(signalsFor(op, data, r[0], now)),
+    }))
+    .filter((r) => r.signal)
+    .sort(
+      (a, b) =>
+        rank[b.signal!.level as keyof typeof rank] -
+        rank[a.signal!.level as keyof typeof rank],
+    );
+  const h = historyFresh(op.history, now)
+    ? op.history?.regions.find((r) => r.id === selected)
+    : undefined;
   return (
     <>
-      <header className="overview-heading">
-        <div>
+      <PageTitle
+        eyebrow={t(
+          "MYANMAR · WEATHER & CLIMATE",
+          "မြန်မာ · မိုးလေဝသနှင့် ရာသီဥတု",
+        )}
+        title={t(
+          "Know the conditions. Prepare today.",
+          "အခြေအနေကို သိရှိပြီး ယနေ့ ပြင်ဆင်ပါ။",
+        )}
+        description={t(
+          "Regional forecasts, recent climate departures and practical actions.",
+          "ဒေသခန့်မှန်းချက်၊ မကြာသေးမီ ရာသီဥတုကွာဟချက်နှင့် လက်တွေ့လုပ်ဆောင်ရန်။",
+        )}
+      />
+      {p.kind === "official" ? (
+        <AlertCard alert={p.official} />
+      ) : p.kind === "system" ? (
+        <section className="priority-panel">
           <p className="eyebrow">
-            {t(
-              "MYANMAR · EARLY WARNING & PREPAREDNESS",
-              "မြန်မာနိုင်ငံ · ကြိုတင်သတိပေးနှင့် ပြင်ဆင်ရေး",
-            )}
+            {t("HIGHEST IMMEDIATE CONCERN", "ယခု ဦးစားပေး သတိပြုရန်")}
           </p>
-          <h1>
-            {t(
-              "Know the situation. Be prepared.",
-              "အခြေအနေကို သိရှိ၍ အသင့်ပြင်ဆင်ပါ။",
-            )}
-          </h1>
-          <p>
-            {t(
-              "A clear picture of El Niño, and your next practical steps.",
-              "အယ်လ်နီညို အခြေအနေနှင့် လက်တွေ့လုပ်ဆောင်ရန် အချက်များ",
-            )}
-          </p>
-        </div>
-        <span className="scope-label">
-          <ShieldCheck size={16} />
-          {t("Independent public resource", "လွတ်လပ်သော ပြည်သူ့အချက်အလက်")}
-        </span>
-      </header>
-      <section className="situation panel">
-        <div className="situation-main">
-          <div className="row">
-            <span
-              className={`badge ${current ? "enso-badge" : "level-unknown"}`}
-            >
-              <Radio size={14} />
-              {t("PACIFIC ENSO", "ပစိဖိတ် ENSO")}
-            </span>
-            <span className="meta">
-              {current
-                ? t("Official assessment", "တရားဝင် သုံးသပ်ချက်")
-                : t("Current status unavailable", "လက်ရှိအခြေအနေ မရရှိနိုင်")}
-            </span>
-          </div>
-          <h2>
-            {current
-              ? status
-              : t(
-                  "Check the latest ENSO bulletin",
-                  "နောက်ဆုံး ENSO ကြေညာချက်ကို စစ်ဆေးပါ။",
-                )}
-          </h2>
-          <p>
-            {t(
-              "Pacific conditions can affect our seasons. The impacts in your area still depend on local weather and water conditions.",
-              "ပစိဖိတ်အခြေအနေက ရာသီဥတုကို သက်ရောက်နိုင်သည်။ သင့်ဒေသ၏ သက်ရောက်မှုမှာ ဒေသရာသီဥတုနှင့် ရေအခြေအနေအပေါ် မူတည်ပါသည်။",
-            )}
-          </p>
-          <SourceLink href={enso?.source.url || sources.noaa}>
-            NOAA CPC{enso ? ` · ${dateLabel(enso.issuedAt, lang)}` : ""}
-          </SourceLink>
-          {enso && !current && (
-            <p className="meta">
-              {t("Previous bulletin", "ယခင်ကြေညာချက်")}: {status} ·{" "}
-              {t("out of date", "သက်တမ်းကျော်နေသည်")}
-            </p>
+          <SignalCard signal={p.signal} region={p.id} compact />
+        </section>
+      ) : p.kind === "enso" ? (
+        <EnsoPanel />
+      ) : (
+        <Notice>
+          {t(
+            "Review local conditions and routine preparations. Unassessed hazards may still exist.",
+            "ဒေသအခြေအနေနှင့် ပုံမှန်ပြင်ဆင်မှုကို စစ်ဆေးပါ။ မသုံးသပ်ရသေးသော အန္တရာယ်များ ရှိနိုင်သည်။",
+          )}
+        </Notice>
+      )}
+      <section
+        className="national-strip"
+        aria-label={t("National snapshot", "နိုင်ငံအကျဉ်းချုပ်")}
+      >
+        <div>
+          <span>
+            {t("Highest system attention", "စနစ်အဆင့် အမြင့်ဆုံးဒေသ")}
+          </span>
+          <strong>{ranked[0] ? regionName(ranked[0].id, lang) : "—"}</strong>
+          {ranked[0] && (
+            <>
+              <Level level={ranked[0].signal!.level} />
+              <small>
+                {
+                  ranked.filter(
+                    (r) => r.signal!.level === ranked[0].signal!.level,
+                  ).length
+                }{" "}
+                {t("regions share this level", "ဒေသတွင် ဤအဆင့်တူ ရှိသည်")}
+              </small>
+            </>
           )}
         </div>
-        <div className="national-status">
-          <p className="eyebrow">
-            {t("MYANMAR WARNING LEVEL", "မြန်မာနိုင်ငံ သတိပေးအဆင့်")}
-          </p>
-          <Level level={regionalLevel(data, undefined, now)} />
-          <p>
-            {t(
-              "Regional warning coverage is incomplete. Missing data does not mean there is no risk.",
-              "ဒေသသတိပေး အချက်အလက် မပြည့်စုံပါ။ အချက်အလက်မရှိခြင်းသည် အန္တရာယ်မရှိဟု မဆိုလိုပါ။",
-            )}
-          </p>
-          <a className="text-link" href="#/warnings">
-            {t("Check warning information", "သတိပေးအချက်အလက် ကြည့်ရန်")}
-            <ArrowUpRight size={16} />
+        <div>
+          <span>
+            {t("Official active warnings", "သက်တမ်းရှိ တရားဝင်သတိပေးချက်")}
+          </span>
+          <strong>
+            {coverageCurrent(data, now)
+              ? alerts.length
+              : t("Coverage unavailable", "လွှမ်းခြုံဒေတာ မရရှိ")}
+          </strong>
+          <a href="#/warnings">
+            {t("Warnings & updates", "သတိပေးချက်နှင့် သတင်း")}
           </a>
         </div>
+        <div>
+          <span>
+            {regionName(selected, lang)} ·{" "}
+            {t("30-day anomalies", "ရက် ၃၀ ကွာဟချက်")}
+          </span>
+          <strong>
+            {value(h?.temperatureAnomaly, "°C", true)} ·{" "}
+            {value(h?.rainPercent, "%", true)}
+          </strong>
+          <small>{op.history?.end} · ERA5 · 1991–2020</small>
+        </div>
       </section>
-      <div className="overview-grid">
+      {ranked[0] && (
+        <div className="action-strip">
+          <strong>{t("One action today", "ယနေ့ လုပ်ဆောင်ရန်")}</strong>
+          <p>{t(...actions[ranked[0].signal!.hazard])}</p>
+        </div>
+      )}
+      <div className="v2-map-grid">
         <section className="panel map-panel">
           <div className="panel-heading">
-            <div>
-              <p className="eyebrow">{t("YOUR AREA", "သင့်ဒေသ")}</p>
-              <h2>{t("Myanmar risk map", "မြန်မာနိုင်ငံ အန္တရာယ်မြေပုံ")}</h2>
-            </div>
-            <a
-              className="icon-link"
-              href="#/map"
-              aria-label={t("Open full map", "မြေပုံအပြည့် ကြည့်ရန်")}
-            >
-              <ArrowUpRight />
-            </a>
+            <h2>{t("Myanmar risk map", "မြန်မာနိုင်ငံ အန္တရာယ်မြေပုံ")}</h2>
+            <a href="#/map">{t("Explore layers", "အလွှာများ ကြည့်ရန်")}</a>
           </div>
-          <div className="overview-map-content">
-            <Suspense
-              fallback={
-                <p className="skeleton">
-                  {t("Loading map…", "မြေပုံ ဖွင့်နေသည်…")}
-                </p>
-              }
-            >
-              <MyanmarMap selected={selected} onSelect={onSelect} compact />
-            </Suspense>
-            <div className="map-summary">
-              <MapPin size={22} />
-              <h3>{regionName(selected, lang)}</h3>
-              <Level level={regionalLevel(data, selected, now)} />
+          <label className="region-select">
+            {t("State / Region", "ပြည်နယ် / တိုင်းဒေသကြီး")}
+            <select value={selected} onChange={(e) => onSelect(e.target.value)}>
+              {regions.map((r) => (
+                <option key={r[0]} value={r[0]}>
+                  {regionName(r[0], lang)}
+                </option>
+              ))}
+            </select>
+          </label>
+          {lowData ? (
+            <div className="padded">
               <p>
                 {t(
-                  "Choose an area on the map for local information and preparedness.",
-                  "ဒေသအချက်အလက်နှင့် ပြင်ဆင်ရန်အတွက် မြေပုံမှ ဒေသကို ရွေးပါ။",
+                  "Low Data Mode: map and optional charts are paused. Regional text and warnings remain available.",
+                  "ဒေတာချွေတာစနစ် — မြေပုံနှင့် မလိုအပ်သောပုံပြဇယားများကို ခေတ္တပိတ်ထားသည်။ ဒေသအချက်အလက်နှင့် သတိပေးချက် ဆက်ရရှိနိုင်သည်။",
                 )}
               </p>
-              <a className="button secondary" href={`#/region/${selected}`}>
-                {t("View my area", "သင့်ဒေသ ကြည့်ရန်")}
-              </a>
-              <p className="meta">
-                {t("Highest-risk areas", "အန္တရာယ်အများဆုံးဒေသ")}:{" "}
-                {active.length
-                  ? regionName(active[0].regionId, lang)
-                  : t(
-                      "cannot be ranked with available data",
-                      "ရရှိသည့်အချက်အလက်ဖြင့် အဆင့်မခွဲနိုင်",
-                    )}
-              </p>
             </div>
-          </div>
+          ) : (
+            <Suspense
+              fallback={<p>{t("Loading map…", "မြေပုံ ဖွင့်နေသည်…")}</p>}
+            >
+              <MyanmarMap selected={selected} onSelect={onSelect} />
+            </Suspense>
+          )}
         </section>
-        <section className="action-panel">
-          <p className="eyebrow">
-            <ClipboardCheck size={16} />
-            {t("START HERE", "ယခုစတင်ပါ")}
-          </p>
-          <h2>
-            {t(
-              "Small steps. Better prepared.",
-              "ရိုးရှင်းသော ပြင်ဆင်မှုများဖြင့် အသင့်ရှိပါစေ။",
-            )}
-          </h2>
-          <p>
-            {t(
-              "Useful today, whatever the forecast.",
-              "ခန့်မှန်းချက် မည်သို့ပင်ဖြစ်စေ ယနေ့အတွက် အသုံးဝင်သည်။",
-            )}
-          </p>
-          <ol>
-            {actions.map((a, i) => (
-              <li key={i}>
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                <p>{t(...a)}</p>
-              </li>
-            ))}
-          </ol>
-          <a className="button light" href="#/prepare">
-            {t("Open my preparedness checklist", "ပြင်ဆင်ရန်စာရင်း ဖွင့်ပါ")}
-          </a>
-          <span className="meta">
-            {t(
-              "No account needed · Saved on this device",
-              "အကောင့်မလို · ဤစက်တွင် သိမ်းထားသည်",
-            )}
-          </span>
-        </section>
+        <aside className="panel padded">
+          <RegionalProfile id={selected} />
+        </aside>
       </div>
-      <section
-        className="conditions-grid"
-        aria-label={t("Local data availability", "ဒေသအချက်အလက် ရရှိမှု")}
-      >
-        {[
-          [
-            t("Current local hazard", "လက်ရှိ ဒေသအန္တရာယ်"),
-            t("Not verified", "အတည်မပြုနိုင်သေး"),
-          ],
-          [
-            t(
-              "Temperature & rainfall anomalies",
-              "အပူချိန်နှင့် မိုးရေ ကွာဟချက်",
-            ),
-            t("Unavailable", "မရရှိနိုင်"),
-          ],
-          [
-            t("Water & agricultural stress", "ရေနှင့် စိုက်ပျိုးရေး ဖိအား"),
-            t("Not assessed", "မသတ်မှတ်နိုင်သေး"),
-          ],
-        ].map(([label, value]) => (
-          <div key={label} className="condition">
-            <CloudSun size={20} />
-            <div>
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </div>
-          </div>
-        ))}
-      </section>
+      {p.kind !== "enso" && <EnsoPanel />}
+      <Updates />
       <Notice>
         {t(
-          "Use current local official instructions for urgent decisions. This independent resource is not an emergency service.",
-          "အရေးပေါ်ဆုံးဖြတ်ချက်အတွက် လက်ရှိ ဒေသဆိုင်ရာ တရားဝင်ညွှန်ကြားချက်ကို လိုက်နာပါ။ ဤလွတ်လပ်သော အချက်အလက်ဝန်ဆောင်မှုသည် အရေးပေါ်ဌာန မဟုတ်ပါ။",
+          "Official-warning coverage is incomplete. Follow current Myanmar DMH and local-authority instructions. System signals are independent planning guidance.",
+          "တရားဝင်သတိပေးချက် လွှမ်းခြုံမှု မပြည့်စုံပါ။ လက်ရှိ မိုး/ဇလနှင့် ဒေသတာဝန်ရှိသူများ၏ ညွှန်ကြားချက်ကို လိုက်နာပါ။ စနစ်ညွှန်းကိန်းသည် လွတ်လပ်သော ပြင်ဆင်ရေးလမ်းညွှန်ဖြစ်သည်။",
         )}{" "}
-        <SourceLink href={sources.dmh}>
-          {t("Myanmar DMH", "မိုးလေဝသနှင့် ဇလဗေဒညွှန်ကြားမှုဦးစီးဌာန")}
-        </SourceLink>
+        <a href="https://www.dmh.gov.mm/">Myanmar DMH</a>
       </Notice>
+      {op.weather && (
+        <p className="meta">
+          {t("Weather retrieved", "မိုးလေဝသဒေတာ ရယူချိန်")}:{" "}
+          {mmt(op.weather.fetchedAt, lang)}
+        </p>
+      )}
     </>
   );
 }

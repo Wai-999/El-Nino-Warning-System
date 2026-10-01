@@ -1,172 +1,195 @@
 import { useState } from "react";
-import { CloudSun, HeartPulse, Sprout, Droplets, Zap } from "lucide-react";
+import { HeartPulse, Sprout, Droplets, Zap } from "lucide-react";
 import { useApp } from "../app/context";
-import { sectors } from "../data/content";
-import { PageTitle, Notice, SourceLink } from "../components/shared";
+import { PageTitle, Notice, Level, SourceLink } from "../components/shared";
+import { Evidence, SignalCard } from "../components/Operational";
+import { regions, regionName } from "../data/regions";
+import { signalsFor, type Hazard } from "../risk/signals";
+import { rank } from "../risk/engine";
+import type { Severity } from "../data/schema";
+const sectors = [
+  {
+    id: "health",
+    name: ["Health", "ကျန်းမာရေး"],
+    icon: HeartPulse,
+    hazards: ["heat", "rain"],
+    meaning: [
+      "Heat can increase dehydration and heat illness; heavy rainfall can interrupt safe water access. Older people, children and outdoor workers need additional support.",
+      "အပူကြောင့် ရေဓာတ်ခန်းခြောက်ခြင်းနှင့် အပူဒဏ်ဖျားနာမှု တိုးနိုင်ပြီး မိုးသည်းထန်လျှင် သန့်ရှင်းရေ ရရှိမှု ထိခိုက်နိုင်သည်။ သက်ကြီးရွယ်အို၊ ကလေးနှင့် ပြင်ပလုပ်သားများကို အထူးဂရုစိုက်ပါ။",
+    ],
+    source:
+      "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+  },
+  {
+    id: "agriculture",
+    name: ["Agriculture", "စိုက်ပျိုးရေး"],
+    icon: Sprout,
+    hazards: ["agriculture"],
+    meaning: [
+      "Heat, heavy rain and rainfall deficits can strain crops and field work. Actual effects depend on crop stage, soils and irrigation; these signals do not establish crop loss.",
+      "အပူ၊ မိုးသည်းထန်မှုနှင့် မိုးနည်းခြင်းက သီးနှံနှင့် လယ်ယာလုပ်ငန်းကို ဖိအားပေးနိုင်သည်။ အမှန်တကယ်သက်ရောက်မှုမှာ သီးနှံအဆင့်၊ မြေနှင့် ရေပေးမှုအပေါ် မူတည်ပြီး သီးနှံဆုံးရှုံးမှုကို ဤညွှန်းကိန်းက မအတည်ပြုပါ။",
+    ],
+    source: "https://www.fao.org/el-nino/en/",
+  },
+  {
+    id: "water",
+    name: ["Water", "ရေ"],
+    icon: Droplets,
+    hazards: ["water", "rain"],
+    meaning: [
+      "A prolonged rainfall deficit can pressure local supplies; heavy rain can contaminate exposed sources. Confirm actual storage, treatment and river conditions locally.",
+      "မိုးရေကြာရှည်လျော့နည်းမှုက ရေရရှိမှုကို ဖိအားပေးနိုင်ပြီး မိုးသည်းထန်လျှင် ရေအရင်းအမြစ် ညစ်ညမ်းနိုင်သည်။ ရေလက်ကျန်၊ သန့်စင်မှုနှင့် မြစ်ရေအခြေအနေကို ဒေသတွင် စစ်ဆေးပါ။",
+    ],
+    source: "https://www.who.int/news-room/fact-sheets/detail/drinking-water",
+  },
+  {
+    id: "energy",
+    name: ["Energy", "စွမ်းအင်"],
+    icon: Zap,
+    hazards: ["heat", "water", "wind"],
+    meaning: [
+      "Heat may increase cooling needs. Persistent rainfall deficits can pressure hydropower, and strong winds can damage exposed infrastructure. No outage or generation forecast is available.",
+      "အပူကြောင့် အအေးပေးရန် လိုအပ်ချက်တိုးနိုင်သည်။ မိုးရေကြာရှည်နည်းလျှင် ရေအားလျှပ်စစ်ကို ဖိအားပေးနိုင်ပြီး လေပြင်းက အဆောက်အအုံနှင့် လျှပ်စစ်ပစ္စည်း ထိခိုက်စေနိုင်သည်။ မီးပြတ်မှုနှင့် ထုတ်လုပ်ပမာဏကို မခန့်မှန်းထားပါ။",
+    ],
+    source: "https://wmo.int/topics/energy",
+  },
+] as const;
 export default function Impacts() {
-  const { t } = useApp();
-  const [sector, setSector] = useState("weather");
-  const [scenario, setScenario] = useState(0);
-  const item = sectors.find((x) => x.id === sector)!;
-  const icons = [CloudSun, HeartPulse, Sprout, Droplets, Zap];
-  const scenarios = [
-    {
-      name: t("Lower impact", "သက်ရောက်မှု နည်း"),
-      assumption: t(
-        "Local rainfall remains adequate and heat is manageable, even if Pacific El Niño persists.",
-        "ပစိဖိတ်တွင် အယ်လ်နီညို ဆက်ရှိသော်လည်း ဒေသမိုးရေ လုံလောက်ပြီး အပူဒဏ်ကို စီမံနိုင်သည်ဟု ယူဆသည်။",
-      ),
-      impact: t(
-        "Limited disruption; routine water and heat preparations remain useful.",
-        "အနှောင့်အယှက် အနည်းငယ်သာရှိနိုင်ပြီး ပုံမှန် ရေနှင့် အပူဒဏ်ပြင်ဆင်မှုက အသုံးဝင်သည်။",
-      ),
-      action: t(
-        "Maintain supplies and monitor local updates.",
-        "လိုအပ်သောပစ္စည်းများ ထားရှိပြီး ဒေသသတင်းကို စောင့်ကြည့်ပါ။",
-      ),
-    },
-    {
-      name: t("Moderate impact", "သက်ရောက်မှု အလယ်အလတ်"),
-      assumption: t(
-        "Several local hot spells or rainfall gaps affect water and crops.",
-        "ဒေသတွင် အပူပြင်းကာလ သို့မဟုတ် မိုးပြတ်ကာလများကြောင့် ရေနှင့် သီးနှံ ထိခိုက်သည်ဟု ယူဆသည်။",
-      ),
-      impact: t(
-        "Higher irrigation and cooling needs; some work or planting schedules may need adjustment.",
-        "ဆည်ရေနှင့် အအေးပေးရန် လိုအပ်မှုတိုးပြီး အလုပ်ချိန် သို့မဟုတ် စိုက်ချိန် ချိန်ညှိရနိုင်သည်။",
-      ),
-      action: t(
-        "Review water supplies, work schedules, and local agricultural advice.",
-        "ရေပမာဏ၊ အလုပ်ချိန်နှင့် ဒေသစိုက်ပျိုးရေး အကြံပြုချက်ကို ပြန်လည်စစ်ဆေးပါ။",
-      ),
-    },
-    {
-      name: t("Higher impact", "သက်ရောက်မှု များ"),
-      assumption: t(
-        "Persistent heat combines with rainfall deficit, low water availability, and limited capacity to respond.",
-        "အပူကြာရှည်ခြင်း၊ မိုးနည်းခြင်း၊ ရေရှားခြင်းနှင့် တုံ့ပြန်နိုင်စွမ်းနည်းခြင်းတို့ တစ်ပြိုင်နက် ဖြစ်သည်ဟု ယူဆသည်။",
-      ),
-      impact: t(
-        "Compounding pressure on health, livelihoods, water, and essential services is plausible. No magnitude or timing is predicted here.",
-        "ကျန်းမာရေး၊ အသက်မွေးဝမ်းကျောင်း၊ ရေနှင့် အခြေခံဝန်ဆောင်မှုများအပေါ် ဖိအားတိုးနိုင်သည်။ ပမာဏနှင့် ဖြစ်မည့်အချိန်ကို ဤနေရာတွင် မခန့်မှန်းပါ။",
-      ),
-      action: t(
-        "Coordinate community support and follow official, location-specific instructions.",
-        "ရပ်ရွာအကူအညီ ညှိနှိုင်းပြီး ဒေသအတွက် တရားဝင်ညွှန်ကြားချက်ကို လိုက်နာပါ။",
-      ),
-    },
-  ];
-  const s = scenarios[scenario];
+  const { t, lang, data, now, operational: op } = useApp();
+  const [selected, setSelected] = useState("health");
+  const sector = sectors.find((s) => s.id === selected)!;
+  const assessed = regions
+    .map((r) => ({
+      id: r[0],
+      signals: signalsFor(op, data, r[0], now)
+        .filter(
+          (s) =>
+            (sector.hazards as readonly Hazard[]).includes(s.hazard) &&
+            s.level !== "unknown",
+        )
+        .sort((a, b) => rank[b.level as Severity] - rank[a.level as Severity]),
+    }))
+    .filter((r) => r.signals.length);
+  const affected = assessed
+    .filter((r) => r.signals[0].level !== "normal")
+    .sort(
+      (a, b) =>
+        rank[b.signals[0].level as Severity] -
+        rank[a.signals[0].level as Severity],
+    );
   return (
     <>
       <PageTitle
-        eyebrow={t("SECTOR IMPACTS", "ကဏ္ဍအလိုက် သက်ရောက်မှု")}
+        eyebrow={t(
+          "CURRENT CONDITIONS → PRACTICAL ACTION",
+          "လက်ရှိအခြေအနေ → လက်တွေ့လုပ်ဆောင်ရန်",
+        )}
         title={t(
-          "Understand what could change.",
-          "ဖြစ်နိုင်သော ပြောင်းလဲမှုကို နားလည်ပါ။",
+          "What the conditions mean for you.",
+          "ယခုအခြေအနေက သင့်အတွက် ဘာကိုဆိုလိုသလဲ။",
         )}
         description={t(
-          "Possible pathways to prepare for—not a prediction that they will occur.",
-          "ကြိုတင်ပြင်ဆင်ရန် ဖြစ်နိုင်ခြေများဖြစ်ပြီး သေချာဖြစ်မည်ဟု ခန့်မှန်းခြင်း မဟုတ်ပါ။",
+          "Weather-linked planning guidance, grounded in each region’s current forecast and dated recent climate evidence.",
+          "ဒေသခန့်မှန်းချက်နှင့် ရက်စွဲပါ မကြာသေးမီ ရာသီဥတုအထောက်အထားအပေါ် အခြေခံသော ပြင်ဆင်ရေးလမ်းညွှန်။",
         )}
       />
       <nav className="sector-tabs" aria-label={t("Sectors", "ကဏ္ဍများ")}>
-        {sectors.map((x, i) => {
-          const Icon = icons[i];
-          return (
-            <button
-              key={x.id}
-              aria-pressed={sector === x.id}
-              onClick={() => setSector(x.id)}
-            >
-              <Icon size={22} />
-              {t(...x.name)}
-            </button>
-          );
-        })}
+        {sectors.map((s) => (
+          <button
+            key={s.id}
+            aria-pressed={selected === s.id}
+            onClick={() => setSelected(s.id)}
+          >
+            <s.icon size={22} />
+            {t(s.name[0], s.name[1])}
+          </button>
+        ))}
       </nav>
-      <section className="panel sector-detail">
+      <section className="panel padded">
         <p className="eyebrow">
           {t(
-            "GENERAL EVIDENCE · LOCAL OUTCOME UNCERTAIN",
-            "အထွေထွေအထောက်အထား · ဒေသရလဒ် မသေချာ",
+            "INFERRED IMPACT · SYSTEM SCREENING",
+            "ဖြစ်နိုင်သောသက်ရောက်မှု · စနစ်တွက်ချက်မှု",
           )}
         </p>
-        <h2>{t(...item.name)}</h2>
-        <p className="lead">{t(...item.summary)}</p>
-        {item.risks.map((r, i) => (
-          <p key={i}>{t(...r)}</p>
-        ))}
-        <div className="action-strip">
-          <h3>{t("What you can do", "သင်လုပ်ဆောင်နိုင်သည်များ")}</h3>
-          <p>{t(...item.action)}</p>
+        <div className="row spread">
+          <h2>{t(sector.name[0], sector.name[1])}</h2>
+          <Level
+            level={
+              affected[0]?.signals[0].level ??
+              (assessed.length ? "normal" : "unknown")
+            }
+          />
         </div>
-        {sector === "health" && (
-          <a className="text-link" href="#/prepare">
-            {t(
-              "Heatstroke signs and urgent action",
-              "အပူလျှပ်လက္ခဏာနှင့် အရေးပေါ်လုပ်ဆောင်ရန်",
-            )}
-          </a>
-        )}
-        <SourceLink href={item.source}>
-          {t("Read the source guidance", "မူရင်းလမ်းညွှန်ချက် ဖတ်ရန်")}
+        <p className="lead">
+          {affected.length} / 15{" "}
+          {t(
+            "regions have an elevated weather-based planning signal.",
+            "ဒေသတွင် ရာသီဥတုအခြေခံ မြင့်တက်ပြင်ဆင်ရေးညွှန်းကိန်း ရှိသည်။",
+          )}
+        </p>
+        <p>
+          {assessed.length} / 15{" "}
+          {t(
+            "regions have usable inputs for at least one sector driver. This is not an observed impact count.",
+            "ဒေသတွင် ကဏ္ဍအကြောင်းရင်း အနည်းဆုံးတစ်ခုအတွက် သုံးနိုင်သောဒေတာ ရှိသည်။ အမှန်တကယ် ထိခိုက်မှုအရေအတွက် မဟုတ်ပါ။",
+          )}
+        </p>
+        <p>{t(sector.meaning[0], sector.meaning[1])}</p>
+        <SourceLink href={sector.source}>
+          {t("Sector guidance", "ကဏ္ဍလမ်းညွှန်ချက်")}
         </SourceLink>
+        <Evidence />
       </section>
-      <section className="scenario-section">
-        <div className="section-heading">
-          <p className="eyebrow">
-            {t("PLANNING SCENARIOS", "ပြင်ဆင်ရေးအတွက် အခြေအနေများ")}
-          </p>
-          <h2>
-            {t(
-              "Prepare for a range of outcomes",
-              "အခြေအနေအမျိုးမျိုးအတွက် ပြင်ဆင်ပါ",
-            )}
-          </h2>
-          <p>
-            {t(
-              "Qualitative scenarios based on general mechanisms. No probabilities or current regional forecasts are assigned.",
-              "အထွေထွေဖြစ်စဉ်များအပေါ် အခြေခံသော အခြေအနေများဖြစ်သည်။ ဖြစ်နိုင်နှုန်း သို့မဟုတ် လက်ရှိဒေသခန့်မှန်းချက် မသတ်မှတ်ထားပါ။",
-            )}
-          </p>
-        </div>
-        <div className="segmented">
-          {scenarios.map((x, i) => (
-            <button
-              key={i}
-              aria-pressed={i === scenario}
-              onClick={() => setScenario(i)}
-            >
-              {x.name}
-            </button>
+      <h2>
+        {t("Regions needing most attention", "ဦးစားပေး သတိပြုရန်ဒေသများ")}
+      </h2>
+      {affected.length ? (
+        <div className="signal-grid">
+          {affected.slice(0, 6).map((r) => (
+            <SignalCard key={r.id} signal={r.signals[0]} region={r.id} />
           ))}
         </div>
-        <div className="panel scenario-content">
-          <h3>{s.name}</h3>
-          <dl>
-            <dt>{t("Assumption", "ယူဆချက်")}</dt>
-            <dd>{s.assumption}</dd>
-            <dt>{t("Possible impact", "ဖြစ်နိုင်သော သက်ရောက်မှု")}</dt>
-            <dd>{s.impact}</dd>
-            <dt>{t("Practical preparation", "လက်တွေ့ပြင်ဆင်ရန်")}</dt>
-            <dd>{s.action}</dd>
-            <dt>{t("Confidence", "ယုံကြည်နိုင်မှု")}</dt>
-            <dd>
-              {t(
-                "Local likelihood not assessed. There is not enough local evidence to assign a confidence level.",
-                "ဒေသဖြစ်နိုင်ခြေကို မသုံးသပ်ထားပါ။ ယုံကြည်နိုင်မှုအဆင့် သတ်မှတ်ရန် ဒေသအထောက်အထား မလုံလောက်ပါ။",
-              )}
-            </dd>
-          </dl>
-        </div>
+      ) : (
         <Notice>
           {t(
-            "These scenarios are not a warning, a forecast, or a ranking of Myanmar’s regions. They should not be used to make crop-investment or evacuation decisions alone.",
-            "ဤအခြေအနေများသည် သတိပေးချက်၊ ခန့်မှန်းချက် သို့မဟုတ် မြန်မာဒေသများ၏ အဆင့်သတ်မှတ်ချက် မဟုတ်ပါ။ စိုက်ပျိုးရင်းနှီးမြှုပ်နှံမှုနှင့် ဘေးလွတ်ရာရွှေ့ပြောင်းရေးကို ဤအချက်တစ်ခုတည်းဖြင့် မဆုံးဖြတ်ပါနှင့်။",
+            "No elevated signal is available for this sector. Missing inputs and local vulnerabilities may still matter.",
+            "ဤကဏ္ဍအတွက် မြင့်တက်ညွှန်းကိန်း မရရှိပါ။ မရရှိသောဒေတာနှင့် ဒေသထိခိုက်လွယ်မှုကို ဆက်လက်ထည့်တွက်ရန် လိုသည်။",
           )}
         </Notice>
-      </section>
+      )}
+      {affected.length > 6 && (
+        <details className="panel padded">
+          <summary>
+            {t("All affected regions", "ညွှန်းကိန်းရှိ ဒေသအားလုံး")}
+          </summary>
+          <ul>
+            {affected.map((r) => (
+              <li key={r.id}>
+                <a href={`#/region/${r.id}`}>{regionName(r.id, lang)}</a>{" "}
+                <Level level={r.signals[0].level} />
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+      <div className="action-strip">
+        <h3>
+          {t(
+            "Prepare for your household or workplace",
+            "အိမ်နှင့် လုပ်ငန်းခွင်အတွက် ပြင်ဆင်ပါ",
+          )}
+        </h3>
+        <a className="button primary" href="#/prepare">
+          {t("Open preparedness checklist", "ပြင်ဆင်ရန်စာရင်း ဖွင့်ပါ")}
+        </a>
+      </div>
+      <Notice>
+        {t(
+          "These are potential impacts inferred from weather, not confirmed damage, disease forecasts or official warnings. Forecast confidence is not locally calibrated.",
+          "ဤသည် မိုးလေဝသအခြေခံ ဖြစ်နိုင်သောသက်ရောက်မှုဖြစ်ပြီး အတည်ပြုပျက်စီးမှု၊ ရောဂါခန့်မှန်းချက် သို့မဟုတ် တရားဝင်သတိပေးချက် မဟုတ်ပါ။ ဒေသခန့်မှန်းယုံကြည်နိုင်မှုကို အတည်မပြုရသေးပါ။",
+        )}
+      </Notice>
     </>
   );
 }

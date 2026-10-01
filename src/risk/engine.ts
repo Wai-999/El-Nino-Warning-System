@@ -4,7 +4,7 @@ export const rank: Record<Severity, number> = {
   advisory: 1,
   watch: 2,
   warning: 3,
-  emergency: 4,
+  severe: 4,
 };
 export const COVERAGE_TTL = 24 * 60 * 60 * 1000;
 export function freshness(

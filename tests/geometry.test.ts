@@ -7,7 +7,7 @@ it("renders all source polygons inside Myanmar instead of the complementary worl
   const geo = JSON.parse(
     readFileSync("public/data/myanmar.geojson", "utf8"),
   ) as FeatureCollection;
-  expect(geo.features).toHaveLength(14);
+  expect(geo.features).toHaveLength(15);
   for (const f of geo.features) {
     const normalized = forSphericalProjection(f);
     expect(geoArea(normalized)).toBeLessThan(0.02);

@@ -23,7 +23,9 @@ import {
   WifiOff,
   Download,
 } from "lucide-react";
-import { AppContext, dateLabel, type Lang } from "./context";
+import { AppContext, type Lang } from "./context";
+import { loadOperational } from "../data/loadOperational";
+import { emptyOperational, mmt } from "../data/operational";
 import { loadSnapshot } from "../data/load";
 import { emptySnapshot } from "../data/schema";
 import { regionIds } from "../data/regions";
@@ -102,6 +104,14 @@ export default function App() {
     cached: false,
     error: false,
   });
+  const [operational, setOperational] = useState({
+    data: emptyOperational,
+    cached: false,
+    error: false,
+  });
+  const [lowData, setLowData] = useState(
+    () => getPref("mokinn-low-data", "false") === "true",
+  );
   const [loading, setLoading] = useState(true);
   const [now, setNow] = useState(Date.now());
   const [online, setOnline] = useState(navigator.onLine);
@@ -111,7 +121,12 @@ export default function App() {
   const initialized = useRef(false);
   async function refresh() {
     setLoading(true);
-    setSnapshot(await loadSnapshot());
+    const [official, local] = await Promise.all([
+      loadSnapshot(),
+      loadOperational(),
+    ]);
+    setSnapshot(official);
+    setOperational(local);
     setNow(Date.now());
     setLoading(false);
   }
@@ -213,7 +228,28 @@ export default function App() {
       </div>
     );
   return (
-    <AppContext value={{ lang, t, data: snapshot.data, now }}>
+    <AppContext
+      value={{
+        lang,
+        t,
+        data: snapshot.data,
+        now,
+        operational: operational.data,
+        operationalCached: operational.cached || !online,
+        lowData,
+      }}
+    >
+      <button
+        className="low-data-toggle"
+        aria-pressed={lowData}
+        onClick={() => {
+          setLowData(!lowData);
+          setPref("mokinn-low-data", String(!lowData));
+        }}
+      >
+        {t("Low data", "ဒေတာချွေတာ")}:{" "}
+        {lowData ? t("On", "ဖွင့်") : t("Off", "ပိတ်")}
+      </button>
       <a
         className="skip-link"
         href="#main-content"
@@ -224,7 +260,7 @@ export default function App() {
       >
         {t("Skip to content", "အကြောင်းအရာသို့ သွားရန်")}
       </a>
-      <div className="app-shell">
+      <div className={`app-shell ${lowData ? "low-data" : ""}`}>
         <aside className="sidebar">
           <a className="brand" href="#/">
             <img
@@ -236,7 +272,7 @@ export default function App() {
             <div>
               <strong>{t("Mokinn", "မိုးကင်း")}</strong>
               <span>
-                {t("MYANMAR PREPAREDNESS", "မြန်မာ ကြိုတင်ပြင်ဆင်ရေး")}
+                {t("MYANMAR WEATHER & CLIMATE", "မြန်မာ မိုးလေဝသနှင့် ရာသီဥတု")}
               </span>
             </div>
           </a>
@@ -288,8 +324,8 @@ export default function App() {
           <header className="topbar">
             <span className="topbar-title">
               {t(
-                "El Niño early warning & preparedness",
-                "အယ်လ်နီညို ကြိုတင်သတိပေးနှင့် ပြင်ဆင်ရေး",
+                "Myanmar weather, climate & preparedness",
+                "မြန်မာ မိုးလေဝသ၊ ရာသီဥတုနှင့် ပြင်ဆင်ရေး",
               )}
             </span>
             <div className="row topbar-actions">
@@ -329,7 +365,7 @@ export default function App() {
                   )
                 : snapshot.data.checkedAt === emptySnapshot.checkedAt
                   ? t("No verified data loaded", "အတည်ပြုဒေတာ မရရှိနိုင်သေး")
-                  : `${snapshot.cached ? t("Cached snapshot", "သိမ်းထားသောဒေတာ") : t("Last retrieval check", "နောက်ဆုံးရယူမှု စစ်ဆေးချိန်")} · ${dateLabel(snapshot.data.checkedAt, lang)}`}
+                  : `${snapshot.cached ? t("Cached snapshot", "သိမ်းထားသောဒေတာ") : t("Last retrieval check", "နောက်ဆုံးရယူမှု စစ်ဆေးချိန်")} · ${mmt(snapshot.data.checkedAt, lang)}`}
             </span>
             <button
               className="refresh-button"
@@ -375,6 +411,16 @@ export default function App() {
                   </div>
                 }
               >
+                {(operational.cached || !online) &&
+                  operational.data.weather && (
+                    <Notice>
+                      {t(
+                        "Cached — last updated",
+                        "သိမ်းထားသောဒေတာ — နောက်ဆုံးရယူချိန်",
+                      )}{" "}
+                      {mmt(operational.data.weather.fetchedAt, lang)}
+                    </Notice>
+                  )}
                 {page}
               </Suspense>
             </ErrorBoundary>
@@ -384,7 +430,7 @@ export default function App() {
               © {new Date(now).getFullYear()}{" "}
               {t(
                 "Mokinn · Myanmar preparedness",
-                "မိုးကင်း · မြန်မာ ကြိုတင်ပြင်ဆင်ရေး",
+                "မိုးကင်း · မြန်မာ မိုးလေဝသနှင့် ရာသီဥတု",
               )}
             </span>
             <a href="#/data">

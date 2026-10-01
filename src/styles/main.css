@@ -389,7 +389,7 @@ small,
   background: #ffe5ce;
   color: #883b0c;
 }
-.level-emergency {
+.level-severe {
   background: #fce0e0;
   color: #971f28;
 }
@@ -937,7 +937,7 @@ select {
 .level-border-warning {
   border-left: 5px solid #b45f1f;
 }
-.level-border-emergency {
+.level-border-severe {
   border-left: 5px solid #a52c34;
 }
 .history-label {

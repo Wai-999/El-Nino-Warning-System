@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "method": "three spatial clusters of interior ERA5 0.25 degree grid centres; cos(latitude) weights",
+  "source": "MIMU/OCHA HDX COD-AB 2024",
+  "samples": [
+    {
+      "regionId": "MM-01",
+      "lat": 24.25,
+      "lon": 95.25,
+      "weight": 0.4151531867910006
+    },
+    {
+      "regionId": "MM-01",
+      "lat": 26.25,
+      "lon": 95.75,
+      "weight": 0.22690483603836278
+    },
+    {
+      "regionId": "MM-01",
+      "lat": 22.75,
+      "lon": 95,
+      "weight": 0.3579419771706375
+    },
+    {
+      "regionId": "MM-02",
+      "lat": 18.25,
+      "lon": 96.25,
+      "weight": 0.39606998844304614
+    },
+    {
+      "regionId": "MM-02",
+      "lat": 18.75,
+      "lon": 95.5,
+      "weight": 0.33869972474282545
+    },
+    {
+      "regionId": "MM-02",
+      "lat": 17.5,
+      "lon": 96.5,
+      "weight": 0.2652302868141277
+    },
+    {
+      "regionId": "MM-03",
+      "lat": 20.25,
+      "lon": 95,
+      "weight": 0.38485976686366025
+    },
+    {
+      "regionId": "MM-03",
+      "lat": 21.5,
+      "lon": 94.5,
+      "weight": 0.3054891058689551
+    },
+    {
+      "regionId": "MM-03",
+      "lat": 19.5,
+      "lon": 95,
+      "weight": 0.30965112726738475
+    },
+    {
+      "regionId": "MM-04",
+      "lat": 21.5,
+      "lon": 96,
+      "weight": 0.5721386163159875
+    },
+    {
+      "regionId": "MM-04",
+      "lat": 23,
+      "lon": 96.25,
+      "weight": 0.23598110814395565
+    },
+    {
+      "regionId": "MM-04",
+      "lat": 20.5,
+      "lon": 96,
+      "weight": 0.19188027554005635
+    },
+    {
+      "regionId": "MM-05",
+      "lat": 12.25,
+      "lon": 99,
+      "weight": 0.3671826785898228
+    },
+    {
+      "regionId": "MM-05",
+      "lat": 14,
+      "lon": 98.5,
+      "weight": 0.3645743918755423
+    },
+    {
+      "regionId": "MM-05",
+      "lat": 11,
+      "lon": 98.5,
+      "weight": 0.2682429295346352
+    },
+    {
+      "regionId": "MM-06",
+      "lat": 16.75,
+      "lon": 96.5,
+      "weight": 0.3078451943991364
+    },
+    {
+      "regionId": "MM-06",
+      "lat": 17.25,
+      "lon": 96,
+      "weight": 0.38390667871496303
+    },
+    {
+      "regionId": "MM-06",
+      "lat": 16.5,
+      "lon": 96.25,
+      "weight": 0.30824812688590075
+    },
+    {
+      "regionId": "MM-07",
+      "lat": 16.75,
+      "lon": 95.25,
+      "weight": 0.5686159240082179
+    },
+    {
+      "regionId": "MM-07",
+      "lat": 17.75,
+      "lon": 95.25,
+      "weight": 0.2034705763419759
+    },
+    {
+      "regionId": "MM-07",
+      "lat": 16.25,
+      "lon": 94.5,
+      "weight": 0.22791349964980628
+    },
+    {
+      "regionId": "MM-11",
+      "lat": 26.25,
+      "lon": 97.5,
+      "weight": 0.41355674598048076
+    },
+    {
+      "regionId": "MM-11",
+      "lat": 24.75,
+      "lon": 96.75,
+      "weight": 0.3394522460526249
+    },
+    {
+      "regionId": "MM-11",
+      "lat": 27.5,
+      "lon": 97.75,
+      "weight": 0.24699100796689427
+    },
+    {
+      "regionId": "MM-12",
+      "lat": 19.25,
+      "lon": 97.25,
+      "weight": 0.3529097178716288
+    },
+    {
+      "regionId": "MM-12",
+      "lat": 18.75,
+      "lon": 97.5,
+      "weight": 0.2949018485787246
+    },
+    {
+      "regionId": "MM-12",
+      "lat": 19.5,
+      "lon": 97.5,
+      "weight": 0.3521884335496466
+    },
+    {
+      "regionId": "MM-13",
+      "lat": 17,
+      "lon": 98,
+      "weight": 0.4148679089726716
+    },
+    {
+      "regionId": "MM-13",
+      "lat": 18.5,
+      "lon": 97,
+      "weight": 0.29045698136058895
+    },
+    {
+      "regionId": "MM-13",
+      "lat": 15.75,
+      "lon": 98.25,
+      "weight": 0.2946751096667393
+    },
+    {
+      "regionId": "MM-14",
+      "lat": 22.25,
+      "lon": 93.5,
+      "weight": 0.4258654594150139
+    },
+    {
+      "regionId": "MM-14",
+      "lat": 23.5,
+      "lon": 93.75,
+      "weight": 0.23858296816464705
+    },
+    {
+      "regionId": "MM-14",
+      "lat": 21.25,
+      "lon": 93.5,
+      "weight": 0.3355515724203391
+    },
+    {
+      "regionId": "MM-15",
+      "lat": 16.5,
+      "lon": 97.5,
+      "weight": 0.38876640942905166
+    },
+    {
+      "regionId": "MM-15",
+      "lat": 15.5,
+      "lon": 97.75,
+      "weight": 0.3347694743317112
+    },
+    {
+      "regionId": "MM-15",
+      "lat": 17.25,
+      "lon": 97.25,
+      "weight": 0.27646411623923706
+    },
+    {
+      "regionId": "MM-16",
+      "lat": 19.75,
+      "lon": 94,
+      "weight": 0.38116644041661274
+    },
+    {
+      "regionId": "MM-16",
+      "lat": 18.25,
+      "lon": 94.5,
+      "weight": 0.2402564412351172
+    },
+    {
+      "regionId": "MM-16",
+      "lat": 20.75,
+      "lon": 93,
+      "weight": 0.3785771183482703
+    },
+    {
+      "regionId": "MM-17",
+      "lat": 21.25,
+      "lon": 99.25,
+      "weight": 0.2960058462517143
+    },
+    {
+      "regionId": "MM-17",
+      "lat": 23,
+      "lon": 97.75,
+      "weight": 0.37915846282675547
+    },
+    {
+      "regionId": "MM-17",
+      "lat": 20.75,
+      "lon": 97.5,
+      "weight": 0.32483569092153136
+    },
+    {
+      "regionId": "MM-18",
+      "lat": 19.75,
+      "lon": 96.25,
+      "weight": 0.5457564255890502
+    },
+    {
+      "regionId": "MM-18",
+      "lat": 20.25,
+      "lon": 96,
+      "weight": 0.2720881991886235
+    },
+    {
+      "regionId": "MM-18",
+      "lat": 19.5,
+      "lon": 95.75,
+      "weight": 0.1821553752223262
+    }
+  ]
+}

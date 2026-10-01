@@ -10,7 +10,7 @@ export function Level({ level }: { level: Severity | "unknown" }) {
     advisory: t("Advisory", "အသိပေးချက်"),
     watch: t("Watch", "စောင့်ကြည့်ရန်"),
     warning: t("Warning", "သတိပေးချက်"),
-    emergency: t("Emergency", "အရေးပေါ်"),
+    severe: t("Severe", "ပြင်းထန်"),
   };
   return (
     <span className={`badge level-${level}`}>
@@ -75,6 +75,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
         <span className="eyebrow">{regionName(alert.regionId, lang)}</span>
         <Level level={alert.severity} />
       </div>
+      <p className="eyebrow">{t("OFFICIAL WARNING", "တရားဝင် သတိပေးချက်")}</p>
       <h2>
         <ShieldAlert size={21} />
         {alert.title[lang]}

@@ -25,7 +25,17 @@ export function parseNoaa(html: string, now = new Date()) {
     Date.parse(validUntil) - Date.parse(issuedAt) > 45 * 86400000
   )
     throw new Error("NOAA date range invalid");
+  const strength = plain.match(
+    /(greater than )?(\d{1,3})% chance of a very strong event during the ([^.]{1,160})\./i,
+  );
   return bulletinSchema.parse({
+    outlook: strength
+      ? {
+          percent: Number(strength[2]),
+          greaterThan: !!strength[1],
+          period: strength[3],
+        }
+      : null,
     status: status[1],
     issuedAt,
     validUntil,

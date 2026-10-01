@@ -22,7 +22,9 @@ const paths = (await files("dist")).filter((p) => !p.endsWith("/sw.js"));
 const hash = createHash("sha256");
 for (const p of paths) hash.update(await readFile(p));
 const version = hash.digest("hex").slice(0, 12);
-const urls = paths.map((p) => "./" + path.relative("dist", p));
+const urls = paths
+  .filter((p) => !p.endsWith("myanmar.geojson"))
+  .map((p) => "./" + path.relative("dist", p));
 await writeFile(
   "dist/sw.js",
   `const CACHE='mokinn-${version}';
@@ -32,10 +34,10 @@ self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.keys
 self.addEventListener('fetch',event=>{
  const req=event.request,url=new URL(req.url);
  if(req.method!=='GET'||url.origin!==self.location.origin||!url.href.startsWith(self.registration.scope))return;
- if(url.pathname.endsWith('/data/current.json')){
+ if((url.pathname.endsWith('/data/current.json')||url.pathname.endsWith('/data/operational.json'))){
   event.respondWith((async()=>{const cache=await caches.open(CACHE);try{const response=await fetch(req);if(!response.ok)throw Error('Unavailable');await cache.put(req,response.clone());return response;}catch{const cached=await cache.match(req,{ignoreVary:true});if(!cached)return Response.error();const headers=new Headers(cached.headers);headers.set('X-Mokinn-Cache','true');return new Response(await cached.arrayBuffer(),{status:200,headers});}})());return;
  }
- event.respondWith((async()=>{const cache=await caches.open(CACHE);const saved=await cache.match(req,{ignoreVary:true});if(saved)return saved;try{return await fetch(req);}catch{if(req.mode==='navigate')return (await cache.match('./index.html'))||Response.error();return Response.error();}})());
+ event.respondWith((async()=>{const cache=await caches.open(CACHE);const saved=await cache.match(req,{ignoreVary:true});if(saved)return saved;try{const response=await fetch(req);if(response.ok)await cache.put(req,response.clone());return response;}catch{if(req.mode==='navigate')return (await cache.match('./index.html'))||Response.error();return Response.error();}})());
 });\n`,
 );
 console.log(

@@ -15,7 +15,7 @@ export const severitySchema = z.enum([
   "advisory",
   "watch",
   "warning",
-  "emergency",
+  "severe",
 ]);
 export const alertSchema = z
   .object({
@@ -88,6 +88,14 @@ export const bulletinSchema = z
     issuedAt: timestamp,
     validUntil: timestamp,
     source,
+    outlook: z
+      .object({
+        percent: z.number().min(0).max(100),
+        greaterThan: z.boolean(),
+        period: z.string().max(160),
+      })
+      .nullable()
+      .optional(),
     kind: z.literal("official-assessment"),
     resolution: z.literal("Tropical Pacific; not a Myanmar forecast"),
   })

@@ -1,261 +1,225 @@
 import { useApp, dateLabel } from "../app/context";
-import { sources } from "../data/content";
 import { PageTitle, Notice, SourceLink } from "../components/shared";
-import { freshness } from "../risk/engine";
+import { Evidence } from "../components/Operational";
+import { weatherFresh, historyFresh, mmt } from "../data/operational";
 export default function Methodology() {
-  const { t, data, lang, now } = useApp();
+  const { t, lang, operational: op, now, data } = useApp();
   return (
     <>
       <PageTitle
-        eyebrow={t("DATA & METHODOLOGY", "အချက်အလက်နှင့် နည်းလမ်း")}
+        eyebrow={t("SOURCES & METHODS · V2", "ရင်းမြစ်နှင့် တွက်ချက်နည်း · V2")}
         title={t(
-          "Trust starts with transparency.",
-          "ပွင့်လင်းမှုက ယုံကြည်မှု၏ အစဖြစ်သည်။",
+          "See the evidence behind each signal.",
+          "ညွှန်းကိန်းတစ်ခုစီ၏ အထောက်အထားကို ကြည့်ပါ။",
         )}
         description={t(
-          "Where information comes from, what it can tell you, and what it cannot.",
-          "အချက်အလက်၏ ရင်းမြစ်၊ သိရှိနိုင်သည့်အရာနှင့် အကန့်အသတ်များ",
+          "Independent climate preparedness. Forecasts, historical reanalysis and official assessments are separate evidence types.",
+          "လွတ်လပ်သော ရာသီဥတုကြိုတင်ပြင်ဆင်ရေး။ ခန့်မှန်းချက်၊ သမိုင်းပြန်လည်ဆန်းစစ်ချက်နှင့် တရားဝင်သုံးသပ်ချက်သည် သီးခြားအထောက်အထား အမျိုးအစားများဖြစ်သည်။",
         )}
       />
-      <Notice>
-        {t(
-          "This is an independent preparedness resource, not an official warning authority. Regional live warnings and anomaly datasets are not yet connected.",
-          "ဤသည် လွတ်လပ်သော ကြိုတင်ပြင်ဆင်ရေး အချက်အလက်ဖြစ်ပြီး တရားဝင်သတိပေးအဖွဲ့ မဟုတ်ပါ။ ဒေသတိုက်ရိုက်သတိပေးချက်နှင့် ကွာဟချက်ဒေတာများ မချိတ်ဆက်ရသေးပါ။",
-        )}
-      </Notice>
       <section className="panel padded">
-        <h2>{t("Source register", "ရင်းမြစ်စာရင်း")}</h2>
+        <h2>{t("Data status", "ဒေတာအခြေအနေ")}</h2>
+        <dl className="indicator-list">
+          <div>
+            <dt>ECMWF IFS</dt>
+            <dd>
+              {weatherFresh(op.weather, now)
+                ? t("Current forecast", "သက်တမ်းရှိ ခန့်မှန်းချက်")
+                : op.weather
+                  ? t("Stale", "သက်တမ်းကျော်")
+                  : t("Unavailable", "မရရှိ")}
+            </dd>
+          </div>
+          <div>
+            <dt>ERA5</dt>
+            <dd>
+              {historyFresh(op.history, now)
+                ? t(
+                    "Historical · expected publication lag",
+                    "သမိုင်းဒေတာ · ပုံမှန်ထုတ်ပြန်နောက်ကျမှု",
+                  )
+                : op.history
+                  ? t("Stale", "သက်တမ်းကျော်")
+                  : t("Unavailable", "မရရှိ")}
+            </dd>
+          </div>
+          <div>
+            <dt>
+              {t("Official Myanmar warnings", "မြန်မာ တရားဝင်သတိပေးချက်")}
+            </dt>
+            <dd>{t("Coverage unavailable", "လွှမ်းခြုံဒေတာ မရရှိ")}</dd>
+          </div>
+        </dl>
+        {Object.entries(op.health).map(([id, h]) => (
+          <details key={id}>
+            <summary>
+              {id} ·{" "}
+              {h.ok
+                ? t("Last check succeeded", "နောက်ဆုံးစစ်ဆေးမှု အောင်မြင်")
+                : t(
+                    "Last retrieval failed — prior data retained",
+                    "နောက်ဆုံးရယူမှု မအောင်မြင် — ယခင်ဒေတာ ထိန်းသိမ်းထား",
+                  )}
+            </summary>
+            <p>
+              {t("Checked", "စစ်ဆေးချိန်")}: {mmt(h.checkedAt, lang)}
+              <br />
+              {t("Last success", "နောက်ဆုံးအောင်မြင်ချိန်")}:{" "}
+              {h.lastSuccess ? mmt(h.lastSuccess, lang) : "—"}
+            </p>
+          </details>
+        ))}
+        <Evidence />
+      </section>
+      <section className="panel padded">
+        <h2>{t("How anomalies are calculated", "ကွာဟချက် တွက်ချက်ပုံ")}</h2>
+        <p>
+          {t(
+            "Temperature anomaly = recent 30-day mean minus the 1991–2020 mean for the same calendar dates. Rainfall departure = recent 30-day total minus the expected total. Both sides use ERA5, the same three sample cells and MMT calendar days.",
+            "အပူချိန်ကွာဟချက် = မကြာသေးမီ ရက် ၃၀ ပျမ်းမျှ − တူညီသောပြက္ခဒိန်ရက်များ၏ ၁၉၉၁–၂၀၂၀ ပျမ်းမျှ။ မိုးရေကွာဟချက် = ရက် ၃၀ စုစုပေါင်း − ပုံမှန်စုစုပေါင်း။ နှစ်ဖက်လုံးတွင် ERA5၊ တူညီသောနမူနာကွက် ၃ ခုနှင့် မြန်မာစံတော်ချိန်ရက်များ သုံးထားသည်။",
+          )}
+        </p>
+        <p>
+          {t(
+            "Percentage = 100 × departure / expected rain; suppressed below 10 mm expected rain. Dry days count consecutive sampled-mean days below 1 mm, ending on the dated historical window. This is not SPI, a drought declaration or today’s soil moisture.",
+            "ရာခိုင်နှုန်း = 100 × ကွာဟချက် / ပုံမှန်မိုးရေ။ ပုံမှန်မိုးရေ 10 mm အောက်တွင် မပြပါ။ မိုးပြတ်ရက်သည် သမိုင်းဒေတာ နောက်ဆုံးရက်အထိ နမူနာပျမ်းမျှ 1 mm အောက် ဆက်တိုက်ရက်များဖြစ်သည်။ SPI၊ မိုးခေါင်ကြေညာချက် သို့မဟုတ် ယနေ့မြေအစိုဓာတ် မဟုတ်ပါ။",
+          )}
+        </p>
+      </section>
+      <section className="panel padded">
+        <h2>
+          {t(
+            "Transparent screening thresholds",
+            "ပွင့်လင်းသော စစ်ဆေးသတ်မှတ်ချက်များ",
+          )}
+        </h2>
+        <p>
+          {t(
+            "Thresholds produce application planning signals, never government warnings. They have not been calibrated against Myanmar impacts. Levels: Normal → Advisory → Watch → Warning → Severe.",
+            "သတ်မှတ်ချက်များသည် စနစ်ပြင်ဆင်ရေးညွှန်းကိန်းသာဖြစ်ပြီး အစိုးရသတိပေးချက် မဟုတ်ပါ။ မြန်မာသက်ရောက်မှုဒေတာဖြင့် ချိန်ညှိအတည်မပြုရသေးပါ။ အဆင့် — ပုံမှန် → အသိပေး → စောင့်ကြည့် → သတိပေး → ပြင်းထန်။",
+          )}
+        </p>
         <div className="table-scroll">
           <table>
             <thead>
               <tr>
-                {[
-                  t("Information", "အချက်အလက်"),
-                  t("Source & scope", "ရင်းမြစ်နှင့် အတိုင်းအတာ"),
-                  t("Freshness / availability", "သက်တမ်း / ရရှိမှု"),
-                ].map((x) => (
-                  <th key={x}>{x}</th>
-                ))}
+                <th>{t("Driver", "အကြောင်းရင်း")}</th>
+                <th>{t("Thresholds / method", "သတ်မှတ်ချက် / နည်းလမ်း")}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>
-                  {t("ENSO status", "ENSO အခြေအနေ")}
-                  <small>
-                    {t("Official assessment", "တရားဝင်သုံးသပ်ချက်")}
-                  </small>
-                </td>
-                <td>
-                  <SourceLink href={sources.noaa}>NOAA CPC</SourceLink>
-                  <small>
-                    {t(
-                      "Tropical Pacific. Not a Myanmar forecast.",
-                      "အပူပိုင်းပစိဖိတ်။ မြန်မာဒေသခန့်မှန်းချက် မဟုတ်ပါ။",
-                    )}
-                  </small>
-                </td>
-                <td>
-                  {data.enso
-                    ? dateLabel(data.enso.issuedAt, lang)
-                    : t("Unavailable", "မရရှိနိုင်")}
-                  <small>
-                    {data.enso &&
-                    freshness(data.enso.issuedAt, data.enso.validUntil, now) ===
-                      "current"
-                      ? t("Within bulletin validity", "ကြေညာချက်သက်တမ်းအတွင်း")
-                      : t(
-                          "Current bulletin unavailable",
-                          "လက်ရှိကြေညာချက် မရှိ",
-                        )}
-                    {data.enso &&
-                      ` · ${t("next issue due", "နောက်ထုတ်ပြန်မည့်နေ့")} ${dateLabel(data.enso.validUntil, lang)}`}
-                  </small>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  {t("Myanmar regional warnings", "မြန်မာ ဒေသသတိပေးချက်များ")}
-                </td>
-                <td>
-                  <SourceLink href={sources.dmh}>Myanmar DMH</SourceLink>
-                  <small>
-                    {t(
-                      "Official external information; no automated feed.",
-                      "တရားဝင် ပြင်ပရင်းမြစ်။ အလိုအလျောက်စနစ် မချိတ်ထားပါ။",
-                    )}
-                  </small>
-                </td>
-                <td>{t("Not connected", "မချိတ်ဆက်ရသေး")}</td>
-              </tr>
-              <tr>
+                <th>{t("Heat", "အပူ")}</th>
                 <td>
                   {t(
-                    "Temperature / rainfall anomalies",
-                    "အပူချိန် / မိုးရေ ကွာဟချက်",
-                  )}
-                </td>
-                <td>
-                  {t(
-                    "No validated regional baseline or ingestion is configured.",
-                    "အတည်ပြု ဒေသအခြေခံစံနှုန်းနှင့် ဒေတာရယူမှု မသတ်မှတ်ထားပါ။",
-                  )}
-                </td>
-                <td>
-                  {t(
-                    "Unavailable; no inferred values",
-                    "မရရှိနိုင်။ မှန်းဆတန်ဖိုး မပြထားပါ။",
+                    "NWS shade heat index, highest sample over next 24 h: 80 / 90 / 103 / 125°F (26.7 / 32.2 / 39.4 / 51.7°C).",
+                    "NWS အရိပ် အပူဒဏ်ညွှန်းကိန်း၊ လာမည့် ၂၄ နာရီ နမူနာအမြင့်ဆုံး — 80 / 90 / 103 / 125°F (26.7 / 32.2 / 39.4 / 51.7°C)။",
                   )}
                 </td>
               </tr>
               <tr>
-                <td>
-                  {t("Administrative boundaries", "အုပ်ချုပ်ရေးနယ်နိမိတ်")}
-                </td>
-                <td>
-                  <SourceLink href="https://www.geoboundaries.org/api/current/gbOpen/MMR/ADM1/">
-                    geoBoundaries / Myanmar Analytics Project
-                  </SourceLink>
-                  <small>CC BY 4.0 · MMR-ADM1-20573499</small>
-                </td>
+                <th>{t("Rain", "မိုး")}</th>
                 <td>
                   {t(
-                    "2019 reference geometry. 14 areas; Nay Pyi Taw not separate. Simplified for display.",
-                    "၂၀၁၉ ရည်ညွှန်းနယ်နိမိတ်၊ ဒေသ ၁၄ ခု။ နေပြည်တော် သီးခြားမပါ။ ပြသရန် ရိုးရှင်းထားသည်။",
+                    "Highest sample next-24-hour total: 20 / 50 / 100 / 200 mm. Screening only, not flood prediction.",
+                    "လာမည့် ၂၄ နာရီ နမူနာအများဆုံး — 20 / 50 / 100 / 200 mm။ စစ်ဆေးညွှန်းကိန်းသာဖြစ်ပြီး ရေကြီးခန့်မှန်းချက် မဟုတ်ပါ။",
                   )}
                 </td>
               </tr>
               <tr>
-                <td>{t("Health preparedness", "ကျန်းမာရေး ပြင်ဆင်မှု")}</td>
-                <td>
-                  <SourceLink href={sources.who}>WHO</SourceLink>
-                </td>
+                <th>{t("Wind", "လေ")}</th>
                 <td>
                   {t(
-                    "General guidance; not a medical assessment",
-                    "အထွေထွေလမ်းညွှန်၊ ဆေးစစ်သုံးသပ်ချက် မဟုတ်",
+                    "Highest sample gust in next 24 h: 40 / 60 / 80 / 100 km/h.",
+                    "လာမည့် ၂၄ နာရီ နမူနာအမြင့်ဆုံးလေပြင်း — 40 / 60 / 80 / 100 km/h။",
                   )}
                 </td>
               </tr>
               <tr>
+                <th>{t("Dryness / water", "ခြောက်သွေ့မှု / ရေ")}</th>
                 <td>
                   {t(
-                    "Agriculture and ENSO education",
-                    "စိုက်ပျိုးရေးနှင့် ENSO ပညာပေး",
+                    "Expected 30-day rain ≥30 mm: deficit ≥25% → Advisory; ≥50% plus ≥7 dry days → Watch; ≥75% plus ≥14 dry days → Warning. No Severe classification.",
+                    "ပုံမှန် ရက် ၃၀ မိုးရေ ≥30 mm ရှိလျှင် — လျော့နည်းမှု ≥25% အသိပေး၊ ≥50% နှင့် မိုးပြတ် ≥7 ရက် စောင့်ကြည့်၊ ≥75% နှင့် မိုးပြတ် ≥14 ရက် သတိပေး။ ပြင်းထန်အဆင့် မသတ်မှတ်ပါ။",
                   )}
                 </td>
-                <td>
-                  <SourceLink href={sources.fao}>FAO</SourceLink> ·{" "}
-                  <SourceLink href={sources.wmo}>WMO</SourceLink>
-                </td>
+              </tr>
+              <tr>
+                <th>{t("Agriculture", "စိုက်ပျိုးရေး")}</th>
                 <td>
                   {t(
-                    "General evidence; not local predictions",
-                    "အထွေထွေအထောက်အထား၊ ဒေသခန့်မှန်းချက် မဟုတ်",
+                    "Highest heat/rain/dryness level; all three inputs required. No crop-loss inference.",
+                    "အပူ၊ မိုး၊ ခြောက်သွေ့မှုထဲမှ အမြင့်ဆုံး၊ သုံးမျိုးလုံး၏ဒေတာ လိုအပ်သည်။ သီးနှံဆုံးရှုံးမှု မတွက်ချက်ပါ။",
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <th>ENSO</th>
+                <td>
+                  {t(
+                    "Adds climate context only. Never increases local severity.",
+                    "ရာသီဥတုနောက်ခံအတွက်သာ သုံးသည်။ ဒေသအဆင့်ကို မမြှင့်ပါ။",
                   )}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+        <SourceLink href="https://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml">
+          NWS heat-index formula
+        </SourceLink>
+        <p>
+          {t(
+            "Overall attention is the maximum available independent hazard, not an averaged score. Missing hazards remain unknown. Immediate official warnings outrank system hazards; immediate high weather signals outrank ENSO context.",
+            "စုစုပေါင်းသည် ရရှိသော သီးခြားအန္တရာယ်အဆင့်များ၏ အမြင့်ဆုံးဖြစ်သည်။ ပျမ်းမျှအမှတ် မဟုတ်ပါ။ မရရှိသောအန္တရာယ်ကို မသိဟု ထားသည်။ တရားဝင်အရေးပေါ်သတိပေးချက်ကို ဦးစားပေး၍ ချက်ချင်းမြင့်တက်မိုးလေဝသအန္တရာယ်ကို ENSO ထက် ဦးစားပေးသည်။",
+          )}
+        </p>
       </section>
-      <div className="two-columns">
-        <section className="panel padded">
-          <h2>{t("How warning levels work", "သတိပေးအဆင့် သတ်မှတ်ပုံ")}</h2>
-          <ol className="method-steps">
-            <li>
-              {t(
-                "Validate publisher, region, timestamps, severity, and action text before a bulletin can appear.",
-                "ကြေညာချက်မပြမီ ထုတ်ပြန်သူ၊ ဒေသ၊ အချိန်၊ အဆင့်နှင့် လုပ်ဆောင်ရန်စာသားကို စစ်ဆေးသည်။",
-              )}
-            </li>
-            <li>
-              {t(
-                "Use the most severe active, verified bulletin for an area. Preserve its source and original severity.",
-                "ဒေသအတွက် သက်တမ်းရှိ အတည်ပြုကြေညာချက်များထဲမှ အမြင့်ဆုံးအဆင့်ကို သုံးပြီး ရင်းမြစ်နှင့် မူရင်းအဆင့်ကို ထိန်းသိမ်းသည်။",
-              )}
-            </li>
-            <li>
-              {t(
-                "Expired and future bulletins are excluded from current warnings. An ENSO phase never creates a local alert.",
-                "သက်တမ်းကုန်နှင့် စတင်ချိန်မရောက်သေးသော ကြေညာချက်များကို လက်ရှိသတိပေးချက်တွင် မပြပါ။ ENSO အဆင့်မှ ဒေသသတိပေးချက် မဖန်တီးပါ။",
-              )}
-            </li>
-            <li>
-              {t(
-                "“Normal” requires complete regional coverage checked within 24 hours. Otherwise an area without a valid bulletin is “Not assessed”.",
-                "“ပုံမှန်” ဟုသတ်မှတ်ရန် ဒေသအားလုံးကို ၂၄ နာရီအတွင်း စစ်ဆေးထားရမည်။ ထိုအချက်မရှိဘဲ သက်တမ်းရှိကြေညာချက် မရှိပါက “မသတ်မှတ်နိုင်သေး” ဟု ပြသည်။",
-              )}
-            </li>
-          </ol>
-          <p>
-            {t(
-              "No numerical risk score or unvalidated meteorological threshold is used. Numerical triggers require Myanmar-specific calibration and expert review before activation.",
-              "ကိန်းဂဏန်း အန္တရာယ်ရမှတ် သို့မဟုတ် အတည်မပြုထားသော မိုးလေဝသသတ်မှတ်ချက် မသုံးပါ။ ကိန်းဂဏန်းသတ်မှတ်ချက်များကို မြန်မာဒေသနှင့် ကိုက်ညီအောင် ချိန်ညှိ၍ ပညာရှင်စစ်ဆေးပြီးမှ သုံးရမည်။",
-            )}
-          </p>
-        </section>
-        <section className="panel padded">
-          <h2>
-            {t(
-              "Time, uncertainty & privacy",
-              "အချိန်၊ မသေချာမှုနှင့် ကိုယ်ရေးအချက်အလက်",
-            )}
-          </h2>
-          <h3>
-            {t(
-              "Daily retrieval, monthly bulletin",
-              "နေ့စဉ်ရယူမှု၊ လစဉ်ကြေညာချက်",
-            )}
-          </h3>
-          <p>
-            {t(
-              "The publication workflow checks NOAA daily. An unchanged bulletin keeps its issue date. Retrieval time is not the observation period.",
-              "ထုတ်ဝေစနစ်က NOAA ကို နေ့စဉ်စစ်ဆေးသည်။ မပြောင်းသောကြေညာချက်တွင် မူရင်းထုတ်ပြန်ရက်ကို ထားသည်။ ရယူချိန်သည် လေ့လာတိုင်းတာချိန် မဟုတ်ပါ။",
-            )}
-          </p>
-          <h3>{t("Freshness limits", "သက်တမ်းအကန့်အသတ်")}</h3>
-          <p>
-            {t(
-              "ENSO status becomes stale after its stated next-update day. Cached information keeps its dates and is checked against your device clock.",
-              "ဖော်ပြထားသော နောက်ထုတ်ပြန်ရက် ကျော်လျှင် ENSO အချက်အလက် သက်တမ်းကျော်ဟု ပြသည်။ သိမ်းထားသောအချက်အလက်တွင် မူရင်းရက်စွဲထားပြီး သင့်စက်နာရီနှင့် စစ်ဆေးသည်။",
-            )}
-          </p>
-          <h3>
-            {t("Confidence is not invented", "ယုံကြည်နိုင်မှုကို မဖန်တီးပါ")}
-          </h3>
-          <p>
-            {t(
-              "Confidence must come from the source and its reasoning. If absent, it is “not provided”. Planning scenarios have no assigned probability.",
-              "ယုံကြည်နိုင်မှုသည် ရင်းမြစ်နှင့် ၎င်း၏အကြောင်းပြချက်မှ လာရမည်။ မပါပါက “မဖော်ပြထား” ဟု ပြသည်။ ပြင်ဆင်ရေးအခြေအနေများတွင် ဖြစ်နိုင်နှုန်း မသတ်မှတ်ပါ။",
-            )}
-          </p>
-          <h3>
-            {t("Your device, your preferences", "သင့်စက်၊ သင့်ရွေးချယ်မှုများ")}
-          </h3>
-          <p>
-            {t(
-              "No accounts, analytics, or precise location collection. Language, selected region, recent data, and checklist progress stay in browser storage. Clearing site data removes them.",
-              "အကောင့်၊ အသုံးပြုမှုခြေရာခံစနစ်နှင့် တိကျသောတည်နေရာ ကောက်ယူမှု မရှိပါ။ ဘာသာစကား၊ ရွေးထားသောဒေသ၊ နောက်ဆုံးဒေတာနှင့် စာရင်းပြီးစီးမှုကို browser တွင်သာ သိမ်းသည်။ Site data ရှင်းလျှင် ပျက်မည်။",
-            )}
-          </p>
-        </section>
-      </div>
       <section className="panel padded">
-        <h2>{t("Read the labels", "အမျိုးအစားများကို နားလည်ပါ")}</h2>
+        <h2>
+          {t(
+            "Freshness, privacy & limitations",
+            "သက်တမ်း၊ ကိုယ်ရေးအချက်အလက်နှင့် အကန့်အသတ်",
+          )}
+        </h2>
         <p>
           {t(
-            "Observed = measured conditions. Forecast = a future estimate. Baseline = a reference period for comparison. Historical = past records. Scenario = conditional planning assumptions. The current release displays official ENSO assessments and general guidance; regional observations and forecasts are unavailable.",
-            "တိုင်းတာချက် = တိုင်းတာထားသောအခြေအနေ။ ခန့်မှန်းချက် = အနာဂတ်အတွက် ခန့်မှန်းမှု။ အခြေခံစံ = နှိုင်းယှဉ်ရန် ရည်ညွှန်းကာလ။ သမိုင်းမှတ်တမ်း = ယခင်အချက်အလက်။ အခြေအနေ = ပြင်ဆင်ရေးယူဆချက်။ ယခုဗားရှင်းတွင် တရားဝင် ENSO သုံးသပ်ချက်နှင့် အထွေထွေလမ်းညွှန်သာ ပြပြီး ဒေသတိုင်းတာချက်နှင့် ခန့်မှန်းချက် မရရှိနိုင်သေးပါ။",
+            "Weather refreshes four times daily; stale after 18 hours. ERA5 refreshes daily and is stale when its last day is more than 10 days old. Baselines are cached. Cached data keeps its original date, and is labeled when offline. NOAA assessments expire on the stated next-update date.",
+            "မိုးလေဝသဒေတာကို တစ်နေ့ ၄ ကြိမ် ရယူ၍ ၁၈ နာရီကျော်လျှင် သက်တမ်းကျော်ဟု ပြသည်။ ERA5 ကို နေ့စဉ်ရယူ၍ နောက်ဆုံးဒေတာရက် ၁၀ ရက်ကျော်လျှင် သက်တမ်းကျော်ဖြစ်သည်။ အခြေခံပျမ်းမျှကို သိမ်းထားသည်။ အော့ဖ်လိုင်းဒေတာ၏ မူရင်းရက် မပြောင်းပါ။ NOAA သုံးသပ်ချက်သည် နောက်ထုတ်ပြန်ရက်တွင် သက်တမ်းကုန်သည်။",
           )}
         </p>
         <p>
           {t(
-            "Temperature anomalies (°C) describe a difference from a baseline, not the actual air temperature. Rainfall totals (mm) and rainfall anomalies (%) are different quantities; no values are displayed without a valid baseline, period, and units.",
-            "အပူချိန်ကွာဟချက် (°C) သည် အခြေခံစံမှ ကွာခြားမှုဖြစ်ပြီး လေထုအပူချိန်အမှန် မဟုတ်ပါ။ မိုးရေစုစုပေါင်း (mm) နှင့် မိုးရေကွာဟချက် (%) မတူပါ။ မှန်ကန်သော စံကာလ၊ အချိန်ကာလနှင့် ယူနစ်မရှိဘဲ တန်ဖိုးများ မပြပါ။",
+            "No account, location tracking or analytics. Language, selected region, cached data and checklists stay in your browser. Low Data Mode skips maps and optional charts.",
+            "အကောင့်၊ တည်နေရာခြေရာခံမှုနှင့် သုံးစွဲမှုခြေရာခံမှု မရှိပါ။ ဘာသာစကား၊ ဒေသ၊ သိမ်းဒေတာနှင့် ပြင်ဆင်စာရင်းကို သင့်ဘရောက်ဇာတွင်သာ သိမ်းသည်။ ဒေတာချွေတာစနစ်တွင် မြေပုံနှင့် မလိုအပ်သောဇယားများကို မဖွင့်ပါ။",
           )}
         </p>
+        <p>
+          {t(
+            "MIMU/OCHA/HDX boundaries: CC BY 3.0 IGO; Bago and Shan subdivisions merged. Forecast and ERA5 data: ECMWF/Copernicus/Open-Meteo, CC BY 4.0.",
+            "MIMU/OCHA/HDX နယ်နိမိတ် — CC BY 3.0 IGO၊ ပဲခူးနှင့် ရှမ်းဒေသခွဲများ ပေါင်းထားသည်။ ခန့်မှန်းချက်နှင့် ERA5 ဒေတာ — ECMWF/Copernicus/Open-Meteo၊ CC BY 4.0။",
+          )}
+        </p>
+        <SourceLink href="https://github.com/Wai-999/El-Nino-Warning-System/blob/main/docs/DATA_SOURCES.md">
+          {t("Full source registry", "ရင်းမြစ်စာရင်း အပြည့်အစုံ")}
+        </SourceLink>{" "}
+        ·{" "}
+        <SourceLink href="https://github.com/Wai-999/El-Nino-Warning-System/blob/main/docs/RISK_METHODOLOGY.md">
+          {t(
+            "Scientific methodology & limitations",
+            "သိပ္ပံနည်းလမ်းနှင့် အကန့်အသတ်",
+          )}
+        </SourceLink>
+        {data.enso && (
+          <p className="meta">NOAA · {dateLabel(data.enso.issuedAt, lang)}</p>
+        )}
       </section>
+      <Notice>
+        {t(
+          "Independent preparedness information, not an emergency service. Follow local authorities for protective decisions. Forecasts can miss severe local weather, especially in mountainous terrain.",
+          "လွတ်လပ်သော ပြင်ဆင်ရေးအချက်အလက်သာဖြစ်ပြီး အရေးပေါ်ဌာန မဟုတ်ပါ။ ကာကွယ်ရေးဆုံးဖြတ်ချက်တွင် ဒေသတာဝန်ရှိသူများကို လိုက်နာပါ။ အထူးသဖြင့် တောင်တန်းဒေသတွင် ပြင်းထန်ဒေသမိုးလေဝသကို မော်ဒယ်က လွတ်သွားနိုင်သည်။",
+        )}
+      </Notice>
     </>
   );
 }
