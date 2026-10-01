@@ -30,4 +30,4 @@ React 19 + TypeScript; custom hash navigation in `src/app/App.tsx`; Vite 7 with 
 
 ## Limitations and completion evidence
 
-No authoritative Myanmar warning feed, station observations, crop exposure/stage, reservoir/river levels, disease surveillance or fire/air-quality feed is connected. Three regional sample cells are not township-level evidence. Human Burmese terminology and assistive-technology review remain desirable; automated accessibility does not establish full WCAG conformance. Final fixes, tests and public deployment checks will be recorded in `IMPACTS_REPAIR_REPORT.md`.
+No authoritative Myanmar warning feed, station observations, crop exposure/stage, reservoir/river levels, disease surveillance or fire/air-quality feed is connected. Three regional sample cells are not township-level evidence. Human Burmese terminology and assistive-technology review remain desirable; automated accessibility does not establish full WCAG conformance. Final fixes, tests and successful public deployment checks are recorded in [IMPACTS_REPAIR_REPORT.md](IMPACTS_REPAIR_REPORT.md).

@@ -1,0 +1,144 @@
+{
+  "base": "https://wai-999.github.io/El-Nino-Warning-System/",
+  "verifiedAt": "2026-10-01T14:08:10.230Z",
+  "routes": [
+    {
+      "route": "",
+      "title": "Know the conditions. Prepare today."
+    },
+    {
+      "route": "#/impacts",
+      "title": "El Niño impacts, in context."
+    },
+    {
+      "route": "?release=2.0.0#/impacts",
+      "title": "El Niño impacts, in context."
+    }
+  ],
+  "viewports": [
+    {
+      "width": 320,
+      "height": 568,
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    }
+  ],
+  "resources": [
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-BJ71_dao.js",
+      "encodedBytes": 103614,
+      "duration": 41.20000000298023
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-5tKGkxQ_.css",
+      "encodedBytes": 8308,
+      "duration": 17.399999991059303
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/assets/Impacts-BuVvGGTY.js",
+      "encodedBytes": 13543,
+      "duration": 16.799999997019768
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/assets/Impacts-BGLTriOJ.css",
+      "encodedBytes": 696,
+      "duration": 16.799999997019768
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/icon.svg",
+      "encodedBytes": 260,
+      "duration": 26.599999994039536
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/data/current.json",
+      "encodedBytes": 406,
+      "duration": 21.799999997019768
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/data/operational.json",
+      "encodedBytes": 6067,
+      "duration": 21.899999991059303
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-600-normal-Cju0GbT9.woff2",
+      "encodedBytes": 49992,
+      "duration": 53.29999999701977
+    },
+    {
+      "name": "https://wai-999.github.io/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-400-normal-C_Ri2PLj.woff2",
+      "encodedBytes": 47148,
+      "duration": 34
+    }
+  ],
+  "console": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "forecastText": "FORECAST · NEXT 24 HOURS\n\nCurrent\n\n1 Oct 2026, 20:00 MMT → 2 Oct 2026, 20:00 MMT\n\nTemperature range\n23.6°C – 30.7°C\nRainfall amount\n3.0 mm\n\nSampled regional estimates; rainfall amount is not flood probability.\n\nRetrieved: 1 Oct 2026, 20:35 MMT\n\nECMWF IFS 0.25° / Open-Meteo\n(opens in a new tab)",
+  "reanalysisText": "OBSERVED / REANALYSIS · RECENT 30 DAYS\n\nCurrent\n\n2026-08-27 → 2026-09-25 · MMT\n\nBaseline: matching calendar days, 1991–2020\n\nTemperature anomaly\n+0.4°C\nPrecipitation anomaly\n-41.0 mm\n-18%\nRainfall total / normal\n181.2 mm / 222.2 mm\nTrailing dry days\n0\nUnder 1 mm/day; not a drought declaration\n\nRetrieved: 1 Oct 2026, 09:26 MMT\n\nERA5 combines observations with a model; these are delayed estimates, not local station measurements or a forecast anomaly.\n\nCopernicus / ECMWF ERA5 / Open-Meteo\n(opens in a new tab)",
+  "offline": "passed",
+  "status": "passed"
+}

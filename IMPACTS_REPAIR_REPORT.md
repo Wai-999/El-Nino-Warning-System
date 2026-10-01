@@ -2,7 +2,7 @@
 
 Audit date: 1 October 2026. Baseline: V2 commit `1c4cb82`. Repair version: 2.0.1. Target: [GitHub Pages impacts](https://wai-999.github.io/El-Nino-Warning-System/?release=2.0.0#/impacts).
 
-Local validation is complete; publication and final public recheck are recorded at the end after deployment. [IMPACTS_AUDIT.md](IMPACTS_AUDIT.md) contains the pre-edit evidence, architecture inventory, reproduction conditions and passing baseline checks.
+Deployed and publicly verified on 1 October 2026. The existing Pages workflow passed all build, data-refresh, browser and ingestion-health checks. [IMPACTS_AUDIT.md](IMPACTS_AUDIT.md) contains the pre-edit evidence, architecture inventory, reproduction conditions and passing baseline checks.
 
 ## Verified Bugs Found
 
@@ -141,4 +141,8 @@ Official Myanmar alerts; local station observations; river/reservoir/groundwater
 - Unit tests: **44 passed** (including 8 new impacts/data-safety tests).
 - Browser regression: **49 passing cases**, with the exact five-size/two-language accessibility matrix run once; two redundant project copies of that matrix are intentionally skipped.
 - Lint, formatting, real-data schema validation and TypeScript production build: passed.
-- Publication and public recheck: pending final deployment at the time of this draft; update before delivery.
+- [Successful GitHub Pages deployment](https://github.com/Wai-999/El-Nino-Warning-System/actions/runs/36873618517): code commit `338ae75cf9d76f9404fb862679cfe88ec65fc3e7`; generated source snapshot `d1ddf88`.
+- Public verification began **2026-10-01T14:08:10.230Z** and passed against the actual GitHub Pages domain: root, impacts, release-query impacts, direct refresh, preserved sector/region/evidence selections, back/forward, five viewport sizes in both languages, zero axe violations in those views, and service-worker-enabled offline restart.
+- Ordinary production browsing recorded **zero console errors, failed requests or HTTP 4xx/5xx responses**. Deliberate failed-request tests run separately and are not suppressed.
+- [Machine-readable production evidence](docs/impacts-production-verification.json) includes tested routes/viewports, actual rendered source dates, request sizes and offline result. Reproduce using `node scripts/verify-impacts.mjs`.
+- No unverified production fix or unpublished application change remains. Source-data and human-review limitations above remain explicit.
