@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checkedAt": "2026-09-30T06:37:25.537Z",
+  "checkedAt": "2026-10-01T07:13:08.842Z",
   "enso": {
     "status": "El Niño Advisory",
     "issuedAt": "2026-09-10T00:00:00.000Z",
@@ -8,7 +8,7 @@
     "source": {
       "name": "NOAA Climate Prediction Center",
       "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
-      "retrievedAt": "2026-09-30T06:37:25.537Z"
+      "retrievedAt": "2026-10-01T07:13:08.842Z"
     },
     "kind": "official-assessment",
     "resolution": "Tropical Pacific; not a Myanmar forecast"
