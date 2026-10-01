@@ -368,3 +368,22 @@ footer {
     flex-shrink: 0;
   }
 }
+
+.topbar .low-data-toggle {
+  position: static;
+  margin: 0;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+.topbar-actions {
+  flex-wrap: wrap;
+}
+@media (max-width: 900px) {
+  .topbar-title {
+    display: none;
+  }
+  .topbar .topbar-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

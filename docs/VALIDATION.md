@@ -15,7 +15,7 @@ Release candidate 2.0.0; checked 30 September 2026 (US Pacific), 1 October 2026 
 
 - 36 passing unit tests: official bulletin expiry/source validation; NOAA status/strength/index parsing; source units/coordinate/contiguous dates; schema duplicates; NWS heat-index conversion/adjustments; matched regional aggregation; rainfall denominator/sign; dry-day threshold; next-24-hour precipitation interval; model/reanalysis staleness; MMT half-hour conversion; risk/priority logic; malformed-response and corrupt-cache fallback; old forecast-window rejection; geographic projection and stored baseline completeness.
 - 33 passing browser checks across desktop (1440 px), tablet (768 px) and mobile (Pixel 7): Burmese default and English, all routes, 15 map polygons/keyboard selection/layers/zoom, official/system lists, sector changes, local checklist persistence, malformed/missing/stale data, low-data behavior, and offline restart with previously loaded geometry.
-- Axe WCAG 2 A/AA, 2.1 AA and 2.2 AA automated checks on Burmese overview and English core routes pass. Fixed definition-list semantics and insufficient source-link target spacing found during QA.
+- Axe WCAG 2 A/AA, 2.1 AA and 2.2 AA automated checks on Burmese overview and English core routes pass. Fixed definition-list semantics and insufficient source-link target spacing found during QA. The Linux release check also caught a floating Low Data control overlapping a sidebar link; the control now sits in normal header flow.
 - Production TypeScript/Vite build, ESLint, data validation and formatting checks pass. Generated data/cache files are excluded from stylistic formatting checks because ingestion emits stable machine JSON; schemas validate their content.
 
 ## Manual browser checks

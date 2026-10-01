@@ -239,17 +239,6 @@ export default function App() {
         lowData,
       }}
     >
-      <button
-        className="low-data-toggle"
-        aria-pressed={lowData}
-        onClick={() => {
-          setLowData(!lowData);
-          setPref("mokinn-low-data", String(!lowData));
-        }}
-      >
-        {t("Low data", "ဒေတာချွေတာ")}:{" "}
-        {lowData ? t("On", "ဖွင့်") : t("Off", "ပိတ်")}
-      </button>
       <a
         className="skip-link"
         href="#main-content"
@@ -329,6 +318,18 @@ export default function App() {
               )}
             </span>
             <div className="row topbar-actions">
+              <button
+                className="low-data-toggle"
+                aria-pressed={lowData}
+                onClick={() => {
+                  setLowData(!lowData);
+                  setPref("mokinn-low-data", String(!lowData));
+                }}
+              >
+                {t("Low data", "ဒေတာချွေတာ")}:{" "}
+                {lowData ? t("On", "ဖွင့်") : t("Off", "ပိတ်")}
+              </button>
+
               {install && (
                 <button
                   className="icon-button"
