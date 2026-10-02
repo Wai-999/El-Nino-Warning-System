@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-02T07:31:36.395Z",
+  "generatedAt": "2026-10-02T07:39:08.235Z",
   "weather": {
-    "fetchedAt": "2026-10-02T07:31:36.395Z",
+    "fetchedAt": "2026-10-02T07:39:08.235Z",
     "validAt": "2026-10-02T07:30:00.000Z",
     "through": "2026-10-03T07:30:00.000Z",
     "model": "ECMWF IFS 0.25°",
@@ -1926,19 +1926,19 @@
   },
   "health": {
     "ecmwf": {
-      "checkedAt": "2026-10-02T07:31:36.395Z",
-      "lastSuccess": "2026-10-02T07:31:36.395Z",
+      "checkedAt": "2026-10-02T07:39:08.235Z",
+      "lastSuccess": "2026-10-02T07:39:08.235Z",
       "ok": true,
       "error": null
     },
     "era5": {
-      "checkedAt": "2026-10-02T07:31:36.395Z",
+      "checkedAt": "2026-10-02T07:39:08.235Z",
       "lastSuccess": "2026-10-02T07:31:36.395Z",
       "ok": true,
       "error": null
     },
     "nino34": {
-      "checkedAt": "2026-10-02T07:31:36.395Z",
+      "checkedAt": "2026-10-02T07:39:08.235Z",
       "lastSuccess": "2026-10-02T07:31:36.395Z",
       "ok": true,
       "error": null
