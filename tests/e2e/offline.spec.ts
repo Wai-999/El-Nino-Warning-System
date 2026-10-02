@@ -27,5 +27,11 @@ test("offline restart retains checklist, pages, map and dated information", asyn
   await page.goto("./#/map");
   await expect(page.locator(".region-shape")).toHaveCount(15);
   await expect(page.locator("main")).toContainText("Cached — last updated");
+  for (const route of ["/", "/warnings", "/records"]) {
+    await page.goto("./#" + route);
+    await expect(page.locator("h1")).toBeVisible();
+    await expect(page.locator(".offline-banner")).toBeVisible();
+  }
+  await expect(page.locator(".snapshot-history")).toContainText("cached");
   await context.setOffline(false);
 });

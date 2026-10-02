@@ -1,0 +1,242 @@
+/* Compact intelligence views preserve the existing restrained visual language. */
+.national-strip {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.national-strip > div {
+  min-width: 0;
+}
+.national-strip .badge {
+  font-size: 0.82rem;
+}
+.data-state {
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 0.77rem;
+  padding: 0.2rem 0.45rem;
+  background: #e9eee9;
+  color: #294b3d;
+}
+.state-aging {
+  background: #fff1cd;
+  color: #705019;
+}
+.state-stale,
+.state-unavailable {
+  background: #eeece8;
+  color: #55534f;
+}
+.official-status {
+  display: inline-block;
+  color: #743225;
+  background: #fbe9e1;
+  border-left: 3px solid #923c27;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.8rem;
+}
+.quality-stats {
+  display: flex;
+  gap: 0.5rem 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.data-quality details {
+  margin-top: 1rem;
+}
+.coverage-table {
+  font-size: 0.75rem;
+  min-width: 850px;
+}
+.coverage-table caption {
+  text-align: left;
+  padding: 0.7rem 0;
+}
+.coverage-list {
+  margin: 1rem 0;
+}
+.coverage-list > div {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) minmax(130px, 1.3fr);
+  gap: 0.7rem;
+  border-bottom: 1px solid #e4e8e1;
+  padding: 0.65rem 0;
+}
+.coverage-list dd {
+  margin: 0;
+}
+.coverage-list small,
+.warning-matrix small,
+.warning-mobile small,
+.watch-list small {
+  display: block;
+  margin-top: 0.3rem;
+}
+.source-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.source-cards article {
+  border: 1px solid #dce3dc;
+  border-radius: 10px;
+  padding: 1rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.source-cards dd {
+  margin: 0 0 0.7rem;
+}
+.source-cards dt {
+  font-size: 0.8rem;
+  color: #53645a;
+}
+.failed-source {
+  color: #8b3728;
+}
+.warning-filters,
+.record-filters {
+  align-items: end;
+  flex-wrap: wrap;
+}
+.warning-filters label,
+.record-filters label {
+  display: grid;
+  gap: 0.35rem;
+  flex: 1 1 150px;
+  min-width: 0;
+}
+.warning-filters select,
+.record-filters select {
+  width: 100%;
+  max-width: 100%;
+}
+.warning-filters .checkbox-filter {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 0;
+}
+.checkbox-filter input {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+.warning-matrix {
+  min-width: 990px;
+  font-size: 0.76rem;
+}
+.warning-matrix td,
+.warning-matrix th {
+  padding: 0.8rem 0.55rem;
+  vertical-align: top;
+}
+.warning-matrix .badge {
+  font-size: 0.73rem;
+  white-space: normal;
+}
+.warning-matrix .data-state {
+  white-space: normal;
+}
+.warning-mobile {
+  display: none;
+}
+.watch-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+.watch-list li {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 0.8fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #dde4de;
+  align-items: start;
+}
+.watch-list p {
+  margin: 0.4rem 0 0;
+}
+.change-list {
+  padding-left: 1.3rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 2rem;
+}
+.change-list li {
+  padding-left: 0.2rem;
+}
+.change-list li > div {
+  margin: 0.4rem 0;
+}
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.record-grid > article {
+  margin: 0;
+}
+.snapshot-history details {
+  padding: 0.8rem 0;
+  border-top: 1px solid #e4e8e1;
+}
+.snapshot-history summary {
+  overflow-wrap: anywhere;
+}
+.snapshot-history ul {
+  padding-left: 1.2rem;
+}
+.snapshot-history li {
+  margin-bottom: 0.5rem;
+}
+.regional-context {
+  border-left: 3px solid #4f6b73;
+}
+.data-quality p,
+.historical-record,
+.warning-mobile,
+.snapshot-history {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1200px) {
+  .national-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1050px) {
+  .warning-desktop {
+    display: none;
+  }
+  .warning-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .warning-mobile article {
+    margin: 0;
+  }
+}
+@media (max-width: 650px) {
+  .source-cards,
+  .record-grid,
+  .warning-mobile,
+  .change-list {
+    grid-template-columns: 1fr;
+  }
+  .watch-list li {
+    grid-template-columns: 1fr 1fr;
+  }
+  .watch-list li > div:first-child {
+    grid-column: 1/-1;
+  }
+  .national-strip {
+    grid-template-columns: 1fr;
+  }
+  .warning-filters label,
+  .record-filters label {
+    flex-basis: 100%;
+  }
+  .quality-stats {
+    gap: 0.3rem 1rem;
+  }
+  .coverage-list > div {
+    grid-template-columns: 1fr 1fr;
+  }
+}

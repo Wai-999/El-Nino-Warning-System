@@ -1,3 +1,4 @@
+import { coverageCurrent } from "../risk/engine";
 import { useEffect, useMemo, useState, useId } from "react";
 import { geoMercator, geoPath } from "d3-geo";
 import { forSphericalProjection } from "./geometry";
@@ -41,6 +42,7 @@ export default function MyanmarMap({
         if (
           g.type !== "FeatureCollection" ||
           g.features.length !== 15 ||
+          new Set(g.features.map((f) => f.properties.shapeISO)).size !== 15 ||
           g.features.some(
             (f) =>
               !regionIds.includes(
@@ -170,7 +172,7 @@ export default function MyanmarMap({
                     tabIndex={0}
                     role="button"
                     aria-pressed={p.id === selected}
-                    aria-label={`${regionName(p.id, lang)} — ${metric.value === null ? t("not assessed", "မသတ်မှတ်နိုင်သေး") : metric.label}`}
+                    aria-label={`${regionName(p.id, lang)} — ${metric.value === null ? t("not assessed", "မသတ်မှတ်နိုင်သေး") : layer === "official" && metric.value === 0 ? t("No active official warning found", "သက်တမ်းရှိ တရားဝင်သတိပေးချက် မတွေ့") : metric.label}`}
                     onClick={() => onSelect(p.id)}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
@@ -252,8 +254,18 @@ export default function MyanmarMap({
             </svg>
             {layers.find((l) => l[0] === layer)?.[3] === "level"
               ? t(
-                  label,
-                  ["ပုံမှန်", "အသိပေး", "စောင့်ကြည့်", "သတိပေး", "ပြင်းထန်"][i],
+                  layer === "official" && i === 0
+                    ? "No active official warning found"
+                    : label,
+                  layer === "official" && i === 0
+                    ? "သက်တမ်းရှိ တရားဝင်သတိပေးချက် မတွေ့"
+                    : [
+                        "ပုံမှန်",
+                        "အသိပေး",
+                        "စောင့်ကြည့်",
+                        "သတိပေး",
+                        "ပြင်းထန်",
+                      ][i],
                 )
               : label}
           </span>
@@ -266,7 +278,12 @@ export default function MyanmarMap({
       <p className="map-credit">
         {layers.find((l) => l[0] === layer)?.[3]} ·{" "}
         {layer === "official"
-          ? t("Official coverage unavailable", "တရားဝင်လွှမ်းခြုံဒေတာ မရရှိ")
+          ? coverageCurrent(data, now)
+            ? t(
+                "Checked official coverage; no-warning-found is not an all-clear.",
+                "စစ်ဆေးပြီး တရားဝင်လွှမ်းခြုံမှု — သတိပေးချက် မတွေ့ခြင်းသည် ဘေးကင်းဟု မဆိုလိုပါ။",
+              )
+            : t("Official coverage unavailable", "တရားဝင်လွှမ်းခြုံဒေတာ မရရှိ")
           : ["temperatureAnomaly", "rainAnomaly", "dryness"].includes(layer)
             ? `ERA5 · 0.25° · ${operational.history?.start ?? "—"} → ${operational.history?.end ?? "—"} · 1991–2020`
             : ["overall", "system", "agriculture"].includes(layer)

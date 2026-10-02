@@ -20,3 +20,5 @@ if ("serviceWorker" in navigator && import.meta.env.PROD)
   });
 
 import "./styles/operational.css";
+
+import "./styles/intelligence.css";

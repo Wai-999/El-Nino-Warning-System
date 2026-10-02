@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 import type { Operational } from "../data/operational";
 import type { Snapshot } from "../data/schema";
+import type { Archive } from "../data/archive";
 export type Lang = "my" | "en";
 export type Translate = (en: string, my: string) => string;
 export const AppContext = createContext<{
@@ -11,6 +12,9 @@ export const AppContext = createContext<{
   operational: Operational;
   operationalCached: boolean;
   operationalError: boolean;
+  archive: Archive;
+  archiveError: boolean;
+  archiveCached: boolean;
   loading: boolean;
   lowData: boolean;
 }>(null!);

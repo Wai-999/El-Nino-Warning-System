@@ -157,7 +157,8 @@ test("map failure preserves the location list", async ({ page }) => {
 });
 test("WCAG automated checks in both languages", async ({ page }) => {
   await page.goto("./");
-  await expect(page.locator(".region-shape")).toHaveCount(15);
+  await expect(page.locator(".data-quality")).toBeVisible();
+  await expect(page.locator(".region-shape")).toHaveCount(0);
   await page.evaluate(() => document.fonts.ready);
   let result = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])

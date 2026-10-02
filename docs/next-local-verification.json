@@ -1,0 +1,337 @@
+{
+  "base": "http://127.0.0.1:4173/El-Nino-Warning-System/",
+  "version": "2.1.0",
+  "verifiedAt": "2026-10-02T07:36:50.789Z",
+  "routes": [
+    {
+      "route": "/",
+      "title": "Know the conditions. Prepare today."
+    },
+    {
+      "route": "/warnings",
+      "title": "Warnings & updates"
+    },
+    {
+      "route": "/records",
+      "title": "Records & history"
+    },
+    {
+      "route": "/map",
+      "title": "Your area, in context."
+    },
+    {
+      "route": "/region/MM-04",
+      "title": "Weather, risks and your next steps."
+    },
+    {
+      "route": "/data",
+      "title": "See the evidence behind each signal."
+    },
+    {
+      "route": "/impacts",
+      "title": "El Niño impacts, in context."
+    }
+  ],
+  "viewports": [
+    {
+      "width": 320,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    }
+  ],
+  "console": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "overviewResources": [
+    {
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/assets/index-Bt17qO3Y.js",
+      "bytes": 115629
+    },
+    {
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/assets/index-DfqjEL7Y.css",
+      "bytes": 8890
+    },
+    {
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/icon.svg",
+      "bytes": 407
+    },
+    {
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-400-normal-C_Ri2PLj.woff2",
+      "bytes": 47148
+    },
+    {
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/data/current.json",
+      "bytes": 664
+    },
+    {
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/data/operational.json",
+      "bytes": 5833
+    },
+    {
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/data/archive.json",
+      "bytes": 656
+    }
+  ],
+  "changes": "What changed?\n\n2 Oct 2026, 13:26 MMT → 2 Oct 2026, 14:01 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin and status unchanged. 0 new official bulletins · 0 no longer active in this snapshot\n\nSagaing · Heavy rain\n!\nAttention → \n✓\nLow platform risk\nScreening level decreased\nBago · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nMagway · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nTanintharyi · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nAyeyarwady · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nKachin · Heat stress\n!\nAttention → \n!\nElevated\nScreening level increased\nChin · Heat stress\n✓\nLow platform risk → \n!\nAttention\nScreening level increased\nNay Pyi Taw · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
+  "data": {
+    "checkedAt": "2026-10-02T07:31:35.739Z",
+    "ensoIssuedAt": "2026-09-10T00:00:00.000Z",
+    "forecast": "2026-10-02T07:30:00.000Z",
+    "forecastRetrieved": "2026-10-02T07:31:36.395Z",
+    "reanalysisPeriod": ["2026-08-28", "2026-09-26"],
+    "weatherRegions": 15,
+    "reanalysisRegions": 15,
+    "snapshots": 2,
+    "sourceHealth": {
+      "ecmwf": {
+        "checkedAt": "2026-10-02T07:31:36.395Z",
+        "lastSuccess": "2026-10-02T07:31:36.395Z",
+        "ok": true,
+        "error": null
+      },
+      "era5": {
+        "checkedAt": "2026-10-02T07:31:36.395Z",
+        "lastSuccess": "2026-10-02T07:31:36.395Z",
+        "ok": true,
+        "error": null
+      },
+      "nino34": {
+        "checkedAt": "2026-10-02T07:31:36.395Z",
+        "lastSuccess": "2026-10-02T07:31:36.395Z",
+        "ok": true,
+        "error": null
+      }
+    }
+  },
+  "sourceLinks": [
+    "https://www.dmh.gov.mm/",
+    "https://asmc.asean.org/asmc-seasonal-outlook/",
+    "https://open-meteo.com/en/docs/ecmwf-api",
+    "https://open-meteo.com/en/docs/historical-weather-api",
+    "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+    "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
+    "https://www.fao.org/giews/countrybrief/country.jsp?code=MMR&lang=en",
+    "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health"
+  ],
+  "offline": "passed",
+  "status": "passed"
+}

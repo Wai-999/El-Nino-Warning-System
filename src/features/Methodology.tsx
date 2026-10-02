@@ -1,3 +1,4 @@
+import { DataQuality } from "../components/Intelligence";
 import { useApp, dateLabel } from "../app/context";
 import { PageTitle, Notice, SourceLink } from "../components/shared";
 import { Evidence } from "../components/Operational";
@@ -17,6 +18,7 @@ export default function Methodology() {
           "လွတ်လပ်သော ရာသီဥတုကြိုတင်ပြင်ဆင်ရေး။ ခန့်မှန်းချက်၊ သမိုင်းပြန်လည်ဆန်းစစ်ချက်နှင့် တရားဝင်သုံးသပ်ချက်သည် သီးခြားအထောက်အထား အမျိုးအစားများဖြစ်သည်။",
         )}
       />
+      <DataQuality registry />
       <section className="panel padded">
         <h2>{t("Data status", "ဒေတာအခြေအနေ")}</h2>
         <dl className="indicator-list">
@@ -99,7 +101,12 @@ export default function Methodology() {
             "သတ်မှတ်ချက်များသည် စနစ်ပြင်ဆင်ရေးညွှန်းကိန်းသာဖြစ်ပြီး အစိုးရသတိပေးချက် မဟုတ်ပါ။ မြန်မာသက်ရောက်မှုဒေတာဖြင့် ချိန်ညှိအတည်မပြုရသေးပါ။ အဆင့် — ပုံမှန် → အသိပေး → စောင့်ကြည့် → သတိပေး → ပြင်းထန်။",
           )}
         </p>
-        <div className="table-scroll">
+        <div
+          className="table-scroll"
+          tabIndex={0}
+          role="region"
+          aria-label={t("Screening thresholds table", "စစ်ဆေးသတ်မှတ်ချက်ဇယား")}
+        >
           <table>
             <thead>
               <tr>

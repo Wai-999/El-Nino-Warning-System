@@ -1,3 +1,4 @@
+import { overallLevel } from "../risk/intelligence";
 import { useApp } from "../app/context";
 import { Level, Notice, SourceLink } from "./shared";
 import { mmt, weatherFresh, historyFresh } from "../data/operational";
@@ -213,7 +214,7 @@ export function RegionalProfile({
       </p>
       <h2>{regionName(id, lang)}</h2>
       <div className="row">
-        <Level level={lead?.level ?? "unknown"} />
+        <Level level={overallLevel(signals)} />
         <span>{t("System screening", "စနစ်တွက်ချက်အဆင့်")}</span>
       </div>
       {w ? (
@@ -314,6 +315,17 @@ export function RegionalProfile({
               <dt>{t("30-day rainfall anomaly", "ရက် ၃၀ မိုးရေကွာဟချက်")}</dt>
               <dd>
                 {value(h.rainPercent, "%", true)}
+                <small>
+                  {t(
+                    "Percent of normal",
+                    "ပုံမှန်နှင့် နှိုင်းယှဉ်ရာခိုင်နှုန်း",
+                  )}
+                  :{" "}
+                  {value(
+                    h.rainPercent === null ? null : 100 + h.rainPercent,
+                    "%",
+                  )}
+                </small>
                 <br />
                 <small>{value(h.rainDifference, " mm", true)}</small>
               </dd>
@@ -428,7 +440,15 @@ export function RegionalProfile({
                   ))}
                 </svg>
               )}
-              <div className="table-scroll">
+              <div
+                className="table-scroll"
+                tabIndex={0}
+                role="region"
+                aria-label={t(
+                  "Seven-day forecast table",
+                  "ခုနစ်ရက် ခန့်မှန်းဇယား",
+                )}
+              >
                 <table>
                   <caption>
                     {t(

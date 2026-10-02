@@ -76,8 +76,8 @@ export function signalsFor(
   const wind = w ? threshold(w.next24.gust, [40, 60, 80, 100]) : "unknown";
   let dry: Severity | "unknown" = "unknown";
   if (h) {
-    dry = "normal";
     if (h.rainNormal30 >= 30 && h.rainPercent !== null) {
+      dry = "normal";
       if (h.rainPercent <= -25) dry = "advisory";
       if (h.rainPercent <= -50 && h.dryDays >= 7) dry = "watch";
       if (h.rainPercent <= -75 && h.dryDays >= 14) dry = "warning";
@@ -201,8 +201,7 @@ export function leadingSignal(signals: Signal[]) {
 }
 export function priority(op: Operational, data: Snapshot, now = Date.now()) {
   const official = activeAlerts(data, now)[0];
-  if (official && rank[official.severity] >= 3)
-    return { kind: "official" as const, official };
+  if (official) return { kind: "official" as const, official };
   const regions = op.weather?.regions ?? op.history?.regions ?? [];
   const signals = regions
     .flatMap((r) =>

@@ -1,6 +1,7 @@
 import { Info, ExternalLink, ShieldAlert } from "lucide-react";
-import { useApp, dateLabel } from "../app/context";
+import { useApp } from "../app/context";
 import type { Alert, Severity } from "../data/schema";
+import { mmt } from "../data/operational";
 import { regionName } from "../data/regions";
 export function Level({ level }: { level: Severity | "unknown" }) {
   const { t } = useApp();
@@ -86,7 +87,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
       </h2>
       <p>{alert.description[lang]}</p>
       <p className="meta">
-        {dateLabel(alert.validFrom, lang)} – {dateLabel(alert.validUntil, lang)}
+        {mmt(alert.validFrom, lang)} – {mmt(alert.validUntil, lang)}
       </p>
       <p>
         <strong>{t("Who may be affected", "ထိခိုက်နိုင်သူများ")}:</strong>{" "}
@@ -130,7 +131,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
       <div className="source-row">
         <SourceLink href={alert.source.url}>{alert.source.name}</SourceLink>
         <span>
-          {t("Issued", "ထုတ်ပြန်")} {dateLabel(alert.issuedAt, lang)}
+          {t("Issued", "ထုတ်ပြန်")} {mmt(alert.issuedAt, lang)}
         </span>
       </div>
     </article>

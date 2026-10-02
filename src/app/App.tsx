@@ -1,3 +1,4 @@
+import { version } from "../../package.json";
 import {
   lazy,
   Suspense,
@@ -24,6 +25,8 @@ import {
   Download,
 } from "lucide-react";
 import { AppContext, type Lang } from "./context";
+import { loadArchive } from "../data/loadArchive";
+import { emptyArchive } from "../data/archive";
 import { loadOperational } from "../data/loadOperational";
 import { emptyOperational, mmt } from "../data/operational";
 import { loadSnapshot } from "../data/load";
@@ -37,9 +40,8 @@ const Local = lazy(() =>
 const Region = lazy(() =>
   import("../features/Local").then((m) => ({ default: m.RegionPage })),
 );
-const Warnings = lazy(() =>
-  import("../features/Local").then((m) => ({ default: m.WarningsPage })),
-);
+const Warnings = lazy(() => import("../features/Warnings"));
+const Records = lazy(() => import("../features/Records"));
 const Impacts = lazy(() => import("../features/Impacts"));
 const Prepare = lazy(() => import("../features/Prepare"));
 const Learn = lazy(() => import("../features/Learn"));
@@ -109,6 +111,11 @@ export default function App() {
     cached: false,
     error: false,
   });
+  const [archive, setArchive] = useState({
+    data: emptyArchive,
+    error: false,
+    cached: false,
+  });
   const [lowData, setLowData] = useState(
     () => getPref("mokinn-low-data", "false") === "true",
   );
@@ -121,11 +128,13 @@ export default function App() {
   const initialized = useRef(false);
   async function refresh() {
     setLoading(true);
-    const [official, local] = await Promise.all([
+    const [official, local, saved] = await Promise.all([
       loadSnapshot(),
       loadOperational(),
+      loadArchive(),
     ]);
     setSnapshot(official);
+    setArchive(saved);
     setOperational(local);
     setNow(Date.now());
     setLoading(false);
@@ -194,6 +203,7 @@ export default function App() {
     ["/map", "Map", "မြေပုံ", Map],
     ["/warnings", "Warnings", "သတိပေးချက်များ", TriangleAlert],
     ["/impacts", "Impacts", "သက်ရောက်မှုများ", Layers],
+    ["/records", "Records", "မှတ်တမ်းများ", BookOpen],
     ["/prepare", "Prepare", "ကြိုတင်ပြင်ဆင်ရန်", ClipboardCheck],
     ["/learn", "Learn", "လေ့လာရန်", BookOpen],
     ["/data", "Data & methodology", "ဒေတာနှင့် နည်းလမ်း", Database],
@@ -204,8 +214,7 @@ export default function App() {
     document.title = `${routeInfo ? (lang === "en" ? routeInfo[1] : routeInfo[2]) : "မိုးကင်း"} · Mokinn Myanmar`;
   }, [lang, routeInfo]);
   let page: ReactNode;
-  if (route === "/")
-    page = <Overview selected={selected} onSelect={setSelected} />;
+  if (route === "/") page = <Overview />;
   else if (route === "/map")
     page = <Local selected={selected} onSelect={setSelected} />;
   else if (
@@ -214,6 +223,7 @@ export default function App() {
   )
     page = <Region selected={selected} onSelect={setSelected} />;
   else if (route === "/warnings") page = <Warnings />;
+  else if (route === "/records") page = <Records />;
   else if (route === "/impacts") page = <Impacts />;
   else if (route === "/prepare") page = <Prepare />;
   else if (route === "/learn") page = <Learn />;
@@ -237,6 +247,9 @@ export default function App() {
         operational: operational.data,
         operationalCached: operational.cached || !online,
         operationalError: operational.error,
+        archive: archive.data,
+        archiveError: archive.error,
+        archiveCached: archive.cached || !online,
         loading,
         lowData,
       }}
@@ -386,9 +399,10 @@ export default function App() {
                 <div className="offline-banner" role="status">
                   <WifiOff size={18} />
                   {t(
-                    "Viewing a saved snapshot. Check the original issue dates; this is not a live update. Preparedness checklists remain available.",
+                    "Offline or cached — showing last validated data. Check the original dates below; preparedness checklists remain available.",
                     "သိမ်းထားသောဒေတာကို ပြသနေသည်။ မူရင်းရက်စွဲ စစ်ဆေးပါ။ တိုက်ရိုက်နောက်ဆုံးသတင်း မဟုတ်ပါ။ ပြင်ဆင်ရန်စာရင်းများကို ဆက်သုံးနိုင်သည်။",
                   )}
+                  <span>{mmt(operational.data.generatedAt, lang)}</span>
                 </div>
               )}
               {snapshot.error && (
@@ -429,6 +443,7 @@ export default function App() {
             </ErrorBoundary>
           </main>
           <footer>
+            <span data-testid="release-version">v{version}</span>
             <span>
               © {new Date(now).getFullYear()}{" "}
               {t(

@@ -6,3 +6,5 @@ playwright-report
 test-results
 public/data/operational.json
 scripts/cache/*.json
+
+public/data/archive.json

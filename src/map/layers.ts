@@ -1,8 +1,9 @@
+import { overallLevel } from "../risk/intelligence";
 import type { Operational } from "../data/operational";
 import { weatherFresh, historyFresh } from "../data/operational";
 import type { Snapshot } from "../data/schema";
-import { regionalLevel, rank } from "../risk/engine";
-import { signalsFor, leadingSignal } from "../risk/signals";
+import { regionalLevel, rank, activeAlerts } from "../risk/engine";
+import { signalsFor } from "../risk/signals";
 export const layers = [
   ["overall", "Overall risk", "စုစုပေါင်းအန္တရာယ်", "level"],
   ["temperature", "Temperature", "အပူချိန်", "°C"],
@@ -30,13 +31,12 @@ export function layerValue(
       ? op.history!.regions.find((r) => r.id === id)
       : undefined;
   const signals = signalsFor(op, data, id, now);
-  let level = leadingSignal(signals)?.level ?? "unknown";
+  let level = overallLevel(signals);
   const official = regionalLevel(data, id, now);
   if (layer === "official") level = official;
   else if (
     layer === "overall" &&
-    official !== "unknown" &&
-    (level === "unknown" || rank[official] > rank[level])
+    activeAlerts(data, now).some((a) => a.regionId === id)
   )
     level = official;
   else if (["heat", "dryness", "agriculture"].includes(layer))

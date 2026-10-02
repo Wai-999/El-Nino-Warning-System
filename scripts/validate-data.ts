@@ -25,3 +25,9 @@ for (const stamp of [
 console.log(
   `Validated V2 weather regions: ${op.weather?.regions.length ?? 0}; ERA5 regions: ${op.history?.regions.length ?? 0}.`,
 );
+
+const { validateArchive } = await import("../src/data/archive.ts");
+const archive = validateArchive(
+  JSON.parse(await readFile("public/data/archive.json", "utf8")),
+);
+console.log(`Validated ${archive.snapshots.length} archived summaries.`);

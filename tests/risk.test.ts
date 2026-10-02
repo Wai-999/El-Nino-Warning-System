@@ -38,6 +38,9 @@ const alert: Alert = {
     originalSeverity: "Test fixture",
     retrievedAt: "2026-09-29T00:00:00Z",
   },
+  country: "MM",
+  sourceId: "dmh",
+  sourceLocation: "Mandalay",
   kind: "official-bulletin",
   change: copy,
 };

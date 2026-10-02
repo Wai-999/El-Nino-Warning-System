@@ -1,6 +1,6 @@
 {
   "name": "myanmar-el-nino-warning",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "data:refresh": "node --experimental-strip-types scripts/refresh-data.ts && node --experimental-strip-types scripts/refresh-operational.ts",
+    "data:refresh": "node --experimental-strip-types scripts/refresh-data.ts && node --experimental-strip-types scripts/refresh-operational.ts && node --experimental-strip-types scripts/refresh-archive.ts",
     "data:validate": "node --experimental-strip-types scripts/validate-data.ts"
   },
   "dependencies": {

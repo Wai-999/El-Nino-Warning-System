@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { regionIds } from "./regions.ts";
+import { regionIds, resolveRegion } from "./regions.ts";
 const timestamp = z.string().datetime({ offset: true });
 const localized = z.object({ en: z.string().min(1), my: z.string().min(1) });
 const source = z.object({
@@ -49,6 +49,9 @@ export const alertSchema = z
       publisher: z.enum(["DMH", "WMO", "FAO", "WHO"]),
       originalSeverity: z.string().min(1),
     }),
+    country: z.literal("MM"),
+    sourceId: z.literal("dmh"),
+    sourceLocation: z.string().min(1),
     kind: z.literal("official-bulletin"),
     change: localized,
   })
@@ -58,6 +61,26 @@ export const alertSchema = z
       Date.parse(a.issuedAt) > Date.parse(a.validUntil)
     )
       c.addIssue({ code: "custom", message: "Invalid alert validity period" });
+    if (a.source.publisher !== "DMH")
+      c.addIssue({
+        code: "custom",
+        message:
+          "Only Myanmar issuing authorities may publish Myanmar official warnings",
+      });
+    try {
+      if (resolveRegion(a.sourceLocation) !== a.regionId)
+        c.addIssue({
+          code: "custom",
+          message: "Source location does not match canonical region",
+        });
+    } catch {
+      c.addIssue({
+        code: "custom",
+        message: "Unknown source location; manual geographic review required",
+      });
+    }
+    if (Date.parse(a.source.retrievedAt) < Date.parse(a.issuedAt))
+      c.addIssue({ code: "custom", message: "Retrieval precedes issue" });
     const hosts: { [key: string]: string[] } = {
       DMH: ["dmh.gov.mm"],
       WMO: ["wmo.int", "public.wmo.int"],
