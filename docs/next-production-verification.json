@@ -1,7 +1,7 @@
 {
   "base": "https://wai-999.github.io/El-Nino-Warning-System/",
   "version": "2.1.0",
-  "verifiedAt": "2026-10-02T13:50:43.940Z",
+  "verifiedAt": "2026-10-02T13:58:57.324Z",
   "routes": [
     {
       "route": "/",
@@ -263,59 +263,59 @@
   "httpErrors": [],
   "overviewResources": [
     {
-      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-DfqjEL7Y.css",
-      "bytes": 9083
-    },
-    {
       "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-8kvlpPtw.js",
       "bytes": 117747
+    },
+    {
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-DfqjEL7Y.css",
+      "bytes": 9083
     },
     {
       "url": "https://wai-999.github.io/El-Nino-Warning-System/icon.svg",
       "bytes": 260
     },
     {
-      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/current.json",
-      "bytes": 405
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-400-normal-C_Ri2PLj.woff2",
+      "bytes": 47148
     },
     {
-      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/operational.json",
-      "bytes": 6081
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/current.json",
+      "bytes": 406
     },
     {
       "url": "https://wai-999.github.io/El-Nino-Warning-System/data/archive.json",
-      "bytes": 752
+      "bytes": 836
     },
     {
-      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-400-normal-C_Ri2PLj.woff2",
-      "bytes": 47148
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/operational.json",
+      "bytes": 6052
     }
   ],
-  "changes": "What changed?\n\n2 Oct 2026, 14:01 MMT → 2 Oct 2026, 17:03 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin and status unchanged. 0 new official bulletins · 0 no longer active in this snapshot\n\nMagway · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nMandalay · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nAyeyarwady · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nKachin · Heavy rain\n!\nAttention → \n✓\nLow platform risk\nScreening level decreased\nMon · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
+  "changes": "What changed?\n\n2 Oct 2026, 17:03 MMT → 2 Oct 2026, 20:25 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin and status unchanged. 0 new official bulletins · 0 no longer active in this snapshot\n\nTanintharyi · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nYangon · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nKachin · Heavy rain\n✓\nLow platform risk → \n!\nAttention\nScreening level increased\nInspect dated snapshots",
   "data": {
-    "checkedAt": "2026-10-02T10:33:02.094Z",
+    "checkedAt": "2026-10-02T13:55:39.463Z",
     "ensoIssuedAt": "2026-09-10T00:00:00.000Z",
-    "forecast": "2026-10-02T10:30:00.000Z",
-    "forecastRetrieved": "2026-10-02T10:33:02.496Z",
+    "forecast": "2026-10-02T13:30:00.000Z",
+    "forecastRetrieved": "2026-10-02T13:55:40.023Z",
     "reanalysisPeriod": ["2026-08-28", "2026-09-26"],
     "weatherRegions": 15,
     "reanalysisRegions": 15,
-    "snapshots": 3,
+    "snapshots": 4,
     "sourceHealth": {
       "ecmwf": {
-        "checkedAt": "2026-10-02T10:33:02.496Z",
-        "lastSuccess": "2026-10-02T10:33:02.496Z",
+        "checkedAt": "2026-10-02T13:55:40.023Z",
+        "lastSuccess": "2026-10-02T13:55:40.023Z",
         "ok": true,
         "error": null
       },
       "era5": {
-        "checkedAt": "2026-10-02T10:33:02.496Z",
+        "checkedAt": "2026-10-02T13:55:40.023Z",
         "lastSuccess": "2026-10-02T07:31:36.395Z",
         "ok": true,
         "error": null
       },
       "nino34": {
-        "checkedAt": "2026-10-02T10:33:02.496Z",
+        "checkedAt": "2026-10-02T13:55:40.023Z",
         "lastSuccess": "2026-10-02T07:31:36.395Z",
         "ok": true,
         "error": null

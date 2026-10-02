@@ -1,4 +1,4 @@
-# မိုးကင်း · Mokinn V2
+# မိုးကင်း · Mokinn 2.1
 
 Burmese-first **Myanmar weather, climate, impacts and El Niño preparedness**, with English available.
 
@@ -11,6 +11,8 @@ Burmese-first **Myanmar weather, climate, impacts and El Niño preparedness**, w
 - Ten map layers, source/validity/units, keyboard selection, regional profiles and practical actions.
 - Independent heat, rain, wind, dryness, water and agriculture screening signals; source-backed NOAA ENSO status, monthly Niño 3.4 trend and supported seasonal strength outlook.
 - Current evidence-driven health, agriculture, water and energy implications. Official warnings, system risk signals and information updates have distinct labels.
+- All-region warning matrix and mobile cards with concern, hazard, freshness and official-only filters. Coverage separates monitoring from general context; missing feeds stay explicit.
+- Records with sourced historical reports, dated screening snapshots and real change comparisons. Overview prioritizes ENSO, regional concerns, preparation and data quality.
 - Burmese/English, Low Data Mode, offline preparedness checklists, cached-date labels, self-hosted fonts, no account or tracking.
 
 **Operational limits:** this is an independent preparedness resource, not an official emergency service. Official Myanmar warning-feed coverage is not connected. ECMWF values are forecasts, ERA5 is delayed reanalysis, and regional estimates use three spatial sample cells rather than complete grid coverage. Screening thresholds have not been calibrated against Myanmar impacts; forecast confidence is not invented. Missing observations, rainfall probabilities, soil moisture, river/reservoir levels, crop losses and grid outages stay unavailable. Follow DMH/local instructions for urgent decisions.
@@ -38,11 +40,13 @@ Node 24 required. Development: `http://127.0.0.1:5173/El-Nino-Warning-System/`. 
 
 Temperature anomaly is recent period mean minus the normal for equivalent calendar dates. Rainfall departure is recent total minus expected total; percentages are suppressed for expected rain below 10 mm. Both sides use the same ERA5 model, sampling, units and Myanmar calendar days. Historical periods end approximately six days before ingestion and are explicitly dated.
 
-Signals use the maximum independent usable hazard; there is no opaque AI score. Levels are Normal, Advisory, Watch, Warning, Severe. An unknown input is never normal. ENSO changes context and presentation, not local severity. Immediate official warnings outrank weather screens; immediate high weather screens outrank ENSO context.
+Signals use the maximum independent usable hazard; there is no opaque AI score. The regional matrix presents Low platform risk, Attention, Elevated, High and Very high, mapped to the existing internal threshold levels. An unknown input is never normal. ENSO changes context and presentation, not local severity. All active validated Myanmar official advisories outrank weather screens; immediate high weather screens outrank ENSO context.
 
 Scheduled Actions refresh forecasts four times daily, ERA5 daily, and missing baseline dates only when needed. Validated last-good data survives source failures without rewritten timestamps. Weather becomes stale after 18 hours; ERA5 becomes stale when its final day is more than ten days old. The final workflow health job reports failures after the safe fallback is deployed.
 
 - [Source registry, licenses, resolution and limitations](docs/DATA_SOURCES.md)
+- [Regional coverage, source hierarchy and snapshot comparisons](docs/METHODOLOGY.md)
+- [2.1 release report](NEXT_VERSION_RELEASE_REPORT.md)
 - [Scientific methods and screening thresholds](docs/RISK_METHODOLOGY.md)
 - [Deployment, ingestion and rollback](docs/DEPLOYMENT.md)
 - [V2 audit](docs/V2_AUDIT.md)

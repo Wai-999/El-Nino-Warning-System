@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-02T13:59:54.521Z",
+  "base": "https://wai-999.github.io/El-Nino-Warning-System/",
+  "setup": "Rebuilt real 2.0.1 commit 1c47af7 served only inside an isolated browser at the production origin, then removed interception and updated from the actual deployed worker. HTTP-cache behavior separately reproduced with a local origin.",
+  "errors": [],
+  "before": ["mokinn-4eabf603110a"],
+  "version": "v2.1.0",
+  "after": ["mokinn-4eabf603110a", "mokinn-bd9cd699087c"],
+  "offline": "passed",
+  "status": "passed"
+}

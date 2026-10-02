@@ -1,7 +1,7 @@
 {
   "base": "http://127.0.0.1:4173/El-Nino-Warning-System/",
   "version": "2.1.0",
-  "verifiedAt": "2026-10-02T07:36:50.789Z",
+  "verifiedAt": "2026-10-02T13:55:59.336Z",
   "routes": [
     {
       "route": "/",
@@ -263,8 +263,8 @@
   "httpErrors": [],
   "overviewResources": [
     {
-      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/assets/index-Bt17qO3Y.js",
-      "bytes": 115629
+      "url": "http://127.0.0.1:4173/El-Nino-Warning-System/assets/index-8kvlpPtw.js",
+      "bytes": 115668
     },
     {
       "url": "http://127.0.0.1:4173/El-Nino-Warning-System/assets/index-DfqjEL7Y.css",
@@ -288,34 +288,34 @@
     },
     {
       "url": "http://127.0.0.1:4173/El-Nino-Warning-System/data/archive.json",
-      "bytes": 656
+      "bytes": 739
     }
   ],
-  "changes": "What changed?\n\n2 Oct 2026, 13:26 MMT → 2 Oct 2026, 14:01 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin and status unchanged. 0 new official bulletins · 0 no longer active in this snapshot\n\nSagaing · Heavy rain\n!\nAttention → \n✓\nLow platform risk\nScreening level decreased\nBago · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nMagway · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nTanintharyi · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nAyeyarwady · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nKachin · Heat stress\n!\nAttention → \n!\nElevated\nScreening level increased\nChin · Heat stress\n✓\nLow platform risk → \n!\nAttention\nScreening level increased\nNay Pyi Taw · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
+  "changes": "What changed?\n\n2 Oct 2026, 14:01 MMT → 2 Oct 2026, 17:03 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin and status unchanged. 0 new official bulletins · 0 no longer active in this snapshot\n\nMagway · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nMandalay · Heat stress\n!\nHigh → \n!\nElevated\nScreening level decreased\nAyeyarwady · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nKachin · Heavy rain\n!\nAttention → \n✓\nLow platform risk\nScreening level decreased\nMon · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
   "data": {
-    "checkedAt": "2026-10-02T07:31:35.739Z",
+    "checkedAt": "2026-10-02T10:33:02.094Z",
     "ensoIssuedAt": "2026-09-10T00:00:00.000Z",
-    "forecast": "2026-10-02T07:30:00.000Z",
-    "forecastRetrieved": "2026-10-02T07:31:36.395Z",
+    "forecast": "2026-10-02T10:30:00.000Z",
+    "forecastRetrieved": "2026-10-02T10:33:02.496Z",
     "reanalysisPeriod": ["2026-08-28", "2026-09-26"],
     "weatherRegions": 15,
     "reanalysisRegions": 15,
-    "snapshots": 2,
+    "snapshots": 3,
     "sourceHealth": {
       "ecmwf": {
-        "checkedAt": "2026-10-02T07:31:36.395Z",
-        "lastSuccess": "2026-10-02T07:31:36.395Z",
+        "checkedAt": "2026-10-02T10:33:02.496Z",
+        "lastSuccess": "2026-10-02T10:33:02.496Z",
         "ok": true,
         "error": null
       },
       "era5": {
-        "checkedAt": "2026-10-02T07:31:36.395Z",
+        "checkedAt": "2026-10-02T10:33:02.496Z",
         "lastSuccess": "2026-10-02T07:31:36.395Z",
         "ok": true,
         "error": null
       },
       "nino34": {
-        "checkedAt": "2026-10-02T07:31:36.395Z",
+        "checkedAt": "2026-10-02T10:33:02.496Z",
         "lastSuccess": "2026-10-02T07:31:36.395Z",
         "ok": true,
         "error": null
