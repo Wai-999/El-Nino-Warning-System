@@ -93,10 +93,10 @@ export function OfficialStatus({ count = 0 }: { count?: number }) {
         ? `${t("Official warning", "တရားဝင်သတိပေးချက်")} · ${count}`
         : coverageCurrent(data, now)
           ? t(
-              "No active official warning found",
-              "သက်တမ်းရှိ တရားဝင်သတိပေးချက် မတွေ့",
+              "Official status: no active official warning found",
+              "တရားဝင်အခြေအနေ — သက်တမ်းရှိ သတိပေးချက် မတွေ့",
             )
-          : t("Data unavailable", "ဒေတာ မရရှိ")}
+          : t("Official feed: data unavailable", "တရားဝင်သတင်း — ဒေတာ မရရှိ")}
     </span>
   );
 }

@@ -147,6 +147,7 @@ export default function Warnings() {
           {t("Elevated hazard", "မြင့်တက်သော အန္တရာယ်")}
           <select
             aria-label={t("Elevated hazard", "မြင့်တက်သော အန္တရာယ်")}
+            disabled={mode !== "system"}
             value={hazard}
             onChange={(e) => setHazard(e.target.value)}
           >
@@ -162,6 +163,7 @@ export default function Warnings() {
           {t("Freshness", "သက်တမ်း")}
           <select
             aria-label={t("Freshness", "သက်တမ်း")}
+            disabled={mode !== "system"}
             value={fresh}
             onChange={(e) => setFresh(e.target.value)}
           >
@@ -182,6 +184,7 @@ export default function Warnings() {
           {t("Sort by", "အစီအစဉ်")}
           <select
             aria-label={t("Sort by", "အစီအစဉ်")}
+            disabled={mode !== "system"}
             value={sort}
             onChange={(e) => setSort(e.target.value)}
           >
@@ -199,6 +202,7 @@ export default function Warnings() {
         <label className="checkbox-filter">
           <input
             type="checkbox"
+            disabled={mode !== "system"}
             checked={onlyOfficial}
             onChange={(e) => setOnlyOfficial(e.target.checked)}
           />
