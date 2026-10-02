@@ -1,6 +1,6 @@
 # v2.0.1 upgrade audit
 
-Audited 2 October 2026 UTC (1 October in the user's Pacific timezone), before implementation. Repository baseline: `1c47af7`. Production inspected with Chromium at the existing GitHub Pages URL with `?release=2.0.1`.
+Audited 2 October 2026 UTC, before implementation. Repository baseline: `1c47af7`. Production inspected with Chromium at the existing GitHub Pages URL with `?release=2.0.1`.
 
 ## Verified findings
 

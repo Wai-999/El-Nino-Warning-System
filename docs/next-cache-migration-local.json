@@ -1,0 +1,28 @@
+{
+  "verifiedAt": "2026-10-02T13:54:01.468Z",
+  "before": ["mokinn-4eabf603110a"],
+  "after": ["mokinn-4eabf603110a", "mokinn-512a638860fe"],
+  "version": "v2.1.0",
+  "indexes": {
+    "mokinn-4eabf603110a": "src=\"/El-Nino-Warning-System/assets/index-BJ71_dao.js\"",
+    "mokinn-512a638860fe": "src=\"/El-Nino-Warning-System/assets/index-8kvlpPtw.js\""
+  },
+  "errors": [],
+  "requests": [
+    {
+      "phase": "new",
+      "path": "sw.js",
+      "cache": "max-age=0"
+    },
+    {
+      "phase": "new",
+      "path": "",
+      "cache": "no-cache"
+    },
+    {
+      "phase": "new",
+      "path": "index.html",
+      "cache": "no-cache"
+    }
+  ]
+}

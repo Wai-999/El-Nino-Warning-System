@@ -11,6 +11,8 @@
 - Keep missing/low-baseline precipitation deficit unknown; add correctly labeled percent-of-normal and partial-evidence safeguards to map/profile overall screening.
 - Extend validated offline cache, scheduled archive retention and browser/scientific regression checks. Existing weather, impacts, map and preparedness routes remain available.
 
+- Refresh precached resources past the browser HTTP cache, preventing an old HTML shell from surviving a release upgrade; preserve one prior cache for already-open pages.
+
 ## 2.0.1 — 2026-10-01
 
 Repair impacts evidence, missing/partial-data interpretation, source dates, baselines, accessible mobile presentation and shareable region/sector filters. See IMPACTS_REPAIR_REPORT.md.

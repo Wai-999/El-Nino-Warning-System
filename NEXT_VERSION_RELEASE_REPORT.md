@@ -1,6 +1,6 @@
 # 2.1.0 release report
 
-Status: local validation passed; production deployment and verification pending.
+Status: 2.1.0 deployed and initial production checks passed; final cache-upgrade repair deployment and verification pending.
 
 This is a SemVer minor release from 2.0.1: new compatible pages and capabilities, preserving Pages hosting, hash routes, bilingual preparedness content and the existing operational pipeline. Stricter unsupported official-alert payloads intentionally fail closed.
 
@@ -24,4 +24,6 @@ Local checks passed: formatting, ESLint, TypeScript/production build, source sch
 
 The narrow 320 px check found a pre-existing forecast-table keyboard-scroll gap, repaired by making the scroll region focusable and named. Filter labels were also made explicitly accessible. No browser page overflow was found in the final verification. Burmese layout, routing and accessible names were tested; the scientific terminology has not received an independent Myanmar meteorologist review.
 
-Production workflow and live verification results will be recorded after deployment. A separate isolated browser retains the old 2.0.1 service-worker shell to verify the actual cache transition to 2.1.0.
+The first production verifier run timed out while waiting for refresh completion; a fresh diagnostic run and the complete repeated production verifier passed. It was not treated as a verified application defect. The original live 2.0.1 cache transition separately failed to expose the new release footer. A controlled reproduction using both real release builds and a still-fresh ten-minute HTTP cache established the cause: the new service worker's `cache.addAll` reused old `index.html`, so the new cache permanently retained the old application. Precache requests now use `cache: "reload"`, and cache-policy source changes also change the cache fingerprint. The same real-build migration now loads 2.1.0, requests fresh HTML, preserves one prior shell for open pages and emits no runtime errors. See `docs/next-cache-migration-local.json`.
+
+A regression browser test reproduces the cached prior shell, checks replacement, retention/pruning, prior lazy assets and offline restarts on four routes. Both it and the existing offline test passed. The final production workflow and live upgrade evidence will be recorded after the repair deployment.

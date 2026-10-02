@@ -25,6 +25,8 @@ async function files(dir) {
 }
 const paths = (await files("dist")).filter((p) => !p.endsWith("/sw.js"));
 const hash = createHash("sha256");
+// Cache-policy changes must also produce a new shell cache.
+hash.update(await readFile(new URL(import.meta.url)));
 for (const p of paths) hash.update(await readFile(p));
 const version = hash.digest("hex").slice(0, 12);
 const urls = paths
@@ -34,7 +36,8 @@ await writeFile(
   "dist/sw.js",
   `const CACHE='mokinn-${version}';
 const SHELL=${JSON.stringify(["./", ...urls])};
-self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
+// Bypass the HTTP cache: an older index.html must not enter the new shell cache.
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('mokinn-')&&k!==CACHE).slice(0,-1).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener('fetch',event=>{
  const req=event.request,url=new URL(req.url);

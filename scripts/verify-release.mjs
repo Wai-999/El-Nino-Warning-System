@@ -164,6 +164,10 @@ try {
     viewport: { width: 390, height: 844 },
   });
   const p = await offline.newPage();
+  p.on("pageerror", (e) => results.console.push(e.message));
+  p.on("console", (m) => {
+    if (m.type() === "error") results.console.push(m.text());
+  });
   await p.goto(base + "?release=" + expected + "#/");
   await p.getByRole("button", { name: "Switch to English" }).click();
   await p.waitForFunction(
@@ -172,6 +176,7 @@ try {
   await p.evaluate(() => navigator.serviceWorker.ready);
   await p.waitForFunction(() => !!navigator.serviceWorker.controller);
   await offline.setOffline(true);
+  await p.reload();
   for (const route of ["/", "/warnings", "/records", "/prepare"]) {
     await p.goto(base + "?release=" + expected + "#" + route);
     await p.locator("h1").waitFor();
@@ -201,6 +206,12 @@ try {
       httpErrors: results.httpErrors.length,
     }),
   );
+} catch (error) {
+  results.status = "failed";
+  results.error = String(error);
+  if (process.argv[3])
+    await writeFile(process.argv[3], JSON.stringify(results, null, 2) + "\n");
+  throw error;
 } finally {
   await browser.close();
 }
