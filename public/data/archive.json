@@ -924,6 +924,160 @@
           "evidenceCount": 4
         }
       ]
+    },
+    {
+      "method": "screening-2.1",
+      "recordedAt": "2026-10-03T14:45:33.021Z",
+      "weatherPeriod": "2026-10-03T14:30:00.000Z → 2026-10-04T14:30:00.000Z",
+      "historyPeriod": "2026-08-29 → 2026-09-27",
+      "sourceIds": [
+        "ecmwf",
+        "era5",
+        "noaa"
+      ],
+      "units": "temperature °C; rainfall mm; departure %; gust km/h",
+      "baseline": "ERA5 1991–2020",
+      "enso": "El Niño Advisory",
+      "ensoIssuedAt": "2026-09-10T00:00:00.000Z",
+      "officialIds": [],
+      "coverage": 75,
+      "regions": [
+        {
+          "id": "MM-01",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "advisory",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-02",
+          "level": "warning",
+          "heat": "warning",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-03",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-04",
+          "level": "warning",
+          "heat": "warning",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-05",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-06",
+          "level": "warning",
+          "heat": "warning",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-07",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-11",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "advisory",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-12",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-13",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-14",
+          "level": "advisory",
+          "heat": "advisory",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-15",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-16",
+          "level": "watch",
+          "heat": "watch",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-17",
+          "level": "advisory",
+          "heat": "advisory",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        },
+        {
+          "id": "MM-18",
+          "level": "warning",
+          "heat": "warning",
+          "rain": "normal",
+          "dryness": "normal",
+          "wind": "normal",
+          "evidenceCount": 4
+        }
+      ]
     }
   ],
   "bulletins": []
