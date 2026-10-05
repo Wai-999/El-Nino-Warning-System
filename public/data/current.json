@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checkedAt": "2026-10-05T00:59:50.069Z",
+  "checkedAt": "2026-10-05T11:33:54.266Z",
   "enso": {
     "status": "El Niño Advisory",
     "issuedAt": "2026-09-10T00:00:00.000Z",
@@ -8,7 +8,7 @@
     "source": {
       "name": "NOAA Climate Prediction Center",
       "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
-      "retrievedAt": "2026-10-05T00:59:50.069Z"
+      "retrievedAt": "2026-10-05T11:33:54.266Z"
     },
     "outlook": null,
     "kind": "official-assessment",
