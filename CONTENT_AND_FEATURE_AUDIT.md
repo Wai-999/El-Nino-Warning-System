@@ -26,7 +26,7 @@ WHO Myanmar offers Burmese public-health materials. WHO/UN August 2026 reporting
 
 ## Post-implementation check
 
-The local production build passed the enforced ownership checks in [release verification](docs/health-2.2-local-verification.json). Full ENSO occurs only on Summary, full coverage only on Data, clinical topic detail only on Health, videos and full ASMC seasonal context only on Learn, and historical report cards only on Records. The map appears only on Map; the regional detail route retains source-dated weather profiles and brief cross-links. Preparedness keeps checklists and a short emergency reminder linking to Health.
+The local production build and the final real Pages deployment passed the enforced ownership checks in [local verification](docs/health-2.2-local-verification.json) and [production verification](docs/health-2.2-production-verification.json). Full ENSO occurs only on Summary, full coverage only on Data, clinical topic detail only on Health, videos and full ASMC seasonal context only on Learn, and historical report cards only on Records. The map appears only on Map; the regional detail route retains source-dated weather profiles and brief cross-links. Preparedness keeps checklists and a short emergency reminder linking to Health.
 
 | Route         | Full ENSO | Coverage matrix | Clinical topic | Videos | Historical report cards | Map shapes | Decision KPIs | Seasonal context |
 | ------------- | --------: | --------------: | -------------: | -----: | ----------------------: | ---------: | ------------: | ---------------: |
@@ -41,4 +41,4 @@ The local production build passed the enforced ownership checks in [release veri
 | /learn        |         0 |               0 |              0 |      2 |                       0 |          0 |             0 |                1 |
 | /prepare      |         0 |               0 |              0 |      0 |                       0 |          0 |             0 |                0 |
 
-Counts describe primary content components in the local build, not claims of current hazard coverage. Production ownership verification remains pending. Brief emergency summaries and selected-location hazard summaries intentionally link to the authoritative content home rather than duplicating its full detail.
+Counts describe primary content components verified in both the local build and real version 2.2.0 production on 8 October 2026; they are not claims of current hazard coverage. Brief emergency summaries and selected-location hazard summaries intentionally link to the authoritative content home rather than duplicating its full detail. Final production verification also checked 64 route/width/language combinations, canonical regional selection, nine Health topics, source dates, offline routes and the current source-parsed CPC outlook.

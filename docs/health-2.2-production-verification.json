@@ -1,7 +1,7 @@
 {
   "base": "https://wai-999.github.io/El-Nino-Warning-System/",
   "version": "2.2.0",
-  "verifiedAt": "2026-10-08T18:30:22.019Z",
+  "verifiedAt": "2026-10-08T18:40:32.071Z",
   "routes": [
     {
       "route": "/",
@@ -619,10 +619,11 @@
   "console": [],
   "failedRequests": [],
   "httpErrors": [],
+  "ensoText": "OFFICIAL ENSO ASSESSMENT · TROPICAL PACIFIC\n\nEl Niño Advisory\n\nIssued: 8 Oct 2026 · Current assessment · Next discussion: 12 Nov 2026\n\nSeasonal strength outlook: > 83% · Strong to very strong El Niño · Through January-March 2027\nProbability of Pacific event strength, not a Myanmar weather probability.\n\nNOAA CPC · Read persistence and outlook\n(opens in a new tab)\nNiño 3.4 monthly SST anomaly · +2.8°C\n\nEl Niño can shift the likelihood of heat and rainfall patterns. Today’s local weather needs its own evidence.",
   "overviewResources": [
     {
-      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-CqLNJVAp.js",
-      "bytes": 114967
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-CpJgoa_E.js",
+      "bytes": 115173
     },
     {
       "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-DxrlIwJV.css",
@@ -638,18 +639,14 @@
     },
     {
       "url": "https://wai-999.github.io/El-Nino-Warning-System/data/current.json",
-      "bytes": 404
+      "bytes": 482
     },
     {
       "url": "https://wai-999.github.io/El-Nino-Warning-System/data/operational.json",
-      "bytes": 5991
-    },
-    {
-      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/archive.json",
-      "bytes": 2122
+      "bytes": 5996
     }
   ],
-  "changes": "What changed?\n\n8 Oct 2026, 09:51 MMT → 9 Oct 2026, 00:57 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin or status changed. 0 new official bulletins · 0 no longer active in this snapshot\n\nMon · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
+  "changes": "What changed?\n\nA comparison requires two distinct validated snapshots. No earlier change is assumed when history is missing or only a baseline is available.\n\nInspect dated snapshots",
   "healthSources": [
     "https://www.cdc.gov/food-safety/signs-symptoms/",
     "https://www.who.int/activities/promoting-safe-food-handling/promoting-safe-food-handling",
@@ -660,29 +657,36 @@
     "https://www.youtube.com/watch?v=ukmjwAJBGmE"
   ],
   "data": {
-    "checkedAt": "2026-10-08T18:27:11.742Z",
+    "checkedAt": "2026-10-08T18:37:26.231Z",
     "ensoIssuedAt": "2026-10-08T00:00:00.000Z",
-    "forecast": "2026-10-08T17:30:00.000Z",
-    "forecastRetrieved": "2026-10-08T18:27:12.151Z",
+    "ensoOutlook": {
+      "percent": 83,
+      "greaterThan": true,
+      "period": "January-March 2027",
+      "eventStrength": "strong-to-very-strong",
+      "periodRelation": "through"
+    },
+    "forecast": "2026-10-08T18:30:00.000Z",
+    "forecastRetrieved": "2026-10-08T18:37:26.757Z",
     "reanalysisPeriod": ["2026-09-03", "2026-10-02"],
     "weatherRegions": 15,
     "reanalysisRegions": 15,
-    "snapshots": 20,
+    "snapshots": 21,
     "sourceHealth": {
       "ecmwf": {
-        "checkedAt": "2026-10-08T18:27:12.151Z",
-        "lastSuccess": "2026-10-08T18:27:12.151Z",
+        "checkedAt": "2026-10-08T18:37:26.757Z",
+        "lastSuccess": "2026-10-08T18:37:26.757Z",
         "ok": true,
         "error": null
       },
       "era5": {
-        "checkedAt": "2026-10-08T18:27:12.151Z",
+        "checkedAt": "2026-10-08T18:37:26.757Z",
         "lastSuccess": "2026-10-08T03:21:28.911Z",
         "ok": true,
         "error": null
       },
       "nino34": {
-        "checkedAt": "2026-10-08T18:27:12.151Z",
+        "checkedAt": "2026-10-08T18:37:26.757Z",
         "lastSuccess": "2026-10-08T03:21:28.911Z",
         "ok": true,
         "error": null
