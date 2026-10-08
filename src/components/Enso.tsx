@@ -41,12 +41,20 @@ export function EnsoPanel() {
             · {t("Next discussion", "နောက်ထုတ်ပြန်ရက်")}:{" "}
             {dateLabel(enso.validUntil.slice(0, 10) + "T00:00:00+06:30", lang)}
           </p>
-          {enso.outlook && (
+          {enso.outlook ? (
             <p>
               {t("Seasonal strength outlook", "ရာသီအလိုက် ပြင်းအားအလားအလာ")}:{" "}
               {enso.outlook.greaterThan ? " > " : ""}
               {enso.outlook.percent}% ·{" "}
-              {t("Very strong El Niño", "အလွန်အားကောင်းသော အယ်လ်နီညို")} ·{" "}
+              {enso.outlook.eventStrength === "strong-to-very-strong"
+                ? t(
+                    "Strong to very strong El Niño",
+                    "အားကောင်းမှ အလွန်အားကောင်းအဆင့်ရှိ အယ်လ်နီညို",
+                  )
+                : t("Very strong El Niño", "အလွန်အားကောင်းသော အယ်လ်နီညို")}{" "}
+              ·{" "}
+              {enso.outlook.periodRelation === "through" &&
+                t("Through ", "ဆက်လက်တည်ရှိမည့်ကာလ — ")}
               {enso.outlook.period}
               <br />
               <small>
@@ -55,6 +63,13 @@ export function EnsoPanel() {
                   "ပစိဖိတ်ဖြစ်ရပ် ပြင်းအားဖြစ်နိုင်နှုန်းဖြစ်ပြီး မြန်မာမိုးလေဝသ ဖြစ်နိုင်နှုန်း မဟုတ်ပါ။",
                 )}
               </small>
+            </p>
+          ) : (
+            <p>
+              {t(
+                "Seasonal strength outlook unavailable in the validated snapshot. Read the original CPC outlook below.",
+                "အတည်ပြုဒေတာတွင် ရာသီအလိုက် ပြင်းအားအလားအလာ မရရှိနိုင်ပါ။ အောက်ပါ မူရင်း CPC အလားအလာကို ဖတ်ပါ။",
+              )}
             </p>
           )}
           <SourceLink href={enso.source.url}>

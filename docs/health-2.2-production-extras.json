@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-08T18:30:22.211Z",
+  "version": "2.2.0",
+  "thumbnailRendering": [
+    {
+      "src": "https://i.ytimg.com/vi/2gZIJYf7y0c/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+    },
+    {
+      "src": "https://i.ytimg.com/vi/ukmjwAJBGmE/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+    }
+  ],
+  "burmeseHealth": "လက္ခဏာသိ၍ စောစီးစွာ ဆောင်ရွက်ပါ။",
+  "simulatedFailure": "passed: real production code, isolated browser interception, no server mutation",
+  "simulatedStale": "passed: browser clock +14 days; original source dates retained",
+  "status": "passed"
+}

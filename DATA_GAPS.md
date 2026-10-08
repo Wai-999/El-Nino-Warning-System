@@ -20,7 +20,7 @@ Quality gate: named publisher, Myanmar geography, source issue/validity period, 
 
 ## Climate foundations evaluated
 
-- [NOAA CPC discussion](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml): 10 September 2026 issue, next discussion 8 October; automated source parser already preserves status, source dates and stated strength outlook. No hard-coded deterioration claim added.
+- [NOAA CPC discussion](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml): the 4 October review used the 10 September issue. Deployment review on 8 October recovered that day's new bulletin, next discussion 12 November. Its changed wording required a parser repair to preserve the strong-to-very-strong event range, greater-than probability and through-period; [live source check](docs/health-2.2-noaa-verification.json). Unknown formats remain visibly unavailable. No hard-coded deterioration claim added.
 - [WMO El Niño / La Niña August update](https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026), published 3 September: persistence/strength context; strength does not scale regional impacts mechanically.
 - [WMO SON 2026 GSCU](https://wmo.int/resources/publication-series/global-seasonal-climate-updates/gscu-son2026), published 3 September, updated 10 September: multi-model ocean-driver outlook includes Pacific and Indian Ocean conditions. Used as context/reference; numerical ocean outlook not reinterpreted as Myanmar temperature or rain probability.
 - [ASMC seasonal outlook](https://asmc.asean.org/asmc-seasonal-outlook/): September–November issue dated 2 September; seasonal regional context retains source validity and limitations, now owned by Learn.

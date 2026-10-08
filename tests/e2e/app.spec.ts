@@ -1,5 +1,41 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+test("ENSO strength preserves the event range and missing outlook stays explicit", async ({
+  page,
+}) => {
+  let unavailable = false;
+  await page.route("**/data/current.json", async (route) => {
+    const response = await route.fetch();
+    const json = await response.json();
+    json.enso.outlook = unavailable
+      ? null
+      : {
+          percent: 83,
+          greaterThan: true,
+          period: "January-March 2027",
+          eventStrength: "strong-to-very-strong",
+          periodRelation: "through",
+        };
+    await route.fulfill({ response, json });
+  });
+  await page.goto("./");
+  await expect(page.locator(".enso-v2")).toContainText(
+    "အားကောင်းမှ အလွန်အားကောင်းအဆင့်ရှိ အယ်လ်နီညို",
+  );
+  await page.getByRole("button", { name: "Switch to English" }).click();
+  await expect(page.locator(".enso-v2")).toContainText(
+    "83% · Strong to very strong El Niño · Through January-March 2027",
+  );
+  await expect(page.locator(".enso-v2")).toContainText(
+    "Probability of Pacific event strength, not a Myanmar weather probability.",
+  );
+  unavailable = true;
+  await page.reload();
+  await expect(page.locator(".enso-v2")).toContainText(
+    "Seasonal strength outlook unavailable",
+  );
+  await expect(page.locator(".enso-v2")).not.toContainText("83%");
+});
 test("Burmese default, language, navigation, all requested screens", async ({
   page,
 }) => {

@@ -1,0 +1,40 @@
+{
+  "startedAt": "2026-10-08T06:42:19.730Z",
+  "errors": [],
+  "routes": [
+    {
+      "route": "/",
+      "title": "Know the conditions. Prepare today."
+    },
+    {
+      "route": "/health",
+      "title": "Know the signs. Act early."
+    },
+    {
+      "route": "/learn",
+      "title": "One ocean. Connected weather."
+    },
+    {
+      "route": "/impacts",
+      "title": "Potential impacts for Myanmar"
+    },
+    {
+      "route": "/warnings",
+      "title": "Warnings & updates"
+    },
+    {
+      "route": "/records",
+      "title": "Records & history"
+    },
+    {
+      "route": "/prepare",
+      "title": "A little preparation goes a long way."
+    }
+  ],
+  "before": "v2.1.0",
+  "beforeCaches": ["mokinn-e45a5e9df1ed"],
+  "after": "v2.2.0",
+  "afterCaches": ["mokinn-e45a5e9df1ed", "mokinn-a488d862dd4c"],
+  "status": "passed",
+  "finishedAt": "2026-10-08T18:30:28.787Z"
+}

@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-08T18:34:58.659Z",
+  "status": "passed",
+  "bulletin": {
+    "status": "El Niño Advisory",
+    "issuedAt": "2026-10-08T00:00:00.000Z",
+    "validUntil": "2026-11-12T23:59:59.000Z",
+    "source": {
+      "name": "NOAA Climate Prediction Center",
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+      "retrievedAt": "2026-10-08T18:34:58.655Z"
+    },
+    "outlook": {
+      "percent": 83,
+      "greaterThan": true,
+      "period": "January-March 2027",
+      "eventStrength": "strong-to-very-strong",
+      "periodRelation": "through"
+    },
+    "kind": "official-assessment",
+    "resolution": "Tropical Pacific; not a Myanmar forecast"
+  }
+}

@@ -8,6 +8,7 @@
 - Make four real Summary KPIs auditable through units, calculation, period, baseline, source/retrieval and decision meaning. Preserve unavailable official totals and incomplete-data lower bounds.
 - Add two verified BBC Burmese videos with dated context, duration, editorial notes, optional external thumbnails and Low Data behavior. No player/autoplay or scientific use of media.
 - Align Niño 3.4 freshness with the source registry, defer archive requests to Summary/Records, preserve offline cache upgrade behavior and extend safety/accessibility tests.
+- Recover the October 8 CPC strength outlook after its source wording changed; preserve event range, probability lower bound and forecast horizon, and explicitly label unparsed outlooks unavailable.
 - Document source review, missing integrations and unresolved independent clinical/Burmese review. No fabricated new warnings, incidence, drought/flood probability or crop losses.
 
 ## 2.1.0 — 2026-10-02

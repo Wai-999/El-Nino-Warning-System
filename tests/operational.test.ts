@@ -157,7 +157,31 @@ describe("source validation", () => {
       percent: 90,
       greaterThan: true,
       period: "Northern Hemisphere fall and winter 2026-27",
+      eventStrength: "very-strong",
+      periodRelation: "during",
     });
+  });
+  it("preserves the October CPC strength range, lower bound and through horizon", () => {
+    const bulletin =
+      "NWS 8 October 2026 ENSO Alert System Status: El Niño Advisory Synopsis: El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than an 83&#37; chance). A separate threshold has a 54% chance in September-November. The next ENSO Diagnostics Discussion is scheduled for 12 November 2026";
+    const now = new Date("2026-10-08T18:00:00Z");
+    expect(parseNoaa(bulletin, now).outlook).toEqual({
+      percent: 83,
+      greaterThan: true,
+      period: "January-March 2027",
+      eventStrength: "strong-to-very-strong",
+      periodRelation: "through",
+    });
+    const otherEvent = bulletin.replace(
+      "strong-to-very strong El Niño",
+      "ENSO-neutral conditions",
+    );
+    expect(parseNoaa(otherEvent, now).outlook).toBeNull();
+    expect(
+      parseNoaa(bulletin.replace("greater than an 83", "an 71"), now).outlook
+        ?.greaterThan,
+    ).toBe(false);
+    expect(() => parseNoaa(bulletin.replace("an 83", "an 183"), now)).toThrow();
   });
   it("excludes current/past precipitation from next-24-hour totals", () => {
     const sample = { regionId: "MM-04", lat: 22, lon: 96, weight: 1 };

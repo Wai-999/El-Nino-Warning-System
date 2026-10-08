@@ -116,6 +116,10 @@ export const bulletinSchema = z
         percent: z.number().min(0).max(100),
         greaterThan: z.boolean(),
         period: z.string().max(160),
+        eventStrength: z
+          .enum(["very-strong", "strong-to-very-strong"])
+          .optional(),
+        periodRelation: z.enum(["during", "through"]).optional(),
       })
       .nullable()
       .optional(),

@@ -1,7 +1,7 @@
 {
-  "base": "http://127.0.0.1:4175/El-Nino-Warning-System/",
+  "base": "https://wai-999.github.io/El-Nino-Warning-System/",
   "version": "2.2.0",
-  "verifiedAt": "2026-10-08T18:27:43.045Z",
+  "verifiedAt": "2026-10-08T18:30:22.019Z",
   "routes": [
     {
       "route": "/",
@@ -621,35 +621,35 @@
   "httpErrors": [],
   "overviewResources": [
     {
-      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/assets/index-CqLNJVAp.js",
-      "bytes": 113260
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-CqLNJVAp.js",
+      "bytes": 114967
     },
     {
-      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/assets/index-DxrlIwJV.css",
-      "bytes": 8916
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/index-DxrlIwJV.css",
+      "bytes": 9112
     },
     {
-      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/icon.svg",
-      "bytes": 407
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/icon.svg",
+      "bytes": 260
     },
     {
-      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/data/current.json",
-      "bytes": 664
-    },
-    {
-      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/data/operational.json",
-      "bytes": 5752
-    },
-    {
-      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/data/archive.json",
-      "bytes": 1847
-    },
-    {
-      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-400-normal-C_Ri2PLj.woff2",
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-400-normal-C_Ri2PLj.woff2",
       "bytes": 47148
+    },
+    {
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/current.json",
+      "bytes": 404
+    },
+    {
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/operational.json",
+      "bytes": 5991
+    },
+    {
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/data/archive.json",
+      "bytes": 2122
     }
   ],
-  "changes": "What changed?\n\n7 Oct 2026, 17:37 MMT → 8 Oct 2026, 09:51 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin and status unchanged. 0 new official bulletins · 0 no longer active in this snapshot\n\nYangon · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nAyeyarwady · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
+  "changes": "What changed?\n\n8 Oct 2026, 09:51 MMT → 9 Oct 2026, 00:57 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin or status changed. 0 new official bulletins · 0 no longer active in this snapshot\n\nMon · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
   "healthSources": [
     "https://www.cdc.gov/food-safety/signs-symptoms/",
     "https://www.who.int/activities/promoting-safe-food-handling/promoting-safe-food-handling",
@@ -660,29 +660,29 @@
     "https://www.youtube.com/watch?v=ukmjwAJBGmE"
   ],
   "data": {
-    "checkedAt": "2026-10-08T03:21:28.459Z",
-    "ensoIssuedAt": "2026-09-10T00:00:00.000Z",
-    "forecast": "2026-10-08T02:30:00.000Z",
-    "forecastRetrieved": "2026-10-08T03:21:28.911Z",
+    "checkedAt": "2026-10-08T18:27:11.742Z",
+    "ensoIssuedAt": "2026-10-08T00:00:00.000Z",
+    "forecast": "2026-10-08T17:30:00.000Z",
+    "forecastRetrieved": "2026-10-08T18:27:12.151Z",
     "reanalysisPeriod": ["2026-09-03", "2026-10-02"],
     "weatherRegions": 15,
     "reanalysisRegions": 15,
-    "snapshots": 19,
+    "snapshots": 20,
     "sourceHealth": {
       "ecmwf": {
-        "checkedAt": "2026-10-08T03:21:28.911Z",
-        "lastSuccess": "2026-10-08T03:21:28.911Z",
+        "checkedAt": "2026-10-08T18:27:12.151Z",
+        "lastSuccess": "2026-10-08T18:27:12.151Z",
         "ok": true,
         "error": null
       },
       "era5": {
-        "checkedAt": "2026-10-08T03:21:28.911Z",
+        "checkedAt": "2026-10-08T18:27:12.151Z",
         "lastSuccess": "2026-10-08T03:21:28.911Z",
         "ok": true,
         "error": null
       },
       "nino34": {
-        "checkedAt": "2026-10-08T03:21:28.911Z",
+        "checkedAt": "2026-10-08T18:27:12.151Z",
         "lastSuccess": "2026-10-08T03:21:28.911Z",
         "ok": true,
         "error": null

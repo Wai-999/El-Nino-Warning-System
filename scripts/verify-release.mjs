@@ -98,6 +98,7 @@ try {
     );
     results.contentOwnership.push(content);
     if (route === "/") {
+      results.ensoText = await page.locator(".enso-v2").innerText();
       const resources = await page.evaluate(() =>
         performance
           .getEntriesByType("resource")
@@ -304,6 +305,7 @@ try {
   results.data = {
     checkedAt: official.checkedAt,
     ensoIssuedAt: official.enso?.issuedAt,
+    ensoOutlook: official.enso?.outlook,
     forecast: op.weather?.validAt,
     forecastRetrieved: op.weather?.fetchedAt,
     reanalysisPeriod: [op.history?.start, op.history?.end],
@@ -312,6 +314,26 @@ try {
     snapshots: archive.snapshots.length,
     sourceHealth: op.health,
   };
+  if (official.enso?.outlook) {
+    const outlook = official.enso.outlook;
+    assert(
+      results.ensoText.includes(
+        `${outlook.greaterThan ? "> " : ""}${outlook.percent}%`,
+      ) &&
+        results.ensoText.includes(outlook.period) &&
+        results.ensoText.includes(
+          outlook.eventStrength === "strong-to-very-strong"
+            ? "Strong to very strong El Niño"
+            : "Very strong El Niño",
+        ),
+      "ENSO displayed outlook differs from the dated source snapshot",
+    );
+  } else if (official.enso) {
+    assert(
+      results.ensoText.includes("Seasonal strength outlook unavailable"),
+      "Missing ENSO outlook is silent",
+    );
+  }
   await page.goto(base + "#/data");
   await ready();
   results.sourceLinks = await page
