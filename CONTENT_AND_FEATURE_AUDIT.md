@@ -28,18 +28,17 @@ WHO Myanmar offers Burmese public-health materials. WHO/UN August 2026 reporting
 
 The local production build passed the enforced ownership checks in [release verification](docs/health-2.2-local-verification.json). Full ENSO occurs only on Summary, full coverage only on Data, clinical topic detail only on Health, videos and full ASMC seasonal context only on Learn, and historical report cards only on Records. The map appears only on Map; the regional detail route retains source-dated weather profiles and brief cross-links. Preparedness keeps checklists and a short emergency reminder linking to Health.
 
-| Route | Full ENSO | Coverage matrix | Clinical topic | Videos | Historical report cards | Map shapes | Decision KPIs | Seasonal context |
-| ----- | --------: | --------------: | -------------: | -----: | ----------------------: | ---------: | ------------: | ---------------: |
-
-| / | 1 | 0 | 0 | 0 | 0 | 0 | 4 | 0 |
-| /warnings | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| /records | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
-| /map | 0 | 0 | 0 | 0 | 0 | 15 | 0 | 0 |
-| /region/MM-04 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| /data | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
-| /impacts | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| /health | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| /learn | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 1 |
-| /prepare | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Route         | Full ENSO | Coverage matrix | Clinical topic | Videos | Historical report cards | Map shapes | Decision KPIs | Seasonal context |
+| ------------- | --------: | --------------: | -------------: | -----: | ----------------------: | ---------: | ------------: | ---------------: |
+| /             |         1 |               0 |              0 |      0 |                       0 |          0 |             4 |                0 |
+| /warnings     |         0 |               0 |              0 |      0 |                       0 |          0 |             0 |                0 |
+| /records      |         0 |               0 |              0 |      0 |                       2 |          0 |             0 |                0 |
+| /map          |         0 |               0 |              0 |      0 |                       0 |         15 |             0 |                0 |
+| /region/MM-04 |         0 |               0 |              0 |      0 |                       0 |          0 |             0 |                0 |
+| /data         |         0 |               1 |              0 |      0 |                       0 |          0 |             0 |                0 |
+| /impacts      |         0 |               0 |              0 |      0 |                       0 |          0 |             0 |                0 |
+| /health       |         0 |               0 |              1 |      0 |                       0 |          0 |             0 |                0 |
+| /learn        |         0 |               0 |              0 |      2 |                       0 |          0 |             0 |                1 |
+| /prepare      |         0 |               0 |              0 |      0 |                       0 |          0 |             0 |                0 |
 
 Counts describe primary content components in the local build, not claims of current hazard coverage. Production ownership verification remains pending. Brief emergency summaries and selected-location hazard summaries intentionally link to the authoritative content home rather than duplicating its full detail.

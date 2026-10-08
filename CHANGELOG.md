@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.2.0 — 2026-10-07
+## 2.2.0 — 2026-10-08
 
 - Add a lazy bilingual Health page with nine sourced exposure/recognition/first-aid/medical/emergency/prevention topics, WHO Burmese resources and independently dated qualitative WHO surveillance.
 - Default Impacts to Myanmar, support canonical regional deep links, expose national ranges of regional samples and explicit unsupported-sector evidence gaps.

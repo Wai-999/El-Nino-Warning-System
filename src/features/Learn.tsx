@@ -39,9 +39,11 @@ export default function Learn() {
             "အယ်လ်နီညို ပိုပြင်းခြင်းသည် မြန်မာနေရာတိုင်း သက်ရောက်မှု အချိုးကျပိုပြင်းမည်ဟု မဆိုလိုပါ။ ရာသီ၊ မုတ်သုံ၊ အိန္ဒိယသမုဒ္ဒရာအခြေအနေ၊ အပူပိုင်းမုန်တိုင်း၊ မြေပြင်နှင့် ဘေးထိတွေ့မှုတို့လည်း အရေးပါသည်။",
           )}
         </p>
-        <SourceLink href="https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026">
-          WMO · El Niño / La Niña Update
-        </SourceLink>
+        <p>
+          <SourceLink href="https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026">
+            WMO · El Niño / La Niña Update
+          </SourceLink>
+        </p>
         <p>
           <a href="#/">
             {t(
@@ -188,9 +190,11 @@ export default function Learn() {
             </div>
           ))}
         </dl>
-        <SourceLink href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/">
-          NOAA CPC · RONI definition and index
-        </SourceLink>
+        <p>
+          <SourceLink href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/">
+            NOAA CPC · RONI definition and index
+          </SourceLink>
+        </p>
         <p>
           <a href="#/health">
             {t(
