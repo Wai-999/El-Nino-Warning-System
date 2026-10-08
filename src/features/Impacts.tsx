@@ -468,21 +468,6 @@ export default function Impacts() {
           )}
         </p>
       )}
-      <nav className="sector-tabs" aria-label={t("Sectors", "ကဏ္ဍများ")}>
-        {sectorIds.map((id) => {
-          const Icon = icons[id];
-          return (
-            <button
-              key={id}
-              aria-pressed={filters.sector === id}
-              onClick={() => change({ sector: id })}
-            >
-              <Icon size={22} aria-hidden="true" />
-              {t(...sectorEvidence[id].name)}
-            </button>
-          );
-        })}
-      </nav>
       {showOperational && (
         <section className="panel padded impact-priorities">
           <h2>
@@ -622,6 +607,21 @@ export default function Impacts() {
             <Evidence />
           </section>
         ))}
+      <nav className="sector-tabs" aria-label={t("Sectors", "ကဏ္ဍများ")}>
+        {sectorIds.map((id) => {
+          const Icon = icons[id];
+          return (
+            <button
+              key={id}
+              aria-pressed={filters.sector === id}
+              onClick={() => change({ sector: id })}
+            >
+              <Icon size={22} aria-hidden="true" />
+              {t(...sectorEvidence[id].name)}
+            </button>
+          );
+        })}
+      </nav>
       {filters.evidence !== "historical" && (
         <section className="panel padded">
           <p className="evidence-label">

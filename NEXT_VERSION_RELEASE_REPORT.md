@@ -38,4 +38,4 @@ The first expanded release-verifier attempt incorrectly treated the cumulative r
 
 ## Deployment and production verification
 
-Pending. Completion requires the existing GitHub Pages workflow to succeed and independent checks of the real deployed version, all primary routes, source dates, mobile/Burmese rendering, source/media links and offline behavior. This report will be updated with the actual workflow/commit and production evidence before the task is reported complete.
+The initial CI run was intentionally superseded before deployment to place sector controls after top pressures and metrics, matching the requested mobile order. Six focused Impacts browser tests passed after this adjustment. Final deployment pending. Completion requires the existing GitHub Pages workflow to succeed and independent checks of the real deployed version, all primary routes, source dates, mobile/Burmese rendering, source/media links and offline behavior. This report will be updated with the actual workflow/commit and production evidence before the task is reported complete.

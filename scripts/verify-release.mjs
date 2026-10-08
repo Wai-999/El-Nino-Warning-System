@@ -134,6 +134,21 @@ try {
           "Potential impacts for Myanmar",
         "Impacts must default to Myanmar",
       );
+      const order = await page.evaluate(() =>
+        [
+          "#impact-region",
+          ".impact-priorities",
+          ".impact-snapshot",
+          ".sector-tabs",
+        ].map(
+          (selector) =>
+            document.querySelector(selector).getBoundingClientRect().top,
+        ),
+      );
+      assert(
+        order.every((y, i) => i === 0 || y > order[i - 1]),
+        "Impacts mobile content priority is out of order",
+      );
       assert(
         (await page.locator("#impact-region").inputValue()) === "MM",
         "Invalid country default",
