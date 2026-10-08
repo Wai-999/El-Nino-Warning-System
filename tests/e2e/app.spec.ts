@@ -14,6 +14,7 @@ test("Burmese default, language, navigation, all requested screens", async ({
     "map",
     "warnings",
     "impacts",
+    "health",
     "prepare",
     "learn",
     "data",
@@ -103,7 +104,7 @@ test("ENSO educational diagram and scenario controls change content", async ({
   await expect(page.locator(".diagram-caption")).toContainText(
     "trade winds weaken",
   );
-  await page.locator("summary").first().click();
+  await page.locator(".lesson-list summary").first().click();
   await expect(page.locator(".lesson-body").first()).toBeVisible();
   await page.goto("./#/impacts");
   await page.getByRole("button", { name: "Agriculture", exact: true }).click();
@@ -126,9 +127,7 @@ test("invalid and failed data have explicit fallbacks", async ({ page }) => {
   await expect(page.locator("main")).toContainText(
     "latest data could not be loaded",
   );
-  await expect(page.locator(".national-strip")).toContainText(
-    "Coverage unavailable",
-  );
+  await expect(page.locator(".national-strip")).toContainText("Unavailable");
   await expect(page.locator(".enso-v2")).toContainText(
     "ENSO assessment unavailable",
   );
@@ -157,7 +156,7 @@ test("map failure preserves the location list", async ({ page }) => {
 });
 test("WCAG automated checks in both languages", async ({ page }) => {
   await page.goto("./");
-  await expect(page.locator(".data-quality")).toBeVisible();
+  await expect(page.locator(".data-summary")).toBeVisible();
   await expect(page.locator(".region-shape")).toHaveCount(0);
   await page.evaluate(() => document.fonts.ready);
   let result = await new AxeBuilder({ page })
@@ -171,6 +170,7 @@ test("WCAG automated checks in both languages", async ({ page }) => {
     "map",
     "warnings",
     "impacts",
+    "health",
     "data",
   ]) {
     await page.goto(`./#/${route}`);

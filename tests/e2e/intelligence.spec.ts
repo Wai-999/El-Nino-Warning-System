@@ -5,7 +5,7 @@ test("overview avoids the map and exposes traceable coverage and real history", 
 }) => {
   await page.goto("./?release=2.1.0#/");
   await page.getByRole("button", { name: "Switch to English" }).click();
-  await expect(page.locator(".data-quality")).toBeVisible();
+  await expect(page.locator(".data-summary")).toBeVisible();
   await expect(page.locator(".region-shape")).toHaveCount(0);
   expect(
     await page.evaluate(() =>
@@ -20,12 +20,11 @@ test("overview avoids the map and exposes traceable coverage and real history", 
   await expect(page.locator(".changes-panel")).toContainText(
     /distinct validated snapshots|recorded screening snapshots/,
   );
-  await expect(page.locator(".data-quality")).toContainText("Monitoring");
-  await expect(page.locator(".data-quality")).toContainText(
-    "Context / guidance",
-  );
-  await expect(page.locator(".regional-context")).toContainText(
-    "REGIONAL CONTEXT — NOT A MYANMAR OFFICIAL WARNING",
+  await expect(page.locator("[data-kpi]")).toHaveCount(4);
+  await expect(page.locator(".regional-context")).toHaveCount(0);
+  await page.locator('[data-kpi="coverage"] summary').click();
+  await expect(page.locator('[data-kpi="coverage"]')).toContainText(
+    "15 regions × 8 categories",
   );
 });
 test("warning matrix retains all regions and supports region, concern, hazard, freshness and official filters", async ({
@@ -62,7 +61,7 @@ test("warning matrix retains all regions and supports region, concern, hazard, f
   await page.keyboard.press("Enter");
   await expect(page.locator("main")).toContainText("Why am I seeing this?");
   await expect(page.locator("main")).toContainText(
-    "National crop calendar context",
+    "Potential impacts and sector evidence",
   );
   expect(new URL(page.url()).searchParams.get("release")).toBe("2.1.0");
 });
@@ -85,7 +84,7 @@ test("missing and stale sources cannot silently become low platform risk", async
   await expect(page.locator(".warning-matrix tbody tr").first()).toContainText(
     "Insufficient data",
   );
-  await expect(page.locator(".data-quality")).toContainText("0/90");
+  await expect(page.locator(".data-summary")).toContainText("30/120");
   await page.getByLabel("Severity", { exact: true }).selectOption("unknown");
   await expect(page.locator(".warning-matrix tbody tr")).toHaveCount(15);
 });

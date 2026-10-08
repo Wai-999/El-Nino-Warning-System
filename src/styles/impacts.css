@@ -132,3 +132,18 @@
     width: auto;
   }
 }
+
+.impact-priority-list li {
+  padding: 0.8rem 0;
+}
+.impact-gaps details {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #dde5df;
+}
+.impact-gaps summary {
+  font-weight: 650;
+  min-height: 32px;
+}
+.impact-filters .location-select {
+  margin: 0;
+}

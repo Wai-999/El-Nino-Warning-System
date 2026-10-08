@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+const { version } = JSON.parse(await readFile("package.json", "utf8"));
 
 // A prior release with a still-fresh HTTP cache reproduces the production bug.
 // The new release uses the real built service worker and all real assets.
@@ -90,7 +91,7 @@ test("new shell replaces HTTP-cached HTML and retains the previous shell's lazy 
       await changed;
     });
     await page.reload();
-    await expect(page.getByTestId("release-version")).toHaveText("v2.1.0");
+    await expect(page.getByTestId("release-version")).toHaveText(`v${version}`);
     expect(requested).toContain("index.html");
     expect(
       await page.evaluate(
@@ -105,9 +106,11 @@ test("new shell replaces HTTP-cached HTML and retains the previous shell's lazy 
     await expect(page.locator(".refresh-button")).toBeEnabled();
     await context.setOffline(true);
     for (const route of ["/", "/warnings", "/records", "/prepare"]) {
-      await page.goto(base + "?release=2.1.0#" + route);
+      await page.goto(base + `?release=${version}#` + route);
       await page.reload();
-      await expect(page.getByTestId("release-version")).toHaveText("v2.1.0");
+      await expect(page.getByTestId("release-version")).toHaveText(
+        `v${version}`,
+      );
       await expect(page.locator(".offline-banner")).toBeVisible();
     }
     expect(errors).toEqual([]);

@@ -3,8 +3,11 @@ import { HeartPulse, Sprout, Droplets, Zap } from "lucide-react";
 import { useApp } from "../app/context";
 import { PageTitle, Notice, Level, SourceLink } from "../components/shared";
 import { Evidence, SignalCard, value } from "../components/Operational";
-import { EnsoPanel } from "../components/Enso";
-import { regions, regionName } from "../data/regions";
+import { LocationSelect } from "../components/LocationSelect";
+import { locationName } from "../risk/locations";
+import { nationalImpactMetrics } from "../risk/impactMetrics";
+import "../styles/health.css";
+import { regionName } from "../data/regions";
 import {
   mmt,
   weatherState,
@@ -20,7 +23,6 @@ import {
   type ImpactFilters,
 } from "../risk/impacts";
 import {
-  historicalImpacts,
   sectorEvidence,
   impactSources,
   lastVerified,
@@ -334,7 +336,16 @@ function MyanmarSnapshot({
   );
 }
 export default function Impacts() {
-  const { t, lang, data, now, operational: op, loading } = useApp();
+  const {
+    t,
+    lang,
+    data,
+    now,
+    operational: op,
+    loading,
+    operationalError,
+    operationalCached,
+  } = useApp();
   const [filters, setFilters] = useState(() => impactFilters(location.hash));
   useEffect(() => {
     const sync = () => setFilters(impactFilters(location.hash));
@@ -342,56 +353,86 @@ export default function Impacts() {
     return () => window.removeEventListener("hashchange", sync);
   }, []);
   const change = (next: Partial<ImpactFilters>) => {
-    const value = { ...filters, ...next };
-    setFilters(value);
-    location.hash = impactHash(value);
+    const updated = { ...filters, ...next };
+    setFilters(updated);
+    location.hash = impactHash(updated);
   };
   const sector = sectorEvidence[filters.sector],
     assessment = assessSector(op, data, filters.sector, now);
-  const selected = assessment.assessed.find((r) => r.id === filters.region)!;
+  const selected = assessment.assessed.find((r) => r.id === filters.region);
   const showOperational = ["all", "forecast", "observed"].includes(
     filters.evidence,
   );
-  const visibleSignals = selected.signals.filter(
-    (s) =>
-      filters.evidence === "all" ||
-      (filters.evidence === "forecast" && s.source === "ecmwf") ||
-      (filters.evidence === "observed" && s.source === "era5"),
+  const visibleSignals =
+    selected?.signals.filter(
+      (s) =>
+        filters.evidence === "all" ||
+        (filters.evidence === "forecast" && s.source === "ecmwf") ||
+        (filters.evidence === "observed" && s.source === "era5"),
+    ) ?? [];
+  const metrics = nationalImpactMetrics(op, now).filter(
+    (m) => filters.evidence === "all" || m.kind === filters.evidence,
   );
+  const gaps = [
+    [
+      "Drought",
+      "မိုးခေါင်မှု",
+      "Precipitation deficit is available; validated SPI/SPEI and soil-moisture impacts are not.",
+      "မိုးရေလိုငွေ ရရှိသော်လည်း အတည်ပြု SPI/SPEI၊ မြေအစိုဓာတ် သက်ရောက်မှု မရရှိပါ။",
+    ],
+    [
+      "Flood / heavy rain",
+      "ရေကြီး / မိုးသည်း",
+      "Heavy-rain forecasts are available. River levels and inundation forecasts are not connected.",
+      "မိုးသည်းခန့်မှန်းချက် ရရှိသည်။ မြစ်ရေအမြင့်နှင့် ရေလွှမ်းခန့်မှန်းဒေတာ မချိတ်ဆက်ထားပါ။",
+    ],
+    [
+      "Wildfire / haze",
+      "တောမီး / မီးခိုးမြူ",
+      "No verified fire or air-quality exposure series is connected.",
+      "အတည်ပြု မီးလောင် သို့မဟုတ် လေထုထိတွေ့မှုဒေတာ မချိတ်ဆက်ထားပါ။",
+    ],
+    [
+      "Food security",
+      "စားနပ်ရိက္ခာဖူလုံရေး",
+      "Crop weather does not measure food access, nutrition or prices.",
+      "သီးနှံမိုးလေဝသက စားနပ်ရိက္ခာလက်လှမ်းမီမှု၊ အာဟာရနှင့် ဈေးနှုန်း မတိုင်းတာပါ။",
+    ],
+    [
+      "Livelihoods",
+      "အသက်မွေးဝမ်းကျောင်း",
+      "No current local income, labour-exposure or loss series is available here.",
+      "လက်ရှိဒေသဝင်ငွေ၊ လုပ်သားထိတွေ့မှုနှင့် ဆုံးရှုံးမှုဒေတာ ဤနေရာတွင် မရရှိပါ။",
+    ],
+    [
+      "Ecosystems",
+      "ဂေဟစနစ်",
+      "No validated local biodiversity or ecosystem-impact series is connected.",
+      "အတည်ပြု ဒေသဇီဝမျိုးစုံနှင့် ဂေဟသက်ရောက်မှုဒေတာ မချိတ်ဆက်ထားပါ။",
+    ],
+  ];
   return (
     <div className="impacts-page">
       <PageTitle
         eyebrow={t(
-          "EL NIÑO → WEATHER → POTENTIAL IMPACTS",
-          "အယ်လ်နီညို → မိုးလေဝသ → ဖြစ်နိုင်သက်ရောက်မှု",
+          "LOCATION → EVIDENCE → ACTION",
+          "တည်နေရာ → အထောက်အထား → လုပ်ဆောင်ရန်",
         )}
         title={t(
-          "El Niño impacts, in context.",
-          "အယ်လ်နီညို သက်ရောက်မှုကို နားလည်ရန်။",
+          `Potential impacts for ${locationName(filters.region, lang)}`,
+          `${locationName(filters.region, lang)} အတွက် ဖြစ်နိုင်သက်ရောက်မှုများ`,
         )}
         description={t(
-          "For Myanmar: what the evidence shows, what remains uncertain, and how to prepare. ENSO changes probabilities; it does not determine every local event.",
-          "မြန်မာနိုင်ငံအတွက် အထောက်အထား၊ မသေချာမှုနှင့် ပြင်ဆင်ရန်။ ENSO သည် ဖြစ်နိုင်ခြေကို ပြောင်းလဲစေသော်လည်း ဒေသဖြစ်ရပ်တိုင်းကို မဆုံးဖြတ်ပါ။",
+          "Select a location to inspect potential pressures. These are hazard screens and conditional scenarios, not measured damage or disease forecasts.",
+          "တည်နေရာရွေး၍ ဖြစ်နိုင်သောဖိအားများကို ကြည့်ပါ။ ဘေးစစ်ဆေးမှုနှင့် အခြေအနေပေါ်မူတည်သော သုံးသပ်ချက်များဖြစ်ပြီး ပျက်စီးမှုတိုင်းတာချက် သို့မဟုတ် ရောဂါခန့်မှန်းချက် မဟုတ်ပါ။",
         )}
       />
-      <EnsoPanel />
       <div className="impact-filters">
-        <div>
-          <label htmlFor="impact-region">
-            {t("State / Region", "တိုင်း / ပြည်နယ်")}
-          </label>
-          <select
-            id="impact-region"
-            value={filters.region}
-            onChange={(e) => change({ region: e.target.value })}
-          >
-            {regions.map(([id, en, my]) => (
-              <option key={id} value={id}>
-                {t(en, my)}
-              </option>
-            ))}
-          </select>
-        </div>
+        <LocationSelect
+          id="impact-region"
+          value={filters.region}
+          onChange={(region) => change({ region })}
+        />
         <div>
           <label htmlFor="impact-evidence">
             {t("Evidence type", "အထောက်အထားအမျိုးအစား")}
@@ -411,14 +452,21 @@ export default function Impacts() {
           </select>
         </div>
       </div>
-      <p className="meta">
-        {t(
-          "The address includes your sector, region and evidence selection; copy it to share this view.",
-          "လိပ်စာတွင် ကဏ္ဍ၊ ဒေသနှင့် အထောက်အထားရွေးချယ်မှု ပါဝင်သည်။ ဤမြင်ကွင်းကို မျှဝေရန် လိပ်စာကူးပါ။",
-        )}
-      </p>
-      {showOperational && (
-        <MyanmarSnapshot region={filters.region} evidence={filters.evidence} />
+      {!loading && operationalError && (
+        <Notice>
+          {t(
+            "Latest regional data could not be loaded. Retained data keeps its original dates; missing evidence remains unavailable.",
+            "နောက်ဆုံးဒေသဒေတာ မရယူနိုင်ပါ။ သိမ်းထားသောဒေတာသည် မူရင်းရက်စွဲကို ထားရှိပြီး မရှိလျှင် မရရှိနိုင်ဟု ပြသည်။",
+          )}
+        </Notice>
+      )}
+      {operationalCached && (
+        <p className="meta">
+          {t(
+            "Cached copy — check source dates.",
+            "သိမ်းထားသောဒေတာ — မူရင်းရက်စွဲ စစ်ဆေးပါ။",
+          )}
+        </p>
       )}
       <nav className="sector-tabs" aria-label={t("Sectors", "ကဏ္ဍများ")}>
         {sectorIds.map((id) => {
@@ -435,264 +483,274 @@ export default function Impacts() {
           );
         })}
       </nav>
-      <section className="panel padded" aria-labelledby="sector-title">
-        <p className="evidence-label">
-          {t(
-            "SCENARIO · POTENTIAL IMPACT",
-            "အခြေအနေအလိုက် ဖြစ်နိုင်သက်ရောက်မှု",
-          )}
-        </p>
-        <h2 id="sector-title">
-          {t(...sector.name)} · {regionName(filters.region, lang)}
-        </h2>
-        <p className="lead">{t(...sector.what)}</p>
-        <p>
-          <strong>{t("Who may be affected", "ထိခိုက်နိုင်သူများ")}: </strong>
-          {t(...sector.who)}
-        </p>
-        <p className="signal-action">
-          <strong>{t("Prepare", "ပြင်ဆင်ရန်")}: </strong>
-          {t(...sector.prepare)}
-        </p>
-        <details>
-          <summary>
-            {t(
-              "Why, when and how strong is the evidence?",
-              "အကြောင်းရင်း၊ ကာလနှင့် အထောက်အထား ခိုင်မာမှု",
-            )}
-          </summary>
-          <dl className="impact-explanation">
-            <dt>{t("Mechanism", "ဖြစ်ပေါ်ပုံ")}</dt>
-            <dd>{t(...sector.why)}</dd>
-            <dt>{t("When", "ကာလ")}</dt>
-            <dd>{t(...sector.when)}</dd>
-            <dt>{t("Confidence", "ယုံကြည်နိုင်မှု")}</dt>
-            <dd>
-              {t(
-                "Local impact likelihood is unknown; no calibrated probability or severity of damage is available.",
-                "ဒေသထိခိုက်မှု ဖြစ်နိုင်ခြေ မသိရပါ။ အတည်ပြုထားသော ဖြစ်နိုင်နှုန်းနှင့် ပျက်စီးပြင်းအား မရရှိပါ။",
-              )}
-            </dd>
-          </dl>
-          <p>{t(...sector.limitation)}</p>
-        </details>
-        <Sources ids={sector.sources} />
-        <p className="meta">
-          {t(
-            "Platform preparedness suggestions informed by these sources; not a government order or a prediction of damage.",
-            "ရင်းမြစ်များကို ကိုးကားသော စနစ်၏ ပြင်ဆင်ရေးအကြံပြုချက်ဖြစ်သည်။ အစိုးရအမိန့် သို့မဟုတ် ပျက်စီးမှုခန့်မှန်းချက် မဟုတ်ပါ။",
-          )}
-        </p>
-      </section>
       {showOperational && (
-        <section className="impact-drivers" aria-labelledby="drivers-title">
-          <h2 id="drivers-title">
-            {t("Evidence behind this sector", "ဤကဏ္ဍအတွက် အထောက်အထား")}
+        <section className="panel padded impact-priorities">
+          <h2>
+            {t("Top potential pressures", "ဦးစားပေး စောင့်ကြည့်ရန် ဖိအားများ")}{" "}
+            · {t(...sector.name)}
           </h2>
+          <p>
+            {t(
+              "FORECAST / OBSERVED REANALYSIS · highest available sector drivers. This is not a damage ranking or an official warning. The evidence filter changes the details below; the summary uses all sector drivers.",
+              "ခန့်မှန်း / အတိတ်ပြန်လည်ဆန်းစစ်ဒေတာ · ရရှိသော အမြင့်ဆုံးကဏ္ဍအကြောင်းရင်းများ။ ပျက်စီးမှုအဆင့်စဉ် သို့မဟုတ် တရားဝင်သတိပေးချက် မဟုတ်ပါ။ ရွေးချယ်မှုသည် အသေးစိတ်ကို ပြောင်းပြီး အကျဉ်းချုပ်တွင် ကဏ္ဍဒေတာအားလုံး သုံးသည်။",
+            )}
+          </p>
           {loading ? (
             <p role="status">
               {t("Loading sector drivers…", "ကဏ္ဍအထောက်အထား ရယူနေသည်…")}
             </p>
+          ) : selected ? (
+            <>
+              <Level level={selected.level} />
+              {!selected.complete && (
+                <p>
+                  <strong>
+                    {t("Incomplete evidence", "အထောက်အထား မပြည့်စုံ")}
+                  </strong>
+                </p>
+              )}
+              <div className="signal-grid">
+                {visibleSignals.map((s) => (
+                  <SignalCard key={s.hazard} signal={s} />
+                ))}
+              </div>
+              {!visibleSignals.length && (
+                <p>
+                  {t(
+                    "No driver of this evidence type is used for this sector.",
+                    "ဤကဏ္ဍတွင် ဤအထောက်အထားအမျိုးအစားကို မသုံးပါ။",
+                  )}
+                </p>
+              )}
+            </>
           ) : (
             <>
               <p>
+                {assessment.complete}/15{" "}
                 {t(
-                  "Overall screening for selected region",
-                  "ရွေးထားသောဒေသ အကျဉ်းချုပ်စစ်ဆေးမှု",
-                )}
-                : <Level level={selected.level} />
-                {!selected.complete && (
-                  <strong>
-                    {" "}
-                    · {t("Incomplete evidence", "အထောက်အထား မပြည့်စုံ")}
-                  </strong>
-                )}
+                  "regions: all sector drivers assessed",
+                  "ဒေသ — ကဏ္ဍအကြောင်းရင်းအားလုံး စစ်ဆေးနိုင်",
+                )}{" "}
+                · {assessment.partial} {t("partial", "တစ်စိတ်တစ်ပိုင်း")} ·{" "}
+                {assessment.unavailable} {t("unavailable", "မရရှိနိုင်")}
               </p>
-              <p>
-                {t(
-                  "The summary uses all sector drivers; the evidence filter only changes the details shown below. Levels are planning thresholds, not impact probabilities or official warnings.",
-                  "အကျဉ်းချုပ်တွင် ကဏ္ဍအကြောင်းရင်းအားလုံး သုံးသည်။ ရွေးချယ်မှုက အောက်ပါအသေးစိတ်ပြသမှုကိုသာ ပြောင်းသည်။ အဆင့်များသည် ပြင်ဆင်ရေးသတ်မှတ်ချက်ဖြစ်ပြီး ထိခိုက်ဖြစ်နိုင်နှုန်း သို့မဟုတ် တရားဝင်သတိပေးချက် မဟုတ်ပါ။",
-                )}
-              </p>
-              {visibleSignals.length ? (
-                <div className="signal-grid">
-                  {visibleSignals.map((s) => (
-                    <SignalCard key={s.hazard} signal={s} />
-                  ))}
-                </div>
-              ) : (
-                <Notice>
-                  {t(
-                    "No driver of this evidence type is used for the selected sector.",
-                    "ဤကဏ္ဍတွင် ရွေးထားသော အထောက်အထားအမျိုးအစားကို မသုံးပါ။",
-                  )}
-                </Notice>
-              )}
-              <details className="panel padded impact-coverage">
-                <summary>
-                  {t(
-                    "Myanmar coverage and regions to check",
-                    "မြန်မာဒေတာလွှမ်းခြုံမှုနှင့် စစ်ဆေးရန်ဒေသများ",
-                  )}
-                </summary>
+              <ul className="impact-priority-list">
+                {assessment.elevated.slice(0, 5).map((r) => (
+                  <li key={r.id}>
+                    <a href={impactHash({ ...filters, region: r.id })}>
+                      {regionName(r.id, lang)}
+                    </a>{" "}
+                    <Level level={r.level} />
+                    {!r.complete && (
+                      <small>
+                        {" "}
+                        · {t("Incomplete evidence", "အထောက်အထား မပြည့်စုံ")}
+                      </small>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              {!assessment.elevated.length && (
                 <p>
-                  {assessment.complete} / 15{" "}
                   {t(
-                    "regions: all sector drivers assessed",
-                    "ဒေသ — ကဏ္ဍအကြောင်းရင်းအားလုံး စစ်ဆေးနိုင်",
+                    "No elevated driver is available. Check completeness: missing evidence does not mean zero risk.",
+                    "မြင့်တက်သောအကြောင်းရင်း မရရှိပါ။ ပြည့်စုံမှုစစ်ဆေးပါ။ ဒေတာမရှိခြင်းသည် အန္တရာယ်မရှိဟု မဆိုလိုပါ။",
                   )}
-                  ; {assessment.partial} {t("partial", "တစ်စိတ်တစ်ပိုင်း")};{" "}
-                  {assessment.unavailable} {t("unavailable", "မရရှိနိုင်")}.
                 </p>
-                {assessment.complete + assessment.partial === 0 ? (
-                  <Notice>
-                    {t(
-                      "No regional assessment is available. Missing data does not mean zero risk.",
-                      "ဒေသသုံးသပ်ချက် မရရှိနိုင်ပါ။ ဒေတာမရှိခြင်းသည် အန္တရာယ်မရှိခြင်း မဟုတ်ပါ။",
-                    )}
-                  </Notice>
-                ) : (
-                  <p>
-                    {assessment.elevated.length}{" "}
-                    {t(
-                      "regions have at least one elevated known driver. This is not an observed impact count or a ranking of damage.",
-                      "ဒေသတွင် ရရှိသောအကြောင်းရင်းတစ်ခုခု မြင့်တက်နေသည်။ အမှန်တကယ် ထိခိုက်ဒေသအရေအတွက် သို့မဟုတ် ပျက်စီးမှုအဆင့်စဉ် မဟုတ်ပါ။",
-                    )}
-                  </p>
+              )}
+              <a href="#/warnings">
+                {t(
+                  "All regional screening and official warning coverage",
+                  "ဒေသစစ်ဆေးမှုအားလုံးနှင့် တရားဝင်သတိပေး လွှမ်းခြုံမှု",
                 )}
-                <ul>
-                  {assessment.elevated.map((r) => (
-                    <li key={r.id}>
-                      <a href={impactHash({ ...filters, region: r.id })}>
-                        {regionName(r.id, lang)}
-                      </a>{" "}
-                      <Level level={r.level} />
-                      {!r.complete &&
-                        ` · ${t("Incomplete evidence", "အထောက်အထား မပြည့်စုံ")}`}
-                    </li>
-                  ))}
-                </ul>
-              </details>
+              </a>
             </>
           )}
         </section>
       )}
-      <div className="action-strip">
-        <h2>
-          {t(
-            "Prepare for your household or workplace",
-            "အိမ်နှင့် လုပ်ငန်းခွင်အတွက် ပြင်ဆင်ပါ",
-          )}
-        </h2>
-        <a className="button primary" href="#/prepare">
-          {t("Open preparedness checklist", "ပြင်ဆင်ရန်စာရင်း ဖွင့်ပါ")}
-        </a>
-      </div>
-      <details className="panel padded impact-mechanism">
-        <summary>
-          {t(
-            "How El Niño can influence impacts",
-            "အယ်လ်နီညိုက သက်ရောက်မှုကို မည်သို့ ပြောင်းလဲနိုင်သလဲ",
-          )}
-        </summary>
-        <p>
-          {t(
-            "Pacific warming and weaker trade winds shift tropical rainfall and atmospheric circulation. This changes the likelihood of weather patterns elsewhere; a local hazard still needs local evidence.",
-            "ပစိဖိတ်ပူနွေးမှုနှင့် ကုန်သွယ်လေအားနည်းမှုကြောင့် အပူပိုင်းမိုးရေနှင့် လေထုလည်ပတ်မှု ပြောင်းလဲသည်။ အခြားဒေသ မိုးလေဝသဖြစ်နိုင်ခြေ ပြောင်းနိုင်သော်လည်း ဒေသဘေးအတွက် ဒေသအထောက်အထား လိုသည်။",
-          )}
-        </p>
-        <ol className="impact-chain">
-          {[
-            ["El Niño: ocean + atmosphere", "အယ်လ်နီညို — ပင်လယ်နှင့် လေထု"],
-            ["Circulation changes", "လေထုလည်ပတ်မှု ပြောင်းလဲခြင်း"],
-            [
-              "Weather probabilities change",
-              "မိုးလေဝသဖြစ်နိုင်ခြေ ပြောင်းလဲခြင်း",
-            ],
-            [
-              "Hazard + exposure + vulnerability",
-              "ဘေးအခြေအနေ + ထိတွေ့မှု + ခံနိုင်ရည်နည်းမှု",
-            ],
-            ["Potential impact", "ဖြစ်နိုင်သက်ရောက်မှု"],
-          ].map(([en, my]) => (
-            <li key={en}>{t(en, my)}</li>
-          ))}
-        </ol>
-        <Sources ids={["mechanism"]} />
-        <p>
-          {t(
-            "A hazard is a potentially harmful condition. Exposure means people or assets in its path; vulnerability describes susceptibility to harm. Risk concerns potential harm; an impact is an actual outcome. This page screens hazards and explains scenarios, without measuring losses.",
-            "ဘေးအခြေအနေဆိုသည်မှာ ထိခိုက်စေနိုင်သော အခြေအနေဖြစ်သည်။ ထိတွေ့မှုမှာ ထိုနေရာရှိ လူနှင့် ပစ္စည်း၊ ထိခိုက်လွယ်မှုမှာ ခံနိုင်ရည်နည်းခြင်းဖြစ်သည်။ အန္တရာယ်သည် ထိခိုက်နိုင်မှုဖြစ်ပြီး သက်ရောက်မှုသည် ဖြစ်ပွားပြီးရလဒ်ဖြစ်သည်။ ဤစာမျက်နှာသည် ဘေးအခြေအနေစစ်ဆေးပြီး ဖြစ်နိုင်ပုံကို ရှင်းပြကာ ဆုံးရှုံးမှု မတိုင်းတာပါ။",
-          )}
-        </p>
-      </details>
-      {(filters.evidence === "all" || filters.evidence === "historical") && (
-        <section className="impact-history" aria-labelledby="history-title">
-          <h2 id="history-title">
+      {showOperational &&
+        (selected ? (
+          <MyanmarSnapshot
+            region={filters.region}
+            evidence={filters.evidence}
+          />
+        ) : (
+          <section className="panel padded impact-snapshot">
+            <h2>
+              {t(
+                "Temperature / heat & rainfall across Myanmar",
+                "မြန်မာတစ်ဝန်း အပူချိန် / အပူနှင့် မိုးရေ",
+              )}
+            </h2>
+            <p>
+              {t(
+                "Ranges of sampled regional estimates, not national averages. Choose a State/Region for amounts and source details.",
+                "ဒေသနမူနာတန်ဖိုးများ၏ အပိုင်းအခြားဖြစ်ပြီး နိုင်ငံပျမ်းမျှ မဟုတ်ပါ။ အသေးစိတ်အတွက် တိုင်း/ပြည်နယ် ရွေးပါ။",
+              )}
+            </p>
+            <div className="impact-evidence-grid">
+              {metrics.map((m) => (
+                <article className="impact-data-block" key={m.id}>
+                  <p className="evidence-label">{t(...m.kindLabel)}</p>
+                  <StateLabel state={m.state} />
+                  <h3>{t(...m.label)}</h3>
+                  <strong>
+                    {m.range
+                      ? `${value(m.range[0], m.unit)} – ${value(m.range[1], m.unit)}`
+                      : t("Unavailable", "မရရှိနိုင်")}
+                  </strong>
+                  <p>
+                    {t(
+                      "Regions with usable values",
+                      "အသုံးပြုနိုင်သော ဒေသတန်ဖိုး",
+                    )}
+                    : {m.count}/15
+                  </p>
+                  <p className="meta">
+                    {m.period ?? t("Period unavailable", "ကာလ မရရှိ")} ·{" "}
+                    {t(...m.baseline)}
+                  </p>
+                  <p>{t(...m.why)}</p>
+                  <p className="meta">
+                    {t("Retrieved", "ရယူချိန်")}:{" "}
+                    {m.updatedAt ? mmt(m.updatedAt, lang) : "—"}
+                  </p>
+                  <SourceLink href={m.sourceUrl}>{m.source}</SourceLink>
+                </article>
+              ))}
+            </div>
+            <Evidence />
+          </section>
+        ))}
+      {filters.evidence !== "historical" && (
+        <section className="panel padded">
+          <p className="evidence-label">
             {t(
-              "Historical evidence, not today’s forecast",
-              "သမိုင်းအထောက်အထား — ယနေ့ခန့်မှန်းချက် မဟုတ်",
+              "SCENARIO · POTENTIAL IMPACT",
+              "အခြေအနေအလိုက် ဖြစ်နိုင်သက်ရောက်မှု",
             )}
+          </p>
+          <h2>
+            {t(...sector.name)} · {locationName(filters.region, lang)}
           </h2>
-          {historicalImpacts.map((item) => (
-            <article className="impact-history-item" key={item.id}>
-              <p className="evidence-label">
-                {t("HISTORICAL RELATIONSHIP", "သမိုင်းဆိုင်ရာ ဆက်နွယ်မှု")}
-              </p>
-              <h3>{t(...item.title)}</h3>
-              <p>{t(...item.evidenceSummary)}</p>
-              <p className="meta">
-                {t("Where", "နေရာ")}: {t(...item.location)} ·{" "}
-                {t("Period", "ကာလ")}: {t(...item.period)}
-              </p>
-              <details>
-                <summary>
-                  {t(
-                    "Evidence limits and source",
-                    "အထောက်အထားအကန့်အသတ်နှင့် ရင်းမြစ်",
-                  )}
-                </summary>
-                <p>{t(...item.limitation)}</p>
-                <p>
-                  {t(
-                    "Confidence: source provides no comparable graded confidence; local predictive confidence is unknown.",
-                    "ယုံကြည်နိုင်မှု — ရင်းမြစ်တွင် နှိုင်းယှဉ်နိုင်သော အဆင့် မဖော်ပြပါ။ ဒေသခန့်မှန်းယုံကြည်နိုင်မှု မသိရပါ။",
-                  )}
-                </p>
-                <Sources ids={item.sourceIds} />
-              </details>
-            </article>
-          ))}
+          <p className="lead">{t(...sector.what)}</p>
+          <p>
+            <strong>{t("Who may be affected", "ထိခိုက်နိုင်သူများ")}: </strong>
+            {t(...sector.who)}
+          </p>
+          <p>
+            <strong>{t("What to monitor", "စောင့်ကြည့်ရန်")}: </strong>
+            {t(...sector.when)}
+          </p>
+          <details>
+            <summary>
+              {t(
+                "Why, when and how strong is the evidence?",
+                "အကြောင်းရင်း၊ ကာလနှင့် အထောက်အထား ခိုင်မာမှု",
+              )}
+            </summary>
+            <div className="impact-explanation">
+              <p>{t(...sector.why)}</p>
+              <p>{t(...sector.limitation)}</p>
+            </div>
+            <p>
+              {t(
+                "Local impact likelihood is unknown. No calibrated probability, yield loss or number of patients is available.",
+                "ဒေသထိခိုက်နိုင်ခြေ မသိရပါ။ အတည်ပြုဖြစ်နိုင်နှုန်း၊ သီးနှံဆုံးရှုံးမှု၊ လူနာအရေအတွက် မရရှိပါ။",
+              )}
+            </p>
+          </details>
+          <p className="signal-action">{t(...sector.prepare)}</p>
+          <Sources ids={sector.sources} />
+          <div className="row">
+            <a href={`#/health?region=${filters.region}`}>
+              {t(
+                "Health signs and safe response",
+                "ကျန်းမာရေးလက္ခဏာနှင့် ဘေးကင်းတုံ့ပြန်မှု",
+              )}
+            </a>
+            <a href="#/prepare">
+              {t("Preparedness checklist", "ပြင်ဆင်ရန်စာရင်း")}
+            </a>
+          </div>
         </section>
       )}
-      <details className="panel padded impact-methodology">
-        <summary>
+      <section className="panel padded impact-gaps">
+        <h2>
           {t(
-            "Data dates, freshness and methodology",
-            "ဒေတာရက်စွဲ၊ သက်တမ်းနှင့် နည်းလမ်း",
+            "Evidence limits for this location",
+            "ဤဒေသ၏ အထောက်အထားအကန့်အသတ်များ",
           )}
-        </summary>
-        <p>
+        </h2>
+        <p className="evidence-label">
           {t(
-            "Forecasts: current under 12 hours, aging at 12–18 hours, stale at 18 hours or when their 24-hour window ends. ERA5: current within the expected publication delay, aging at 8 days, stale at 10 days after the last completed day. Stale values remain dated for context and do not drive screening. Retrieval time is not a model issue time.",
-            "ခန့်မှန်းချက် ၁၂ နာရီအောက် သက်တမ်းရှိ၊ ၁၂–၁၈ နာရီ သက်တမ်းကုန်ခါနီး၊ ၁၈ နာရီ သို့မဟုတ် ၂၄ နာရီကာလကုန်လျှင် သက်တမ်းကျော်သည်။ ERA5 နောက်ဆုံးပြီးဆုံးရက်မှ ၈ ရက်တွင် သက်တမ်းကုန်ခါနီး၊ ၁၀ ရက်တွင် သက်တမ်းကျော်သည်။ သက်တမ်းကျော်တန်ဖိုးကို နောက်ခံအဖြစ်သာ ပြပြီး အဆင့်တွက်ရာတွင် မသုံးပါ။ ရယူချိန်သည် မော်ဒယ်ထုတ်ပြန်ချိန် မဟုတ်ပါ။",
+            "INSUFFICIENT LOCATION-SPECIFIC EVIDENCE",
+            "ဒေသအလိုက် အထောက်အထား မလုံလောက်",
           )}
         </p>
-        <Evidence />
+        <p>
+          {t(
+            "AUTHORITATIVE DATA NOT CURRENTLY AVAILABLE for local outcomes in the areas below. No sector is assigned a safe status from missing data.",
+            "အောက်ပါကဏ္ဍများ၏ ဒေသရလဒ်အတွက် လက်ရှိ ယုံကြည်စိတ်ချရသော ဒေတာ မရရှိပါ။ ဒေတာမရှိသောကဏ္ဍကို ဘေးကင်းဟု မသတ်မှတ်ပါ။",
+          )}
+        </p>
+        {gaps.map(([en, my, detail, detailMy]) => (
+          <details key={en}>
+            <summary>
+              {t(en, my)} · {t("Unavailable", "မရရှိနိုင်")}
+            </summary>
+            <p>{t(detail, detailMy)}</p>
+          </details>
+        ))}
+        <p>
+          {t(
+            "Health, agriculture, water and energy pathways above are scenarios. Local disease incidence, crop losses, supply failures and power outages are not measured.",
+            "အထက်ပါ ကျန်းမာရေး၊ စိုက်ပျိုးရေး၊ ရေနှင့် စွမ်းအင်တို့သည် ဖြစ်နိုင်ပုံများသာ ဖြစ်သည်။ ဒေသလူနာနှုန်း၊ သီးနှံဆုံးရှုံးမှု၊ ရေပေးဝေမှုနှင့် မီးပြတ်မှုကို မတိုင်းတာပါ။",
+          )}
+        </p>
         <a href="#/data">
           {t(
-            "Full source registry and screening thresholds",
-            "ရင်းမြစ်စာရင်းနှင့် စစ်ဆေးသတ်မှတ်ချက်အပြည့်အစုံ",
+            "Research, missing sources and methods",
+            "ရင်းမြစ်သုတေသန၊ မရရှိသည့်ဒေတာနှင့် နည်းလမ်း",
           )}
         </a>
-      </details>
-      <Notice>
-        {t(
-          "Official Myanmar warning-feed coverage is unavailable. Follow Myanmar DMH and local authorities; this platform does not issue official warnings.",
-          "မြန်မာတရားဝင်သတိပေးဒေတာ မချိတ်ဆက်ထားပါ။ မိုးဇလနှင့် ဒေသအာဏာပိုင်များ၏ ထုတ်ပြန်ချက်ကို လိုက်နာပါ။ ဤစနစ်က တရားဝင်သတိပေးချက် မထုတ်ပါ။",
-        )}{" "}
-        <SourceLink href="https://www.dmh.gov.mm/">Myanmar DMH</SourceLink>
-      </Notice>
+      </section>
+      <section className="panel padded impact-crosslinks">
+        <h2>{t("Follow the evidence", "အထောက်အထား ဆက်လက်လေ့လာရန်")}</h2>
+        <p className="evidence-label">
+          {t("HISTORICAL ASSOCIATION", "သမိုင်းဆိုင်ရာ ဆက်နွယ်မှု")}
+        </p>
+        <a href="#/records">
+          {t(
+            "Dated historical impacts and limitations → Records",
+            "ရက်စွဲပါ အတိတ်သက်ရောက်မှုနှင့် အကန့်အသတ် → မှတ်တမ်းများ",
+          )}
+        </a>
+        <p>
+          <a href="#/">
+            {t(
+              "Current official ENSO outlook → Overview",
+              "လက်ရှိတရားဝင် ENSO မျှော်မှန်းချက် → အကျဉ်းချုပ်",
+            )}
+          </a>
+        </p>
+        <p>
+          <a href="#/learn">
+            {t(
+              "How ENSO, monsoon and other drivers interact → Learn",
+              "ENSO၊ မုတ်သုံနှင့် အခြားအကြောင်းရင်း → လေ့လာရန်",
+            )}
+          </a>
+        </p>
+        <p>
+          <a href="#/warnings">
+            {t(
+              "OFFICIAL WARNING · coverage and original bulletins",
+              "တရားဝင်သတိပေးချက် · လွှမ်းခြုံမှုနှင့် မူရင်းကြေညာချက်",
+            )}
+          </a>
+        </p>
+      </section>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import {
   StateLabel,
   OfficialStatus,
   RegionFilter,
-  DataQuality,
+  DataSummary,
 } from "../components/Intelligence";
 import { regionalRows, sortRows, type RegionRow } from "../risk/intelligence";
 import {
@@ -351,7 +351,7 @@ export default function Warnings() {
               {t("Methods & source periods", "နည်းလမ်းနှင့် ရင်းမြစ်ကာလ")}
             </a>
           </details>
-          <DataQuality />
+          <DataSummary />
         </>
       ) : official.length ? (
         official.map((a) => (

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Check, Printer, LockKeyhole } from "lucide-react";
 import { useApp } from "../app/context";
-import { checklists, sources } from "../data/content";
+import { checklists } from "../data/content";
 import { Notice, PageTitle, SourceLink } from "../components/shared";
 export default function Prepare() {
   const { t } = useApp();
@@ -124,32 +124,25 @@ export default function Prepare() {
           </div>
         </section>
       </div>
-      <section className="medical-callout">
-        <div>
-          <h2>
-            {t(
-              "Know when to seek urgent help",
-              "အရေးပေါ် အကူအညီလိုချိန်ကို သိထားပါ",
-            )}
-          </h2>
-          <p>
-            {t(
-              "Confusion, seizures, collapse, or loss of consciousness in hot conditions may be heatstroke. Seek urgent medical help and begin cooling with cool water or wet cloths while help is arranged.",
-              "ပူပြင်းချိန်တွင် စိတ်ရှုပ်ထွေးခြင်း၊ တက်ခြင်း၊ လဲကျခြင်း သို့မဟုတ် သတိလစ်ခြင်းသည် အပူလျှပ်ခြင်း ဖြစ်နိုင်သည်။ အရေးပေါ်ဆေးကုသမှု ရယူပြီး အကူအညီစီစဉ်နေစဉ် ရေအေး သို့မဟုတ် ရေစိုဝတ်ဖြင့် အေးမြအောင်လုပ်ပါ။",
-            )}
-          </p>
-          <p>
-            <strong>
-              {t(
-                "Do not give fluids to someone who is unconscious or cannot swallow safely.",
-                "သတိလစ်သူ သို့မဟုတ် လုံခြုံစွာ မျိုမချနိုင်သူကို ရေမတိုက်ပါနှင့်။",
-              )}
-            </strong>
-          </p>
-          <SourceLink href={sources.whoHelp}>
-            WHO · {t("Heat safety", "အပူဒဏ်ကာကွယ်ရေး")}
-          </SourceLink>
-        </div>
+      <section className="panel padded">
+        <h2>
+          {t(
+            "Recognize urgent health signs",
+            "အရေးပေါ်ကျန်းမာရေးလက္ခဏာ သိထားပါ",
+          )}
+        </h2>
+        <p>
+          {t(
+            "Save the Health guide with your emergency plan. Heatstroke needs immediate medical help and cooling.",
+            "အရေးပေါ်အစီအစဉ်နှင့်အတူ ကျန်းမာရေးလမ်းညွှန် သိမ်းထားပါ။ အပူလျှပ်လျှင် ချက်ချင်းဆေးအကူအညီနှင့် အအေးပေးခြင်း လိုသည်။",
+          )}
+        </p>
+        <a href="#/health?topic=heatstroke">
+          {t(
+            "Symptoms, safe first aid and emergency red flags → Health",
+            "လက္ခဏာ၊ ရှေးဦးပြုစုမှုနှင့် အရေးပေါ်အချက် → ကျန်းမာရေး",
+          )}
+        </a>
       </section>
       <Notice>
         {t(

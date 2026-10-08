@@ -1,8 +1,10 @@
 import { useApp, dateLabel } from "../app/context";
 import { SourceLink } from "./shared";
 import { freshness } from "../risk/engine";
+import { sourceStatus } from "../risk/intelligence";
+import { StateLabel } from "./Intelligence";
 import { value } from "./Operational";
-import { mmt, DAY } from "../data/operational";
+import { mmt } from "../data/operational";
 export function EnsoPanel() {
   const { t, lang, data, operational: op, now, lowData } = useApp();
   const enso = data.enso;
@@ -64,6 +66,14 @@ export function EnsoPanel() {
           </SourceLink>
         </>
       )}
+      {!latest && (
+        <p>
+          {t(
+            "Niño 3.4 monthly index: unavailable",
+            "Niño 3.4 လစဉ်ညွှန်းကိန်း — မရရှိနိုင်",
+          )}
+        </p>
+      )}
       {latest && (
         <details>
           <summary>
@@ -77,9 +87,12 @@ export function EnsoPanel() {
             {latest.month} ·{" "}
             {prior && value(latest.anomaly - prior.anomaly, "°C", true)}{" "}
             {t("change from previous month", "ယခင်လနှင့် ကွာခြားမှု")} ·{" "}
-            {now - Date.parse(latest.month + "-01") > 100 * DAY
-              ? t("Stale", "သက်တမ်းကျော်")
-              : t("Monthly historical index", "လစဉ်သမိုင်းညွှန်းကိန်း")}
+            <StateLabel
+              state={
+                sourceStatus(op, data, now).find((s) => s.id === "nino34")!
+                  .state
+              }
+            />
           </p>
           {!lowData && (
             <p>
@@ -95,6 +108,17 @@ export function EnsoPanel() {
             )}
           </p>
           <SourceLink href={nino!.source}>NOAA CPC SST indices</SourceLink>
+          <p>
+            <SourceLink href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/">
+              NOAA CPC · RONI (separate three-month index)
+            </SourceLink>
+          </p>
+          <p>
+            {t(
+              "Why this matters: Pacific ocean context helps seasonal planning. It cannot establish a local warning or predict individual health outcomes.",
+              "အရေးပါပုံ — ပစိဖိတ်သမုဒ္ဒရာနောက်ခံသည် ရာသီအစီအစဉ်အတွက် အထောက်အကူဖြစ်သည်။ ဒေသသတိပေးချက်နှင့် တစ်ဦးချင်းကျန်းမာရေးရလဒ် မသတ်မှတ်နိုင်ပါ။",
+            )}
+          </p>
           <p className="meta">
             {t("Retrieved", "ရယူချိန်")}: {mmt(nino!.fetchedAt, lang)}
           </p>

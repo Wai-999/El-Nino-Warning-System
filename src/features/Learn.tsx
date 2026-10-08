@@ -1,3 +1,5 @@
+import { VideoLibrary } from "../components/VideoLibrary";
+import { RegionalContext } from "../components/Intelligence";
 import { useState } from "react";
 import { useApp } from "../app/context";
 import { lessons, sources } from "../data/content";
@@ -23,6 +25,33 @@ export default function Learn() {
           "ENSO ၏ နောက်ခံ ပစိဖိတ်ဖြစ်စဉ်ကို တစ်ဆင့်ချင်း လေ့လာပါ။",
         )}
       />
+      <VideoLibrary />
+      <section className="panel padded">
+        <h2>
+          {t(
+            "ENSO is one driver, not a local outcome",
+            "ENSO သည် အကြောင်းရင်းတစ်ခုဖြစ်ပြီး ဒေသရလဒ် မဟုတ်ပါ",
+          )}
+        </h2>
+        <p>
+          {t(
+            "A stronger El Niño does not imply proportionally stronger impacts everywhere in Myanmar. Season, monsoon circulation, Indian Ocean conditions, tropical systems, terrain and exposure also matter.",
+            "အယ်လ်နီညို ပိုပြင်းခြင်းသည် မြန်မာနေရာတိုင်း သက်ရောက်မှု အချိုးကျပိုပြင်းမည်ဟု မဆိုလိုပါ။ ရာသီ၊ မုတ်သုံ၊ အိန္ဒိယသမုဒ္ဒရာအခြေအနေ၊ အပူပိုင်းမုန်တိုင်း၊ မြေပြင်နှင့် ဘေးထိတွေ့မှုတို့လည်း အရေးပါသည်။",
+          )}
+        </p>
+        <SourceLink href="https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026">
+          WMO · El Niño / La Niña Update
+        </SourceLink>
+        <p>
+          <a href="#/">
+            {t(
+              "Current dated ENSO assessment → Overview",
+              "လက်ရှိရက်စွဲပါ ENSO သုံးသပ်ချက် → အကျဉ်းချုပ်",
+            )}
+          </a>
+        </p>
+      </section>
+      <RegionalContext />
       <section className="panel learning-panel">
         <div className="row spread">
           <h2>{t("The Pacific, in three phases", "ပစိဖိတ်၏ အဆင့်သုံးဆင့်")}</h2>
@@ -116,6 +145,61 @@ export default function Learn() {
           </details>
         ))}
       </div>
+      <section className="panel padded">
+        <h2>
+          {t("Terms in English & Burmese", "အင်္ဂလိပ်နှင့် မြန်မာ ဝေါဟာရများ")}
+        </h2>
+        <dl className="glossary-list">
+          {[
+            [
+              "Forecast · ခန့်မှန်းချက်",
+              "An estimate of future conditions, with uncertainty.",
+              "မသေချာမှုပါသော အနာဂတ်အခြေအနေ ခန့်မှန်းတန်ဖိုး။",
+            ],
+            [
+              "Reanalysis · ပြန်လည်ဆန်းစစ်ဒေတာ",
+              "Past observations combined with a model; not a local station reading.",
+              "အတိတ်တိုင်းတာချက်ကို မော်ဒယ်နှင့် ပေါင်းထားခြင်း၊ ဒေသစခန်းတိုင်းတာချက် မဟုတ်။",
+            ],
+            [
+              "Anomaly · ပုံမှန်နှင့် ကွာဟချက်",
+              "Difference from a stated reference period; the baseline must be named.",
+              "ဖော်ပြထားသော ရည်ညွှန်းကာလနှင့် ကွာခြားမှု။ အခြေခံကာလ ဖော်ပြရမည်။",
+            ],
+            [
+              "Niño 3.4 / RONI",
+              "Niño 3.4 is a Pacific sea-temperature region. RONI removes tropical-mean warming and rescales variability before a three-month average; it is not the monthly SST anomaly shown in Overview.",
+              "Niño 3.4 သည် ပစိဖိတ်ပင်လယ်အပူချိန်ဒေသဖြစ်သည်။ RONI သည် အပူပိုင်းပျမ်းမျှပူနွေးမှုကို နုတ်၍ ကွဲပြားမှုပမာဏ ပြန်ချိန်ညှိသော သုံးလပျမ်းမျှဖြစ်ပြီး အကျဉ်းချုပ်ရှိ လစဉ်အပူချိန်ကွာဟချက် မဟုတ်ပါ။",
+            ],
+            [
+              "Exposure / vulnerability · ထိတွေ့မှု / ထိခိုက်လွယ်မှု",
+              "Who is in a hazard’s path and how susceptible they are to harm.",
+              "ဘေးလမ်းကြောင်းရှိသူနှင့် ထိခိုက်မှုခံရလွယ်ပုံ။",
+            ],
+            [
+              "Heatstroke / ORS · အပူလျှပ်ခြင်း / ဓာတ်ဆားရည်",
+              "Heatstroke is an emergency. Oral rehydration solution replaces fluid lost through diarrhoea; follow the packet directions.",
+              "အပူလျှပ်ခြင်းသည် အရေးပေါ်ဖြစ်သည်။ ORS သည် ဝမ်းလျှောမှ ဆုံးရှုံးသောအရည် ပြန်ဖြည့်ရန်ဖြစ်ပြီး ထုပ်ညွှန်ကြားချက် လိုက်နာရမည်။",
+            ],
+          ].map(([term, en, my]) => (
+            <div key={term}>
+              <dt>{term}</dt>
+              <dd>{t(en, my)}</dd>
+            </div>
+          ))}
+        </dl>
+        <SourceLink href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/">
+          NOAA CPC · RONI definition and index
+        </SourceLink>
+        <p>
+          <a href="#/health">
+            {t(
+              "Medical terms and safe actions → Health",
+              "ဆေးဘက်ဝေါဟာရနှင့် ဘေးကင်းလုပ်ဆောင်မှု → ကျန်းမာရေး",
+            )}
+          </a>
+        </p>
+      </section>
     </>
   );
 }

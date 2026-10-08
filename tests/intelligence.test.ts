@@ -35,6 +35,7 @@ import {
   filterRecords,
   recordSchema,
 } from "../src/data/records";
+import { decisionKpis } from "../src/risk/kpis";
 import { loadArchive } from "../src/data/loadArchive";
 const op = operationalSchema.parse(
   JSON.parse(readFileSync("public/data/operational.json", "utf8")),
@@ -352,4 +353,28 @@ describe("Historical filters do not invent regional evidence", () => {
         .success,
     ).toBe(false);
   });
+});
+
+it("preserves official KPI validity and retrieval with incomplete coverage and no weather", () => {
+  const data = {
+    ...emptySnapshot,
+    checkedAt: new Date(now).toISOString(),
+    alerts: [alert],
+  };
+  const kpis = decisionKpis(emptyOperational, data, now);
+  const official = kpis.find((k) => k.id === "official")!;
+  const watch = kpis.find((k) => k.id === "watch")!;
+  expect(official.value).toBe("≥ 1");
+  expect(watch.value).toBe("≥ 1/15");
+  for (const k of [official, watch]) {
+    expect(k.period).toContain(alert.issuedAt);
+    expect(k.period).toContain(alert.validUntil);
+    expect(k.updatedAt).toBe(alert.source.retrievedAt);
+  }
+  expect(kpis.find((k) => k.id === "concern")!.value).toBeNull();
+  expect(
+    decisionKpis(emptyOperational, data, now + 2 * DAY).find(
+      (k) => k.id === "official",
+    )!.value,
+  ).toBeNull();
 });

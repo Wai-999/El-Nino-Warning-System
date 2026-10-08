@@ -11,7 +11,7 @@ await writeFile(
   "dist/index.html",
   html.replace(
     "<head>",
-    `<head><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">`,
+    `<head><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://i.ytimg.com; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">`,
   ),
 );
 async function files(dir) {

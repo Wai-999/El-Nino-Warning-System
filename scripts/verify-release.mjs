@@ -13,6 +13,7 @@ const results = {
   version: expected,
   verifiedAt: new Date().toISOString(),
   routes: [],
+  contentOwnership: [],
   viewports: [],
   console: [],
   failedRequests: [],
@@ -52,14 +53,50 @@ try {
     "/region/MM-04",
     "/data",
     "/impacts",
+    "/health",
+    "/learn",
+    "/prepare",
   ]) {
     await page.goto(base + "?release=" + expected + "#" + route);
+    // Hash-only navigation preserves the resource timeline. Reload these routes
+    // to measure their own initial requests rather than a previously visited map.
+    if (["/health", "/learn"].includes(route)) await page.reload();
     await ready();
+    if (route === "/map") await page.locator(".region-shape").first().waitFor();
     assert(
       (await page.getByTestId("release-version").innerText()) ===
         "v" + expected,
       "Wrong deployed release",
     );
+    const content = { route, title: await page.locator("h1").innerText() };
+    for (const [key, selector] of Object.entries({
+      enso: ".enso-v2",
+      coverage: ".data-quality",
+      videos: ".video-card",
+      health: ".health-topic",
+      history: ".historical-record",
+      map: ".region-shape",
+      kpis: "[data-kpi]",
+      seasonal: ".regional-context",
+    }))
+      content[key] = await page.locator(selector).count();
+    assert(
+      content.enso === (route === "/" ? 1 : 0),
+      "ENSO primary home violated",
+    );
+    assert(
+      content.coverage === (route === "/data" ? 1 : 0),
+      "Coverage primary home violated",
+    );
+    assert(
+      content.health === (route === "/health" ? 1 : 0),
+      "Health primary home violated",
+    );
+    assert(
+      content.videos === (route === "/learn" ? 2 : 0),
+      "Video primary home violated",
+    );
+    results.contentOwnership.push(content);
     if (route === "/") {
       const resources = await page.evaluate(() =>
         performance
@@ -91,11 +128,119 @@ try {
         (await page.locator(".region-shape").count()) === 15,
         "Missing boundaries",
       );
+    if (route === "/impacts") {
+      assert(
+        (await page.locator("h1").innerText()) ===
+          "Potential impacts for Myanmar",
+        "Impacts must default to Myanmar",
+      );
+      assert(
+        (await page.locator("#impact-region").inputValue()) === "MM",
+        "Invalid country default",
+      );
+      assert(
+        (await page.locator(".enso-v2,.impact-history").count()) === 0,
+        "Repeated major content on Impacts",
+      );
+      await page.locator("#impact-region").selectOption("MM-16");
+      assert(
+        (await page.locator("h1").innerText()).includes("Rakhine"),
+        "Impacts selection failed",
+      );
+      assert(
+        (await page.getByTestId("impact-forecast").count()) === 1,
+        "Regional forecast missing",
+      );
+    }
+    if (route === "/health") {
+      assert(
+        (await page.locator("#health-topic option").count()) === 9,
+        "Required health topics missing",
+      );
+      assert(
+        (await page.locator(".health-now").innerText()).includes(
+          "Do not give drinks",
+        ),
+        "Unsafe swallowing safeguard missing",
+      );
+      for (const topic of [
+        "dehydration",
+        "cramps",
+        "exhaustion",
+        "heatstroke",
+        "diarrhoea",
+        "dengue",
+        "malaria",
+        "smoke",
+        "food",
+      ]) {
+        await page.locator("#health-topic").selectOption(topic);
+        assert(
+          (await page.locator(".health-topic h3").count()) === 6,
+          "Health triage sections missing",
+        );
+        assert(
+          (await page.locator(".health-references a").count()) > 0,
+          "Clinical references missing",
+        );
+      }
+      await page.locator("#health-region").selectOption("MM-18");
+      assert(
+        (await page.locator(".surveillance").innerText()).includes(
+          "does not establish zero cases",
+        ),
+        "Absent surveillance became zero",
+      );
+      results.healthSources = await page
+        .locator(".health-references a")
+        .evaluateAll((links) => links.map((a) => a.href));
+    }
+    if (route === "/learn") {
+      assert(
+        (await page.locator(".video-card").count()) === 2,
+        "Video library missing",
+      );
+      assert(
+        (await page.locator("iframe").count()) === 0,
+        "Unexpected external video player",
+      );
+      results.videoLinks = await page
+        .getByRole("link", { name: "Watch on YouTube", exact: false })
+        .evaluateAll((links) => links.map((a) => a.href));
+      assert(
+        results.videoLinks.includes(
+          "https://www.youtube.com/watch?v=2gZIJYf7y0c",
+        ),
+        "Verified candidate missing",
+      );
+    }
+    if (["/health", "/learn"].includes(route)) {
+      const urls = await page.evaluate(() =>
+        performance.getEntriesByType("resource").map((r) => r.name),
+      );
+      assert(
+        !urls.some((u) =>
+          /MyanmarMap|myanmar.geojson|data\/archive.json|i.ytimg.com|youtube.com/.test(
+            u,
+          ),
+        ),
+        "Unexpected heavy or external request",
+      );
+    }
     results.routes.push({ route, title: await page.locator("h1").innerText() });
   }
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ["/", "/warnings", "/records", "/map"]) {
+    for (const route of [
+      "/",
+      "/warnings",
+      "/records",
+      "/map",
+      "/impacts",
+      "/health",
+      "/learn",
+      "/data",
+    ]) {
       await page.goto(base + "?release=" + expected + "#" + route);
       await ready();
       for (const lang of ["en", "my"]) {
@@ -177,7 +322,15 @@ try {
   await p.waitForFunction(() => !!navigator.serviceWorker.controller);
   await offline.setOffline(true);
   await p.reload();
-  for (const route of ["/", "/warnings", "/records", "/prepare"]) {
+  for (const route of [
+    "/",
+    "/warnings",
+    "/records",
+    "/prepare",
+    "/impacts",
+    "/health",
+    "/learn",
+  ]) {
     await p.goto(base + "?release=" + expected + "#" + route);
     await p.locator("h1").waitFor();
     await p.locator(".offline-banner").waitFor();

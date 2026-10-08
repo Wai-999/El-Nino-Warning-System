@@ -19,11 +19,9 @@ test("impacts preserves release query, direct refresh, filters and back/forward"
   });
   await page.goto("./?release=2.0.0#/impacts");
   await english(page);
-  await expect(page.locator("h1")).toHaveText("El Niño impacts, in context.");
+  await expect(page.locator("h1")).toHaveText("Potential impacts for Myanmar");
   await page.getByRole("button", { name: "Agriculture", exact: true }).click();
-  await page
-    .getByLabel("State / Region", { exact: true })
-    .selectOption("MM-18");
+  await page.getByLabel("Location", { exact: true }).selectOption("MM-18");
   await page
     .getByLabel("Evidence type", { exact: true })
     .selectOption("historical");
@@ -32,10 +30,10 @@ test("impacts preserves release query, direct refresh, filters and back/forward"
   await expect(
     page.getByRole("button", { name: "Agriculture", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByLabel("State / Region", { exact: true })).toHaveValue(
+  await expect(page.getByLabel("Location", { exact: true })).toHaveValue(
     "MM-18",
   );
-  await expect(page.locator(".impact-history")).toBeVisible();
+  await expect(page.locator(".impact-crosslinks")).toBeVisible();
   await expect(page.locator(".impact-snapshot")).toHaveCount(0);
   await page.goBack();
   await expect(page.getByLabel("Evidence type", { exact: true })).toHaveValue(
@@ -45,9 +43,9 @@ test("impacts preserves release query, direct refresh, filters and back/forward"
   await expect(page.getByLabel("Evidence type", { exact: true })).toHaveValue(
     "historical",
   );
-  await page.getByRole("link", { name: "Open preparedness checklist" }).click();
+  await page.getByRole("link", { name: /Dated historical impacts/ }).click();
   await expect(page.locator("h1")).not.toHaveText(
-    "El Niño impacts, in context.",
+    "Potential impacts for Myanmar",
   );
   await page.goBack();
   await expect(
@@ -63,11 +61,9 @@ test("impacts preserves release query, direct refresh, filters and back/forward"
 test("impacts exposes source, date, baseline and separate evidence categories", async ({
   page,
 }) => {
-  await page.goto("./#/impacts");
+  await page.goto("./#/impacts?region=MM-04");
   await english(page);
-  await expect(page.locator(".enso-v2")).toContainText(
-    "OFFICIAL ENSO ASSESSMENT",
-  );
+  await expect(page.locator(".enso-v2")).toHaveCount(0);
   await expect(page.getByTestId("impact-forecast")).toContainText(
     "FORECAST · NEXT 24 HOURS",
   );
@@ -81,25 +77,27 @@ test("impacts exposes source, date, baseline and separate evidence categories", 
     "not local station measurements",
   );
   await page.getByRole("button", { name: "Agriculture", exact: true }).click();
-  await expect(page.locator(".impact-drivers .signal-card")).toHaveCount(3);
-  await expect(page.locator(".impact-drivers")).toContainText("FORECAST");
-  await expect(page.locator(".impact-drivers")).toContainText(
+  await expect(page.locator(".impact-priorities .signal-card")).toHaveCount(3);
+  await expect(page.locator(".impact-priorities")).toContainText("FORECAST");
+  await expect(page.locator(".impact-priorities")).toContainText(
     "OBSERVED / REANALYSIS",
   );
-  await expect(page.locator("#sector-title")).toContainText("Agriculture");
+  await expect(page.locator(".impact-priorities h2")).toContainText(
+    "Agriculture",
+  );
   await page
     .getByLabel("Evidence type", { exact: true })
     .selectOption("observed");
-  await expect(page.locator(".impact-drivers .signal-card")).toHaveCount(1);
+  await expect(page.locator(".impact-priorities .signal-card")).toHaveCount(1);
   await expect(page.getByTestId("impact-forecast")).toHaveCount(0);
   await page
     .getByLabel("Evidence type", { exact: true })
     .selectOption("forecast");
-  await expect(page.locator(".impact-drivers .signal-card")).toHaveCount(2);
+  await expect(page.locator(".impact-priorities .signal-card")).toHaveCount(2);
   await page
     .getByLabel("Evidence type", { exact: true })
     .selectOption("scenario");
-  await expect(page.locator(".impact-drivers")).toHaveCount(0);
+  await expect(page.locator(".impact-priorities")).toHaveCount(0);
   await expect(page.locator("main")).toContainText(
     "SCENARIO · POTENTIAL IMPACT",
   );
@@ -115,7 +113,7 @@ test("impacts distinguishes loading, error and empty operational data", async ({
     await gate;
     await route.fulfill({ status: 503, body: "unavailable" });
   });
-  await page.goto("./#/impacts");
+  await page.goto("./#/impacts?region=MM-04");
   await page.getByRole("button", { name: "Switch to English" }).click();
   await expect(page.locator("main")).toContainText("Loading regional evidence");
   await expect(page.locator("main")).not.toContainText("0 / 15");
@@ -126,12 +124,13 @@ test("impacts distinguishes loading, error and empty operational data", async ({
   await expect(page.getByTestId("impact-forecast")).toContainText(
     "Forecast data unavailable",
   );
-  await expect(page.locator(".impact-drivers")).toContainText("Not assessed");
-  await page.locator(".impact-coverage summary").click();
-  await expect(page.locator("main")).toContainText(
-    "Missing data does not mean zero risk",
+  await expect(page.locator(".impact-priorities")).toContainText(
+    "Not assessed",
   );
-  await expect(page.locator(".impact-history")).toBeVisible();
+  await expect(page.locator(".impact-gaps")).toContainText(
+    "INSUFFICIENT LOCATION-SPECIFIC EVIDENCE",
+  );
+  await expect(page.locator(".impact-crosslinks")).toBeVisible();
   await page.unroute("**/data/operational.json");
   await page.route("**/data/operational.json", (r) =>
     r.fulfill({ json: { ...real, weather: null, history: null, nino: null } }),
@@ -160,12 +159,12 @@ test("stale and partial evidence cannot imply an all-clear; failed fetch preserv
   await page.route("**/data/operational.json", (r) =>
     r.fulfill({ json: payload }),
   );
-  await page.goto("./#/impacts?sector=agriculture");
+  await page.goto("./#/impacts?sector=agriculture&region=MM-04");
   await english(page);
-  await expect(page.locator(".impact-drivers")).toContainText(
+  await expect(page.locator(".impact-priorities")).toContainText(
     "Incomplete evidence",
   );
-  await expect(page.locator(".impact-drivers > p").first()).toContainText(
+  await expect(page.locator(".impact-priorities > .badge")).toContainText(
     "Not assessed",
   );
   await page.unroute("**/data/operational.json");
@@ -184,7 +183,7 @@ test("stale and partial evidence cannot imply an all-clear; failed fetch preserv
   await expect(page.getByTestId("impact-forecast")).toContainText(
     "Stale — excluded from screening",
   );
-  await expect(page.locator(".impact-drivers > p").first()).toContainText(
+  await expect(page.locator(".impact-priorities > .badge")).toContainText(
     "Not assessed",
   );
 });
@@ -196,12 +195,12 @@ test("invalid observations fail safely without losing static scientific content"
   await page.route("**/data/operational.json", (r) =>
     r.fulfill({ json: invalid }),
   );
-  await page.goto("./#/impacts");
+  await page.goto("./#/impacts?region=MM-04");
   await english(page);
   await expect(page.locator("main")).toContainText(
     "Latest regional data could not be loaded",
   );
-  await expect(page.locator(".impact-history")).toBeVisible();
+  await expect(page.locator(".impact-crosslinks")).toBeVisible();
   await expect(page.locator("main")).not.toContainText(/NaN|undefined|99999/);
 });
 test("impacts mobile sizes, Burmese, keyboard and accessible sources", async ({
@@ -212,7 +211,7 @@ test("impacts mobile sizes, Burmese, keyboard and accessible sources", async ({
     "Exact viewport matrix runs once",
   );
   test.setTimeout(120000);
-  await page.goto("./#/impacts");
+  await page.goto("./#/impacts?region=MM-04");
   await english(page);
   for (const [width, height] of [
     [320, 568],

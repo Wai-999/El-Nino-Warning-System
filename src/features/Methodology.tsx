@@ -1,10 +1,11 @@
+import { KnowledgeSources } from "../components/KnowledgeSources";
 import { DataQuality } from "../components/Intelligence";
 import { useApp, dateLabel } from "../app/context";
 import { PageTitle, Notice, SourceLink } from "../components/shared";
 import { Evidence } from "../components/Operational";
-import { weatherFresh, historyFresh, mmt } from "../data/operational";
+import { mmt } from "../data/operational";
 export default function Methodology() {
-  const { t, lang, operational: op, now, data } = useApp();
+  const { t, lang, operational: op, data } = useApp();
   return (
     <>
       <PageTitle
@@ -19,39 +20,9 @@ export default function Methodology() {
         )}
       />
       <DataQuality registry />
+      <KnowledgeSources />
       <section className="panel padded">
-        <h2>{t("Data status", "ဒေတာအခြေအနေ")}</h2>
-        <dl className="indicator-list">
-          <div>
-            <dt>ECMWF IFS</dt>
-            <dd>
-              {weatherFresh(op.weather, now)
-                ? t("Current forecast", "သက်တမ်းရှိ ခန့်မှန်းချက်")
-                : op.weather
-                  ? t("Stale", "သက်တမ်းကျော်")
-                  : t("Unavailable", "မရရှိ")}
-            </dd>
-          </div>
-          <div>
-            <dt>ERA5</dt>
-            <dd>
-              {historyFresh(op.history, now)
-                ? t(
-                    "Historical · expected publication lag",
-                    "သမိုင်းဒေတာ · ပုံမှန်ထုတ်ပြန်နောက်ကျမှု",
-                  )
-                : op.history
-                  ? t("Stale", "သက်တမ်းကျော်")
-                  : t("Unavailable", "မရရှိ")}
-            </dd>
-          </div>
-          <div>
-            <dt>
-              {t("Official Myanmar warnings", "မြန်မာ တရားဝင်သတိပေးချက်")}
-            </dt>
-            <dd>{t("Coverage unavailable", "လွှမ်းခြုံဒေတာ မရရှိ")}</dd>
-          </div>
-        </dl>
+        <h2>{t("Retrieval checks", "ရယူမှု စစ်ဆေးချက်များ")}</h2>
         {Object.entries(op.health).map(([id, h]) => (
           <details key={id}>
             <summary>

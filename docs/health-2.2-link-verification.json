@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-10-08T06:37:15.011Z",
+  "links": [
+    {
+      "url": "https://www.nhs.uk/conditions/dehydration/",
+      "result": "200\thttps://www.nhs.uk/conditions/dehydration/"
+    },
+    {
+      "url": "https://www.cdc.gov/niosh/heat-stress/about/illnesses.html",
+      "result": "200\thttps://www.cdc.gov/niosh/heat-stress/about/illnesses.html"
+    },
+    {
+      "url": "https://www.nhs.uk/conditions/heat-exhaustion-heatstroke/",
+      "result": "200\thttps://www.nhs.uk/conditions/heat-exhaustion-heatstroke/"
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+      "result": "200\thttps://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health"
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease",
+      "result": "200\thttps://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease"
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/cholera",
+      "result": "200\thttps://www.who.int/news-room/fact-sheets/detail/cholera"
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/dengue-and-severe-dengue",
+      "result": "200\thttps://www.who.int/news-room/fact-sheets/detail/dengue-and-severe-dengue"
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/malaria",
+      "result": "200\thttps://www.who.int/news-room/fact-sheets/detail/malaria"
+    },
+    {
+      "url": "https://www.who.int/europe/news-room/questions-and-answers/item/public-health-advice-during-the-wildfires--how-to-protect-your-health-and-keep-safe",
+      "result": "200\thttps://www.who.int/europe/news-room/questions-and-answers/item/public-health-advice-during-the-wildfires--how-to-protect-your-health-and-keep-safe"
+    },
+    {
+      "url": "https://www.cdc.gov/food-safety/signs-symptoms/",
+      "result": "200\thttps://www.cdc.gov/food-safety/signs-symptoms/"
+    },
+    {
+      "url": "https://www.who.int/activities/promoting-safe-food-handling/promoting-safe-food-handling",
+      "result": "200\thttps://www.who.int/activities/promoting-safe-food-handling/promoting-safe-food-handling"
+    },
+    {
+      "url": "https://www.who.int/myanmar/emergencies/protect-yourself-from-heat--heatwave",
+      "result": "200\thttps://www.who.int/myanmar/emergencies/protect-yourself-from-heat--heatwave"
+    },
+    {
+      "url": "https://www.who.int/myanmar/emergencies/safety-during-monsoons-and-floods",
+      "result": "200\thttps://www.who.int/myanmar/emergencies/safety-during-monsoons-and-floods"
+    },
+    {
+      "url": "https://www.who.int/india/multimedia/item/acute-watery-diarrhoea-q-a-%28myanmar%29",
+      "result": "200\thttps://www.who.int/india/multimedia/item/acute-watery-diarrhoea-q-a-%28myanmar%29"
+    },
+    {
+      "url": "https://www.who.int/southeastasia/multimedia/item/5-keys-to-safer-food-poster-%28myanmar%29",
+      "result": "200\thttps://www.who.int/southeastasia/multimedia/item/5-keys-to-safer-food-poster-%28myanmar%29"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/2gZIJYf7y0c/hqdefault.jpg",
+      "result": "200\thttps://i.ytimg.com/vi/2gZIJYf7y0c/hqdefault.jpg"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/ukmjwAJBGmE/hqdefault.jpg",
+      "result": "200\thttps://i.ytimg.com/vi/ukmjwAJBGmE/hqdefault.jpg"
+    }
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=2gZIJYf7y0c",
+      "title": "မြန်မာမှာ စိုးရိမ်ပြင်ဆင်ရမယ့် အယ်လ်နီညို - BBC News မြန်မာ",
+      "publisher": "BBC News မြန်မာ",
+      "channel": "https://www.youtube.com/@BBCNewsBurmese",
+      "thumbnail": "https://i.ytimg.com/vi/2gZIJYf7y0c/hqdefault.jpg",
+      "matches": true
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ukmjwAJBGmE",
+      "title": "ပူပြင်းခြောက်သွေ့မှုဒဏ် ကြုံရမယ့် မြန်မာ - BBC News မြန်မာ",
+      "publisher": "BBC News မြန်မာ",
+      "channel": "https://www.youtube.com/@BBCNewsBurmese",
+      "thumbnail": "https://i.ytimg.com/vi/ukmjwAJBGmE/hqdefault.jpg",
+      "matches": true
+    }
+  ]
+}

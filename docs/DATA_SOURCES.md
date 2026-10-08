@@ -43,3 +43,11 @@ New selected context: [ASMC seasonal outlook](https://asmc.asean.org/asmc-season
 The [official administrative list](https://myanmarbsb.org/_site/states-and-regions/) independently confirms the 15 canonical units. Display names retain MIMU transliterations; source aliases handle name variants without fuzzy matching. No neighboring-country warnings are ingested.
 
 DMH's unverified feed remains unavailable, not an all-clear. Drought, flood, local water storage, crop stage, disease and fire/haze operational feeds remain gaps. Candidate SPI/SPEI, soil moisture, vegetation, river, IOD/MJO and crop data decisions, source access observations and fallback rules are detailed in [WARNING_SYSTEM_RESEARCH.md](../WARNING_SYSTEM_RESEARCH.md).
+
+## 2.2 health, media and source completion review
+
+See the [clinical source matrix](../HEALTH_GUIDANCE_METHODOLOGY.md) for WHO, CDC and NHS sources and publication/review dates; [data gaps](../DATA_GAPS.md) records the structured-source quality gate and climate foundation review. Medical guidance is summarized with attribution and links, not bulk-rehosted source text or images. The dated WHO Health Cluster August report adds qualitative location-qualified surveillance context; it is not a real-time feed and does not count as current regional incidence in the coverage model.
+
+The two BBC Burmese video identities, metadata dates and durations are retained in `src/data/videos.ts`. YouTube player/oEmbed/channel metadata verified their provenance. Media embedding and redistribution rights were not assumed: playback stays on YouTube, thumbnails load from the publisher/platform's public image URL only after user interaction, and no downloaded video or thumbnail is packaged for offline redistribution. Future link rot remains possible. Full transcripts were unavailable; review scope is disclosed in the UI.
+
+No new operational API, key, paid source or numerical warning feed was connected in 2.2. Existing ECMWF/ERA5/NOAA ingestion, schema validation, period preservation and failure logs continue unchanged. WMO GSCU, CPC RONI, GloFAS, FAO ASIS and NASA FIRMS were evaluated and linked with explicit integration limits. No source access failure was converted to an all-clear.

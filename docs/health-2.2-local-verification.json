@@ -1,0 +1,704 @@
+{
+  "base": "http://127.0.0.1:4175/El-Nino-Warning-System/",
+  "version": "2.2.0",
+  "verifiedAt": "2026-10-08T06:42:53.346Z",
+  "routes": [
+    {
+      "route": "/",
+      "title": "Know the conditions. Prepare today."
+    },
+    {
+      "route": "/warnings",
+      "title": "Warnings & updates"
+    },
+    {
+      "route": "/records",
+      "title": "Records & history"
+    },
+    {
+      "route": "/map",
+      "title": "Your area, in context."
+    },
+    {
+      "route": "/region/MM-04",
+      "title": "Weather, risks and your next steps."
+    },
+    {
+      "route": "/data",
+      "title": "See the evidence behind each signal."
+    },
+    {
+      "route": "/impacts",
+      "title": "Potential impacts for Rakhine"
+    },
+    {
+      "route": "/health",
+      "title": "Know the signs. Act early."
+    },
+    {
+      "route": "/learn",
+      "title": "One ocean. Connected weather."
+    },
+    {
+      "route": "/prepare",
+      "title": "A little preparation goes a long way."
+    }
+  ],
+  "contentOwnership": [
+    {
+      "route": "/",
+      "title": "Know the conditions. Prepare today.",
+      "enso": 1,
+      "coverage": 0,
+      "videos": 0,
+      "health": 0,
+      "history": 0,
+      "map": 0,
+      "kpis": 4,
+      "seasonal": 0
+    },
+    {
+      "route": "/warnings",
+      "title": "Warnings & updates",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 0,
+      "health": 0,
+      "history": 0,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 0
+    },
+    {
+      "route": "/records",
+      "title": "Records & history",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 0,
+      "health": 0,
+      "history": 2,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 0
+    },
+    {
+      "route": "/map",
+      "title": "Your area, in context.",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 0,
+      "health": 0,
+      "history": 0,
+      "map": 15,
+      "kpis": 0,
+      "seasonal": 0
+    },
+    {
+      "route": "/region/MM-04",
+      "title": "Weather, risks and your next steps.",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 0,
+      "health": 0,
+      "history": 0,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 0
+    },
+    {
+      "route": "/data",
+      "title": "See the evidence behind each signal.",
+      "enso": 0,
+      "coverage": 1,
+      "videos": 0,
+      "health": 0,
+      "history": 0,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 0
+    },
+    {
+      "route": "/impacts",
+      "title": "Potential impacts for Myanmar",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 0,
+      "health": 0,
+      "history": 0,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 0
+    },
+    {
+      "route": "/health",
+      "title": "Know the signs. Act early.",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 0,
+      "health": 1,
+      "history": 0,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 0
+    },
+    {
+      "route": "/learn",
+      "title": "One ocean. Connected weather.",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 2,
+      "health": 0,
+      "history": 0,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 1
+    },
+    {
+      "route": "/prepare",
+      "title": "A little preparation goes a long way.",
+      "enso": 0,
+      "coverage": 0,
+      "videos": 0,
+      "health": 0,
+      "history": 0,
+      "map": 0,
+      "kpis": 0,
+      "seasonal": 0
+    }
+  ],
+  "viewports": [
+    {
+      "width": 320,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/impacts",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/impacts",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/health",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/health",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/learn",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/learn",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/data",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 320,
+      "route": "/data",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/impacts",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/impacts",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/health",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/health",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/learn",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/learn",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/data",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 390,
+      "route": "/data",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/impacts",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/impacts",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/health",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/health",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/learn",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/learn",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/data",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 768,
+      "route": "/data",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/warnings",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/warnings",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/records",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/records",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/map",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/map",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/impacts",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/impacts",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/health",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/health",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/learn",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/learn",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/data",
+      "lang": "en",
+      "overflow": false,
+      "violations": 0
+    },
+    {
+      "width": 1440,
+      "route": "/data",
+      "lang": "my",
+      "overflow": false,
+      "violations": 0
+    }
+  ],
+  "console": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "overviewResources": [
+    {
+      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/assets/index-XviG29JB.js",
+      "bytes": 113259
+    },
+    {
+      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/assets/index-DxrlIwJV.css",
+      "bytes": 8916
+    },
+    {
+      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/icon.svg",
+      "bytes": 407
+    },
+    {
+      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/data/current.json",
+      "bytes": 664
+    },
+    {
+      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/data/operational.json",
+      "bytes": 5752
+    },
+    {
+      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/data/archive.json",
+      "bytes": 1847
+    },
+    {
+      "url": "http://127.0.0.1:4175/El-Nino-Warning-System/assets/noto-sans-myanmar-myanmar-400-normal-C_Ri2PLj.woff2",
+      "bytes": 47148
+    }
+  ],
+  "changes": "What changed?\n\n7 Oct 2026, 17:37 MMT → 8 Oct 2026, 09:51 MMT\n\nChanges between recorded screening snapshots, not an observed trend. Forecast windows may differ; missing/restored data are separate from hazard changes.\n\nENSO bulletin and status unchanged. 0 new official bulletins · 0 no longer active in this snapshot\n\nYangon · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nAyeyarwady · Heat stress\n!\nElevated → \n!\nHigh\nScreening level increased\nInspect dated snapshots",
+  "healthSources": [
+    "https://www.cdc.gov/food-safety/signs-symptoms/",
+    "https://www.who.int/activities/promoting-safe-food-handling/promoting-safe-food-handling",
+    "https://www.nhs.uk/conditions/dehydration/"
+  ],
+  "videoLinks": [
+    "https://www.youtube.com/watch?v=2gZIJYf7y0c",
+    "https://www.youtube.com/watch?v=ukmjwAJBGmE"
+  ],
+  "data": {
+    "checkedAt": "2026-10-08T03:21:28.459Z",
+    "ensoIssuedAt": "2026-09-10T00:00:00.000Z",
+    "forecast": "2026-10-08T02:30:00.000Z",
+    "forecastRetrieved": "2026-10-08T03:21:28.911Z",
+    "reanalysisPeriod": ["2026-09-03", "2026-10-02"],
+    "weatherRegions": 15,
+    "reanalysisRegions": 15,
+    "snapshots": 19,
+    "sourceHealth": {
+      "ecmwf": {
+        "checkedAt": "2026-10-08T03:21:28.911Z",
+        "lastSuccess": "2026-10-08T03:21:28.911Z",
+        "ok": true,
+        "error": null
+      },
+      "era5": {
+        "checkedAt": "2026-10-08T03:21:28.911Z",
+        "lastSuccess": "2026-10-08T03:21:28.911Z",
+        "ok": true,
+        "error": null
+      },
+      "nino34": {
+        "checkedAt": "2026-10-08T03:21:28.911Z",
+        "lastSuccess": "2026-10-08T03:21:28.911Z",
+        "ok": true,
+        "error": null
+      }
+    }
+  },
+  "sourceLinks": [
+    "https://www.dmh.gov.mm/",
+    "https://asmc.asean.org/asmc-seasonal-outlook/",
+    "https://open-meteo.com/en/docs/ecmwf-api",
+    "https://open-meteo.com/en/docs/historical-weather-api",
+    "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+    "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
+    "https://www.fao.org/giews/countrybrief/country.jsp?code=MMR&lang=en",
+    "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health"
+  ],
+  "offline": "passed",
+  "status": "passed"
+}

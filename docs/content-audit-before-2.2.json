@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-04T19:52:58.619Z",
+  "routes": [
+    {
+      "route": "/",
+      "title": "Know the conditions. Prepare today.",
+      "headings": [
+        "El Niño Advisory",
+        "Regions to watch",
+        "What changed?",
+        "Prepare today",
+        "Official advisories",
+        "Seasonal context · Southeast Asia",
+        "Data quality & coverage"
+      ],
+      "enso": 1,
+      "quality": 1,
+      "historical": 0,
+      "map": 0,
+      "videos": 0
+    },
+    {
+      "route": "/warnings",
+      "title": "Warnings & updates",
+      "headings": ["State / Region matrix", "Data quality & coverage"],
+      "enso": 0,
+      "quality": 1,
+      "historical": 0,
+      "map": 0,
+      "videos": 0
+    },
+    {
+      "route": "/impacts",
+      "title": "El Niño impacts, in context.",
+      "headings": [
+        "El Niño Advisory",
+        "Myanmar impact snapshot · Mandalay",
+        "Health · Mandalay",
+        "Evidence behind this sector",
+        "Prepare for your household or workplace",
+        "Historical evidence, not today’s forecast"
+      ],
+      "enso": 1,
+      "quality": 0,
+      "historical": 1,
+      "map": 0,
+      "videos": 0
+    },
+    {
+      "route": "/map",
+      "title": "Your area, in context.",
+      "headings": ["Mandalay"],
+      "enso": 0,
+      "quality": 0,
+      "historical": 0,
+      "map": 15,
+      "videos": 0
+    },
+    {
+      "route": "/health",
+      "title": "Page not found",
+      "headings": [],
+      "enso": 0,
+      "quality": 0,
+      "historical": 0,
+      "map": 0,
+      "videos": 0
+    },
+    {
+      "route": "/prepare",
+      "title": "A little preparation goes a long way.",
+      "headings": ["Households", "Know when to seek urgent help"],
+      "enso": 0,
+      "quality": 0,
+      "historical": 0,
+      "map": 0,
+      "videos": 0
+    },
+    {
+      "route": "/learn",
+      "title": "One ocean. Connected weather.",
+      "headings": ["The Pacific, in three phases"],
+      "enso": 0,
+      "quality": 0,
+      "historical": 0,
+      "map": 0,
+      "videos": 0
+    },
+    {
+      "route": "/records",
+      "title": "Records & history",
+      "headings": [
+        "Reported historical impacts",
+        "Historical coverage gaps",
+        "Validated platform snapshots"
+      ],
+      "enso": 0,
+      "quality": 0,
+      "historical": 0,
+      "map": 0,
+      "videos": 0
+    },
+    {
+      "route": "/data",
+      "title": "See the evidence behind each signal.",
+      "headings": [
+        "Data quality & coverage",
+        "Data status",
+        "How anomalies are calculated",
+        "Transparent screening thresholds",
+        "Freshness, privacy & limitations"
+      ],
+      "enso": 0,
+      "quality": 1,
+      "historical": 0,
+      "map": 0,
+      "videos": 0
+    }
+  ]
+}

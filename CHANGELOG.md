@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.2.0 — 2026-10-07
+
+- Add a lazy bilingual Health page with nine sourced exposure/recognition/first-aid/medical/emergency/prevention topics, WHO Burmese resources and independently dated qualitative WHO surveillance.
+- Default Impacts to Myanmar, support canonical regional deep links, expose national ranges of regional samples and explicit unsupported-sector evidence gaps.
+- Give full ENSO, warnings, health, historical records, explanations/media and source coverage distinct primary homes; replace repeated full panels with contextual links.
+- Make four real Summary KPIs auditable through units, calculation, period, baseline, source/retrieval and decision meaning. Preserve unavailable official totals and incomplete-data lower bounds.
+- Add two verified BBC Burmese videos with dated context, duration, editorial notes, optional external thumbnails and Low Data behavior. No player/autoplay or scientific use of media.
+- Align Niño 3.4 freshness with the source registry, defer archive requests to Summary/Records, preserve offline cache upgrade behavior and extend safety/accessibility tests.
+- Document source review, missing integrations and unresolved independent clinical/Burmese review. No fabricated new warnings, incidence, drought/flood probability or crop losses.
+
 ## 2.1.0 — 2026-10-02
 
 - Replace elevated-only warning cards with all 15 Myanmar regions, desktop matrix, mobile cards, filters and transparent sorting.

@@ -5,7 +5,6 @@ import { regions } from "../data/regions";
 import { PageTitle, AlertCard } from "../components/shared";
 import { RegionalProfile } from "../components/Operational";
 import { RegionEvidence } from "../components/Intelligence";
-import { EnsoPanel } from "../components/Enso";
 import { activeAlerts } from "../risk/engine";
 const MyanmarMap = lazy(() => import("../map/MyanmarMap"));
 export function RegionSelector({
@@ -130,7 +129,14 @@ export function RegionPage({
         <RegionalProfile id={selected} full />
       </section>
       <RegionEvidence id={selected} />
-      <EnsoPanel />
+      <p>
+        <a href="#/">
+          {t(
+            "Current ENSO outlook → Overview",
+            "လက်ရှိ ENSO မျှော်မှန်းချက် → အကျဉ်းချုပ်",
+          )}
+        </a>
+      </p>
       <a className="button primary" href="#/prepare">
         {t("Make a preparedness plan", "ကြိုတင်ပြင်ဆင်ရန်")}
       </a>

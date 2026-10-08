@@ -1,0 +1,89 @@
+.location-select,
+.health-topic-picker {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1.2rem 0;
+  max-width: 44rem;
+}
+.location-select label,
+.health-topic-picker label {
+  font-weight: 750;
+}
+.location-select select,
+.health-topic-picker select {
+  width: 100%;
+  min-height: 48px;
+}
+.health-emergency {
+  border: 2px solid #a93325;
+  background: #fff5ef;
+  color: #642014;
+}
+.health-emergency strong {
+  font-size: 1.05rem;
+}
+.health-guidance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.health-step {
+  padding: 1.1rem;
+  border: 1px solid #cdd9d1;
+  border-radius: 12px;
+}
+.health-step h3 {
+  font-size: 0.9rem;
+  letter-spacing: 0.025em;
+}
+.health-step p {
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+.health-emergency,
+.health-now {
+  grid-column: 1/-1;
+}
+.health-care {
+  border-left: 5px solid #947125;
+}
+.health-pathway {
+  padding: 1rem;
+  background: #edf3eb;
+  border-radius: 9px;
+}
+.health-references {
+  border-top: 1px solid #cdd9d1;
+  padding-top: 1rem;
+}
+.health-page .panel {
+  margin-bottom: 1.2rem;
+}
+.surveillance {
+  border-top: 4px solid #697e79;
+}
+.health-page a,
+.health-page p {
+  overflow-wrap: anywhere;
+}
+.health-page select {
+  font: inherit;
+}
+.health-page li {
+  margin: 0.8rem 0;
+}
+@media (max-width: 600px) {
+  .health-guidance-grid {
+    grid-template-columns: 1fr;
+  }
+  .health-step {
+    padding: 1rem;
+  }
+  .health-step p {
+    font-size: 1rem;
+  }
+  .health-emergency {
+    padding: 1rem;
+  }
+}

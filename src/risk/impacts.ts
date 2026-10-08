@@ -1,8 +1,9 @@
 import type { Operational } from "../data/operational";
 import type { Snapshot, Severity } from "../data/schema";
-import { regions, regionIds } from "../data/regions";
+import { regions } from "../data/regions";
 import { signalsFor, type Hazard } from "./signals";
 import { rank } from "./engine";
+import { canonicalLocation } from "./locations";
 
 export const sectorIds = ["health", "agriculture", "water", "energy"] as const;
 export type SectorId = (typeof sectorIds)[number];
@@ -29,7 +30,7 @@ export function impactFilters(hash: string): ImpactFilters {
   const q = new URLSearchParams(hash.split("?")[1] ?? "");
   return {
     sector: sectorIds.find((s) => s === q.get("sector")) ?? "health",
-    region: regionIds.find((r) => r === q.get("region")) ?? "MM-04",
+    region: canonicalLocation(q.get("region")),
     evidence: evidenceIds.find((e) => e === q.get("evidence")) ?? "all",
   };
 }

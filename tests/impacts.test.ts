@@ -124,7 +124,7 @@ describe("impact evidence safety", () => {
     expect(impactFilters(impactHash(f))).toEqual(f);
     expect(
       impactFilters("#/impacts?sector=bad&region=MM-99&evidence=bad"),
-    ).toEqual({ sector: "health", region: "MM-04", evidence: "all" });
+    ).toEqual({ sector: "health", region: "MM", evidence: "all" });
   });
   it("keeps source-backed historical evidence separate from forecasts and ungraded confidence", () => {
     for (const item of historicalImpacts) {

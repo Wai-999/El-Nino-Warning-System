@@ -1,22 +1,21 @@
 import { useApp } from "../app/context";
-import { PageTitle, Notice, AlertCard } from "../components/shared";
+import { PageTitle, Notice } from "../components/shared";
 import { EnsoPanel } from "../components/Enso";
 import {
   Concern,
   OfficialStatus,
   StateLabel,
-  DataQuality,
-  RegionalContext,
+  DataSummary,
 } from "../components/Intelligence";
+import { DecisionKpis } from "../components/DecisionKpis";
 import { Changes } from "../components/Changes";
-import { regionalRows, sortRows, coverageKpi } from "../risk/intelligence";
-import { activeAlerts, coverageCurrent, rank } from "../risk/engine";
+import { regionalRows, sortRows } from "../risk/intelligence";
+import { activeAlerts, rank } from "../risk/engine";
 import { regionName } from "../data/regions";
 import { leadingSignal, hazardNames, actions } from "../risk/signals";
 export default function Overview() {
   const { t, lang, operational: op, data, now } = useApp();
   const rows = sortRows(regionalRows(op, data, now)),
-    kpi = coverageKpi(rows),
     alerts = activeAlerts(data, now);
   const priorities = rows.filter(
     (r) => r.official.length || (r.level !== "unknown" && rank[r.level] >= 2),
@@ -44,74 +43,9 @@ export default function Overview() {
           "ရက်စွဲပါ ဒေသအထောက်အထားအပေါ် အခြေခံသော နိုင်ငံအကျဉ်းချုပ်။ အစိုးရသတိပေးစနစ်မဟုတ်သော လွတ်လပ်သည့် ပြင်ဆင်ရေးအချက်အလက်။",
         )}
       />
-      {alerts[0] && <AlertCard alert={alerts[0]} />}
+
       <EnsoPanel />
-      <section
-        className="national-strip"
-        aria-label={t("National snapshot", "နိုင်ငံအကျဉ်းချုပ်")}
-      >
-        <div>
-          <span>
-            {t(
-              "Highest assessed platform concern",
-              "စစ်ဆေးပြီး စနစ်အဆင့် အမြင့်ဆုံး",
-            )}
-          </span>
-          <Concern level={lead?.level ?? "unknown"} />
-          <small>
-            {lead
-              ? regionName(lead.id, lang)
-              : t("Insufficient data", "ဒေတာ မလုံလောက်")}
-          </small>
-          <a href="#/warnings">
-            {t("See hazard evidence", "အန္တရာယ်အထောက်အထား ကြည့်ရန်")}
-          </a>
-        </div>
-        <div>
-          <span>{t("Regions to watch", "စောင့်ကြည့်ရန် ဒေသ")}</span>
-          <strong>{kpi.highPriority}/15</strong>
-          <small>
-            {t(
-              "Official alert or elevated+ screening",
-              "တရားဝင်သတိပေး သို့မဟုတ် မြင့်တက်အဆင့်နှင့်အထက်",
-            )}
-          </small>
-          <a href="#/warnings">
-            {t("Review all regions", "ဒေသအားလုံး စစ်ဆေးရန်")}
-          </a>
-        </div>
-        <div>
-          <span>
-            {t("Official active warnings", "သက်တမ်းရှိ တရားဝင်သတိပေးချက်")}
-          </span>
-          <strong>
-            {alerts.length || coverageCurrent(data, now)
-              ? alerts.length
-              : t("Coverage unavailable", "လွှမ်းခြုံဒေတာ မရရှိ")}
-          </strong>
-          <a href="#/warnings">
-            {t(
-              "Official coverage & sources",
-              "တရားဝင် လွှမ်းခြုံမှုနှင့် ရင်းမြစ်",
-            )}
-          </a>
-        </div>
-        <div>
-          <span>{t("Data coverage", "ဒေတာ လွှမ်းခြုံမှု")}</span>
-          <strong>
-            {kpi.available}/{kpi.expected}
-          </strong>
-          <small>
-            {t(
-              "Monitoring + context cells, not risk",
-              "စောင့်ကြည့် + နောက်ခံဒေတာကွက်၊ အန္တရာယ်အမှတ် မဟုတ်",
-            )}
-          </small>
-          <a href="#/data">
-            {t("Inspect completeness", "ပြည့်စုံမှု စစ်ဆေးရန်")}
-          </a>
-        </div>
-      </section>
+      <DecisionKpis />
       <section className="panel padded">
         <div className="row spread">
           <h2>{t("Regions to watch", "စောင့်ကြည့်ရန် ဒေသ")}</h2>
@@ -182,31 +116,24 @@ export default function Overview() {
           )}
         </a>
       </section>
-      <section className="panel padded">
-        <h2>{t("Official advisories", "တရားဝင် အသိပေးချက်များ")}</h2>
-        {alerts.length ? (
-          alerts.slice(1).map((a) => <AlertCard key={a.id} alert={a} />)
-        ) : (
-          <Notice>
-            <OfficialStatus /> ·{" "}
-            {t(
-              "Check Myanmar DMH and local authorities. No connected bulletin is not the same as no risk.",
-              "မိုး/ဇလနှင့် ဒေသတာဝန်ရှိသူများ၏ သတင်းကို စစ်ဆေးပါ။ ကြေညာချက်နှင့် မချိတ်ဆက်ရသေးခြင်းသည် အန္တရာယ်မရှိဟု မဆိုလိုပါ။",
-            )}{" "}
-            <a href="https://www.dmh.gov.mm/">Myanmar DMH</a>
-          </Notice>
-        )}
-        {alerts.length === 1 && (
-          <p>
-            {t(
-              "The active official advisory is shown at the top of this briefing.",
-              "သက်တမ်းရှိ တရားဝင်အသိပေးချက်ကို ဤအကျဉ်းချုပ်ထိပ်တွင် ပြထားသည်။",
-            )}
-          </p>
-        )}
-      </section>
-      <RegionalContext />
-      <DataQuality />
+      <Notice>
+        <OfficialStatus count={alerts.length} /> ·{" "}
+        <a href="#/warnings">
+          {t(
+            "Official bulletins and coverage → Warnings",
+            "တရားဝင်ကြေညာချက်နှင့် လွှမ်းခြုံမှု → သတိပေးချက်များ",
+          )}
+        </a>
+      </Notice>
+      <p>
+        <a href="#/learn">
+          {t(
+            "ASEAN seasonal context and other climate drivers → Learn",
+            "အာဆီယံရာသီနောက်ခံနှင့် အခြားရာသီဥတုအကြောင်းရင်း → လေ့လာရန်",
+          )}
+        </a>
+      </p>
+      <DataSummary />
     </>
   );
 }

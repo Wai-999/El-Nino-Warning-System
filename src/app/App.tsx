@@ -13,6 +13,7 @@ import {
   Map,
   TriangleAlert,
   Layers,
+  HeartPulse,
   ClipboardCheck,
   BookOpen,
   Database,
@@ -43,6 +44,7 @@ const Region = lazy(() =>
 const Warnings = lazy(() => import("../features/Warnings"));
 const Records = lazy(() => import("../features/Records"));
 const Impacts = lazy(() => import("../features/Impacts"));
+const Health = lazy(() => import("../features/Health"));
 const Prepare = lazy(() => import("../features/Prepare"));
 const Learn = lazy(() => import("../features/Learn"));
 const Methodology = lazy(() => import("../features/Methodology"));
@@ -128,13 +130,11 @@ export default function App() {
   const initialized = useRef(false);
   async function refresh() {
     setLoading(true);
-    const [official, local, saved] = await Promise.all([
+    const [official, local] = await Promise.all([
       loadSnapshot(),
       loadOperational(),
-      loadArchive(),
     ]);
     setSnapshot(official);
-    setArchive(saved);
     setOperational(local);
     setNow(Date.now());
     setLoading(false);
@@ -168,6 +168,10 @@ export default function App() {
       document.removeEventListener("visibilitychange", net);
     };
   }, []);
+  useEffect(() => {
+    if (route === "/" || route === "/records")
+      void loadArchive().then(setArchive);
+  }, [route]);
   useEffect(() => {
     document.documentElement.lang = lang;
     setPref("mokinn-language", lang);
@@ -203,6 +207,7 @@ export default function App() {
     ["/map", "Map", "မြေပုံ", Map],
     ["/warnings", "Warnings", "သတိပေးချက်များ", TriangleAlert],
     ["/impacts", "Impacts", "သက်ရောက်မှုများ", Layers],
+    ["/health", "Health", "ကျန်းမာရေး", HeartPulse],
     ["/records", "Records", "မှတ်တမ်းများ", BookOpen],
     ["/prepare", "Prepare", "ကြိုတင်ပြင်ဆင်ရန်", ClipboardCheck],
     ["/learn", "Learn", "လေ့လာရန်", BookOpen],
@@ -225,6 +230,7 @@ export default function App() {
   else if (route === "/warnings") page = <Warnings />;
   else if (route === "/records") page = <Records />;
   else if (route === "/impacts") page = <Impacts />;
+  else if (route === "/health") page = <Health />;
   else if (route === "/prepare") page = <Prepare />;
   else if (route === "/learn") page = <Learn />;
   else if (route === "/data") page = <Methodology />;
@@ -385,7 +391,11 @@ export default function App() {
             </span>
             <button
               className="refresh-button"
-              onClick={() => void refresh()}
+              onClick={() => {
+                void refresh();
+                if (["/", "/records"].includes(route))
+                  void loadArchive().then(setArchive);
+              }}
               disabled={loading}
               aria-label={t("Refresh information", "အချက်အလက် ပြန်ယူရန်")}
             >

@@ -13,7 +13,6 @@ import { contextNotice, sources, sourceById } from "../data/sources";
 import { PageTitle, SourceLink, Notice } from "./shared";
 import type { Severity } from "../data/schema";
 import { coverageCurrent } from "../risk/engine";
-import { sectorEvidence } from "../data/impactEvidence";
 export const coverageLabels: Record<Category, [string, string]> = {
   temperature: ["Temperature · reanalysis", "အပူချိန် · ပြန်လည်ဆန်းစစ်"],
   precipitation: ["Precipitation · reanalysis", "မိုးရေ · ပြန်လည်ဆန်းစစ်"],
@@ -336,7 +335,7 @@ export function RegionalContext() {
   );
 }
 export function RegionEvidence({ id }: { id: string }) {
-  const { t, operational: op, data, now, lang } = useApp();
+  const { t, operational: op, data, now } = useApp();
   const row = regionalRows(op, data, now).find((r) => r.id === id)!;
   return (
     <>
@@ -353,8 +352,8 @@ export function RegionEvidence({ id }: { id: string }) {
         <OfficialStatus count={row.official.length} />
         <p>
           {t(
-            "Confidence: not calibrated against Myanmar impacts. Three sampled grid cells do not resolve every township. Drought, river flooding, fire and disease surveillance remain unavailable.",
-            "ယုံကြည်နိုင်မှု — မြန်မာသက်ရောက်မှုဒေတာဖြင့် မချိန်ညှိရသေးပါ။ နမူနာကွက် သုံးခုက မြို့နယ်အားလုံးကို မဖော်ပြနိုင်ပါ။ မိုးခေါင်၊ မြစ်ရေကြီး၊ မီးနှင့် ရောဂါစောင့်ကြည့်ဒေတာ မရရှိပါ။",
+            "Confidence: not calibrated against Myanmar impacts. Three sampled grid cells do not resolve every township. Drought, river flooding, fire and current comparable disease incidence remain unavailable.",
+            "ယုံကြည်နိုင်မှု — မြန်မာသက်ရောက်မှုဒေတာဖြင့် မချိန်ညှိရသေးပါ။ နမူနာကွက် သုံးခုက မြို့နယ်အားလုံးကို မဖော်ပြနိုင်ပါ။ မိုးခေါင်၊ မြစ်ရေကြီး၊ မီးနှင့် နှိုင်းယှဉ်နိုင်သော လက်ရှိလူနာနှုန်း မရရှိပါ။",
           )}
         </p>
         <a href="#/data">
@@ -365,59 +364,43 @@ export function RegionEvidence({ id }: { id: string }) {
         </a>
       </section>
       <section className="panel padded">
-        <h2>
-          {t(
-            "Agriculture & health implications",
-            "စိုက်ပျိုးရေးနှင့် ကျန်းမာရေးဆိုင်ရာ",
-          )}
-        </h2>
-        <h3>
-          {t(
-            "National crop calendar context",
-            "နိုင်ငံအဆင့် သီးနှံပြက္ခဒိန် နောက်ခံ",
-          )}
-        </h3>
-        <StateLabel
-          state={sourceStatus(op, data, now).find((s) => s.id === "fao")!.state}
-        />
+        <h2>{t("Explore this location", "ဤဒေသကို လေ့လာရန်")}</h2>
         <p>
-          {t(
-            "FAO’s 18 September 2026 brief expects main paddy harvest from late October and secondary paddy planting from October. Actual timing varies by locality. Climate pressure must be combined with crop exposure and growth stage; these are not measured here.",
-            "FAO ၂၀၂၆ စက်တင်ဘာ ၁၈ စာတမ်းအရ မိုးစပါးရိတ်သိမ်းမှု အောက်တိုဘာနှောင်းပိုင်းနှင့် နွေစပါးစိုက်ပျိုးမှု အောက်တိုဘာမှ စတင်နိုင်သည်။ ဒေသအလိုက် အချိန်ကွာသည်။ ရာသီဥတုဖိအားကို သီးနှံထိတွေ့မှု၊ ကြီးထွားအဆင့်နှင့် တွဲသုံးရမည်။ ဤစနစ်တွင် ထိုဒေတာ မတိုင်းတာပါ။",
-          )}
+          <a href={`#/impacts?region=${id}`}>
+            {t(
+              "Potential impacts and sector evidence",
+              "ဖြစ်နိုင်သက်ရောက်မှုနှင့် ကဏ္ဍအထောက်အထား",
+            )}
+          </a>
         </p>
-        <SourceLink href={sourceById("fao").url}>
-          FAO GIEWS · Myanmar
-        </SourceLink>
-        <h3>
-          {t(
-            "Health preparedness, not an outbreak forecast",
-            "ရောဂါခန့်မှန်းချက်မဟုတ်သော ကျန်းမာရေးပြင်ဆင်မှု",
-          )}
-        </h3>
-        <p>{t(...sectorEvidence.health.why)}</p>
-        <p>{t(...sectorEvidence.health.prepare)}</p>
-        <SourceLink href={sourceById("who").url}>
-          WHO · Heat and health
-        </SourceLink>
-        <p className="meta">
-          {t("Retrieved / reviewed", "ရယူ / ပြန်စစ်")}:{" "}
-          {mmt(
-            sourceStatus(op, data, now).find((s) => s.id === "who")!
-              .retrievedAt!,
-            lang,
-          )}
+        <p>
+          <a href={`#/health?region=${id}`}>
+            {t(
+              "Health signs and safe response",
+              "ကျန်းမာရေးလက္ခဏာနှင့် ဘေးကင်းတုံ့ပြန်မှု",
+            )}
+          </a>
         </p>
-        <a href={`#/impacts?sector=health&region=${id}&evidence=all`}>
-          {t(
-            "Explore dated evidence and preparedness",
-            "ရက်စွဲပါ အထောက်အထားနှင့် ပြင်ဆင်မှုကို ကြည့်ရန်",
-          )}
-        </a>
       </section>
-      <DataQuality region={id} />
+      <DataSummary />
     </>
   );
 }
 // Shared imports above deliberately have no map or geometry dependencies.
 export { PageTitle, Notice, sources };
+
+export function DataSummary() {
+  const { t, operational, data, now } = useApp();
+  const k = coverageKpi(regionalRows(operational, data, now));
+  return (
+    <p className="data-summary">
+      {t("Data coverage", "ဒေတာ လွှမ်းခြုံမှု")}: {k.available}/{k.expected} ·{" "}
+      <a href="#/data">
+        {t(
+          "Inspect source freshness and all missing categories",
+          "ရင်းမြစ်သက်တမ်းနှင့် မရရှိသောကဏ္ဍများ စစ်ဆေးရန်",
+        )}
+      </a>
+    </p>
+  );
+}
