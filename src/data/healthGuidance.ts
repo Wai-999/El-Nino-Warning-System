@@ -89,8 +89,8 @@ export const healthTopics: HealthTopic[] = [
     id: "dehydration",
     name: ["Dehydration", "ရေဓာတ်ခန်းခြောက်ခြင်း"],
     pathway: [
-      "Heat and sweating, or diarrhoea/vomiting → fluid loss → dehydration.",
-      "အပူနှင့် ချွေးထွက်မှု၊ ဝမ်းလျှော/အန်ခြင်း → အရည်ဆုံးရှုံးမှု → ရေဓာတ်ခန်းခြောက်မှု။",
+      "Heat and sweating, or diarrhoea/vomiting → dehydration.",
+      "အပူနှင့် ချွေးထွက်မှု၊ ဝမ်းလျှော/အန်ခြင်း → ရေဓာတ်ခန်းခြောက်မှု။",
     ],
     vulnerable: [
       "Babies, older people and people who need help drinking.",
@@ -98,7 +98,7 @@ export const healthTopics: HealthTopic[] = [
     ],
     signs: [
       "Thirst, dry mouth, dark or less urine, dizziness or tiredness.",
-      "ရေငတ်၊ ပါးစပ်ခြောက်၊ ဆီးအရောင်ရင့်/ဆီးနည်း၊ မူးဝေ သို့မဟုတ် နွမ်းနယ်ခြင်း။",
+      "ရေငတ်ခြင်း၊ ပါးစပ်ခြောက်ခြင်း၊ ဆီးအရောင်ရင့်/ဆီးနည်းခြင်းများ၊ မူးဝေ သို့မဟုတ် နွမ်းနယ်ခြင်း။",
     ],
     now: [
       "If awake and able to swallow, take small frequent sips. Ask a pharmacist about oral rehydration solution for diarrhoea or vomiting.",
@@ -110,11 +110,11 @@ export const healthTopics: HealthTopic[] = [
     ],
     emergency: [
       "Confusion, difficulty waking, or difficulty breathing: get emergency help now.",
-      "စိတ်ရှုပ်ထွေး၊ နှိုးရခက် သို့မဟုတ် အသက်ရှူခက်လျှင် အရေးပေါ်အကူအညီ ချက်ချင်းရယူပါ။",
+      "သတိလစ်ခြင်း သို့မဟုတ် အသက်ရှူခက်ခြင်းများကြုံရလျှင် အရေးပေါ်အကူအညီ ချက်ချင်းရယူပါ။",
     ],
     prevention: [
-      "Drink regularly and help dependent people drink. Follow your clinician’s plan if you have a fluid restriction.",
-      "ပုံမှန်ရေသောက်၍ မှီခိုနေရသူကို ကူညီပါ။ အရည်သောက်ပမာဏ ကန့်သတ်ထားသူသည် ဆရာဝန်၏ ညွှန်ကြားချက်ကို လိုက်နာပါ။",
+      "Drink regularly. Follow your clinician’s plan if you have a fluid restriction.",
+      "ပုံမှန်ရေသောက်ပါ။ အရည်သောက်ပမာဏ ကန့်သတ်ထားသူသည် ဆရာဝန်၏ ညွှန်ကြားချက်ကို လိုက်နာပါ။",
     ],
     sources: ["dehydration"],
   },
@@ -131,23 +131,23 @@ export const healthTopics: HealthTopic[] = [
     ],
     signs: [
       "Painful muscle spasms, often in arms, legs or abdomen.",
-      "လက်၊ ခြေ သို့မဟုတ် ဝမ်းဗိုက်ကြွက်သားများ နာကျင်စွာ ကျုံ့တက်ခြင်း။",
+      "လက်၊ ခြေ သို့မဟုတ် ဝမ်းဗိုက်ကြွက်သားများ နာကျင်ခြင်း။",
     ],
     now: [
-      "Stop exertion, rest somewhere cool and drink water if able to swallow. Do not take salt tablets.",
-      "အလုပ်ရပ်၍ အေးသောနေရာတွင် နားပါ။ မျိုချနိုင်ပါက ရေသောက်ပါ။ ဆားဆေးပြား မသောက်ပါနှင့်။",
+      "Stop exertion, rest somewhere cool and drink water if able to swallow.",
+      "အေးသောနေရာတွင် အနားယူပါ။ မျိုချနိုင်ပါက ရေသောက်ပါ။",
     ],
     care: [
       "Cramps lasting over an hour, heart disease or a prescribed low-sodium diet.",
-      "တစ်နာရီကျော် မသက်သာ၊ နှလုံးရောဂါရှိ သို့မဟုတ် ဆားလျှော့စားရန် ညွှန်ကြားထားလျှင်။",
+      "တစ်နာရီကျော်၍ မသက်သာလျှင်၊ နှလုံးရောဂါရှိသူ သို့မဟုတ် ဆားလျှော့စားရန် ညွှန်ကြားထားခြင်းခံရလျှင်။",
     ],
     emergency: [
       "Confusion, collapse or seizures may signal heatstroke: get help and cool immediately.",
-      "စိတ်ရှုပ်ထွေး၊ လဲကျ သို့မဟုတ် တက်လျှင် အပူလျှပ်ခြင်း ဖြစ်နိုင်သည်။ အကူအညီရယူ၍ ချက်ချင်းအအေးပေးပါ။",
+      "မူး‌‌ဝေလဲကျခြင်း၊ တက်ခြင်း သို့မဟုတ် အပူလျှပ်ခြင်း ဖြစ်နိုင်သည်။ အကူအညီရယူ၍ ချက်ချင်းအအေးပေးပါ။",
     ],
     prevention: [
       "Take cool rest breaks and reduce strenuous work during the hottest hours.",
-      "အေးသောနေရာ၌ မကြာခဏနား၍ အပူဆုံးအချိန် အလုပ်ကြမ်း လျှော့ပါ။",
+      "အေးသောနေရာ၌ အနားယူ၍ အပူဆုံးအချိန် အလုပ်ကြမ်း လျှော့ပါ။",
     ],
     sources: ["heat", "climate"],
   },
