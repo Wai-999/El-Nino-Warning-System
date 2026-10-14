@@ -32,6 +32,13 @@ const op = operationalSchema.parse(
   JSON.parse(readFileSync("public/data/operational.json", "utf8")),
 );
 const now = Date.parse(op.weather!.fetchedAt);
+// Rules that need FRESH ERA5 history are exercised at a time inside the committed history's own 10-day validity
+// window. Otherwise a failed upstream ERA5 refresh (which the app correctly shows as unavailable) makes these
+// tests fail and blocks every deployment. Staleness itself is still asserted below (historyNow + 11 days).
+const historyNow = Math.max(
+  Date.parse(op.history!.fetchedAt) + 60000,
+  Date.parse(op.history!.end + "T23:59:59+06:30") + 1000,
+);
 const sample = sampleSchema.parse({
   regionId: "MM-04",
   lat: 22,
@@ -219,8 +226,8 @@ describe("freshness and screening safety", () => {
     ).toBe(false);
   });
   it("marks delayed historical data stale after its end day exceeds ten days", () => {
-    expect(historyFresh(op.history, now)).toBe(true);
-    expect(historyFresh(op.history, now + 11 * DAY)).toBe(false);
+    expect(historyFresh(op.history, historyNow)).toBe(true);
+    expect(historyFresh(op.history, historyNow + 11 * DAY)).toBe(false);
   });
   it("formats half-hour Myanmar time without browser time-zone dependence", () => {
     expect(mmt("2026-01-01T00:00:00Z")).toContain("06:30");
@@ -235,9 +242,12 @@ describe("freshness and screening safety", () => {
       dryDays: 20,
     });
     expect(
-      signalsFor(copy, emptySnapshot, copy.history!.regions[0].id, now).find(
-        (s) => s.hazard === "dryness",
-      )?.level,
+      signalsFor(
+        copy,
+        emptySnapshot,
+        copy.history!.regions[0].id,
+        historyNow,
+      ).find((s) => s.hazard === "dryness")?.level,
     ).toBe("warning");
   });
   it("never treats a missing or stale forecast as normal", () => {

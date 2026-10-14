@@ -44,6 +44,12 @@ const now = Math.max(
   Date.parse(op.weather!.fetchedAt),
   Date.parse(reviewedAt) + 1000,
 );
+// See tests/operational.test.ts: coverage that depends on fresh ERA5 history is evaluated inside that history's
+// validity window, so a failed upstream refresh cannot block deployment.
+const historyNow = Math.max(
+  Date.parse(op.history!.fetchedAt) + 60000,
+  Date.parse(op.history!.end + "T23:59:59+06:30") + 1000,
+);
 const text = { en: "TEST ONLY", my: "စမ်းသပ်မှုသာ" };
 const alert: Alert = {
   id: "TEST ONLY",
@@ -147,10 +153,10 @@ describe("Coverage, missingness and update rules", () => {
   });
   it("calculates coverage from actual usable cells and unique regions", () => {
     const fresh = structuredClone(op);
-    fresh.weather!.fetchedAt = new Date(now).toISOString();
-    fresh.weather!.validAt = new Date(now).toISOString();
-    fresh.weather!.through = new Date(now + DAY).toISOString();
-    const rows = regionalRows(fresh, emptySnapshot, now);
+    fresh.weather!.fetchedAt = new Date(historyNow).toISOString();
+    fresh.weather!.validAt = new Date(historyNow).toISOString();
+    fresh.weather!.through = new Date(historyNow + DAY).toISOString();
+    const rows = regionalRows(fresh, emptySnapshot, historyNow);
     expect(coverageKpi(rows)).toMatchObject({
       available: 75,
       monitoring: 45,
@@ -158,9 +164,9 @@ describe("Coverage, missingness and update rules", () => {
       expected: 120,
     });
     fresh.weather!.regions.pop();
-    expect(coverageKpi(regionalRows(fresh, emptySnapshot, now)).available).toBe(
-      74,
-    );
+    expect(
+      coverageKpi(regionalRows(fresh, emptySnapshot, historyNow)).available,
+    ).toBe(74);
   });
   it("cannot show low concern with missing inputs, while preserving known elevated evidence", () => {
     const s = (hazard: Signal["hazard"], level: Signal["level"]): Signal => ({
