@@ -1,20 +1,20 @@
 {
  "edition": "2026-10-e1",
- "build": "a396892b90ad",
+ "build": "32ee4d2ed158",
  "generated": "2026-10-14",
  "canonical": "https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/",
- "total_bytes": 1848820,
+ "total_bytes": 1849349,
  "files": [
   {
    "path": "index.html",
-   "bytes": 143162,
-   "sha256": "6147a1661ad08a7d52c29de8f3a85e99750a27250d4947a8b556d18846e5014b",
+   "bytes": 143176,
+   "sha256": "8a48150b08463c00efb6b3a32cca4650ee0f9f5f6aaef4426afc9385800b07cb",
    "type": "text/html"
   },
   {
    "path": "hub.css",
-   "bytes": 22436,
-   "sha256": "8b005ad1924d743181fa1c39294b07f8a2640f15bcef9e3974a5392ba8632470",
+   "bytes": 22951,
+   "sha256": "0cf8ce502396debdb480f7fd0ba4a592ae8e20cd17a27094ecd48a1b3a8fd67f",
    "type": "text/css"
   },
   {
@@ -38,7 +38,7 @@
   {
    "path": "data/bibliography.txt",
    "bytes": 13191,
-   "sha256": "319539d2958dc3e903d2bd5d4d1efb522e07386294c4f694c16286c1e84ed479",
+   "sha256": "f25fc87d778a6122a2e681368963f032ccc8a3d64d4e7d2dd619432ef582645b",
    "type": "text/plain; charset=utf-8"
   },
   {

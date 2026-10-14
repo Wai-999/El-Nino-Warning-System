@@ -1,7 +1,7 @@
 El Niño bi-fold pamphlet (2026-10 edition) — bibliography snapshot
 Sources reviewed/accessed: 2026-10-14. Forecast data as of 2026-10-08.
 Online library: https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/#sources
-Build: a396892b90ad
+Build: 32ee4d2ed158
 
 == ENSO outlook / ENSO ခန့်မှန်းချက် ==
 [S01] NOAA Climate Prediction Center (CPC/NCEP/NWS). "El Niño/Southern Oscillation (ENSO) Diagnostic Discussion — 8 October 2026". 8 Oct 2026. https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_oct2026/ensodisc.shtml
