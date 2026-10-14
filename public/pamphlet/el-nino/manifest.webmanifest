@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "အယ်လ်နီညို — ပြည်သူ့ ပညာပေး လက်ကမ်းစာစောင်",
+  "short_name": "အယ်လ်နီညို",
+  "description": "El Niño 2026–27 public-education leaflet (Burmese) with verified sources.",
+  "lang": "my",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EC",
+  "theme_color": "#A3101A",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

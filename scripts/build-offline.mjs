@@ -23,7 +23,14 @@ async function files(dir) {
   }
   return results;
 }
-const paths = (await files("dist")).filter((p) => !p.endsWith("/sw.js"));
+// The single-QR pamphlet hub (dist/pamphlet/) is a separate static site with its own service worker and
+// explicit "Save for offline". The app shell must neither precache it nor intercept its URLs: the printed QR
+// code points at pamphlet/el-nino/ and has to keep opening the hub for readers who already installed this app.
+const isPamphlet = (p) =>
+  path.relative("dist", p).split(path.sep)[0] === "pamphlet";
+const paths = (await files("dist")).filter(
+  (p) => !p.endsWith("/sw.js") && !isPamphlet(p),
+);
 const hash = createHash("sha256");
 // Cache-policy changes must also produce a new shell cache.
 hash.update(await readFile(new URL(import.meta.url)));
@@ -42,6 +49,7 @@ self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.keys
 self.addEventListener('fetch',event=>{
  const req=event.request,url=new URL(req.url);
  if(req.method!=='GET'||url.origin!==self.location.origin||!url.href.startsWith(self.registration.scope))return;
+ if(url.href.startsWith(self.registration.scope+'pamphlet/'))return;
  if((url.pathname.endsWith('/data/current.json')||url.pathname.endsWith('/data/operational.json')||url.pathname.endsWith('/data/archive.json'))){
   event.respondWith((async()=>{const cache=await caches.open(CACHE);try{const response=await fetch(req);if(!response.ok)throw Error('Unavailable');await cache.put(req,response.clone());return response;}catch{const cached=await cache.match(req,{ignoreVary:true});if(!cached)return Response.error();const headers=new Headers(cached.headers);headers.set('X-Mokinn-Cache','true');return new Response(await cached.arrayBuffer(),{status:200,headers});}})());return;
  }

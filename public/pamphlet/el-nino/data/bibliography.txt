@@ -1,0 +1,122 @@
+El Niño bi-fold pamphlet (2026-10 edition) — bibliography snapshot
+Sources reviewed/accessed: 2026-10-14. Forecast data as of 2026-10-08.
+Online library: https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/#sources
+Build: a396892b90ad
+
+== ENSO outlook / ENSO ခန့်မှန်းချက် ==
+[S01] NOAA Climate Prediction Center (CPC/NCEP/NWS). "El Niño/Southern Oscillation (ENSO) Diagnostic Discussion — 8 October 2026". 8 Oct 2026. https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_oct2026/ensodisc.shtml
+      Accessed 2026-10-14. Status: Verified. Supports: C01, C02, C03, C05, C15, C17, C18.
+      Note: Probabilities, not certainties. Next discussion: 12 Nov 2026. The archive URL is permanent; the alternate URL always shows the newest issue.
+[S02] World Meteorological Organization (WMO). "El Niño/La Niña Update (August 2026)". 3 Sep 2026. https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026
+      Accessed 2026-10-14. Status: Verified (dated; a newer statement exists). Supports: C01, C16.
+      Note: Superseded for timing by the 8 Oct 2026 WMO release (S20), which is consistent (peak in December).
+[S03] World Meteorological Organization (WMO). "El Niño set to become very strong, raising risks of extreme weather into 2027 (press release)". 3 Sep 2026. https://wmo.int/news/media-centre/el-nino-set-become-very-strong-raising-risks-of-extreme-weather-2027
+      Accessed 2026-10-14. Status: Verified (dated; a newer statement exists). Supports: C16, C18, C26.
+      Note: WMO says "very strong"; it does not use "super". Newer WMO statement: S20 (8 Oct 2026).
+[S04] World Meteorological Organization (WMO). "El Niño / La Niña Phenomena (theme page)". undated. https://wmo.int/themes/el-nino-la-nina-phenomena
+      Accessed 2026-10-14. Status: Verified. Supports: C04, C05, C06, C07, C08.
+      Note: Undated explainer.
+[S20] World Meteorological Organization (WMO). "Sea-surface temperatures reflect strengthening El Niño (press release)". 8 Oct 2026. https://wmo.int/news/media-centre/sea-surface-temperatures-reflect-strengthening-el-nino
+      Accessed 2026-10-14. Status: Verified. Supports: C01, C02, C03, C16.
+      Note: Newest WMO statement at the time of review; forecast peak in December 2026.
+[S21] World Meteorological Organization (WMO). "Global Seasonal Climate Update for October-November-December 2026". 8 Oct 2026. https://wmo.int/node/39053
+      Accessed 2026-10-14. Status: Verified. Supports: -.
+      Note: The product behind S20.
+
+== Myanmar forecasts & warnings / မြန်မာ ခန့်မှန်းချက်/သတိပေးချက် ==
+[S05] Burma News International (BNI) / Mizzima — reporting Myanmar DMH. "Myanmar weather bureau warns of impending strong El Nino event later this year". 26 May 2026. https://www.bnionline.net/en/news/myanmar-weather-bureau-warns-impending-strong-el-nino-event-later-year
+      Accessed 2026-10-14. Status: Partially verified. Supports: C06, C08, C19, C22, C29.
+      Note: Secondary report; DMH's own bulletin text was not available online (see S24).
+[S06] The Star (Eleven Media / ANN) — reporting Myanmar DMH. "Strong El Nino expected to develop by end of 2026: Myanmar". 23 Jun 2026. https://www.thestar.com.my/aseanplus/aseanplus-news/2026/06/23/strong-el-nino-expected-to-develop-by-end-of-2026-myanmar
+      Accessed 2026-10-14. Status: Partially verified. Supports: C19.
+      Note: Secondary report.
+[S07] Malay Mail (AFP). "Myanmar warns of power cuts as El Nino heat strains grid". 5 Oct 2026. https://www.malaymail.com/news/world/2026/10/05/myanmar-warns-of-power-cuts-as-el-nino-heat-strains-grid/237812
+      Accessed 2026-10-14. Status: Verified. Supports: C20.
+      Note: The site blocks automated fetches (HTTP 403); verified in a browser-based fetch on 14 Oct 2026. Officials quoted there say "Super El Nino" — the leaflet does not repeat it.
+[S24] Department of Meteorology and Hydrology (DMH), Myanmar. "အယ်နီညို/လာနီညာ (El Niño / La Niña) page". accessed 14 Oct 2026. https://www.moezala.gov.mm/my/el-nino-la-nina
+      Accessed 2026-10-14. Status: Reference link only. Supports: C19, C29.
+      Note: Official DMH page to monitor. When accessed on 14 Oct 2026 it showed no bulletin text, so it is listed for monitoring only and not used as evidence.
+
+== Historical events / သမိုင်းဝင် ဖြစ်ရပ်များ ==
+[S09] UN OCHA (hosted by MIMU). "Myanmar: Flood and Cyclone Snapshot (16 September 2015)". 16 Sep 2015. https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Myanmar_Flood_Cyclone_OCHA_16Sep2015.pdf
+      Accessed 2026-10-14. Status: Verified. Supports: C10, C14.
+      Note: The floods (with Cyclone Komen) co-occurred with the 2015-16 El Niño; OCHA does not attribute them to it. OCHA later gave ~1.7 million (S10).
+[S10] UN OCHA (hosted by MIMU). "Myanmar: Natural disaster risks and past events (as of 31 May 2016)". 31 May 2016. https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Natural_disaster_risks_and_past_events_OCHA_31May2016.pdf
+      Accessed 2026-10-14. Status: Verified. Supports: C10, C21, C24, C25, C30.
+      Note: Also gives ~1.7 million people temporarily displaced by the 2015 floods (later figure than S09).
+[S12] Myanmar Now (AFP). "Myanmar records hottest ever April temperature of 48.2°C". 30 Apr 2024. https://myanmar-now.org/en/news/myanmar-records-hottest-ever-april-temperature-of-48-2c/
+      Accessed 2026-10-14. Status: Partially verified. Supports: C12, C14.
+      Note: Weather-office figure as reported by AFP; DMH's record page was not available. Sunday = 28 April 2024.
+[S13] NOAA Climate Prediction Center. "ENSO Diagnostic Discussion — 9 May 2024". 9 May 2024. https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_may2024/ensodisc.shtml
+      Accessed 2026-10-14. Status: Verified. Supports: C13.
+      Note: Establishes that April 2024 fell in the waning phase of the 2023-24 El Niño; it does not attribute the heat.
+[S14] World Meteorological Organization (WMO). "El Niño/La Niña Update (February 2016)". 1 Feb 2016. https://wmo.int/media/17673
+      Accessed 2026-10-14. Status: Verified. Supports: C09.
+      Note: Context for the timeline years (1997-98, 2015-16).
+
+== Agriculture & water / စိုက်ပျိုးရေးနှင့် ရေ ==
+[S08] FAO Global Information and Early Warning System (GIEWS). "Food Outlook, February 1998". Feb 1998. https://www.fao.org/4/W7867E/w7867e04.htm
+      Accessed 2026-10-14. Status: Verified. Supports: C09.
+      Note: Regional statement; no Myanmar-specific figures.
+[S11] World Bank (W. R. Sutton, J. P. Srivastava, M. Rosegrant, J. Thurlow, I. Vasileiou). "Striking a Balance: Managing El Niño and La Niña in Myanmar's Agriculture". 2019. https://reliefweb.int/attachments/bffc44d3-447a-3777-8f4b-d9edf1c66a28/Striking-a-Balance-Managing-El-Ni%C3%B1o-and-La-Ni%C3%B1a-in-Myanmar-s-Agriculture.pdf
+      Accessed 2026-10-14. Status: Verified. Supports: C11, C14, C22, C24, C27.
+      Note: Original report PDF (World Bank, © 2019), hosted on ReliefWeb; World Bank repository handle given as alternate.
+[S18] World Health Organization (WHO). "Drinking-water (fact sheet)". 13 Sep 2023. https://www.who.int/news-room/fact-sheets/detail/drinking-water
+      Accessed 2026-10-14. Status: Verified. Supports: C24, C27, C32.
+      Note: Global fact sheet; not drought-specific.
+
+== Health & heat safety / ကျန်းမာရေးနှင့် အပူဒဏ် ဘေးကင်းရေး ==
+[S15] World Health Organization (WHO). "Heat and health (fact sheet)". 31 Jul 2026. https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health
+      Accessed 2026-10-14. Status: Verified. Supports: C23, C28, C31, C35.
+      Note: Prevention advice and at-risk groups; not step-by-step first aid (see S16, S17, S22).
+[S16] Global Heat Health Information Network (WHO/WMO joint office). "Staying healthy in the heat". undated. https://heathealth.info/resources/staying-healthy-in-the-heat/
+      Accessed 2026-10-14. Status: Verified. Supports: C33, C34.
+      Note: Infographic adapted from Health Canada; the emergency number on it is not Myanmar's.
+[S17] Queensland Government (Health). "Signs and symptoms of heat-related illness". updated 4 Aug 2026. https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/signs-symptoms
+      Accessed 2026-10-14. Status: Verified. Supports: C33, C34, C35.
+      Note: Australian state guidance; its emergency number (000) is NOT Myanmar's.
+[S22] NHS (UK National Health Service). "Heat exhaustion and heatstroke". reviewed 28 May 2026. https://www.nhs.uk/conditions/heat-exhaustion-heatstroke/
+      Accessed 2026-10-14. Status: Verified. Supports: C33, C35.
+      Note: UK guidance; 999 is the UK emergency number, NOT Myanmar's.
+[S23] Queensland Government (Health). "How to keep cool and stay hydrated". updated 4 Aug 2026. https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/how-to-keep-cool
+      Accessed 2026-10-14. Status: Verified. Supports: C28.
+      Note: Supports the fluid-restriction advice.
+
+== Claim map ==
+C01 (panel 1) [Verified] El Niño is under way (headline) -> S01, S02, S20
+C02 (panel 1) [Verified] Strong El Niño likely to last into early 2027 -> S01, S20
+C03 (panel 1) [Verified] Forecast data as of 8 Oct 2026 (WMO, NOAA) -> S01, S20
+C04 (panel 2) [Verified] Warmer central/eastern equatorial Pacific -> S04
+C05 (panel 2) [Verified] Trade winds weaken; rainfall shifts east -> S04, S01
+C06 (panel 2) [Partially verified] Can change Myanmar's rain and temperature -> S05, S04
+C07 (panel 2) [Verified] Recurs every ~2-7 years; impacts vary -> S04
+C08 (panel 2) [Partially verified] Flow: Pacific warming → wind/rain change → Myanmar irregular rain, hotter, possible drought -> S04, S05
+C09 (panel 2) [Verified] 1997-98: El Niño-related drought hit cereal output in Indonesia, Philippines, Thailand, China -> S08, S14
+C10 (panel 2) [Verified] 2015 floods: >1.6 million temporarily displaced -> S09, S10
+C11 (panel 2) [Verified] 2016: about 1,700 villages short of water -> S11
+C12 (panel 2) [Partially verified] 28 Apr 2024: Chauk 48.2 °C, hottest April in 56 years of records -> S12
+C13 (panel 2) [Verified] Waning El Niño phase; not the sole cause -> S13
+C14 (panel 2) [Verified] Prepare for drought, floods, water shortage and heat -> S09, S11, S12
+C15 (panel 3) [Verified] NOAA: >83% chance strong-to-very strong through Jan-Mar 2027 -> S01
+C16 (panel 3) [Verified (dated; a newer statement exists)] WMO (Sep 2026): near-100% to Feb 2027; peak at end of 2026 -> S02, S03, S20
+      Proposed correction (not applied to print): WMO (၈ အောက်တိုဘာ ၂၀၂၆) — ၂၀၂၇ ဖေဖော်ဝါရီအထိ ဆက်ရှိနိုင်ခြေ ၁၀၀% နီးပါးရှိပြီး ၂၀၂၆ ဒီဇင်ဘာတွင် အထွတ်အထိပ် ရောက်မည်ဟု ခန့်မှန်းသည်။
+C17 (panel 3) [Verified] NOAA: high chance of strongest since 1950 (forecast only) -> S01
+C18 (panel 3) [Unverified / Needs correction] "Increasing strength does not directly affect each region's impacts" (attributed to WMO) -> S03, S01
+      Proposed correction (not applied to print): အင်အားကြီးမှု တစ်ခုတည်းက ဒေသတစ်ခုချင်း၏ ထိခိုက်မှု ပြင်းထန်ပုံကို မဆုံးဖြတ်ပါ (WMO)။
+C19 (panel 3) [Partially verified] DMH (2026) urged preparation for irregular rain, heat, drought -> S05, S06, S24
+C20 (panel 3) [Verified] Dry season usually October to May -> S07
+C21 (panel 3) [Verified] 2016: water shortage and heat mainly Feb-June -> S10
+C22 (panel 3) [Verified] Agriculture: crops may lack water -> S05, S11
+C23 (panel 3) [Verified] Heat: outdoor workers, older people, children, chronic illness -> S15
+C24 (panel 3) [Verified] Drinking water: shortages; unsafe water → diarrhoea -> S10, S11, S18
+C25 (panel 3) [Verified] Dry conditions raise fire risk -> S10
+C26 (panel 3) [Verified] Possible risks only; vary by place and season -> S03
+C27 (panel 4) [Verified] Store drinking water covered; save water -> S18, S11
+C28 (panel 4) [Verified] Shade, light clothing, drink water (ask doctor if fluid-restricted), shift strenuous work, check on vulnerable people -> S15, S23
+C29 (panel 4) [Verified] Follow DMH and local official warnings -> S24, S05
+C30 (panel 4) [Verified] Avoid burning in dry, windy weather; never leave fire unattended -> S10
+C31 (panel 4) [Verified] Never leave children/animals in parked vehicles -> S15
+C32 (panel 4) [Verified] Do not drink unboiled or unsafe water -> S18
+C33 (panel 4) [Verified] Heat-illness signs -> S16, S17, S22
+C34 (panel 4) [Verified] First-aid steps (cool, loosen, wet & fan, sips only if conscious) -> S16, S17
+C35 (panel 4) [Verified] Red flags: confusion, collapse/unconsciousness, seizure, suspected heatstroke → emergency care now -> S15, S17, S22

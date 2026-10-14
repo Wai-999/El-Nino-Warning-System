@@ -1,0 +1,135 @@
+{
+ "edition": "2026-10-e1",
+ "build": "a396892b90ad",
+ "generated": "2026-10-14",
+ "canonical": "https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/",
+ "total_bytes": 1848820,
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 143162,
+   "sha256": "6147a1661ad08a7d52c29de8f3a85e99750a27250d4947a8b556d18846e5014b",
+   "type": "text/html"
+  },
+  {
+   "path": "hub.css",
+   "bytes": 22436,
+   "sha256": "8b005ad1924d743181fa1c39294b07f8a2640f15bcef9e3974a5392ba8632470",
+   "type": "text/css"
+  },
+  {
+   "path": "hub.js",
+   "bytes": 14720,
+   "sha256": "8e84bced0e7a206f7697054e87a73e3d6aadee5a30753d4545687296c6850169",
+   "type": "text/javascript"
+  },
+  {
+   "path": "manifest.webmanifest",
+   "bytes": 751,
+   "sha256": "0263ac645ca767df900984ac71895e37686ddd68368655529228837b7173a682",
+   "type": "application/manifest+json"
+  },
+  {
+   "path": "data/sources.json",
+   "bytes": 33942,
+   "sha256": "e6e37232e3417c1b5534f937b65c721bc378403a614f12cd51fc8c883ea32d86",
+   "type": "application/json"
+  },
+  {
+   "path": "data/bibliography.txt",
+   "bytes": 13191,
+   "sha256": "319539d2958dc3e903d2bd5d4d1efb522e07386294c4f694c16286c1e84ed479",
+   "type": "text/plain; charset=utf-8"
+  },
+  {
+   "path": "pdf/DUSU-ElNino-Bifold-2026-10-e1.pdf",
+   "bytes": 705964,
+   "sha256": "36dcdb07b5606231f0703507ccc44604f302978d9c6617dedd089ee72c85eeb2",
+   "type": "application/pdf"
+  },
+  {
+   "path": "fonts/NotoSansMyanmar-400.woff2",
+   "bytes": 48008,
+   "sha256": "727fca0a21d64abbc01d39987cdb0ee87da684f6b5fdca088207d09aeffea167",
+   "type": "font/woff2"
+  },
+  {
+   "path": "fonts/NotoSansMyanmar-700.woff2",
+   "bytes": 48272,
+   "sha256": "018d9dce98df11360855221d5e8e61572b5bca0cdc4baaa4eb175e176e132476",
+   "type": "font/woff2"
+  },
+  {
+   "path": "img/qr.svg",
+   "bytes": 5381,
+   "sha256": "3e380c57192c8fa1c94c5343af0088e989f844a191aed340376e0cc53d2b02ee",
+   "type": "image/svg+xml"
+  },
+  {
+   "path": "img/icon-192.png",
+   "bytes": 38177,
+   "sha256": "753c52e5d6d93532987635de17681b07449cc22a877f4afd83a333781ae6cc8a",
+   "type": "image/png"
+  },
+  {
+   "path": "img/cover-illustration.webp",
+   "bytes": 27674,
+   "sha256": "6d0a38d39539d03f691c85614518ba5c200a11a115fce7d0a65062ff5c5299a5",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/pacific-schematic.webp",
+   "bytes": 26190,
+   "sha256": "f1355323203cc6dd8cdd3fc9abbd9d2620f14b7fd09ac59344c6ee1c20dcda8c",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/logo-dusu-128.webp",
+   "bytes": 9390,
+   "sha256": "fafea8867821cd57522a115c621f06c3dec68f71dc0f284bc7a8d222a52c819a",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/logo-dusu-256.webp",
+   "bytes": 24948,
+   "sha256": "5aca3b128e8539cf20da4fd47ffbd8f70fb7f5214a9f359fa8009626564db912",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/logo-gihman-128.webp",
+   "bytes": 12922,
+   "sha256": "39a1b1c3efccd6c365a76ecabc495551249bc8e11da6d0c8250dd7b9f4f94dfc",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/logo-gihman-256.webp",
+   "bytes": 38480,
+   "sha256": "1cddcb5b1115e720d18c5323d5594f72e734d487156b12beb2cafc6c018bddfd",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/panel-1.webp",
+   "bytes": 110190,
+   "sha256": "b570d266226cadcddf272e1fd74468bdedd5e8eb0955a06e43291deffbcf5216",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/panel-2.webp",
+   "bytes": 156878,
+   "sha256": "ffba0ea8e0740f4ef92fb74e9a4060584c18090f707703e2e72d4576c6016846",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/panel-3.webp",
+   "bytes": 182138,
+   "sha256": "4098ad576e9e52f1fffff69446155a0b7b35f3f338d35e951b73e9f9d8dea296",
+   "type": "image/webp"
+  },
+  {
+   "path": "img/panel-4.webp",
+   "bytes": 186006,
+   "sha256": "eb7a4182234d4b5dd6793c05973932b3a5583d2362dd48b103ca5a3c0a3abcdd",
+   "type": "image/webp"
+  }
+ ]
+}

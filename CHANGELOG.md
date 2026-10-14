@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.1 — 2026-10-14
+
+- Add the single-QR digital leaflet hub at [`pamphlet/el-nino/`](https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/): the complete 2026-10 Burmese El Niño bi-fold as accessible text and facsimiles, the full print PDF, a searchable source library with a claim-to-source map, the two Facebook links and an explicit, verified “Save for offline”. Static files only, generated outside the app; see [docs/pamphlet](docs/pamphlet/).
+- The app service worker no longer precaches or intercepts `pamphlet/` URLs, so the printed QR code keeps opening the hub for readers who already installed this app. Regression test: `tests/e2e/pamphlet.spec.ts`.
+- Unit tests that need fresh ERA5 history now evaluate it inside the committed history's own validity window. A failed upstream ERA5 refresh (correctly shown as unavailable in the app) had made `npm test` fail and blocked every scheduled deployment since 13 October.
+
 ## 2.2.0 — 2026-10-08
 
 - Add a lazy bilingual Health page with nine sourced exposure/recognition/first-aid/medical/emergency/prevention topics, WHO Burmese resources and independently dated qualitative WHO surveillance.

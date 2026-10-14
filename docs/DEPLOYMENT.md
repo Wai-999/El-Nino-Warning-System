@@ -20,6 +20,8 @@ Pages source is GitHub Actions. Vite base is `/El-Nino-Warning-System/`; hash ro
 
 Before releasing, verify all 15 polygons including Nay Pyi Taw, real regional values and dates, anomalies with 1991–2020 reference, official/system distinction, map layers and low-data/offline behavior. Check production `/`, `#/map`, `#/warnings`, `#/records`, `#/impacts`, `#/region/MM-18` on desktop and mobile; load the production operational JSON and inspect model, valid/fetched dates, provider health and 15-region coverage. Run `node scripts/verify-release.mjs https://wai-999.github.io/El-Nino-Warning-System/ docs/next-production-verification.json` to record live routing, responsive bilingual accessibility, source schemas and full offline restart. The regression suite also exercises a still-fresh prior HTTP cache during a service-worker upgrade. Create a semver Git tag/release only after successful Pages deployment and live verification. Preserve V1 commits.
 
+The printed leaflet's single QR code targets `pamphlet/el-nino/`, a separate static hub copied from `public/pamphlet/` into `dist/`. `scripts/build-offline.mjs` excludes it from the app shell and the app service worker returns early for `pamphlet/` URLs; `tests/e2e/pamphlet.spec.ts` guards both. Never move that path. See `docs/pamphlet/DEPLOYMENT.md`.
+
 Concurrency serializes runs on the same ref. Branch protection must permit the documented data bot or use a reviewed PR workflow; do not bypass protection. GitHub may disable schedules on inactive public repositories. There is no operational SLA; freshness labels remain the safety boundary if ingestion stops.
 
 ## Rollback

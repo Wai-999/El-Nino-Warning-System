@@ -1,0 +1,786 @@
+{
+ "edition": {
+  "id": "2026-10-e1",
+  "title_my": "အယ်လ်နီညို ရောက်နေပြီ — ပြည်သူ့ ပညာပေး လက်ကမ်းစာစောင်",
+  "title_en": "El Niño is here — public education leaflet",
+  "publication_my": "အောက်တိုဘာလ ၂၀၂၆ (ပုံနှိပ်မူတွင် ရက်ကွက်လပ်ထားသည်)",
+  "publication_en": "October 2026 (day left blank in the printed edition)",
+  "forecast_as_of": "2026-10-08",
+  "source_review": "2026-10-14",
+  "supplied_file": "DUSU_ElNino_Bifold_EDITABLE.pdf",
+  "supplied_sha256": "1b94288a5e5050ea82c161f412d7b05db09e49d5015ee78aa21bbcd84c0b1294"
+ },
+ "accessed": "2026-10-14",
+ "url": "https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/",
+ "categories": [
+  {
+   "id": "enso",
+   "my": "ENSO ခန့်မှန်းချက်",
+   "en": "ENSO outlook"
+  },
+  {
+   "id": "myanmar",
+   "my": "မြန်မာ ခန့်မှန်းချက်/သတိပေးချက်",
+   "en": "Myanmar forecasts & warnings"
+  },
+  {
+   "id": "history",
+   "my": "သမိုင်းဝင် ဖြစ်ရပ်များ",
+   "en": "Historical events"
+  },
+  {
+   "id": "agwater",
+   "my": "စိုက်ပျိုးရေးနှင့် ရေ",
+   "en": "Agriculture & water"
+  },
+  {
+   "id": "health",
+   "my": "ကျန်းမာရေးနှင့် အပူဒဏ် ဘေးကင်းရေး",
+   "en": "Health & heat safety"
+  }
+ ],
+ "statuses": {
+  "verified": {
+   "my": "စစ်ဆေးပြီး",
+   "en": "Verified"
+  },
+  "dated": {
+   "my": "စစ်ဆေးပြီး — ပိုသစ်သော ထုတ်ပြန်ချက် ရှိ",
+   "en": "Verified (dated; a newer statement exists)"
+  },
+  "partial": {
+   "my": "တစ်စိတ်တစ်ပိုင်း စစ်ဆေးပြီး",
+   "en": "Partially verified"
+  },
+  "correction": {
+   "my": "အတည်မပြုနိုင် / ပြင်ဆင်ရန် လို",
+   "en": "Unverified / Needs correction"
+  },
+  "reference": {
+   "my": "ကိုးကားရန် လင့်ခ်သာ",
+   "en": "Reference link only"
+  }
+ },
+ "sources": [
+  {
+   "id": "S01",
+   "cat": "enso",
+   "org": "NOAA Climate Prediction Center (CPC/NCEP/NWS)",
+   "title": "El Niño/Southern Oscillation (ENSO) Diagnostic Discussion — 8 October 2026",
+   "date": "2026-10-08",
+   "date_label": "8 Oct 2026",
+   "type": "Official forecast bulletin",
+   "status": "verified",
+   "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_oct2026/ensodisc.shtml",
+   "alt_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+   "quote": "El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than an 83% chance).",
+   "note_my": "ခန့်မှန်းချက်သာ ဖြစ်သည်။ နောက်ထုတ်ပြန်ချက် — ၁၂ နိုဝင်ဘာ ၂၀၂၆။",
+   "note_en": "Probabilities, not certainties. Next discussion: 12 Nov 2026. The archive URL is permanent; the alternate URL always shows the newest issue."
+  },
+  {
+   "id": "S02",
+   "cat": "enso",
+   "org": "World Meteorological Organization (WMO)",
+   "title": "El Niño/La Niña Update (August 2026)",
+   "date": "2026-09-03",
+   "date_label": "3 Sep 2026",
+   "type": "Official forecast update",
+   "status": "dated",
+   "url": "https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026",
+   "quote": "Forecasts indicate further strengthening of El Niño in the coming months, with the event forecast to reach very strong intensity before peaking towards the end of the year.",
+   "note_en": "Superseded for timing by the 8 Oct 2026 WMO release (S20), which is consistent (peak in December).",
+   "note_my": "၈ အောက်တိုဘာ ၂၀၂၆ WMO ထုတ်ပြန်ချက် (S20) က ပိုသစ်ပြီး အချက်အလက် ကိုက်ညီသည်။"
+  },
+  {
+   "id": "S03",
+   "cat": "enso",
+   "org": "World Meteorological Organization (WMO)",
+   "title": "El Niño set to become very strong, raising risks of extreme weather into 2027 (press release)",
+   "date": "2026-09-03",
+   "date_label": "3 Sep 2026",
+   "type": "Official press release",
+   "status": "dated",
+   "url": "https://wmo.int/news/media-centre/el-nino-set-become-very-strong-raising-risks-of-extreme-weather-2027",
+   "quote": "However, the strength of an El Niño event alone does not determine how severe its impacts will be in any individual country or region.",
+   "note_en": "WMO says \"very strong\"; it does not use \"super\". Newer WMO statement: S20 (8 Oct 2026).",
+   "note_my": "WMO က \"အလွန်အားကောင်း\" ဟုသာ သုံးပြီး \"Super\" ဟု မသုံးပါ။"
+  },
+  {
+   "id": "S04",
+   "cat": "enso",
+   "org": "World Meteorological Organization (WMO)",
+   "title": "El Niño / La Niña Phenomena (theme page)",
+   "date": null,
+   "date_label": "undated",
+   "type": "Official reference page",
+   "status": "verified",
+   "url": "https://wmo.int/themes/el-nino-la-nina-phenomena",
+   "quote": "El Niño is characterized by unusually warm ocean surface temperatures in the central and eastern Pacific.",
+   "note_en": "Undated explainer.",
+   "note_my": "ရက်စွဲမပါသော ရှင်းလင်းချက် စာမျက်နှာ။"
+  },
+  {
+   "id": "S05",
+   "cat": "myanmar",
+   "org": "Burma News International (BNI) / Mizzima — reporting Myanmar DMH",
+   "title": "Myanmar weather bureau warns of impending strong El Nino event later this year",
+   "date": "2026-05-26",
+   "date_label": "26 May 2026",
+   "type": "News report of an official (DMH) statement",
+   "status": "partial",
+   "url": "https://www.bnionline.net/en/news/myanmar-weather-bureau-warns-impending-strong-el-nino-event-later-year",
+   "quote": "Historically, El Nino cycles are directly linked to irregular or delayed monsoon rainfall patterns, an inflation of daytime temperatures, abnormal tropical storm activity, and severe droughts…",
+   "note_en": "Secondary report; DMH's own bulletin text was not available online (see S24).",
+   "note_my": "DMH ၏ မူရင်းထုတ်ပြန်ချက်ကို တိုက်ရိုက် မဖတ်နိုင်ခဲ့ပါ — သတင်းဖော်ပြချက်ဖြစ်သည်။"
+  },
+  {
+   "id": "S06",
+   "cat": "myanmar",
+   "org": "The Star (Eleven Media / ANN) — reporting Myanmar DMH",
+   "title": "Strong El Nino expected to develop by end of 2026: Myanmar",
+   "date": "2026-06-23",
+   "date_label": "23 Jun 2026",
+   "type": "News report of an official (DMH) statement",
+   "status": "partial",
+   "url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/06/23/strong-el-nino-expected-to-develop-by-end-of-2026-myanmar",
+   "quote": "The DMH has urged relevant sectors to make advance preparations for possible impacts…",
+   "note_en": "Secondary report.",
+   "note_my": "သတင်းဖော်ပြချက် ဖြစ်သည်။"
+  },
+  {
+   "id": "S07",
+   "cat": "myanmar",
+   "org": "Malay Mail (AFP)",
+   "title": "Myanmar warns of power cuts as El Nino heat strains grid",
+   "date": "2026-10-05",
+   "date_label": "5 Oct 2026",
+   "type": "News report (wire agency)",
+   "status": "verified",
+   "url": "https://www.malaymail.com/news/world/2026/10/05/myanmar-warns-of-power-cuts-as-el-nino-heat-strains-grid/237812",
+   "quote": "…the coming dry season, which usually runs from October to May.",
+   "note_en": "The site blocks automated fetches (HTTP 403); verified in a browser-based fetch on 14 Oct 2026. Officials quoted there say \"Super El Nino\" — the leaflet does not repeat it.",
+   "note_my": "ဤသတင်းတွင် အရာရှိများ \"Super El Nino\" ဟု သုံးသော်လည်း လက်ကမ်းစာစောင်တွင် မသုံးပါ။"
+  },
+  {
+   "id": "S08",
+   "cat": "agwater",
+   "org": "FAO Global Information and Early Warning System (GIEWS)",
+   "title": "Food Outlook, February 1998",
+   "date": "1998-02",
+   "date_label": "Feb 1998",
+   "type": "UN agency report",
+   "status": "verified",
+   "url": "https://www.fao.org/4/W7867E/w7867e04.htm",
+   "quote": "Elsewhere in Asia, El Niño-related droughts have affected cereal production in Indonesia, China, the Philippines, and Thailand…",
+   "note_en": "Regional statement; no Myanmar-specific figures.",
+   "note_my": "ဒေသတွင်း ဖော်ပြချက်ဖြစ်ပြီး မြန်မာအတွက် ကိန်းဂဏန်း မပါပါ။"
+  },
+  {
+   "id": "S09",
+   "cat": "history",
+   "org": "UN OCHA (hosted by MIMU)",
+   "title": "Myanmar: Flood and Cyclone Snapshot (16 September 2015)",
+   "date": "2015-09-16",
+   "date_label": "16 Sep 2015",
+   "type": "UN situation snapshot",
+   "status": "verified",
+   "url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Myanmar_Flood_Cyclone_OCHA_16Sep2015.pdf",
+   "quote": "…widespread flooding across 12 of the country's 14 states and regions, temporarily displacing over 1.6 million people.",
+   "note_en": "The floods (with Cyclone Komen) co-occurred with the 2015-16 El Niño; OCHA does not attribute them to it. OCHA later gave ~1.7 million (S10).",
+   "note_my": "ရေကြီးမှုကို အယ်လ်နီညိုကြောင့်ဟု OCHA က မဆိုပါ။"
+  },
+  {
+   "id": "S10",
+   "cat": "history",
+   "org": "UN OCHA (hosted by MIMU)",
+   "title": "Myanmar: Natural disaster risks and past events (as of 31 May 2016)",
+   "date": "2016-05-31",
+   "date_label": "31 May 2016",
+   "type": "UN situation snapshot",
+   "status": "verified",
+   "url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Natural_disaster_risks_and_past_events_OCHA_31May2016.pdf",
+   "quote": "According to the Myanmar Department of Meteorology and Hydrology, since mid-February 2016, Myanmar has been experiencing a severe impact of El Niño including extreme temperatures, unusual rainfall patterns, dry soil, high risk of fires and acute water shortages. The El Niño impact is expected to end in June 2016.",
+   "note_en": "Also gives ~1.7 million people temporarily displaced by the 2015 floods (later figure than S09).",
+   "note_my": ""
+  },
+  {
+   "id": "S11",
+   "cat": "agwater",
+   "org": "World Bank (W. R. Sutton, J. P. Srivastava, M. Rosegrant, J. Thurlow, I. Vasileiou)",
+   "title": "Striking a Balance: Managing El Niño and La Niña in Myanmar's Agriculture",
+   "date": "2019",
+   "date_label": "2019",
+   "type": "Research report",
+   "status": "verified",
+   "url": "https://reliefweb.int/attachments/bffc44d3-447a-3777-8f4b-d9edf1c66a28/Striking-a-Balance-Managing-El-Ni%C3%B1o-and-La-Ni%C3%B1a-in-Myanmar-s-Agriculture.pdf",
+   "alt_url": "https://hdl.handle.net/10986/31523",
+   "quote": "For example, during the 2016 El Niño, 1,700 villages experienced water shortages.",
+   "note_en": "Original report PDF (World Bank, © 2019), hosted on ReliefWeb; World Bank repository handle given as alternate.",
+   "note_my": ""
+  },
+  {
+   "id": "S12",
+   "cat": "history",
+   "org": "Myanmar Now (AFP)",
+   "title": "Myanmar records hottest ever April temperature of 48.2°C",
+   "date": "2024-04-30",
+   "date_label": "30 Apr 2024",
+   "type": "News report (wire agency) of an official observation",
+   "status": "partial",
+   "url": "https://myanmar-now.org/en/news/myanmar-records-hottest-ever-april-temperature-of-48-2c/",
+   "quote": "The mercury hit 48.2°C in the town of Chauk in central Myanmar's Magway region on Sunday, according to a statement from the country's weather office, the highest temperature seen anywhere in Myanmar in April since records began 56 years ago.",
+   "note_en": "Weather-office figure as reported by AFP; DMH's record page was not available. Sunday = 28 April 2024.",
+   "note_my": "DMH ၏ မှတ်တမ်းစာမျက်နှာကို တိုက်ရိုက် မဖတ်နိုင်ခဲ့ပါ — AFP ဖော်ပြချက် ဖြစ်သည်။"
+  },
+  {
+   "id": "S13",
+   "cat": "history",
+   "org": "NOAA Climate Prediction Center",
+   "title": "ENSO Diagnostic Discussion — 9 May 2024",
+   "date": "2024-05-09",
+   "date_label": "9 May 2024",
+   "type": "Official forecast bulletin (archive)",
+   "status": "verified",
+   "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_may2024/ensodisc.shtml",
+   "quote": "ENSO Alert System Status: El Niño Advisory / La Niña Watch. Synopsis: A transition from El Niño to ENSO-neutral is likely in the next month.",
+   "note_en": "Establishes that April 2024 fell in the waning phase of the 2023-24 El Niño; it does not attribute the heat.",
+   "note_my": ""
+  },
+  {
+   "id": "S14",
+   "cat": "history",
+   "org": "World Meteorological Organization (WMO)",
+   "title": "El Niño/La Niña Update (February 2016)",
+   "date": "2016-02-01",
+   "date_label": "1 Feb 2016",
+   "type": "Official update (archive)",
+   "status": "verified",
+   "url": "https://wmo.int/media/17673",
+   "quote": "…the 2015-16 El Niño is one of the strongest on record, comparable with the 1997-98 and 1982-83 events.",
+   "note_en": "Context for the timeline years (1997-98, 2015-16).",
+   "note_my": ""
+  },
+  {
+   "id": "S15",
+   "cat": "health",
+   "org": "World Health Organization (WHO)",
+   "title": "Heat and health (fact sheet)",
+   "date": "2026-07-31",
+   "date_label": "31 Jul 2026",
+   "type": "Health guidance",
+   "status": "verified",
+   "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+   "quote": "Never leave children or animals in parked vehicles for any amount of time… Avoid going outside and doing strenuous activity during the hottest time of day.",
+   "note_en": "Prevention advice and at-risk groups; not step-by-step first aid (see S16, S17, S22).",
+   "note_my": ""
+  },
+  {
+   "id": "S16",
+   "cat": "health",
+   "org": "Global Heat Health Information Network (WHO/WMO joint office)",
+   "title": "Staying healthy in the heat",
+   "date": null,
+   "date_label": "undated",
+   "type": "Health guidance (infographic summary)",
+   "status": "verified",
+   "url": "https://heathealth.info/resources/staying-healthy-in-the-heat/",
+   "quote": "…warning signs of heat-related illness—such as dizziness, nausea, muscle cramps, headache, heavy sweating, rapid heartbeat… move the person to a cool area, apply cold water, fan them, and call [emergency services] immediately.",
+   "note_en": "Infographic adapted from Health Canada; the emergency number on it is not Myanmar's.",
+   "note_my": "ပုံပါ အရေးပေါ်ဖုန်းနံပါတ်သည် မြန်မာနိုင်ငံ၏ နံပါတ် မဟုတ်ပါ။"
+  },
+  {
+   "id": "S17",
+   "cat": "health",
+   "org": "Queensland Government (Health)",
+   "title": "Signs and symptoms of heat-related illness",
+   "date": "2026-08-04",
+   "date_label": "updated 4 Aug 2026",
+   "type": "Health guidance (government)",
+   "status": "verified",
+   "url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/signs-symptoms",
+   "quote": "…give them small sips of fluids if conscious and able to swallow. Do not give medications unless prescribed.",
+   "note_en": "Australian state guidance; its emergency number (000) is NOT Myanmar's.",
+   "note_my": "၎င်းပါ အရေးပေါ်ဖုန်း (000) သည် မြန်မာနိုင်ငံ၏ နံပါတ် မဟုတ်ပါ။"
+  },
+  {
+   "id": "S18",
+   "cat": "agwater",
+   "org": "World Health Organization (WHO)",
+   "title": "Drinking-water (fact sheet)",
+   "date": "2023-09-13",
+   "date_label": "13 Sep 2023",
+   "type": "Health guidance",
+   "status": "verified",
+   "url": "https://www.who.int/news-room/fact-sheets/detail/drinking-water",
+   "quote": "Microbiologically contaminated drinking water can transmit diseases such as diarrhoea… covering water storage containers… may also reduce faecal contamination of water at the household level.",
+   "note_en": "Global fact sheet; not drought-specific.",
+   "note_my": ""
+  },
+  {
+   "id": "S20",
+   "cat": "enso",
+   "org": "World Meteorological Organization (WMO)",
+   "title": "Sea-surface temperatures reflect strengthening El Niño (press release)",
+   "date": "2026-10-08",
+   "date_label": "8 Oct 2026",
+   "type": "Official press release",
+   "status": "verified",
+   "url": "https://wmo.int/news/media-centre/sea-surface-temperatures-reflect-strengthening-el-nino",
+   "quote": "WMO forecasts indicate a near-100 per cent likelihood that it will persist through February 2027, potentially being one of the strongest since at least 1950.",
+   "note_en": "Newest WMO statement at the time of review; forecast peak in December 2026.",
+   "note_my": "စစ်ဆေးချိန်တွင် နောက်ဆုံး WMO ထုတ်ပြန်ချက်။"
+  },
+  {
+   "id": "S21",
+   "cat": "enso",
+   "org": "World Meteorological Organization (WMO)",
+   "title": "Global Seasonal Climate Update for October-November-December 2026",
+   "date": "2026-10-08",
+   "date_label": "8 Oct 2026",
+   "type": "Official forecast product",
+   "status": "verified",
+   "url": "https://wmo.int/node/39053",
+   "quote": "The seasonal average Niño 3.4 SST anomaly is forecast to reach approximately +3.7°C during OND 2026, with the warming trend peaking around December 2026.",
+   "note_en": "The product behind S20.",
+   "note_my": ""
+  },
+  {
+   "id": "S22",
+   "cat": "health",
+   "org": "NHS (UK National Health Service)",
+   "title": "Heat exhaustion and heatstroke",
+   "date": "2026-05-28",
+   "date_label": "reviewed 28 May 2026",
+   "type": "Health guidance (national health service)",
+   "status": "verified",
+   "url": "https://www.nhs.uk/conditions/heat-exhaustion-heatstroke/",
+   "quote": "Call 999 now if… a seizure or fit… loss of consciousness… Heatstroke is a medical emergency.",
+   "note_en": "UK guidance; 999 is the UK emergency number, NOT Myanmar's.",
+   "note_my": "999 သည် ယူကေ အရေးပေါ်ဖုန်း ဖြစ်ပြီး မြန်မာနိုင်ငံ၏ နံပါတ် မဟုတ်ပါ။"
+  },
+  {
+   "id": "S23",
+   "cat": "health",
+   "org": "Queensland Government (Health)",
+   "title": "How to keep cool and stay hydrated",
+   "date": "2026-08-04",
+   "date_label": "updated 4 Aug 2026",
+   "type": "Health guidance (government)",
+   "status": "verified",
+   "url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/how-to-keep-cool",
+   "quote": "Drink water regularly throughout the day… unless your healthcare provider has advised you to limit your fluid intake.",
+   "note_en": "Supports the fluid-restriction advice.",
+   "note_my": ""
+  },
+  {
+   "id": "S24",
+   "cat": "myanmar",
+   "org": "Department of Meteorology and Hydrology (DMH), Myanmar",
+   "title": "အယ်နီညို/လာနီညာ (El Niño / La Niña) page",
+   "date": null,
+   "date_label": "accessed 14 Oct 2026",
+   "type": "Official channel",
+   "status": "reference",
+   "url": "https://www.moezala.gov.mm/my/el-nino-la-nina",
+   "quote": "",
+   "note_en": "Official DMH page to monitor. When accessed on 14 Oct 2026 it showed no bulletin text, so it is listed for monitoring only and not used as evidence.",
+   "note_my": "တရားဝင် DMH စာမျက်နှာ ဖြစ်သည်။ ၁၄ အောက်တိုဘာ ၂၀၂၆ တွင် ထုတ်ပြန်ချက် စာသား မတွေ့ရ၍ စောင့်ကြည့်ရန် လင့်ခ်အဖြစ်သာ ထည့်ထားသည်။"
+  }
+ ],
+ "claims": [
+  {
+   "id": "C01",
+   "panel": 1,
+   "short_my": "အယ်လ်နီညို ရောက်နေပြီ",
+   "short_en": "El Niño is under way (headline)",
+   "src": [
+    "S01",
+    "S02",
+    "S20"
+   ],
+   "status": "verified",
+   "note_en": "NOAA: El Niño Advisory in force; WMO: \"firmly established\"."
+  },
+  {
+   "id": "C02",
+   "panel": 1,
+   "short_my": "အားကောင်းသော အယ်လ်နီညို ၂၀၂၇ အစောပိုင်းအထိ ဆက်ရှိနိုင်ခြေ မြင့်",
+   "short_en": "Strong El Niño likely to last into early 2027",
+   "src": [
+    "S01",
+    "S20"
+   ],
+   "status": "verified",
+   "note_en": "NOAA >83% strong-to-very strong through Jan-Mar 2027; WMO near-100% persistence through Feb 2027."
+  },
+  {
+   "id": "C03",
+   "panel": 1,
+   "short_my": "ခန့်မှန်းချက် အချက်အလက်များ — ၈ အောက်တိုဘာ ၂၀၂၆ အထိ",
+   "short_en": "Forecast data as of 8 Oct 2026 (WMO, NOAA)",
+   "src": [
+    "S01",
+    "S20"
+   ],
+   "status": "verified",
+   "note_en": "Both agencies issued on 8 Oct 2026. Note: Panel 3 cites the September WMO statement, not the 8 Oct one (see C16)."
+  },
+  {
+   "id": "C04",
+   "panel": 2,
+   "short_my": "ပစိဖိတ် အလယ်/အရှေ့ပိုင်း ပင်လယ်ရေ ပူနွေးခြင်း",
+   "short_en": "Warmer central/eastern equatorial Pacific",
+   "src": [
+    "S04"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C05",
+   "panel": 2,
+   "short_my": "ကုန်သွယ်လေ အားလျော့ပြီး မိုး အရှေ့ဘက်ရွေ့",
+   "short_en": "Trade winds weaken; rainfall shifts east",
+   "src": [
+    "S04",
+    "S01"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C06",
+   "panel": 2,
+   "short_my": "မြန်မာ၏ မိုးနှင့် အပူချိန်ကိုပါ ပြောင်းလဲစေနိုင်",
+   "short_en": "Can change Myanmar's rain and temperature",
+   "src": [
+    "S05",
+    "S04"
+   ],
+   "status": "partial",
+   "note_en": "DMH statement known via news reports (S05)."
+  },
+  {
+   "id": "C07",
+   "panel": 2,
+   "short_my": "၂–၇ နှစ်ခန့် တစ်ကြိမ်၊ အကျိုးသက်ရောက်မှု ကွဲပြား",
+   "short_en": "Recurs every ~2-7 years; impacts vary",
+   "src": [
+    "S04"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C08",
+   "panel": 2,
+   "short_my": "ပူနွေးမှု → လေ/မိုး ပြောင်း → မြန်မာ မိုးမမှန်၊ ပိုပူ၊ မိုးခေါင်နိုင်",
+   "short_en": "Flow: Pacific warming → wind/rain change → Myanmar irregular rain, hotter, possible drought",
+   "src": [
+    "S04",
+    "S05"
+   ],
+   "status": "partial",
+   "note_en": "Possible, not certain, outcomes. Typo in print: \"ခြင်’။\" (stray apostrophe, missing visarga) — see SOURCE_AUDIT.md."
+  },
+  {
+   "id": "C09",
+   "panel": 2,
+   "short_my": "၁၉၉၇–၉၈ အိမ်နီးချင်းနိုင်ငံများ ကောက်ပဲသီးနှံ ထိခိုက်",
+   "short_en": "1997-98: El Niño-related drought hit cereal output in Indonesia, Philippines, Thailand, China",
+   "src": [
+    "S08",
+    "S14"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C10",
+   "panel": 2,
+   "short_my": "၂၀၁၅ ရေကြီးမှု — လူ ၁.၆ သန်းကျော် ယာယီ နေရပ်စွန့်ခွာ",
+   "short_en": "2015 floods: >1.6 million temporarily displaced",
+   "src": [
+    "S09",
+    "S10"
+   ],
+   "status": "verified",
+   "note_en": "Co-occurred with El Niño; not attributed to it (the leaflet words this correctly)."
+  },
+  {
+   "id": "C11",
+   "panel": 2,
+   "short_my": "၂၀၁၆ နွေ — ကျေးရွာ ၁,၇၀၀ ခန့် ရေရှား",
+   "short_en": "2016: about 1,700 villages short of water",
+   "src": [
+    "S11"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C12",
+   "panel": 2,
+   "short_my": "၂၀၂၄ ဧပြီ ၂၈ — ချောက် ၄၈.၂ °C၊ ၅၆ နှစ်အတွင်း ဧပြီ အပူဆုံး",
+   "short_en": "28 Apr 2024: Chauk 48.2 °C, hottest April in 56 years of records",
+   "src": [
+    "S12"
+   ],
+   "status": "partial",
+   "note_en": "Weather-office figure reported by AFP."
+  },
+  {
+   "id": "C13",
+   "panel": 2,
+   "short_my": "အယ်လ်နီညို အားလျော့စ ကာလ — တစ်ခုတည်းသော အကြောင်းရင်း မဟုတ်",
+   "short_en": "Waning El Niño phase; not the sole cause",
+   "src": [
+    "S13"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C14",
+   "panel": 2,
+   "short_my": "မိုးခေါင်ရုံသာမက ရေကြီး၊ ရေရှား၊ အပူဒဏ်အတွက်ပါ ပြင်ဆင်",
+   "short_en": "Prepare for drought, floods, water shortage and heat",
+   "src": [
+    "S09",
+    "S11",
+    "S12"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C15",
+   "panel": 3,
+   "short_my": "NOAA — ၂၀၂၇ ဇန်–မတ် အထိ အားကောင်း/အလွန်အားကောင်း ၈၃% ကျော်",
+   "short_en": "NOAA: >83% chance strong-to-very strong through Jan-Mar 2027",
+   "src": [
+    "S01"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C16",
+   "panel": 3,
+   "short_my": "WMO (စက်တင်ဘာ) — ဖေဖော်ဝါရီ ၂၀၂၇ အထိ ၁၀၀% နီးပါး၊ နှစ်ကုန် အထွတ်အထိပ်",
+   "short_en": "WMO (Sep 2026): near-100% to Feb 2027; peak at end of 2026",
+   "src": [
+    "S02",
+    "S03",
+    "S20"
+   ],
+   "status": "dated",
+   "note_en": "Accurate for 3 Sep 2026. WMO restated it on 8 Oct 2026 with a December peak (S20).",
+   "fix_my": "WMO (၈ အောက်တိုဘာ ၂၀၂၆) — ၂၀၂၇ ဖေဖော်ဝါရီအထိ ဆက်ရှိနိုင်ခြေ ၁၀၀% နီးပါးရှိပြီး ၂၀၂၆ ဒီဇင်ဘာတွင် အထွတ်အထိပ် ရောက်မည်ဟု ခန့်မှန်းသည်။"
+  },
+  {
+   "id": "C17",
+   "panel": 3,
+   "short_my": "NOAA — ၁၉၅၀ နောက်ပိုင်း အပြင်းထန်ဆုံး ဖြစ်နိုင်ခြေ မြင့် (ခန့်မှန်းချက်သာ)",
+   "short_en": "NOAA: high chance of strongest since 1950 (forecast only)",
+   "src": [
+    "S01"
+   ],
+   "status": "verified",
+   "note_en": "NOAA: 54% Sep-Nov, 83% Oct-Dec, 70% Nov-Jan for a \"historic event\"."
+  },
+  {
+   "id": "C18",
+   "panel": 3,
+   "short_my": "အင်အားကြီးလာခြင်းက ဒေသတစ်ခုချင်း၏ ထိခိုက်မှုကို တိုက်ရိုက် မသက်ရောက်ပါ (WMO)",
+   "short_en": "\"Increasing strength does not directly affect each region's impacts\" (attributed to WMO)",
+   "src": [
+    "S03",
+    "S01"
+   ],
+   "status": "correction",
+   "note_en": "WMO says strength ALONE does not DETERMINE how severe impacts will be; NOAA says a strong event makes impacts more likely (\"larger, though not guaranteed\"). The printed wording implies strength has no direct effect, which neither agency says.",
+   "fix_my": "အင်အားကြီးမှု တစ်ခုတည်းက ဒေသတစ်ခုချင်း၏ ထိခိုက်မှု ပြင်းထန်ပုံကို မဆုံးဖြတ်ပါ (WMO)။"
+  },
+  {
+   "id": "C19",
+   "panel": 3,
+   "short_my": "DMH (၂၀၂၆) — မိုးမမှန်၊ အပူချိန်မြင့်၊ မိုးခေါင်ခြင်းအတွက် ပြင်ဆင်ရန် သတိပေး",
+   "short_en": "DMH (2026) urged preparation for irregular rain, heat, drought",
+   "src": [
+    "S05",
+    "S06",
+    "S24"
+   ],
+   "status": "partial",
+   "note_en": "Confirmed via two independent news reports of DMH statements; DMH's own page showed no bulletin text on 14 Oct 2026."
+  },
+  {
+   "id": "C20",
+   "panel": 3,
+   "short_my": "ခြောက်သွေ့ရာသီ — အောက်တိုဘာမှ မေလ",
+   "short_en": "Dry season usually October to May",
+   "src": [
+    "S07"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C21",
+   "panel": 3,
+   "short_my": "၂၀၁၆ — ဖေဖော်ဝါရီမှ ဇွန်အထိ ရေရှားမှုနှင့် အပူဒဏ်",
+   "short_en": "2016: water shortage and heat mainly Feb-June",
+   "src": [
+    "S10"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C22",
+   "panel": 3,
+   "short_my": "စိုက်ပျိုးရေး — သီးနှံ ရေမလုံလောက်နိုင်",
+   "short_en": "Agriculture: crops may lack water",
+   "src": [
+    "S05",
+    "S11"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C23",
+   "panel": 3,
+   "short_my": "အပူဒဏ် — ပြင်ပအလုပ်သမား၊ သက်ကြီး၊ ကလေး၊ နာတာရှည်ရောဂါရှိသူ",
+   "short_en": "Heat: outdoor workers, older people, children, chronic illness",
+   "src": [
+    "S15"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C24",
+   "panel": 3,
+   "short_my": "သောက်သုံးရေ — ရေရှား၊ မသန့်ရှင်းသောရေ ဝမ်းလျှော",
+   "short_en": "Drinking water: shortages; unsafe water → diarrhoea",
+   "src": [
+    "S10",
+    "S11",
+    "S18"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C25",
+   "panel": 3,
+   "short_my": "ခြောက်သွေ့မှုနှင့် မီး",
+   "short_en": "Dry conditions raise fire risk",
+   "src": [
+    "S10"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C26",
+   "panel": 3,
+   "short_my": "ဖြစ်နိုင်ခြေသာ — ဒေသ၊ ရာသီအလိုက် ကွဲပြား",
+   "short_en": "Possible risks only; vary by place and season",
+   "src": [
+    "S03"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C27",
+   "panel": 4,
+   "short_my": "သောက်ရေကို အဖုံးပါသော အိုး/ပုံးတွင် သိုလှောင်၊ ရေချွေတာ",
+   "short_en": "Store drinking water covered; save water",
+   "src": [
+    "S18",
+    "S11"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C28",
+   "panel": 4,
+   "short_my": "အရိပ်ခို၊ ပေါ့ပါးသောအဝတ်၊ ရေသောက်၊ ပင်ပန်းသောအလုပ် ရွှေ့၊ သတင်းမေး",
+   "short_en": "Shade, light clothing, drink water (ask doctor if fluid-restricted), shift strenuous work, check on vulnerable people",
+   "src": [
+    "S15",
+    "S23"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C29",
+   "panel": 4,
+   "short_my": "DMH နှင့် ဒေသဆိုင်ရာ တရားဝင် သတိပေးချက်များ လိုက်နာ",
+   "short_en": "Follow DMH and local official warnings",
+   "src": [
+    "S24",
+    "S05"
+   ],
+   "status": "verified",
+   "note_en": "Guidance, not a factual claim; DMH page linked for monitoring."
+  },
+  {
+   "id": "C30",
+   "panel": 4,
+   "short_my": "ခြောက်သွေ့/လေတိုက်ချိန် မီးရှို့ခြင်း ရှောင်",
+   "short_en": "Avoid burning in dry, windy weather; never leave fire unattended",
+   "src": [
+    "S10"
+   ],
+   "status": "verified",
+   "note_en": "S10 documents the 2016 fire risk; the advice itself is general fire safety."
+  },
+  {
+   "id": "C31",
+   "panel": 4,
+   "short_my": "ကလေး/တိရစ္ဆာန်ကို ကားထဲ ချန်မထား",
+   "short_en": "Never leave children/animals in parked vehicles",
+   "src": [
+    "S15"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C32",
+   "panel": 4,
+   "short_my": "မကျိုချက်/မသန့်ရှင်းသောရေ မသောက်",
+   "short_en": "Do not drink unboiled or unsafe water",
+   "src": [
+    "S18"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C33",
+   "panel": 4,
+   "short_my": "အပူလျှပ်ခြင်း လက္ခဏာများ",
+   "short_en": "Heat-illness signs",
+   "src": [
+    "S16",
+    "S17",
+    "S22"
+   ],
+   "status": "verified"
+  },
+  {
+   "id": "C34",
+   "panel": 4,
+   "short_my": "ချက်ချင်း ကူညီရန် အဆင့် ၄ ဆင့်",
+   "short_en": "First-aid steps (cool, loosen, wet & fan, sips only if conscious)",
+   "src": [
+    "S16",
+    "S17"
+   ],
+   "status": "verified",
+   "note_en": "Recommend review of the Burmese wording by a local clinician."
+  },
+  {
+   "id": "C35",
+   "panel": 4,
+   "short_my": "အရေးပေါ် လက္ခဏာ — ချက်ချင်း ဆေးကုသမှု ရယူ",
+   "short_en": "Red flags: confusion, collapse/unconsciousness, seizure, suspected heatstroke → emergency care now",
+   "src": [
+    "S15",
+    "S17",
+    "S22"
+   ],
+   "status": "verified",
+   "note_en": "No emergency phone number is printed. None is supplied here: a number must be verified locally before it is added."
+  }
+ ]
+}

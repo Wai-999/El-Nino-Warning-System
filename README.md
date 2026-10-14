@@ -54,6 +54,10 @@ Scheduled Actions refresh forecasts four times daily, ERA5 daily, and missing ba
 
 Attribution: **ECMWF / Copernicus Climate Change Service / Open-Meteo**, CC BY 4.0; **MIMU / OCHA / HDX**, CC BY 3.0 IGO (simplified 2024 reference geometry, Bago/Shan subdivisions dissolved); **NOAA CPC** ENSO public information. WHO/NWS/FAO/WMO guidance is linked and briefly paraphrased. Open-Meteo free endpoints are noncommercial and rate-limited; there is no SLA.
 
+## Printed leaflet hub (single QR)
+
+The 2026-10 Burmese El Niño bi-fold leaflet carries one QR code that opens <https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/> — a separate static hub in `public/pamphlet/el-nino/` (generated; do not hand-edit) with its own service worker and opt-in offline copy. Keep this path, the repository name and GitHub Pages enabled: printed copies depend on them. Audit, deployment and QR test records: [docs/pamphlet](docs/pamphlet/).
+
 ## Privacy, offline and safety
 
 Language, region, cached data and checklist progress stay in the browser. No analytics, geolocation tracking or accounts. First-visit connectivity is needed; browser storage may be evicted. Maps cache after first use. Low Data Mode preserves text and warnings while skipping maps and optional charts. Cached/stale views always retain source dates.
