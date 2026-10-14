@@ -1,0 +1,95 @@
+{
+  "assets": {
+    "single-qr.png": {
+      "zxing-cpp": true,
+      "zbar": true,
+      "opencv": true
+    },
+    "single-qr.svg (rasterised 900 px)": {
+      "zxing-cpp": true,
+      "zbar": true,
+      "opencv": true
+    },
+    "png_and_svg_same_matrix": {
+      "identical": true
+    }
+  },
+  "print_pdf": {
+    "sheet 1, QR area @ 600 dpi": {
+      "zxing-cpp": true,
+      "zbar": true,
+      "opencv": true
+    },
+    "sheet 1, QR area @ 300 dpi": {
+      "zxing-cpp": true,
+      "zbar": true,
+      "opencv": true
+    },
+    "sheet 1, QR area @ 150 dpi": {
+      "zxing-cpp": true,
+      "zbar": true,
+      "opencv": true
+    },
+    "sheet 1, QR area @ 100 dpi": {
+      "zxing-cpp": true,
+      "zbar": true,
+      "opencv": true
+    },
+    "sheet 1, QR area @ 72 dpi": {
+      "zxing-cpp": true,
+      "zbar": true,
+      "opencv": false
+    }
+  },
+  "one_qr": {
+    "sheet 1": {
+      "zxing codes found": 1,
+      "opencv codes found": 1,
+      "texts": [
+        "https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/"
+      ]
+    },
+    "sheet 2": {
+      "zxing codes found": 0,
+      "opencv codes found": 0,
+      "texts": []
+    }
+  },
+  "robust": {
+    "n": 135,
+    "any": "116/135",
+    "by_distance": {
+      "10 cm": {
+        "px_per_module": 8.1,
+        "any": "27/27",
+        "normal": "3/3"
+      },
+      "15 cm": {
+        "px_per_module": 5.4,
+        "any": "27/27",
+        "normal": "3/3"
+      },
+      "20 cm": {
+        "px_per_module": 4.05,
+        "any": "25/27",
+        "normal": "3/3"
+      },
+      "25 cm": {
+        "px_per_module": 3.24,
+        "any": "21/27",
+        "normal": "3/3"
+      },
+      "30 cm": {
+        "px_per_module": 2.7,
+        "any": "16/27",
+        "normal": "3/3"
+      }
+    },
+    "module_mm": 0.591,
+    "per_decoder": {
+      "zxing-cpp": "113/135",
+      "zbar": "90/135",
+      "opencv": "88/135"
+    }
+  }
+}

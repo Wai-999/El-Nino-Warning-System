@@ -1,0 +1,915 @@
+{
+  "pdf": "DUSU_ElNino_Bifold_EDITABLE.pdf",
+  "font": "NotoSansMyanmar-400.ttf",
+  "blocks_checked": 80,
+  "blocks_mismatched": 0,
+  "pdf_glyphs": {
+    "1": 987,
+    "2": 1441
+  },
+  "uncovered_runs": [
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": ["■"]
+    },
+    {
+      "page": 1,
+      "tokens": [
+        "[",
+        "O",
+        "F",
+        "F",
+        "I",
+        "C",
+        "I",
+        "A",
+        "L",
+        "_",
+        "S",
+        "O",
+        "U",
+        "R",
+        "C",
+        "E",
+        "_",
+        "Q",
+        "R",
+        "]"
+      ]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    },
+    {
+      "page": 2,
+      "tokens": ["■"]
+    }
+  ],
+  "blocks": [
+    {
+      "panel": 1,
+      "block": "kicker",
+      "key": "text",
+      "glyphs": 13,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပြည်သူ့ ပညာပေး လက်ကမ်းစာစောင်"
+    },
+    {
+      "panel": 1,
+      "block": "date",
+      "key": "text",
+      "glyphs": 23,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ထုတ်ဝေသည့်ရက် —   ရက် အောက်တိုဘာလ ၂၀၂၆ခုနှစ်။"
+    },
+    {
+      "panel": 1,
+      "block": "headline",
+      "key": "lines[0]",
+      "glyphs": 5,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အယ်လ်နီညို"
+    },
+    {
+      "panel": 1,
+      "block": "headline",
+      "key": "lines[1]",
+      "glyphs": 4,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ရောက်နေပြီ"
+    },
+    {
+      "panel": 1,
+      "block": "credits",
+      "key": "lines[0]",
+      "glyphs": 16,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ထားဝယ်တက္ကသိုလ်ကျောင်းသားများသမဂ္ဂ"
+    },
+    {
+      "panel": 1,
+      "block": "credits",
+      "key": "lines[1]",
+      "glyphs": 27,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ဂိမှာန် လူသားချင်းစာနာထောက်ထားမှု အကူအညီပေးရေးကော်မတီ - တနင်"
+    },
+    {
+      "panel": 1,
+      "block": "subhead",
+      "key": "text",
+      "glyphs": 11,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ကြိုသိလျှင် ကြိုပြင်နိုင်သည်"
+    },
+    {
+      "panel": 1,
+      "block": "box",
+      "key": "text",
+      "glyphs": 59,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "WMO နှင့် NOAA ၏ ၂၀၂၆ နောက်ဆုံး ခန့်မှန်းချက်များအရ အားကောင်"
+    },
+    {
+      "panel": 1,
+      "block": "box",
+      "key": "tag",
+      "glyphs": 8,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "၂၀၂၆ အခြေအနေ"
+    },
+    {
+      "panel": 1,
+      "block": "p",
+      "key": "text",
+      "glyphs": 80,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အယ်လ်နီညို ဆိုသည်မှာ ဘာလဲ၊ မြန်မာနိုင်ငံတွင် ဖြစ်လာနိုင်သည့်"
+    },
+    {
+      "panel": 1,
+      "block": "band",
+      "key": "text",
+      "glyphs": 37,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ခန့်မှန်းချက် အချက်အလက်များ — ၂၀၂၆ အောက်တိုဘာ ၈ ရက်အထိ (WMO,"
+    },
+    {
+      "panel": 1,
+      "block": "band_small",
+      "key": "text",
+      "glyphs": 17,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပုံ — မူရင်း သရုပ်ဖော်ပုံ • Claude AI"
+    },
+    {
+      "panel": 2,
+      "block": "label",
+      "key": "text",
+      "glyphs": 16,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အပိုင်း ၁ • အယ်လ်နီညိုကို နားလည်ခြင်း"
+    },
+    {
+      "panel": 2,
+      "block": "h2",
+      "key": "text",
+      "glyphs": 9,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အယ်လ်နီညို ဆိုတာ ဘာလဲ"
+    },
+    {
+      "panel": 2,
+      "block": "ul",
+      "key": "items[0]",
+      "glyphs": 64,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပင်လယ်ရေ ပူနွေးလာခြင်း — ပစိဖိတ်သမုဒ္ဒရာ အလယ်ပိုင်းနှင့် အရှ"
+    },
+    {
+      "panel": 2,
+      "block": "ul",
+      "key": "items[1]",
+      "glyphs": 47,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "လေနှင့် မိုး ပြောင်းလဲခြင်း — အရှေ့ဘက်မှ တိုက်နေကျ ကုန်သွယ်လ"
+    },
+    {
+      "panel": 2,
+      "block": "ul",
+      "key": "items[2]",
+      "glyphs": 51,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ဝေးသော ဒေသများပါ ထိခိုက်နိုင် — ကမ္ဘာ့လေထု စီးဆင်းမှုမှတစ်ဆင"
+    },
+    {
+      "panel": 2,
+      "block": "ul",
+      "key": "items[3]",
+      "glyphs": 45,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပုံမှန် မဟုတ် — ၂ နှစ်မှ ၇ နှစ်ခန့် တစ်ကြိမ် ဖြစ်တတ်ပြီး ရာသ"
+    },
+    {
+      "panel": 2,
+      "block": "diagram",
+      "key": "labels[0]",
+      "glyphs": 4,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အာရှ ဘက်"
+    },
+    {
+      "panel": 2,
+      "block": "diagram",
+      "key": "labels[1]",
+      "glyphs": 8,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "တောင်အမေရိက ဘက်"
+    },
+    {
+      "panel": 2,
+      "block": "diagram",
+      "key": "labels[2]",
+      "glyphs": 7,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ကုန်သွယ်လေ အားလျော့"
+    },
+    {
+      "panel": 2,
+      "block": "diagram",
+      "key": "labels[3]",
+      "glyphs": 9,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပစိဖိတ်သမုဒ္ဒရာ"
+    },
+    {
+      "panel": 2,
+      "block": "diagram",
+      "key": "labels[4]",
+      "glyphs": 13,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပုံမှန်ထက် ပူနွေးသော ပင်လယ်ရေ"
+    },
+    {
+      "panel": 2,
+      "block": "flow",
+      "key": "steps[0]",
+      "glyphs": 11,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပစိဖိတ် ပင်လယ်ရေ ပူနွေး"
+    },
+    {
+      "panel": 2,
+      "block": "flow",
+      "key": "steps[1]",
+      "glyphs": 7,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "လေ၊ မိုး ပုံစံ ပြောင်း"
+    },
+    {
+      "panel": 2,
+      "block": "flow",
+      "key": "steps[2]",
+      "glyphs": 23,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "မြန်မာ — မိုးမမှန်ခြင်း၊ ပိုပူ၊ မိုးခေါင်နိုင်ခြင်’။"
+    },
+    {
+      "panel": 2,
+      "block": "cite",
+      "key": "text",
+      "glyphs": 35,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ရင်းမြစ် — WMO; မိုးလေဝသနှင့် ဇလဗေဒ ညွှန်ကြားမှုဦးစီးဌာန (DM"
+    },
+    {
+      "panel": 2,
+      "block": "h3",
+      "key": "text",
+      "glyphs": 9,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "သမိုင်းမှ သင်ခန်းစာ"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[0].year",
+      "glyphs": 7,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "၁၉၉၇–၉၈"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[0].text",
+      "glyphs": 64,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အိမ်နီးချင်း ဒေသ — အင်ဒိုနီးရှား၊ ဖိလစ်ပိုင်၊ ထိုင်းနှင့် တရ"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[0].cite",
+      "glyphs": 7,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "FAO ၁၉၉၈"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[1].year",
+      "glyphs": 7,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "၂၀၁၅–၁၆"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[1].text",
+      "glyphs": 71,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "မြန်မာ — အယ်လ်နီညိုနှစ် ဖြစ်သော်လည်း ၂၀၁၅ မိုးရာသီ ရေကြီးမှု"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[1].cite",
+      "glyphs": 22,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "OCHA ၂၀၁၅; World Bank ၂၀၁၉"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[2].year",
+      "glyphs": 7,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "၂၀၂၃–၂၄"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[2].text",
+      "glyphs": 82,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "မြန်မာ — ၂၀၂၄ ဧပြီ ၂၈ တွင် ချောက်မြို့၌ ၄၈.၂ °C ရောက်ခဲ့ပြီး"
+    },
+    {
+      "panel": 2,
+      "block": "timeline",
+      "key": "items[2].cite",
+      "glyphs": 12,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "AFP ၂၀၂၄; NOAA"
+    },
+    {
+      "panel": 2,
+      "block": "box",
+      "key": "text",
+      "glyphs": 51,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "သင်ခန်းစာ — အယ်လ်နီညိုနှစ်တွင် မိုးခေါင်ခြင်းသာမက ရေကြီးခြင်"
+    },
+    {
+      "panel": 3,
+      "block": "label",
+      "key": "text",
+      "glyphs": 16,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အပိုင်း ၂ • ၂၀၂၆–၂၇ အခြေအနေ"
+    },
+    {
+      "panel": 3,
+      "block": "h2",
+      "key": "text",
+      "glyphs": 22,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "တရားဝင် ခန့်မှန်းချက်နှင့် ဖြစ်နိုင်သော ထိခိုက်မှုများ"
+    },
+    {
+      "panel": 3,
+      "block": "outlook",
+      "key": "head",
+      "glyphs": 13,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "နောက်ဆုံး တရားဝင် ခန့်မှန်းချက်"
+    },
+    {
+      "panel": 3,
+      "block": "outlook",
+      "key": "chip",
+      "glyphs": 15,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "မှတ်ချက် — တိကျစွာတိုင်းတာမှု မဟုတ်"
+    },
+    {
+      "panel": 3,
+      "block": "outlook",
+      "key": "items[0]",
+      "glyphs": 69,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "NOAA (၈ အောက်တိုဘာ ၂၀၂၆) — အယ်လ်နီညို ဆက်အားကောင်းလာနေပြီး ၂"
+    },
+    {
+      "panel": 3,
+      "block": "outlook",
+      "key": "items[1]",
+      "glyphs": 68,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "WMO (စက်တင်ဘာ ၂၀၂၆) — ၂၀၂၇ ဖေဖော်ဝါရီအထိ ဆက်ရှိနိုင်ခြေ ၁၀၀%"
+    },
+    {
+      "panel": 3,
+      "block": "outlook",
+      "key": "items[2]",
+      "glyphs": 87,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "NOAA က ၁၉၅၀ နောက်ပိုင်း အပြင်းထန်ဆုံး အဆင့်အထိ ရောက်နိုင်ခြေ"
+    },
+    {
+      "panel": 3,
+      "block": "outlook",
+      "key": "items[3]",
+      "glyphs": 53,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "DMH (၂၀၂၆) — မိုးမမှန်ခြင်း၊ နေ့အပူချိန် မြင့်ခြင်းနှင့် မို"
+    },
+    {
+      "panel": 3,
+      "block": "p",
+      "key": "text",
+      "glyphs": 78,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ဘယ်အချိန် သတိထားရမလဲ — မြန်မာ၏ ခြောက်သွေ့ရာသီမှာ ပုံမှန်အားဖ"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[0].text",
+      "glyphs": 58,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "မိုးနည်းခြင်း သို့မဟုတ် မုတ်သုံ နှောင့်နှေးခြင်း ဖြစ်ပါက သီး"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[0].title",
+      "glyphs": 4,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "စိုက်ပျိုးရေး"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[1].text",
+      "glyphs": 50,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ပူပြင်းသော နေ့များတွင် ပြင်ပ အလုပ်သမား၊ သက်ကြီးရွယ်အို၊ ကလေး"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[1].title",
+      "glyphs": 10,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အပူဒဏ်နှင့် ကျန်းမာရေး"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[2].text",
+      "glyphs": 49,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ရေတွင်း၊ ကန်၊ ချောင်း ခန်းခြောက်ပါက ရေရှားနိုင်သည်။ မသန့်ရှင"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[2].title",
+      "glyphs": 4,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "သောက်သုံးရေ"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[3].text",
+      "glyphs": 37,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ခြောက်သွေ့သော မြက်၊ သစ်ရွက်ခြောက်များကြောင့် တောမီး၊ ယာမီးနှ"
+    },
+    {
+      "panel": 3,
+      "block": "cards",
+      "key": "items[3].title",
+      "glyphs": 7,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ခြောက်သွေ့မှုနှင့် မီး"
+    },
+    {
+      "panel": 3,
+      "block": "p",
+      "key": "text",
+      "glyphs": 55,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အထက်ပါတို့မှာ ဖြစ်နိုင်ခြေရှိသော အန္တရာယ်များသာ ဖြစ်သည်။ ဒေသ"
+    },
+    {
+      "panel": 3,
+      "block": "box",
+      "key": "text",
+      "glyphs": 50,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "စောင့်ကြည့်ရန် — DMH သတိပေးချက်များ • ဒေသတွင်း မိုး/အပူ သတိပ"
+    },
+    {
+      "panel": 4,
+      "block": "label",
+      "key": "text",
+      "glyphs": 14,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အပိုင်း ၃ • လက်တွေ့ပြင်ဆင်ရန်"
+    },
+    {
+      "panel": 4,
+      "block": "h2",
+      "key": "text",
+      "glyphs": 15,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အိမ်ထောင်စုနှင့် ရပ်ရွာ ပြင်ဆင်မှု"
+    },
+    {
+      "panel": 4,
+      "block": "h3",
+      "key": "text",
+      "glyphs": 4,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ဆောင်ရန်"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[0]",
+      "glyphs": 24,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "သောက်ရေကို သန့်ရှင်းပြီး အဖုံးပါသော အိုး၊ ပုံးများတွင် သိုလှ"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[1]",
+      "glyphs": 16,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ရေကို ချွေတာသုံးပြီး ယိုစိမ့်မှုများကို ပြင်ပါ။ "
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[2]",
+      "glyphs": 28,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အရိပ်ခိုပါ။ လေဝင်လေထွက် ကောင်းအောင်ထားပြီး ပေါ့ပါးသော အဝတ် ဝ"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[3]",
+      "glyphs": 32,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ရေ မကြာခဏ သောက်ပါ။ ရေအကန့်အသတ်ထားရသူများ ဆရာဝန်နှင့် တိုင်ပင"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[4]",
+      "glyphs": 35,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ဖြစ်နိုင်လျှင် ပင်ပန်းသော ပြင်ပအလုပ်ကို မနက်စောစော သို့မဟုတ်"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[5]",
+      "glyphs": 31,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ကလေး၊ သက်ကြီးရွယ်အိုနှင့် တစ်ယောက်တည်းနေသူများကို မကြာခဏ သတင"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[6]",
+      "glyphs": 26,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "DMH နှင့် ဒေသဆိုင်ရာ တရားဝင် သတိပေးချက်များကို လိုက်နာပါ။ "
+    },
+    {
+      "panel": 4,
+      "block": "h3",
+      "key": "text",
+      "glyphs": 4,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ရှောင်ရန်"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[0]",
+      "glyphs": 28,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ခြောက်သွေ့ပြီး လေတိုက်ချိန်တွင် အမှိုက်၊ ပေါင်းပင်၊ ကောက်ရို"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[1]",
+      "glyphs": 29,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "မီးမငြိမ်းသေးသော ဆေးလိပ်တို၊ ဖယောင်းတိုင်၊ မီးဖိုကို လူမရှိဘ"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[2]",
+      "glyphs": 25,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ကလေးနှင့် တိရစ္ဆာန်များကို ရပ်ထားသော ကားထဲတွင် ချန်ထားခဲ့ခြင"
+    },
+    {
+      "panel": 4,
+      "block": "ul",
+      "key": "items[3]",
+      "glyphs": 28,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "မကျိုချက်ရသေးသော သို့မဟုတ် မသန့်ရှင်းသော ရေကို တိုက်ရိုက် သေ"
+    },
+    {
+      "panel": 4,
+      "block": "heatbox",
+      "key": "title",
+      "glyphs": 12,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အပူလျှပ်ခြင်း — သတိပြုရန်"
+    },
+    {
+      "panel": 4,
+      "block": "heatbox",
+      "key": "paras[0]",
+      "glyphs": 52,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "လက္ခဏာ — ခေါင်းမူး၊ ခေါင်းကိုက်၊ ပျို့အန်၊ ကြွက်တက်၊ ချွေးအလ"
+    },
+    {
+      "panel": 4,
+      "block": "heatbox",
+      "key": "paras[1]",
+      "glyphs": 70,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ချက်ချင်း ကူညီရန် — (၁) အေးသော အရိပ်ထဲ ရွှေ့ပါ (၂) အဝတ်ကို ဖ"
+    },
+    {
+      "panel": 4,
+      "block": "heatbox",
+      "key": "paras[2]",
+      "glyphs": 67,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အရေးပေါ် — စိတ်ရှုပ်ထွေး၊ လဲကျ/သတိလစ်၊ တက်ခြင်း ရှိလျှင် (သိ"
+    },
+    {
+      "panel": 4,
+      "block": "sources_line",
+      "key": "text",
+      "glyphs": 43,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ရင်းမြစ် — WMO • NOAA CPC • DMH • OCHA • World Bank • FAO • "
+    },
+    {
+      "panel": 4,
+      "block": "qr_line_replaced",
+      "key": "text",
+      "glyphs": 19,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "အပြည့်အစုံကို QR တွင်ဖတ်ရှူနိုင်ပါသည်။"
+    },
+    {
+      "panel": 4,
+      "block": "band",
+      "key": "text",
+      "glyphs": 27,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ထုတ်ဝေသည့်အဖွဲ့အစည်း - ထားဝယ်တက္ကသိုလ်ကျောင်းသားများသမဂ္ဂ"
+    },
+    {
+      "panel": 4,
+      "block": "band",
+      "key": "text",
+      "glyphs": 27,
+      "match": 1.0,
+      "ok": true,
+      "diffs": [],
+      "text": "ဂိမှာန် လူသားချင်းစာနာထောက်ထားမှု အကူအညီပေးရေးကော်မတီ - တနင်"
+    }
+  ]
+}

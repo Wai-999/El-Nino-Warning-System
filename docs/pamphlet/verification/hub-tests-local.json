@@ -1,0 +1,173 @@
+{
+  "base": "http://localhost:8765/El-Nino-Warning-System/pamphlet/el-nino/",
+  "when": "2026-10-14 16:00:10 PDT",
+  "results": [
+    {
+      "test": "layout 320px no horizontal scroll",
+      "ok": true,
+      "detail": "overflow=0px"
+    },
+    {
+      "test": "no console/CSP errors at 320px",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "test": "layout 360px no horizontal scroll",
+      "ok": true,
+      "detail": "overflow=0px"
+    },
+    {
+      "test": "no console/CSP errors at 360px",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "test": "touch targets >= 24px (outside running text)",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "test": "layout 414px no horizontal scroll",
+      "ok": true,
+      "detail": "overflow=0px"
+    },
+    {
+      "test": "no console/CSP errors at 414px",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "test": "layout 768px no horizontal scroll",
+      "ok": true,
+      "detail": "overflow=0px"
+    },
+    {
+      "test": "no console/CSP errors at 768px",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "test": "layout 1280px no horizontal scroll",
+      "ok": true,
+      "detail": "overflow=0px"
+    },
+    {
+      "test": "no console/CSP errors at 1280px",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "test": "all in-page links (claims, sources) resolve",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "test": "four panels in reading order 1-2-3-4",
+      "ok": true,
+      "detail": ["panel-1", "panel-2", "panel-3", "panel-4"]
+    },
+    {
+      "test": "both Facebook links exact",
+      "ok": true,
+      "detail": [
+        "https://www.facebook.com/GiHmanHAICT",
+        "https://www.facebook.com/DaweiUniSU"
+      ]
+    },
+    {
+      "test": "source search filters",
+      "ok": true,
+      "detail": "1 shown"
+    },
+    {
+      "test": "category filter (health)",
+      "ok": true,
+      "detail": ["health"]
+    },
+    {
+      "test": "PDF downloads complete and matches published hash",
+      "ok": true,
+      "detail": "705964 bytes"
+    },
+    {
+      "test": "missing path returns 404",
+      "ok": true,
+      "detail": 404
+    },
+    {
+      "test": "first-ever scan with no network cannot open the page (expected)",
+      "ok": true,
+      "detail": "Page.goto: net::ERR_INTERNET_DISCONNECTED at http://localhost:8765/El-Nino-Warning-System/"
+    },
+    {
+      "test": "offline without a saved copy shows an honest \"not saved\" page",
+      "ok": true,
+      "detail": 503
+    },
+    {
+      "test": "Save for offline completes only after verification",
+      "ok": true,
+      "detail": "0.3 s; သိမ်းပြီးပါပြီ — ၁၄ အောက်တိုဘာ ၂၀၂၆၊ ၁၆:၀၀ (၁၈၀၅ KB၊ ဖိုင် ၂၁ ခု)။ ဤဖုန်း/ဘရောက်"
+    },
+    {
+      "test": "offline reload serves the saved HTML",
+      "ok": true,
+      "detail": "header=1"
+    },
+    {
+      "test": "offline indicator + last-saved time shown",
+      "ok": true,
+      "detail": "အော့ဖ်လိုင်း — အင်တာနက် မရှိပါ။ ၁၄ အောက်တိုဘာ ၂၀၂၆၊ ၁၆:၀၀ က သိမ်းထားသော မိတ္တူကို ပြသနေသည်"
+    },
+    {
+      "test": "Burmese web font available offline",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "full PDF readable offline",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "n": 705964,
+        "off": "1"
+      }
+    },
+    {
+      "test": "bibliography snapshot readable offline",
+      "ok": true,
+      "detail": 12524
+    },
+    {
+      "test": "facsimile images readable offline",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "Facebook is not cached (needs network)",
+      "ok": true,
+      "detail": "network error"
+    },
+    {
+      "test": "stale offline copy is detected (update prompt)",
+      "ok": true,
+      "detail": "ဗားရှင်းအသစ် ရှိသည် — သင့်မိတ္တူ (၁၄ အောက်တိုဘာ ၂၀၂၆၊ ၁၆:၀၀) သည် အဟောင"
+    },
+    {
+      "test": "failed update is reported and the previous copy is kept intact",
+      "ok": true,
+      "detail": "မသိမ်းနိုင်ပါ — data/sources.json — ဖိုင် မကိုက်ညီပါ (ဗားရှင်းအသစ် တင်နေဆဲ ဖြစ်နိုင်သည်)။ "
+    },
+    {
+      "test": "update replaces the copy atomically with the new build",
+      "ok": true,
+      "detail": "testbuild001"
+    },
+    {
+      "test": "after \"Remove offline copy\" the page is no longer available offline",
+      "ok": true,
+      "detail": 503
+    }
+  ]
+}

@@ -1,0 +1,643 @@
+{
+  "checked_on": "2026-10-14",
+  "results": [
+    {
+      "id": "S01",
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_oct2026/ensodisc.shtml",
+      "http": 200,
+      "final_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_oct2026/ensodisc.shtml",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "e0e2a3b2309a68e7dbe860438b1ecc55e660789d3db329b350a1019a355eebb4",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "8 October 2026",
+          "found": true,
+          "excerpt": "ATION (ENSO) DIAGNOSTIC DISCUSSION issued by CLIMATE PREDICTION CENTER/NCEP/NWS 8 October 2026 ENSO Alert System Status: El Niño Advisory Synopsis: El Niño continues to stren"
+        },
+        {
+          "pattern": "El Niño Advisory",
+          "found": true,
+          "excerpt": " by CLIMATE PREDICTION CENTER/NCEP/NWS 8 October 2026 ENSO Alert System Status: El Niño Advisory Synopsis: El Niño continues to strengthen, with a strong-to-very strong El Niño"
+        },
+        {
+          "pattern": "strong-to-very strong El Niño likely through January-March 2027",
+          "found": true,
+          "excerpt": "stem Status: El Niño Advisory Synopsis: El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than an 83% chance). El Niño strengthened further last month"
+        },
+        {
+          "pattern": "greater than an 83% chance",
+          "found": true,
+          "excerpt": "th a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than an 83% chance). El Niño strengthened further last month, with sea surface temperature anomali"
+        },
+        {
+          "pattern": "historic event that would exceed the strength of previous El Niño events dating back to 1950",
+          "found": true,
+          "excerpt": "engthen through the end of the year [Figs. 6 -7 -8] . Chances remain high for a historic event that would exceed the strength of previous El Niño events dating back to 1950 (+2.5°C or more for a 3-month RONI value ): the chance is 54% for September-Nov"
+        },
+        {
+          "pattern": "83% for October-December",
+          "found": true,
+          "excerpt": "C or more for a 3-month RONI value ): the chance is 54% for September-November, 83% for October-December, and 70% for November-January. With an event of this magnitude, the chances of "
+        },
+        {
+          "pattern": "impacts consistent with El Niño are larger, though not guaranteed",
+          "found": true,
+          "excerpt": " November-January. With an event of this magnitude, the chances of experiencing impacts consistent with El Niño are larger, though not guaranteed (see CPC outlooks for probabilities of seasonal anomalies). In summary, El Niño"
+        },
+        {
+          "pattern": "Enhanced convection and rainfall persisted from the central to the eastern Pacific",
+          "found": true,
+          "excerpt": "nd anomalies stretched from the western to the east-central equatorial Pacific. Enhanced convection and rainfall persisted from the central to the eastern Pacific, while anomalies remained suppressed over Indonesia [Fig. 5] . The traditional "
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S02",
+      "url": "https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026",
+      "http": 200,
+      "final_url": "https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "95f771ebcaba53dffd33952e0551b7b7888ebcfe6f9c081f30b194e818de7564",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Publication 3 September 2026",
+          "found": true,
+          "excerpt": "dates El Niño/La Niña Update (August 2026) El Niño/La Niña Update (August 2026) Publication 3 September 2026 Share: Key messages El Niño is firmly established and is expected to strengthen"
+        },
+        {
+          "pattern": "near 100% likelihood that it will persist through February 2027",
+          "found": true,
+          "excerpt": " is firmly established and is expected to strengthen further WMO Forecasts show near 100% likelihood that it will persist through February 2027 Exceptionally warm tropical Pacific Ocean conditions support further intensific"
+        },
+        {
+          "pattern": "peaking towards the end of the year",
+          "found": true,
+          "excerpt": "he coming months, with the event forecast to reach very strong intensity before peaking towards the end of the year. ENSO-neutral conditions or a return to La Niña are not anticipated during the "
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S03",
+      "url": "https://wmo.int/news/media-centre/el-nino-set-become-very-strong-raising-risks-of-extreme-weather-2027",
+      "http": 200,
+      "final_url": "https://wmo.int/news/media-centre/el-nino-set-become-very-strong-raising-risks-of-extreme-weather-2027",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "0921ac32e3d45f210c1d9d13d177e547c685b0890b4865d2f458566202641b99",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Press Release 3 September 2026",
+          "found": true,
+          "excerpt": "7 El Niño set to become very strong, raising risks of extreme weather into 2027 Press Release 3 September 2026 Geneva, Switzerland (WMO) - El Niño is firmly established and will intensify in"
+        },
+        {
+          "pattern": "near 100% likelihood that it will persist through February 2027",
+          "found": true,
+          "excerpt": " is firmly established and is expected to strengthen further WMO Forecasts show near 100% likelihood that it will persist through February 2027 Exceptionally warm tropical Pacific Ocean conditions support further intensific"
+        },
+        {
+          "pattern": "strength of an El Niño event alone does not determine how severe its impacts will be in any individual country or region",
+          "found": true,
+          "excerpt": "ures and atmospheric circulation across many regions of the world. However, the strength of an El Niño event alone does not determine how severe its impacts will be in any individual country or region. Its effects vary according to location and season and can be modified by other"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S04",
+      "url": "https://wmo.int/themes/el-nino-la-nina-phenomena",
+      "http": 200,
+      "final_url": "https://wmo.int/themes/el-nino-la-nina-phenomena",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "05f55753555b889abc7eebb83b9aeed941843b26151afb8b24ddf36b07567b3c",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "unusually warm ocean surface temperatures in the central and eastern Pacific",
+          "found": true,
+          "excerpt": "last up to 18 months and La Niña up to three years. El Niño is characterized by unusually warm ocean surface temperatures in the central and eastern Pacific. The name originates with Peruvian fishermen and sailors who noticed a warm cur"
+        },
+        {
+          "pattern": "easterly trade winds become weaker",
+          "found": true,
+          "excerpt": "an-normal ocean temperatures usually mean El Niño conditions, which happen when easterly trade winds become weaker. Cooler-than-normal temperatures usually mean La Niña conditions, when easterly"
+        },
+        {
+          "pattern": "typically occurs every two to seven years",
+          "found": true,
+          "excerpt": "pical Pacific stay close to normal. The transition between these extreme phases typically occurs every two to seven years. Both El Niño and La Niña generally begin developing between March and June and"
+        },
+        {
+          "pattern": "effects of each El Niño/La Niña event vary",
+          "found": true,
+          "excerpt": "arch and June and reach their peak intensity between November and February. The effects of each El Niño/La Niña event vary depending on the intensity, duration, time of year when it develops, and how it"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S05",
+      "url": "https://www.bnionline.net/en/news/myanmar-weather-bureau-warns-impending-strong-el-nino-event-later-year",
+      "http": 200,
+      "final_url": "https://www.bnionline.net/en/news/myanmar-weather-bureau-warns-impending-strong-el-nino-event-later-year",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "ff87c0bc5e5d7891a1b9abf5f5186091273a03156e55a9d17461aca632dbb032",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Department of Meteorology and Hydrology \\(DMH\\) issued a public warning",
+          "found": true,
+          "excerpt": "ureau warns of impending strong El Nino event later this year Mizzima Myanmar's Department of Meteorology and Hydrology (DMH) issued a public warning on Friday advising communities and agricultural sectors to prepare for an impen"
+        },
+        {
+          "pattern": "irregular or delayed monsoon rainfall",
+          "found": true,
+          "excerpt": "calized impacts in Myanmar. Historically, El Nino cycles are directly linked to irregular or delayed monsoon rainfall patterns, an inflation of daytime temperatures, abnormal tropical storm activit"
+        },
+        {
+          "pattern": "inflation of daytime temperatures",
+          "found": true,
+          "excerpt": "ycles are directly linked to irregular or delayed monsoon rainfall patterns, an inflation of daytime temperatures, abnormal tropical storm activity, and severe droughts that jeopardize agricult"
+        },
+        {
+          "pattern": "severe droughts",
+          "found": true,
+          "excerpt": "ns, an inflation of daytime temperatures, abnormal tropical storm activity, and severe droughts that jeopardize agricultural yields and local water security. These events typi"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S06",
+      "url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/06/23/strong-el-nino-expected-to-develop-by-end-of-2026-myanmar",
+      "http": 200,
+      "final_url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/06/23/strong-el-nino-expected-to-develop-by-end-of-2026-myanmar",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_on": "2026-10-14",
+      "sha256": "a9d44a5e0c6c47383ab9091c0c74cee8baf6a54cc8d335a92834d6834d30c972",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "urged relevant sectors to make advance preparations",
+          "found": true,
+          "excerpt": ", unusual storm activity, drought and other extreme weather events. The DMH has urged relevant sectors to make advance preparations for possible impacts and said it will continue to issue timely updates on the e"
+        },
+        {
+          "pattern": "potentially becoming very strong by the end of the year",
+          "found": true,
+          "excerpt": "ght, is likely to strengthen during 2026, reaching a moderate level in July and potentially becoming very strong by the end of the year. According to the DMH, sea surface temperatures and atmospheric conditions in t"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S07",
+      "url": "https://www.malaymail.com/news/world/2026/10/05/myanmar-warns-of-power-cuts-as-el-nino-heat-strains-grid/237812",
+      "http": 403,
+      "final_url": "https://www.malaymail.com/news/world/2026/10/05/myanmar-warns-of-power-cuts-as-el-nino-heat-strains-grid/237812",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_on": "2026-10-14",
+      "sha256": "0b85e8189c7f0b2fb0de43d42552ce4f8899c7df655016e8bf6590cf637e0cfd",
+      "evidence_ok": true,
+      "evidence": [],
+      "manual_check": "Verified 2026-10-14 via a browser-based fetch: \"First Published: Monday, 05 Oct 2026\"; \"…during the coming dry season\" which \"usually runs from October to May.\"; \"— AFP\"."
+    },
+    {
+      "id": "S08",
+      "url": "https://www.fao.org/4/W7867E/w7867e04.htm",
+      "http": 200,
+      "final_url": "https://www.fao.org/4/W7867E/w7867e04.htm",
+      "content_type": "text/html",
+      "checked_on": "2026-10-14",
+      "sha256": "f87fe565e24690c0efba1b46ecfc5657f1bf229af422ebbda00cdc7eda8817b3",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Food Outlook, February 1998",
+          "found": true,
+          "excerpt": " FAO/GIEWS - Food Outlook, February 1998 Page4 FAO/GIEWS - Food Outlook, February 1998 EL NIÑO RAISES THE NUMBER OF COUN"
+        },
+        {
+          "pattern": "El Niño-related droughts have affected cereal production in Indonesia , China , the Philippines , and Thailand",
+          "found": true,
+          "excerpt": "lnutrition remains a serious problem throughout the country. Elsewhere in Asia, El Niño-related droughts have affected cereal production in Indonesia , China , the Philippines , and Thailand as well as Papua New Guinea in the Pacific Rim. In Central America , emergency "
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S09",
+      "url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Myanmar_Flood_Cyclone_OCHA_16Sep2015.pdf",
+      "http": 200,
+      "final_url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Myanmar_Flood_Cyclone_OCHA_16Sep2015.pdf",
+      "content_type": "application/pdf",
+      "checked_on": "2026-10-14",
+      "sha256": "6f6dd137b9b681d2c5b9227c600b8a2dd14aee0cefb94ce1b75af3d63dd6567a",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "16 September 2015",
+          "found": true,
+          "excerpt": "S H THAILAND Flood affected townships LAOS Myanmar: Flood and Cyclone Snapshot (16 September 2015) IMPACT >34.6 million census population in affected townships >1.6 million temp"
+        },
+        {
+          "pattern": "temporarily displacing over 1\\.6 million people",
+          "found": true,
+          "excerpt": "sulted in widespread flooding across 12 of the country's 14 states and regions, temporarily displacing over 1.6 million people. Humanitarian and development partners are supporting the government to address"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S10",
+      "url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Natural_disaster_risks_and_past_events_OCHA_31May2016.pdf",
+      "http": 200,
+      "final_url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Natural_disaster_risks_and_past_events_OCHA_31May2016.pdf",
+      "content_type": "application/pdf",
+      "checked_on": "2026-10-14",
+      "sha256": "fdc701b3eb3fcbe6dccd85bad9b75dcb6eefd6b052b6dc32ae7252f5f8024cc8",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "31 May 2016",
+          "found": true,
+          "excerpt": "Creation date: 31 May 2016 Sources: OCHA, Relief and Resettlement Department, UN, USGS Feedback: ochamyanm"
+        },
+        {
+          "pattern": "since mid-February 2016, Myanmar has been experiencing a severe impact of El Niño",
+          "found": true,
+          "excerpt": " the Pacific. According to the Myanmar Department of Meteorology and Hydrology, since mid-February 2016, Myanmar has been experiencing a severe impact of El Niño including extreme temperatures, unusual rainfall patterns, dry soil, high risk "
+        },
+        {
+          "pattern": "high risk of fires and acute water shortages",
+          "found": true,
+          "excerpt": "of El Niño including extreme temperatures, unusual rainfall patterns, dry soil, high risk of fires and acute water shortages. The El Niño impact is expected to end in June 2016. Source: Commonwealth of Au"
+        },
+        {
+          "pattern": "The El Niño impact is expected to end in June 2016",
+          "found": true,
+          "excerpt": "sual rainfall patterns, dry soil, high risk of fires and acute water shortages. The El Niño impact is expected to end in June 2016. Source: Commonwealth of Australia Bureau of Meteorology A l e r t A l e r t E "
+        },
+        {
+          "pattern": "1\\.7 million temporarily",
+          "found": true,
+          "excerpt": "ARTHQUAKES FLOODS AND LANDSLIDES Flood-affected townships in 2015 Approximately 1.7 million temporarily displaced and 172 killed Frequency of Earthquakes of Magnitude > 5 on the Ritch"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S11",
+      "url": "https://reliefweb.int/attachments/bffc44d3-447a-3777-8f4b-d9edf1c66a28/Striking-a-Balance-Managing-El-Ni%C3%B1o-and-La-Ni%C3%B1a-in-Myanmar-s-Agriculture.pdf",
+      "http": 200,
+      "final_url": "https://reliefweb.int/attachments/bffc44d3-447a-3777-8f4b-d9edf1c66a28/Striking-a-Balance-Managing-El-Ni%C3%B1o-and-La-Ni%C3%B1a-in-Myanmar-s-Agriculture.pdf",
+      "content_type": "application/pdf",
+      "checked_on": "2026-10-14",
+      "sha256": "9c037e5d50f70a29778a1a02fe0d53299b483c23187f3d8b4f2f9604c9750b22",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "during the 2016 El Niño, 1,700 villages experienced water shortages",
+          "found": true,
+          "excerpt": "igure A).1 ENSO has been linked to extensive drought and flooding. For example, during the 2016 El Niño, 1,700 villages experienced water shortages.2 Also, ENSO impacts tend to be highly localized, with certain areas more affec"
+        },
+        {
+          "pattern": "STRIKING A",
+          "found": true,
+          "excerpt": "n, Jitendra P. Srivastava, Mark Rosegrant, James Thurlow, and Ioannis Vasileiou STRIKING A BALANCE 9960_CVR Myanmar.indd 3 12/21/18 8:17 AM Public Disclosure Authorized P"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S12",
+      "url": "https://myanmar-now.org/en/news/myanmar-records-hottest-ever-april-temperature-of-48-2c/",
+      "http": 200,
+      "final_url": "https://myanmar-now.org/en/news/myanmar-records-hottest-ever-april-temperature-of-48-2c/",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_on": "2026-10-14",
+      "sha256": "f3f4b0246750d2798278df9e88bd9221980766fd89ef8abd481e0f722cbba51c",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "48\\.2°C in the town of Chauk",
+          "found": true,
+          "excerpt": "said Monday, as the Southeast Asian nation bakes in a heatwave. The mercury hit 48.2°C in the town of Chauk in central Myanmar's Magway region on Sunday, according to a statement from the"
+        },
+        {
+          "pattern": "since records began 56 years ago",
+          "found": true,
+          "excerpt": "try's weather office, the highest temperature seen anywhere in Myanmar in April since records began 56 years ago. The same day temperatures hit 40°C in commercial hub Yangon and 44°C in the se"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S13",
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_may2024/ensodisc.shtml",
+      "http": 200,
+      "final_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_may2024/ensodisc.shtml",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "cf7af548c52609f49afc2aeb279a2d4e1500e67720482e648ecb27bb0b52d506",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "9 May 2024",
+          "found": true,
+          "excerpt": "ATION (ENSO) DIAGNOSTIC DISCUSSION issued by CLIMATE PREDICTION CENTER/NCEP/NWS 9 May 2024 ENSO Alert System Status: El Niño Advisory / La Niña Watch Synopsis: A transiti"
+        },
+        {
+          "pattern": "transition from El Niño to ENSO-neutral is likely in the next month",
+          "found": true,
+          "excerpt": "May 2024 ENSO Alert System Status: El Niño Advisory / La Niña Watch Synopsis: A transition from El Niño to ENSO-neutral is likely in the next month. La Niña may develop in June-August (49% chance) or July-September (69% chance)"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S14",
+      "url": "https://wmo.int/media/17673",
+      "http": 200,
+      "final_url": "https://wmo.int/files/el-ninola-nina-update-february-2016",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "df2fade5096ae2539731cda40c91a98faeca9d5432d2c49f8a51509a64734492",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "one of the strongest on record, comparable with the 1997-98 and 1982-83 events",
+          "found": true,
+          "excerpt": "sius above average in late 2015, providing evidence that the 2015-16 El Niño is one of the strongest on record, comparable with the 1997-98 and 1982-83 events. National Meteorological and Hydrological Services will continue to monitor the"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S15",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+      "http": 200,
+      "final_url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "f854fde12563164444b64a740b73b452f02b9a7631e0a30bcce77472636d3f11",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Heatstroke is a medical emergency",
+          "found": true,
+          "excerpt": "an increase the risk of accidents and transmission of some infectious diseases. Heatstroke is a medical emergency with a high-case fatality rate. The number of people exposed to extreme heat is"
+        },
+        {
+          "pattern": "Never leave children or animals in parked vehicles",
+          "found": true,
+          "excerpt": "kidney conditions, a disability, and living alone. Protect infants and children Never leave children or animals in parked vehicles for any amount of time, as temperatures can quickly become dangerously high. Av"
+        },
+        {
+          "pattern": "strenuous activity during the hottest time of day",
+          "found": true,
+          "excerpt": "ions should the public take? Stay out of the heat Avoid going outside and doing strenuous activity during the hottest time of day. Stay in the shade. Remember that perceived temperatures in the sun can be 10-1"
+        },
+        {
+          "pattern": "light and loose-fitting clothing",
+          "found": true,
+          "excerpt": "at it may be cooler outdoors in the shade. Keep your body cool and hydrated Use light and loose-fitting clothing and bed linens. Take cool showers or baths. Wet your skin using a damp cloth, s"
+        },
+        {
+          "pattern": "Drink water regularly",
+          "found": true,
+          "excerpt": "owers or baths. Wet your skin using a damp cloth, spray, or wet light clothing. Drink water regularly (1 cup of water per hour and at least 2-3 litres per day). Regularly check in w"
+        },
+        {
+          "pattern": "living alone",
+          "found": true,
+          "excerpt": "65 years old and those with heart, lung or kidney conditions, a disability, and living alone. Protect infants and children Never leave children or animals in parked vehicle"
+        },
+        {
+          "pattern": "Outdoor and manual workers",
+          "found": true,
+          "excerpt": "n the impact of chronic (sustained) exposure to high temperatures and humidity. Outdoor and manual workers, athletes and civil protection employees are exposed to excess heat because of "
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S16",
+      "url": "https://heathealth.info/resources/staying-healthy-in-the-heat/",
+      "http": 200,
+      "final_url": "https://heathealth.info/resources/staying-healthy-in-the-heat/",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_on": "2026-10-14",
+      "sha256": "07292a7c66c40d5fc20e98f831110795fd57e6c915cd669395786239d1b1995d",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "dizziness, nausea, muscle cramps, headache, heavy sweating, rapid heartbeat",
+          "found": true,
+          "excerpt": "t events. It outlines the primary warning signs of heat-related illness—such as dizziness, nausea, muscle cramps, headache, heavy sweating, rapid heartbeat, and dark urine—and differentiates between heat exhaustion and the more severe "
+        },
+        {
+          "pattern": "move the person to a cool area, apply cold water, fan them",
+          "found": true,
+          "excerpt": "In the event of heat stroke, it highlights the necessity of emergency response: move the person to a cool area, apply cold water, fan them, and call 911 immediately. This resource enhances public awareness and resilien"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S17",
+      "url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/signs-symptoms",
+      "http": 200,
+      "final_url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/signs-symptoms",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "9b3a5a583795f7222d57e63e7f413d9c859a054180082bca96b862ba71b9bd82",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Heatstroke is a medical emergency",
+          "found": true,
+          "excerpt": "ple Zero (000) if the person becomes unconscious or starts vomiting. Heatstroke Heatstroke is a medical emergency and a severe form of heat-related illness. Symptoms may include: confusion poor"
+        },
+        {
+          "pattern": "hot, dry skin",
+          "found": true,
+          "excerpt": "ed illness. Symptoms may include: confusion poor coordination or slurred speech hot, dry skin, possibly not sweating fast, shallow breaths rapid pulse extreme fatigue headac"
+        },
+        {
+          "pattern": "small sips of fluids if conscious and able to swallow",
+          "found": true,
+          "excerpt": "lothing. cool the body with cool, wet cloths or fan them if available give them small sips of fluids if conscious and able to swallow. Do not give medications unless prescribed. More information Learn more about: "
+        },
+        {
+          "pattern": "Do not give medications unless prescribed",
+          "found": true,
+          "excerpt": "m if available give them small sips of fluids if conscious and able to swallow. Do not give medications unless prescribed. More information Learn more about: people at risk of heat-related health probl"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S18",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/drinking-water",
+      "http": 200,
+      "final_url": "https://www.who.int/news-room/fact-sheets/detail/drinking-water",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "67a02ae1ed1c8c213a0106de49e4319d8ba984420d1e43db7cca4a26b324406b",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "contaminated drinking water can transmit diseases such as diarrhoea",
+          "found": true,
+          "excerpt": "piratory infections and numerous neglected tropical diseases. Microbiologically contaminated drinking water can transmit diseases such as diarrhoea, cholera, dysentery, typhoid and polio and is estimated to cause approximately "
+        },
+        {
+          "pattern": "covering water storage containers",
+          "found": true,
+          "excerpt": "king water containers can serve as breeding grounds. The simple intervention of covering water storage containers can reduce vector breeding and may also reduce faecal contamination of water at"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S20",
+      "url": "https://wmo.int/news/media-centre/sea-surface-temperatures-reflect-strengthening-el-nino",
+      "http": 200,
+      "final_url": "https://wmo.int/news/media-centre/sea-surface-temperatures-reflect-strengthening-el-nino",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "1af2d49ccbafe523123baedd5a238b13ba5a87f0e1a43328402c19e8330c9ba9",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Press Release 8 October 2026",
+          "found": true,
+          "excerpt": "ct strengthening El Niño Sea-surface temperatures reflect strengthening El Niño Press Release 8 October 2026 WMO's Global Seasonal Climate Update provides temperature and rainfall predicti"
+        },
+        {
+          "pattern": "near-100 per cent likelihood that it will persist through February 2027",
+          "found": true,
+          "excerpt": " Niño is firmly established and strengthening rapidly. WMO forecasts indicate a near-100 per cent likelihood that it will persist through February 2027, potentially being one of the strongest since at least 1950,” said WMO Secretar"
+        },
+        {
+          "pattern": "forecast peak in December",
+          "found": true,
+          "excerpt": "al Organization (WMO) says that El Niño will continue to intensify ahead of its forecast peak in December. It is likely to bring above-average temperatures to much of the globe and shif"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S21",
+      "url": "https://wmo.int/node/39053",
+      "http": 200,
+      "final_url": "https://wmo.int/resources/publication-series/global-seasonal-climate-updates/gscu-ond2026",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "93b7852025cff7835b76aa2f6b61f630a28adff07704235b6f5ca7b229fa176d",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Publication 8 October 2026",
+          "found": true,
+          "excerpt": "December 2026 Global Seasonal Climate Update for October-November-December 2026 Publication 8 October 2026 Share: Full Report Press Release Trello Board Outlook for Oceanic Drivers for t"
+        },
+        {
+          "pattern": "peaking around December 2026",
+          "found": true,
+          "excerpt": " forecast to reach approximately +3.7°C during OND 2026, with the warming trend peaking around December 2026. The spread among individual forecast systems generally remains narrow, reflect"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S22",
+      "url": "https://www.nhs.uk/conditions/heat-exhaustion-heatstroke/",
+      "http": 200,
+      "final_url": "https://www.nhs.uk/conditions/heat-exhaustion-heatstroke/",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "79dba1a8da0ade25caa78d529de2bb6280c61e05b5a1f690780af7e507ba5f55",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Page last reviewed: 28 May 2026",
+          "found": true,
+          "excerpt": "f heat exhaustion or heatstroke. Find out more about how to cope in hot weather Page last reviewed: 28 May 2026 Next review due: 28 May 2029 Support links Home Health A to Z NHS services Heal"
+        },
+        {
+          "pattern": "seizure",
+          "found": true,
+          "excerpt": "without sweating fast breathing and a fast heartbeat confusion and restlessness seizure (fit) loss of consciousness Heatstroke is a medical emergency. Get immediate me"
+        },
+        {
+          "pattern": "confusion",
+          "found": true,
+          "excerpt": " high temperature hot skin without sweating fast breathing and a fast heartbeat confusion and restlessness seizure (fit) loss of consciousness Heatstroke is a medical em"
+        },
+        {
+          "pattern": "loss of consciousness",
+          "found": true,
+          "excerpt": "ng fast breathing and a fast heartbeat confusion and restlessness seizure (fit) loss of consciousness Heatstroke is a medical emergency. Get immediate medical help if someone has th"
+        },
+        {
+          "pattern": "Heatstroke is a medical emergency",
+          "found": true,
+          "excerpt": "a fast heartbeat confusion and restlessness seizure (fit) loss of consciousness Heatstroke is a medical emergency. Get immediate medical help if someone has the symptoms of heatstroke. Things y"
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S23",
+      "url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/how-to-keep-cool",
+      "http": 200,
+      "final_url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/how-to-keep-cool",
+      "content_type": "text/html; charset=utf-8",
+      "checked_on": "2026-10-14",
+      "sha256": "8450eb18ceb999c8ac8588df234f784649ea6bad04c978d28e442ae07dae5719",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "healthcare provider has advised you to limit your fluid intake",
+          "found": true,
+          "excerpt": "u don't feel thirsty. Aim to drink around 2-3 litres of water a day unless your healthcare provider has advised you to limit your fluid intake. You can also help your body stay hydrated by: eating regular meals, including "
+        },
+        {
+          "pattern": "Last updated: 4 August 2026",
+          "found": true,
+          "excerpt": " (PDF, 195.5 KB) . Learn about keeping food safe in hot weather (PDF, 790 KB) . Last updated: 4 August 2026 Was this page helpful? Was this page helpful? Yes No Tell us why (optional) Do "
+        }
+      ],
+      "manual_check": null
+    },
+    {
+      "id": "S24",
+      "url": "https://www.moezala.gov.mm/my/el-nino-la-nina",
+      "http": 200,
+      "final_url": "https://www.moezala.gov.mm/my/el-nino-la-nina",
+      "content_type": "text/html; charset=UTF-8",
+      "checked_on": "2026-10-14",
+      "sha256": "71a51e575b4b020e519b7aefbb1b9ab4a5af66d266c96504bfc61f69902c614a",
+      "evidence_ok": true,
+      "evidence": [
+        {
+          "pattern": "Department of Meteorology and Hydrology",
+          "found": true,
+          "excerpt": " EL-nino/La-nina | Department of Meteorology and Hydrology Skip to main content DEPARTMENT OF METEOROLOGY AND HYDROLOGY (MYANMAR) Burmese "
+        }
+      ],
+      "manual_check": null
+    }
+  ]
+}

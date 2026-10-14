@@ -1,0 +1,161 @@
+{
+  "checked_at": "2026-10-14T23:13:19Z",
+  "note": "HTTP status only; scientific validity was checked separately (source_evidence.json). Some sites (Facebook, Malay Mail, CDC) refuse scripted requests.",
+  "links": [
+    {
+      "url": "https://github.com/Wai-999/El-Nino-Warning-System/blob/main/docs/pamphlet/CHANGELOG.md",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://github.com/Wai-999/El-Nino-Warning-System/blob/main/docs/pamphlet/SOURCE_AUDIT.md",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://github.com/Wai-999/El-Nino-Warning-System/issues",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://hdl.handle.net/10986/31523",
+      "status": 200,
+      "final": "https://openknowledge.worldbank.org/handle/10986/31523"
+    },
+    {
+      "url": "https://heathealth.info/resources/staying-healthy-in-the-heat/",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://myanmar-now.org/en/news/myanmar-records-hottest-ever-april-temperature-of-48-2c/",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://reliefweb.int/attachments/bffc44d3-447a-3777-8f4b-d9edf1c66a28/Striking-a-Balance-Managing-El-Ni%C3%B1o-and-La-Ni%C3%B1a-in-Myanmar-s-Agriculture.pdf",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://wmo.int/media/17673",
+      "status": 200,
+      "final": "https://wmo.int/files/el-ninola-nina-update-february-2016"
+    },
+    {
+      "url": "https://wmo.int/news/media-centre/el-nino-set-become-very-strong-raising-risks-of-extreme-weather-2027",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://wmo.int/news/media-centre/sea-surface-temperatures-reflect-strengthening-el-nino",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://wmo.int/node/39053",
+      "status": 200,
+      "final": "https://wmo.int/resources/publication-series/global-seasonal-climate-updates/gscu-ond2026"
+    },
+    {
+      "url": "https://wmo.int/resources/publication-series/el-ninola-nina-updates/august-2026",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://wmo.int/themes/el-nino-la-nina-phenomena",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.bnionline.net/en/news/myanmar-weather-bureau-warns-impending-strong-el-nino-event-later-year",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_may2024/ensodisc.shtml",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_disc_oct2026/ensodisc.shtml",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.facebook.com/DaweiUniSU",
+      "status": 200,
+      "final": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FDaweiUniSU"
+    },
+    {
+      "url": "https://www.facebook.com/GiHmanHAICT",
+      "status": 200,
+      "final": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FGiHmanHAICT"
+    },
+    {
+      "url": "https://www.fao.org/4/W7867E/w7867e04.htm",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.malaymail.com/news/world/2026/10/05/myanmar-warns-of-power-cuts-as-el-nino-heat-strains-grid/237812",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.moezala.gov.mm/my/el-nino-la-nina",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.nhs.uk/conditions/heat-exhaustion-heatstroke/",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/how-to-keep-cool",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.qld.gov.au/health/staying-healthy/environmental/heatsafe/signs-symptoms",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Myanmar_Flood_Cyclone_OCHA_16Sep2015.pdf",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.themimu.info/sites/themimu.info/files/documents/Snapshot_Natural_disaster_risks_and_past_events_OCHA_31May2016.pdf",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/06/23/strong-el-nino-expected-to-develop-by-end-of-2026-myanmar",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+      "status": 200,
+      "final": null
+    },
+    {
+      "url": "https://www.who.int/news-room/fact-sheets/detail/drinking-water",
+      "status": 200,
+      "final": null
+    }
+  ]
+}
