@@ -1,24 +1,24 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-17T13:46:50.134Z",
+  "generatedAt": "2026-10-17T18:33:03.391Z",
   "weather": {
-    "fetchedAt": "2026-10-17T13:46:50.134Z",
-    "validAt": "2026-10-17T13:30:00.000Z",
-    "through": "2026-10-18T13:30:00.000Z",
+    "fetchedAt": "2026-10-17T18:33:03.391Z",
+    "validAt": "2026-10-17T18:30:00.000Z",
+    "through": "2026-10-18T18:30:00.000Z",
     "model": "ECMWF IFS 0.25°",
     "regions": [
       {
         "id": "MM-01",
         "now": {
-          "temperature": 24.58,
-          "apparent": 28.96,
-          "humidity": 83.96,
+          "temperature": 22.76,
+          "apparent": 26.06,
+          "humidity": 85.8,
           "rain": 0,
-          "wind": 2.37,
-          "gust": 4.93,
+          "wind": 4.59,
+          "gust": 9.91,
           "code": 1,
-          "min": 21.9,
-          "max": 26.5
+          "min": 19.4,
+          "max": 25.3
         },
         "next24": {
           "min": 21.59,
@@ -29,14 +29,6 @@
           "gust": 18.4
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 22.46,
-            "max": 29.8,
-            "rain": 0.46,
-            "heat": 34.31,
-            "gust": 18.4
-          },
           {
             "date": "2026-10-18",
             "min": 21.59,
@@ -84,39 +76,39 @@
             "rain": 0.91,
             "heat": 35.78,
             "gust": 21.6
+          },
+          {
+            "date": "2026-10-24",
+            "min": 21.83,
+            "max": 30.33,
+            "rain": 0.43,
+            "heat": 35.27,
+            "gust": 20.9
           }
         ]
       },
       {
         "id": "MM-02",
         "now": {
-          "temperature": 25.67,
-          "apparent": 31.63,
-          "humidity": 95.26,
-          "rain": 0.22,
-          "wind": 4.36,
-          "gust": 11.5,
-          "code": 3,
+          "temperature": 25.32,
+          "apparent": 31.29,
+          "humidity": 96.07,
+          "rain": 0.08,
+          "wind": 3.69,
+          "gust": 8.27,
+          "code": 1,
           "min": 25.1,
-          "max": 26
+          "max": 25.8
         },
         "next24": {
           "min": 24.8,
           "max": 31.51,
-          "rain": 3.36,
-          "maxRain": 4.3,
+          "rain": 3.14,
+          "maxRain": 3.6,
           "heat": 40,
           "gust": 31.3
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 25.2,
-            "max": 31.38,
-            "rain": 5.41,
-            "heat": 39.11,
-            "gust": 24.5
-          },
           {
             "date": "2026-10-18",
             "min": 24.8,
@@ -164,39 +156,39 @@
             "rain": 1.84,
             "heat": 38.4,
             "gust": 24.8
+          },
+          {
+            "date": "2026-10-24",
+            "min": 24.81,
+            "max": 31.66,
+            "rain": 4.57,
+            "heat": 40.97,
+            "gust": 36.7
           }
         ]
       },
       {
         "id": "MM-03",
         "now": {
-          "temperature": 25.47,
-          "apparent": 31.3,
-          "humidity": 95.31,
-          "rain": 0.08,
-          "wind": 4.48,
-          "gust": 11.25,
-          "code": 51,
-          "min": 25.2,
-          "max": 26.1
+          "temperature": 24.75,
+          "apparent": 30.6,
+          "humidity": 97,
+          "rain": 0,
+          "wind": 2.83,
+          "gust": 6.39,
+          "code": 1,
+          "min": 24.3,
+          "max": 25
         },
         "next24": {
           "min": 24.07,
           "max": 31.61,
-          "rain": 5.48,
-          "maxRain": 9.1,
+          "rain": 5.5,
+          "maxRain": 9,
           "heat": 37.83,
           "gust": 22
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 24.94,
-            "max": 31.58,
-            "rain": 5.36,
-            "heat": 37.21,
-            "gust": 20.5
-          },
           {
             "date": "2026-10-18",
             "min": 24.07,
@@ -244,39 +236,39 @@
             "rain": 0.76,
             "heat": 37.79,
             "gust": 17.6
+          },
+          {
+            "date": "2026-10-24",
+            "min": 23.81,
+            "max": 31.96,
+            "rain": 1.54,
+            "heat": 38.53,
+            "gust": 23.4
           }
         ]
       },
       {
         "id": "MM-04",
         "now": {
-          "temperature": 25.54,
-          "apparent": 29.92,
-          "humidity": 83.13,
+          "temperature": 24.2,
+          "apparent": 28.97,
+          "humidity": 89.11,
           "rain": 0,
-          "wind": 5.64,
-          "gust": 11.54,
-          "code": 3,
-          "min": 21,
-          "max": 27.4
+          "wind": 2.72,
+          "gust": 6.82,
+          "code": 1,
+          "min": 20.4,
+          "max": 25.6
         },
         "next24": {
           "min": 23.59,
           "max": 30.78,
-          "rain": 2.82,
-          "maxRain": 6.2,
+          "rain": 2.84,
+          "maxRain": 6.3,
           "heat": 37.94,
           "gust": 24.5
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 23.79,
-            "max": 30.33,
-            "rain": 0.51,
-            "heat": 36.44,
-            "gust": 26.3
-          },
           {
             "date": "2026-10-18",
             "min": 23.59,
@@ -324,39 +316,39 @@
             "rain": 0.95,
             "heat": 38.69,
             "gust": 25.6
+          },
+          {
+            "date": "2026-10-24",
+            "min": 23.65,
+            "max": 30.82,
+            "rain": 0.35,
+            "heat": 38.01,
+            "gust": 28.1
           }
         ]
       },
       {
         "id": "MM-05",
         "now": {
-          "temperature": 24.87,
-          "apparent": 30.43,
-          "humidity": 95.92,
-          "rain": 0.19,
-          "wind": 4.04,
-          "gust": 11.26,
+          "temperature": 24.26,
+          "apparent": 29.74,
+          "humidity": 96.76,
+          "rain": 0.03,
+          "wind": 3.08,
+          "gust": 8.35,
           "code": 3,
-          "min": 22.8,
-          "max": 26.1
+          "min": 22.1,
+          "max": 25.9
         },
         "next24": {
           "min": 23.93,
           "max": 29.7,
-          "rain": 7.7,
-          "maxRain": 12.3,
+          "rain": 6.99,
+          "maxRain": 10.3,
           "heat": 38.55,
-          "gust": 28.1
+          "gust": 26.6
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 24.29,
-            "max": 29.7,
-            "rain": 9.39,
-            "heat": 37.9,
-            "gust": 28.1
-          },
           {
             "date": "2026-10-18",
             "min": 23.93,
@@ -404,39 +396,39 @@
             "rain": 13.89,
             "heat": 32.86,
             "gust": 33.1
+          },
+          {
+            "date": "2026-10-24",
+            "min": 23.09,
+            "max": 29.11,
+            "rain": 7.22,
+            "heat": 35.96,
+            "gust": 27.7
           }
         ]
       },
       {
         "id": "MM-06",
         "now": {
-          "temperature": 26.93,
-          "apparent": 33.81,
-          "humidity": 94.77,
+          "temperature": 26.04,
+          "apparent": 32.61,
+          "humidity": 97.46,
           "rain": 0,
-          "wind": 3.39,
-          "gust": 8.34,
-          "code": 3,
-          "min": 26.8,
-          "max": 27.1
+          "wind": 3.73,
+          "gust": 8.53,
+          "code": 2,
+          "min": 25.9,
+          "max": 26.1
         },
         "next24": {
-          "min": 25.54,
+          "min": 25.24,
           "max": 31.36,
-          "rain": 3.74,
-          "maxRain": 4.7,
+          "rain": 3.92,
+          "maxRain": 5.4,
           "heat": 40.48,
           "gust": 26.3
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 25.57,
-            "max": 31.89,
-            "rain": 4.42,
-            "heat": 41.22,
-            "gust": 20.5
-          },
           {
             "date": "2026-10-18",
             "min": 25.54,
@@ -484,39 +476,39 @@
             "rain": 4.85,
             "heat": 39.02,
             "gust": 20.9
+          },
+          {
+            "date": "2026-10-24",
+            "min": 24.91,
+            "max": 31.24,
+            "rain": 6.31,
+            "heat": 39.31,
+            "gust": 26.3
           }
         ]
       },
       {
         "id": "MM-07",
         "now": {
-          "temperature": 26.4,
-          "apparent": 33.03,
-          "humidity": 95.57,
-          "rain": 0.02,
-          "wind": 3.53,
-          "gust": 8.35,
-          "code": 3,
-          "min": 26.2,
-          "max": 26.9
+          "temperature": 25.93,
+          "apparent": 32.59,
+          "humidity": 96.11,
+          "rain": 0,
+          "wind": 1.44,
+          "gust": 3.14,
+          "code": 2,
+          "min": 25.6,
+          "max": 26.3
         },
         "next24": {
-          "min": 25.3,
+          "min": 25.04,
           "max": 31.08,
-          "rain": 5.38,
-          "maxRain": 9.4,
+          "rain": 6.24,
+          "maxRain": 12.9,
           "heat": 39.86,
           "gust": 24.8
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 25.58,
-            "max": 31.86,
-            "rain": 5.35,
-            "heat": 39.83,
-            "gust": 24.1
-          },
           {
             "date": "2026-10-18",
             "min": 25.22,
@@ -564,21 +556,29 @@
             "rain": 1.03,
             "heat": 39.2,
             "gust": 37.1
+          },
+          {
+            "date": "2026-10-24",
+            "min": 25.18,
+            "max": 31.81,
+            "rain": 8.4,
+            "heat": 40.54,
+            "gust": 31.7
           }
         ]
       },
       {
         "id": "MM-11",
         "now": {
-          "temperature": 21.23,
-          "apparent": 24.12,
-          "humidity": 85.47,
+          "temperature": 19,
+          "apparent": 20.74,
+          "humidity": 85.44,
           "rain": 0,
-          "wind": 2.57,
-          "gust": 6.01,
-          "code": 2,
-          "min": 16.6,
-          "max": 24.5
+          "wind": 3.86,
+          "gust": 8.92,
+          "code": 1,
+          "min": 13.5,
+          "max": 22.5
         },
         "next24": {
           "min": 17.53,
@@ -589,14 +589,6 @@
           "gust": 20.2
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 18.39,
-            "max": 29.34,
-            "rain": 0,
-            "heat": 32.71,
-            "gust": 19.1
-          },
           {
             "date": "2026-10-18",
             "min": 17.53,
@@ -644,39 +636,39 @@
             "rain": 0,
             "heat": 35.29,
             "gust": 20.2
+          },
+          {
+            "date": "2026-10-24",
+            "min": 18.44,
+            "max": 30.42,
+            "rain": 0,
+            "heat": 35.03,
+            "gust": 20.9
           }
         ]
       },
       {
         "id": "MM-12",
         "now": {
-          "temperature": 24.41,
-          "apparent": 29.65,
-          "humidity": 93.06,
-          "rain": 0,
-          "wind": 2.52,
-          "gust": 7.22,
-          "code": 3,
-          "min": 24,
-          "max": 25.4
+          "temperature": 23.06,
+          "apparent": 27.74,
+          "humidity": 94.23,
+          "rain": 0.44,
+          "wind": 1.94,
+          "gust": 7.4,
+          "code": 51,
+          "min": 22.5,
+          "max": 23.8
         },
         "next24": {
           "min": 21.94,
           "max": 30.18,
-          "rain": 4.34,
-          "maxRain": 7.5,
+          "rain": 3.83,
+          "maxRain": 6.7,
           "heat": 35.18,
           "gust": 19.4
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 22.48,
-            "max": 30.73,
-            "rain": 1.82,
-            "heat": 35.88,
-            "gust": 22.3
-          },
           {
             "date": "2026-10-18",
             "min": 21.94,
@@ -724,39 +716,39 @@
             "rain": 1.27,
             "heat": 35.88,
             "gust": 30.2
+          },
+          {
+            "date": "2026-10-24",
+            "min": 21.71,
+            "max": 30.78,
+            "rain": 0.57,
+            "heat": 36.73,
+            "gust": 25.6
           }
         ]
       },
       {
         "id": "MM-13",
         "now": {
-          "temperature": 24.52,
-          "apparent": 30.03,
-          "humidity": 94.22,
-          "rain": 0,
-          "wind": 2.37,
-          "gust": 6.17,
-          "code": 3,
-          "min": 20.4,
-          "max": 26.7
+          "temperature": 23.73,
+          "apparent": 28.86,
+          "humidity": 93.76,
+          "rain": 0.25,
+          "wind": 1.28,
+          "gust": 5.32,
+          "code": 53,
+          "min": 19.6,
+          "max": 25.8
         },
         "next24": {
-          "min": 23.01,
+          "min": 22.42,
           "max": 29.01,
-          "rain": 5.46,
-          "maxRain": 7,
+          "rain": 6.69,
+          "maxRain": 8.7,
           "heat": 38.21,
           "gust": 22
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 22.86,
-            "max": 29.3,
-            "rain": 12.18,
-            "heat": 37.26,
-            "gust": 20.5
-          },
           {
             "date": "2026-10-18",
             "min": 22.66,
@@ -804,21 +796,29 @@
             "rain": 6.57,
             "heat": 35.83,
             "gust": 24.1
+          },
+          {
+            "date": "2026-10-24",
+            "min": 22.28,
+            "max": 28.48,
+            "rain": 4.45,
+            "heat": 37.07,
+            "gust": 22.3
           }
         ]
       },
       {
         "id": "MM-14",
         "now": {
-          "temperature": 18.03,
-          "apparent": 20.31,
-          "humidity": 96.23,
+          "temperature": 15.67,
+          "apparent": 17.2,
+          "humidity": 98.99,
           "rain": 0,
-          "wind": 2.78,
-          "gust": 10.59,
+          "wind": 2.74,
+          "gust": 9.62,
           "code": 3,
-          "min": 16.2,
-          "max": 20.6
+          "min": 13.6,
+          "max": 18.5
         },
         "next24": {
           "min": 14.75,
@@ -829,14 +829,6 @@
           "gust": 24.8
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 15.37,
-            "max": 25.1,
-            "rain": 3.12,
-            "heat": 28.99,
-            "gust": 25.6
-          },
           {
             "date": "2026-10-18",
             "min": 14.75,
@@ -884,39 +876,39 @@
             "rain": 0.91,
             "heat": 29.7,
             "gust": 28.8
+          },
+          {
+            "date": "2026-10-24",
+            "min": 14.52,
+            "max": 26.5,
+            "rain": 0,
+            "heat": 30.33,
+            "gust": 25.9
           }
         ]
       },
       {
         "id": "MM-15",
         "now": {
-          "temperature": 27.5,
-          "apparent": 34.25,
-          "humidity": 92.28,
-          "rain": 0,
-          "wind": 4.74,
-          "gust": 7.44,
-          "code": 3,
-          "min": 27.1,
-          "max": 28.2
+          "temperature": 26.27,
+          "apparent": 32.55,
+          "humidity": 94.44,
+          "rain": 0.22,
+          "wind": 4.58,
+          "gust": 9.51,
+          "code": 51,
+          "min": 25.8,
+          "max": 26.8
         },
         "next24": {
-          "min": 25.32,
+          "min": 24.91,
           "max": 31.31,
-          "rain": 7.34,
-          "maxRain": 9.6,
+          "rain": 10.26,
+          "maxRain": 14.6,
           "heat": 40.85,
           "gust": 22.3
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 25.47,
-            "max": 31.48,
-            "rain": 4.43,
-            "heat": 39.02,
-            "gust": 24.5
-          },
           {
             "date": "2026-10-18",
             "min": 25.32,
@@ -964,39 +956,39 @@
             "rain": 4.16,
             "heat": 39.14,
             "gust": 30.6
+          },
+          {
+            "date": "2026-10-24",
+            "min": 24.33,
+            "max": 30.25,
+            "rain": 5.27,
+            "heat": 37.63,
+            "gust": 30.6
           }
         ]
       },
       {
         "id": "MM-16",
         "now": {
-          "temperature": 26.36,
-          "apparent": 32.59,
-          "humidity": 91.45,
-          "rain": 0.04,
-          "wind": 2.25,
-          "gust": 5.22,
-          "code": 51,
-          "min": 25,
-          "max": 28.3
+          "temperature": 25.22,
+          "apparent": 31.23,
+          "humidity": 95,
+          "rain": 0,
+          "wind": 1.95,
+          "gust": 4.53,
+          "code": 2,
+          "min": 23.7,
+          "max": 26.4
         },
         "next24": {
           "min": 24.49,
           "max": 31.07,
-          "rain": 6.21,
-          "maxRain": 9.8,
+          "rain": 6.27,
+          "maxRain": 9.9,
           "heat": 39.38,
           "gust": 24.5
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 25.2,
-            "max": 31.43,
-            "rain": 5.31,
-            "heat": 37.55,
-            "gust": 24.5
-          },
           {
             "date": "2026-10-18",
             "min": 24.49,
@@ -1044,21 +1036,29 @@
             "rain": 0.88,
             "heat": 38.59,
             "gust": 23.4
+          },
+          {
+            "date": "2026-10-24",
+            "min": 23.26,
+            "max": 31.49,
+            "rain": 0.43,
+            "heat": 38,
+            "gust": 27.7
           }
         ]
       },
       {
         "id": "MM-17",
         "now": {
-          "temperature": 20.61,
-          "apparent": 23.97,
-          "humidity": 94.28,
+          "temperature": 18.81,
+          "apparent": 21.64,
+          "humidity": 98.35,
           "rain": 0,
-          "wind": 2,
-          "gust": 4.53,
-          "code": 3,
-          "min": 19.1,
-          "max": 21.6
+          "wind": 1.92,
+          "gust": 5.71,
+          "code": 1,
+          "min": 17.3,
+          "max": 20.1
         },
         "next24": {
           "min": 18.29,
@@ -1069,14 +1069,6 @@
           "gust": 23.4
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 18.63,
-            "max": 25.54,
-            "rain": 6.98,
-            "heat": 28.53,
-            "gust": 24.8
-          },
           {
             "date": "2026-10-18",
             "min": 18.29,
@@ -1124,39 +1116,39 @@
             "rain": 0.56,
             "heat": 29.41,
             "gust": 25.2
+          },
+          {
+            "date": "2026-10-24",
+            "min": 18,
+            "max": 27.77,
+            "rain": 0.39,
+            "heat": 29.14,
+            "gust": 24.8
           }
         ]
       },
       {
         "id": "MM-18",
         "now": {
-          "temperature": 26.12,
-          "apparent": 31.75,
-          "humidity": 91.73,
+          "temperature": 24.91,
+          "apparent": 30.33,
+          "humidity": 94.27,
           "rain": 0,
-          "wind": 5.47,
-          "gust": 10.8,
-          "code": 2,
-          "min": 24.7,
-          "max": 27.3
+          "wind": 3.81,
+          "gust": 7.4,
+          "code": 0,
+          "min": 23.3,
+          "max": 25.9
         },
         "next24": {
           "min": 24.25,
           "max": 30.93,
-          "rain": 6.01,
+          "rain": 6.19,
           "maxRain": 10.5,
           "heat": 38.64,
           "gust": 24.5
         },
         "days": [
-          {
-            "date": "2026-10-17",
-            "min": 24.83,
-            "max": 31,
-            "rain": 1.42,
-            "heat": 37.03,
-            "gust": 19.8
-          },
           {
             "date": "2026-10-18",
             "min": 24.25,
@@ -1204,6 +1196,14 @@
             "rain": 1.58,
             "heat": 39.07,
             "gust": 19.8
+          },
+          {
+            "date": "2026-10-24",
+            "min": 24.4,
+            "max": 31.68,
+            "rain": 0.6,
+            "heat": 39.73,
+            "gust": 21.6
           }
         ]
       }
@@ -1926,19 +1926,19 @@
   },
   "health": {
     "ecmwf": {
-      "checkedAt": "2026-10-17T13:46:50.134Z",
-      "lastSuccess": "2026-10-17T13:46:50.134Z",
+      "checkedAt": "2026-10-17T18:33:03.391Z",
+      "lastSuccess": "2026-10-17T18:33:03.391Z",
       "ok": true,
       "error": null
     },
     "era5": {
-      "checkedAt": "2026-10-17T13:46:50.134Z",
+      "checkedAt": "2026-10-17T18:33:03.391Z",
       "lastSuccess": "2026-10-08T03:21:28.911Z",
       "ok": false,
       "error": "fetch failed"
     },
     "nino34": {
-      "checkedAt": "2026-10-17T13:46:50.134Z",
+      "checkedAt": "2026-10-17T18:33:03.391Z",
       "lastSuccess": "2026-10-17T00:32:05.180Z",
       "ok": true,
       "error": null
