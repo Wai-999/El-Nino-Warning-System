@@ -26,4 +26,4 @@ Unavailable features must retain specific reasons. Human Burmese editorial and a
 - [x] Verify official WHO country-tagged API/contact scopes; replace clinical panel with independent dated publication monitor.
 - [x] Add source-integrity, preference, missing-data, offline and accessibility checks; run the full required suite.
 - [x] Document corrections, migration, source terms and remaining external review/feed/delivery gates.
-- [ ] Publish and verify the V3.1 release through the approved continuous-deployment pipeline.
+- [x] Publish V3.1 production and verify its public source contracts; final main-branch rollout remains gated by the follow-up PR checks.

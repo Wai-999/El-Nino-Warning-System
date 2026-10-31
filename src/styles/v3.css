@@ -38,6 +38,20 @@
 .home-map svg {
   max-width: 100%;
 }
+.home-map > .metric-source {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 2px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.home-map > p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 0;
+}
 .home-map .map-controls {
   flex-wrap: wrap;
 }

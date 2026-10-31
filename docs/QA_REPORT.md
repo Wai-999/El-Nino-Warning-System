@@ -57,3 +57,5 @@ The preceding production evidence records the original 3.0.0 release. The V3.1 f
 - Qualified Burmese/subject-matter, assistive-technology and physical-phone review remain external gates. The WHO monitor provides limited official publication metadata, not complete Myanmar current health-advisory coverage.
 
 Post-merge public HTTP/browser evidence will be recorded separately to avoid an evidence-only commit causing another scheduled refresh and deployment.
+
+Initial V3.1 public verification: production `https://el-nino-warning-system.vercel.app/`, deployment `dpl_5VtgVSRDNvZwUWk1svF8ci14XCPb`, code `a044fe003c7c3ef54638dd6ccedb2512ce37994c`. `docs/qa/v3-production-http.json` passed without authentication: release 3.1.0, 46 registry entries, fresh regional forecast/reanalysis, independent dated WHO records, PWA assets, missing-JSON 404 and worker policies. Follow-up review/release: https://github.com/Wai-999/El-Nino-Warning-System/pull/2 . Linux CI also identified undersized adjacent homepage source links; their explicit touch areas were enlarged rather than weakening accessibility rules.

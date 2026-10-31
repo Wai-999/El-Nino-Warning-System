@@ -1,0 +1,162 @@
+{
+  "checkedAt": "2026-10-31T22:39:43.475Z",
+  "base": "https://el-nino-warning-system.vercel.app/",
+  "resources": [
+    {
+      "path": "",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 999,
+      "sha256": "db1bd912cf2ba5f43ebe1c3d1959e024ff7b84d557c5ece27ebf2d8417048e7b",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "/assets/index-DNkV97Sk.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 455162,
+      "sha256": "ea792ac006186a2093127a6069067e40a1b6f14fcd619f94166a9743af93814f",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "/assets/index-BzTuvtwM.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 52064,
+      "sha256": "e125be4ddd0a3f83b69b327bf1d4fd80c6424996da254bebd238d00935ec9064",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "release.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 20,
+      "sha256": "d7227d96730b04314ca8aad4ca6f48a5947a6eb9d6e2a54186cb9a0afc49cfb4",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/current.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 835,
+      "sha256": "6fd688faa34d6722075c4f83cd6c7ddb4bcde716f32264db13bbd0146939af8e",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/operational.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 41523,
+      "sha256": "e8e14a018d6e02e2bb3cf76fb7be80945d76135a58273006bf761c4b9cd89e60",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/climate.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 82954,
+      "sha256": "ff2cbe1658d395ff15b3a7981af1c64bb01d786994f96f4b8646d5a17bdbd004",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/indicator-registry.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 81187,
+      "sha256": "81bfd0a588452912993a8a15d1e418509dc8f82993ee5cc48940d392e33a2090",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/health-advisories.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 1418,
+      "sha256": "65ecfb431a77346ad25c1a2e9a602770b8af92a474c498389fa7902a28adb3e0",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "status": 200,
+      "type": "application/manifest+json; charset=utf-8",
+      "bytes": 499,
+      "sha256": "da0cf7c54a684e9f7b7b17e7f4364e73c732aa4ef508f14e168d5a88fe73e134",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "icon.svg",
+      "status": 200,
+      "type": "image/svg+xml",
+      "bytes": 407,
+      "sha256": "24251ac34eb7fb84ac6e8982fa53bba612134ede2c91f7d38d9d25b9ed8dfc0e",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "icon-192.png",
+      "status": 200,
+      "type": "image/png",
+      "bytes": 9822,
+      "sha256": "5bc4f2e17c95a3819834154394d829ea97f816f871dd2b9d2c3a36f33f222bf0",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "icon-512.png",
+      "status": 200,
+      "type": "image/png",
+      "bytes": 30803,
+      "sha256": "3a46c815706de71f62bf2421bf7989b874e701c7e21f08f8434689342defe41a",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 3052,
+      "sha256": "4e2b3edd005a517962e6383da395b377f19790be85ff0e605e81a1067cf1926d",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    }
+  ],
+  "data": {
+    "officialCoverage": "unavailable",
+    "officialAlertCount": 0,
+    "weatherRegions": 15,
+    "weatherValidAt": "2026-10-31T19:30:00.000Z",
+    "weatherFresh": true,
+    "historyStart": "2026-09-26",
+    "historyEnd": "2026-10-25",
+    "historyFresh": true,
+    "roniSeasons": 920,
+    "probabilitySeasons": 9,
+    "indicators": 46,
+    "providerHealth": {
+      "ecmwf": {
+        "checkedAt": "2026-10-31T20:01:39.822Z",
+        "lastSuccess": "2026-10-31T20:01:39.822Z",
+        "ok": true,
+        "error": null
+      },
+      "era5": {
+        "checkedAt": "2026-10-31T20:01:39.822Z",
+        "lastSuccess": "2026-10-31T17:33:11.914Z",
+        "ok": true,
+        "error": null
+      },
+      "nino34": {
+        "checkedAt": "2026-10-31T20:01:39.822Z",
+        "lastSuccess": "2026-10-30T20:50:26.358Z",
+        "ok": true,
+        "error": null
+      }
+    },
+    "healthPublications": {
+      "coverage": "who-don-only",
+      "ok": true,
+      "retrievedAt": "2026-10-31T22:20:34.033Z",
+      "latestIssue": "2019-08-22T19:00:00Z",
+      "items": 3
+    }
+  },
+  "failures": [],
+  "version": "3.1.0",
+  "missingDataStatus": 404,
+  "ok": true
+}

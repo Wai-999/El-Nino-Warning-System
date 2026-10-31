@@ -76,3 +76,7 @@ Status terms: **implemented** means the code and stated automated checks exist; 
 - Manual browser review confirmed Burmese township search and the Kachin parent-region label after choosing Myitkyina. Screenshots in `docs/qa/` show the actual updated UI. This is not expert Burmese-reader certification.
 - Original research and exact endpoints: `docs/research/V3_GEOGRAPHY_SOURCES.md`, `docs/research/V3_HEALTH_SOURCES.md`; correction procedure in `docs/GEOGRAPHY_MAINTENANCE.md`.
 - Direct official Myanmar warning/health coverage, complete village geography, township flood/gauge products, calibrated advanced climate indicators, delivery infrastructure and independent human/device review cannot be declared complete without the evidence described above. Every such capability remains labeled with its limitation rather than substituted with fabricated data.
+
+## Publication evidence
+
+Production URL: https://el-nino-warning-system.vercel.app/ . Initial verified V3.1 deployment: `dpl_5VtgVSRDNvZwUWk1svF8ci14XCPb`, code `a044fe003c7c3ef54638dd6ccedb2512ce37994c`; public contract evidence `docs/qa/v3-production-http.json`. [PR #2](https://github.com/Wai-999/El-Nino-Warning-System/pull/2) carries the final reviewed source and CI record. Final main/refresh deployment identity and checks are recorded in post-merge release evidence without creating an evidence-only redeployment loop.

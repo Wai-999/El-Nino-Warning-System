@@ -37,6 +37,8 @@ test("Burmese default, persistent language, six pages and responsive layout", as
           path: `docs/qa/${route || "home"}-desktop-en.png`,
           fullPage: route === "",
         });
+      if (info.project.name === "desktop" && locale === "en" && route === "")
+        await page.screenshot({ path: "docs/qa/v3-home-desktop-viewport.png" });
     }
   }
   await page.reload();
