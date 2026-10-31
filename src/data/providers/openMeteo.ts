@@ -35,13 +35,13 @@ const base = z.object({
   utc_offset_seconds: z.literal(23400),
   timezone: z.literal("Asia/Yangon"),
 });
-const record = z.record(z.array(z.number().finite()));
+const record = z.record(z.string(), z.array(z.number().finite()));
 const series = z.object({ time: z.array(z.string()) }).passthrough();
 export const rawSchema = base.extend({
   hourly: series.optional(),
   daily: series.optional(),
-  hourly_units: z.record(z.string()).optional(),
-  daily_units: z.record(z.string()).optional(),
+  hourly_units: z.record(z.string(), z.string()).optional(),
+  daily_units: z.record(z.string(), z.string()).optional(),
 });
 export type Series = { time: string[]; values: Record<string, number[]> };
 export function parseSeries(
@@ -106,6 +106,7 @@ export function buildUrl(
   archive = false,
   start?: string,
   end?: string,
+  now = Date.now(),
 ) {
   const u = new URL(archive ? ARCHIVE : FORECAST);
   const p = u.searchParams;
@@ -121,7 +122,14 @@ export function buildUrl(
     p.set("daily", "temperature_2m_mean,precipitation_sum");
   } else {
     p.set("hourly", variables.join(","));
-    p.set("forecast_days", "7");
+    // Explicit Myanmar calendar dates avoid an upstream default-date rollover
+    // around Myanmar midnight (which precedes UTC midnight by 6.5 hours).
+    const localDay = new Date(now + 23400000).toISOString().slice(0, 10);
+    p.set("start_date", localDay);
+    p.set(
+      "end_date",
+      new Date(Date.parse(localDay) + 6 * 86400000).toISOString().slice(0, 10),
+    );
   }
   return u;
 }

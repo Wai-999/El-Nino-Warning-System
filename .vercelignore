@@ -1,0 +1,12 @@
+.git/
+node_modules/
+dist/
+.vercel/
+.env*
+docs/
+tests/
+playwright-report/
+test-results/
+.codebase-memory/
+scripts/cache/climatology.json
+scripts/cache/ingestion-budget.json

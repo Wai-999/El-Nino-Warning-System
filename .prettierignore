@@ -10,3 +10,4 @@ scripts/cache/*.json
 public/data/archive.json
 # Generated single-QR pamphlet hub: file hashes are pinned in its version.json (offline integrity check)
 public/pamphlet/
+tests/fixtures/

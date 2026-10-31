@@ -32,6 +32,21 @@ export function activeAlerts(data: Snapshot, now = Date.now()): Alert[] {
     )
     .sort((a, b) => rank[b.severity] - rank[a.severity]);
 }
+
+export function nextWarningTransition(
+  data: Snapshot,
+  now = Date.now(),
+): number | null {
+  const times = data.alerts.flatMap((a) => [
+    Date.parse(a.validFrom),
+    Date.parse(a.validUntil),
+  ]);
+  if (data.enso) times.push(Date.parse(data.enso.validUntil));
+  const next = Math.min(
+    ...times.filter((time) => Number.isFinite(time) && time > now),
+  );
+  return Number.isFinite(next) ? next : null;
+}
 export function coverageCurrent(data: Snapshot, now = Date.now()) {
   const stamp = Date.parse(data.regionalCheckedAt || "");
   return (

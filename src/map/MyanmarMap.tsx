@@ -27,7 +27,33 @@ export default function MyanmarMap({
   const [retry, setRetry] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState([0, 0]);
-  const [layer, setLayer] = useState<Layer>("overall");
+  const visibleLayers = layers.filter((l) =>
+    [
+      "temperature",
+      "rain",
+      "temperatureAnomaly",
+      "rainAnomaly",
+      "dryness",
+      "official",
+    ].includes(l[0]),
+  );
+  const [layer, setLayer] = useState<Layer>(() => {
+    try {
+      const saved = localStorage.getItem("el-nino-map-layer");
+      return visibleLayers.some((l) => l[0] === saved)
+        ? (saved as Layer)
+        : "temperature";
+    } catch {
+      return "temperature";
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem("el-nino-map-layer", layer);
+    } catch {
+      /* Optional preference. */
+    }
+  }, [layer]);
   const pattern = useId().replace(/:/g, "");
   useEffect(() => {
     const ctrl = new AbortController();
@@ -85,7 +111,7 @@ export default function MyanmarMap({
               value={layer}
               onChange={(e) => setLayer(e.target.value as typeof layer)}
             >
-              {layers.map(([id, en, my]) => (
+              {visibleLayers.map(([id, en, my]) => (
                 <option key={id} value={id}>
                   {t(en, my)}
                 </option>

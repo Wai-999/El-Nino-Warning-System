@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { regionIds } from "./regions.ts";
+import { localDate } from "./locale.ts";
 const stamp = z.string().datetime();
 const day = z
   .string()
@@ -201,7 +202,7 @@ export const operationalSchema = z.object({
   weather: weatherSchema.nullable(),
   history: historySchema.nullable(),
   nino: indexSchema.nullable(),
-  health: z.record(healthSchema),
+  health: z.record(z.string(), healthSchema),
 });
 export type Operational = z.infer<typeof operationalSchema>;
 export type Weather = z.infer<typeof weatherSchema>;
@@ -234,14 +235,20 @@ export function historyFresh(h: History | null, now = Date.now()) {
     Date.parse(h.end + "T23:59:59+06:30") < now
   );
 }
-export function mmt(value: string, lang = "en") {
+export function ninoFresh(n: Operational["nino"], now = Date.now()) {
+  if (!n) return false;
+  const latest = n.months.at(-1)!;
+  const end = new Date(latest.month + "-01T00:00:00Z");
+  end.setUTCMonth(end.getUTCMonth() + 1);
   return (
-    new Intl.DateTimeFormat(lang === "my" ? "my-MM" : "en-GB", {
-      dateStyle: "medium",
-      timeStyle: "short",
-      timeZone: "Asia/Yangon",
-    }).format(new Date(value)) + " MMT"
+    Date.parse(n.fetchedAt) <= now + 60000 &&
+    now - Date.parse(n.fetchedAt) < 45 * DAY &&
+    +end <= now &&
+    now - +end < 75 * DAY
   );
+}
+export function mmt(value: string, lang = "en") {
+  return localDate(value, lang, true);
 }
 
 export type DataState = "current" | "aging" | "stale" | "unavailable";

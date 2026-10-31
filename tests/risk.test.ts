@@ -5,6 +5,7 @@ import {
   freshness,
   warningHistory,
   COVERAGE_TTL,
+  nextWarningTransition,
 } from "../src/risk/engine";
 import {
   emptySnapshot,
@@ -46,6 +47,36 @@ const alert: Alert = {
 };
 const snapshot = { ...emptySnapshot, checkedAt: "2026-09-30T00:00:00Z" };
 describe("Fail-closed warning policy", () => {
+  it("schedules future warning starts and non-interval-aligned expiries", () => {
+    const expires = new Date(now + 17000).toISOString();
+    expect(
+      nextWarningTransition(
+        { ...snapshot, alerts: [{ ...alert, validUntil: expires }] },
+        now,
+      ),
+    ).toBe(now + 17000);
+    expect(
+      nextWarningTransition(
+        {
+          ...snapshot,
+          alerts: [
+            {
+              ...alert,
+              validFrom: new Date(now + 5000).toISOString(),
+              validUntil: expires,
+            },
+          ],
+        },
+        now,
+      ),
+    ).toBe(now + 5000);
+    expect(
+      nextWarningTransition(
+        { ...snapshot, alerts: [{ ...alert, validUntil: expires }] },
+        now + 17000,
+      ),
+    ).toBeNull();
+  });
   it("never translates missing data into normal", () =>
     expect(regionalLevel(snapshot, undefined, now)).toBe("unknown"));
   it("never translates global ENSO into a Myanmar warning", () => {
