@@ -11,7 +11,7 @@ import {
   Printer,
 } from "lucide-react";
 import { useApp } from "../app/context";
-import { activeAlerts, warningHistory } from "../risk/engine";
+import { prioritizeAlerts, warningHistory } from "../risk/engine";
 import { signalsFor, hazardNames } from "../risk/signals";
 import { regionName } from "../data/regions";
 import { mmt } from "../data/operational";
@@ -21,6 +21,10 @@ import {
   Unavailable,
   SectionHeading,
 } from "../components/Service";
+import OfficialHealth from "../components/OfficialHealth";
+import EmergencyContacts from "../components/EmergencyContacts";
+import { townshipByCode } from "../data/locations";
+import { readCropPreference, saveCropPreference } from "../data/preferences";
 type Pair = readonly [string, string];
 const hazards = [
   {
@@ -100,11 +104,20 @@ const hazards = [
     ] as Pair[],
   },
 ];
-function readChecked() {
+function readChecked(place: string, migrate = false) {
   try {
-    const x = JSON.parse(
-      localStorage.getItem("el-nino-hazard-checklist") || "{}",
-    );
+    const key = `el-nino-hazard-checklist:${place}`;
+    let stored = localStorage.getItem(key);
+    if (
+      !stored &&
+      migrate &&
+      !localStorage.getItem("el-nino-checklist-migration")
+    ) {
+      stored = localStorage.getItem("el-nino-hazard-checklist");
+      if (stored) localStorage.setItem(key, stored);
+      localStorage.setItem("el-nino-checklist-migration", place);
+    }
+    const x = JSON.parse(stored || "{}");
     return x && typeof x === "object" && !Array.isArray(x)
       ? Object.fromEntries(
           Object.entries(x).filter(([, v]) => typeof v === "boolean"),
@@ -118,7 +131,7 @@ function readFilter() {
   try {
     const x = JSON.parse(localStorage.getItem("el-nino-alert-filter") || "{}");
     return {
-      scope: x.scope === "region" ? "region" : "nationwide",
+      scope: ["region", "township"].includes(x.scope) ? x.scope : "nationwide",
       hazard: ["all", "heat", "rainfall", "drought", "flood", "storm"].includes(
         x.hazard,
       )
@@ -130,15 +143,31 @@ function readFilter() {
   }
 }
 export default function Safety() {
-  const { t, lang, data, now, selected, operational: op } = useApp();
+  const { t, lang, data, now, selected, township, operational: op } = useApp();
+  const place = township ? `township:${township}` : `region:${selected}`;
   const [filter, setFilter] = useState(readFilter),
     [saved, setSaved] = useState("");
   const [hazard, setHazard] = useState("flood"),
-    [checked, setChecked] = useState<Record<string, unknown>>(readChecked),
+    [checkRecord, setChecked] = useState(() => ({
+      place,
+      value: readChecked(place, true),
+    })),
     [storage, setStorage] = useState(true);
-  const [crop, setCrop] = useState("rice"),
-    [stage, setStage] = useState("vegetative");
-  const alerts = activeAlerts(data, now).filter(
+  const checked =
+    checkRecord.place === place ? checkRecord.value : readChecked(place);
+  const [cropRecord, setCropRecord] = useState(() => ({
+    place,
+    ...readCropPreference(place),
+  }));
+  const cropPref =
+    cropRecord.place === place ? cropRecord : readCropPreference(place);
+  const { crop, stage } = cropPref;
+  function changeCrop(key: "crop" | "stage", value: string) {
+    const next = { ...cropPref, [key]: value };
+    saveCropPreference(place, next);
+    setCropRecord({ place, ...next });
+  }
+  const alerts = prioritizeAlerts(data, selected, now).filter(
     (a) =>
       (filter.scope === "nationwide" || a.regionId === selected) &&
       (filter.hazard === "all" || a.type === filter.hazard),
@@ -160,9 +189,12 @@ export default function Safety() {
   function toggle(i: number) {
     const key = `${hazard}-${i}`,
       next = { ...checked, [key]: !checked[key] };
-    setChecked(next);
+    setChecked({ place, value: next });
     try {
-      localStorage.setItem("el-nino-hazard-checklist", JSON.stringify(next));
+      localStorage.setItem(
+        `el-nino-hazard-checklist:${place}`,
+        JSON.stringify(next),
+      );
       setStorage(true);
     } catch {
       setStorage(false);
@@ -267,6 +299,12 @@ export default function Safety() {
                     {t("Nationwide", "တစ်နိုင်ငံလုံး")}
                   </option>
                   <option value="region">{regionName(selected, lang)}</option>
+                  {township && (
+                    <option value="township">
+                      {townshipByCode(township)?.[lang]} ·{" "}
+                      {t("parent-region context", "ပြည်နယ်/တိုင်းနောက်ခံ")}
+                    </option>
+                  )}
                 </select>
               </label>
               <label>
@@ -301,8 +339,8 @@ export default function Safety() {
             </p>
             <p className="small muted">
               {t(
-                "Township filters require a validated gazetteer and bulletin geography. No account or contact details are stored.",
-                "မြို့နယ်စစ်ထုတ်မှုအတွက် အတည်ပြုအမည်စာရင်းနှင့် ကြေညာချက်နယ်နိမိတ် လိုသည်။ အကောင့်၊ ဆက်သွယ်ရန်အချက်အလက် မသိမ်းပါ။",
+                "Township selection filters parent-region context only; direct township bulletin coverage is unavailable. No account or contact details are stored.",
+                "မြို့နယ်ရွေးခြင်းသည် သက်ဆိုင်ရာပြည်နယ်/တိုင်းနောက်ခံကိုသာ စစ်ထုတ်သည်။ တိုက်ရိုက်မြို့နယ်ကြေညာချက် မရရှိပါ။ အကောင့်၊ ဆက်သွယ်ရန်ဒေတာ မသိမ်းပါ။",
               )}
             </p>
           </form>
@@ -383,8 +421,8 @@ export default function Safety() {
         />
         <p>
           {t(
-            "General educational guidance. Choose a hazard; progress stays on this device and works offline after the first visit.",
-            "ယေဘုယျ ပညာပေးလမ်းညွှန်ဖြစ်သည်။ ဘေးအမျိုးအစားရွေးပါ။ ပြီးစီးမှုကို ဤစက်တွင် သိမ်းပြီး ပထမအကြိမ်ပြီးနောက် အော့ဖ်လိုင်း သုံးနိုင်သည်။",
+            "General educational guidance. Progress is saved separately for the selected place on this device and works offline after the first visit.",
+            "ယေဘုယျ ပညာပေးလမ်းညွှန်ဖြစ်သည်။ ရွေးထားသောဒေသတစ်ခုစီ၏ ပြီးစီးမှုကို ဤစက်တွင် သီးခြားသိမ်းပြီး ပထမအကြိမ်ပြီးနောက် အော့ဖ်လိုင်း သုံးနိုင်သည်။",
           )}
         </p>
         <div
@@ -453,28 +491,8 @@ export default function Safety() {
           <Source id={`safety-${hazard}`} />
         </div>
       </section>
-      <section className="health-education surface padded">
-        <p className="eyebrow">
-          {t(
-            "STATIC HEALTH EDUCATION · WHO GUIDANCE",
-            "ပုံသေ ကျန်းမာရေးပညာပေး · WHO လမ်းညွှန်",
-          )}
-        </p>
-        <h2>{t("Recognize when to get help", "အကူအညီလိုချိန်ကို သိထားပါ")}</h2>
-        <p>
-          {t(
-            "Confusion, collapse or loss of consciousness during heat exposure can be an emergency. Seek urgent medical assistance and begin cooling the person. This general information is not a diagnosis.",
-            "အပူနှင့်ထိတွေ့ချိန် စိတ်ရှုပ်ထွေးခြင်း၊ လဲကျခြင်း၊ သတိလစ်ခြင်းသည် အရေးပေါ်ဖြစ်နိုင်သည်။ အရေးပေါ်ဆေးဘက်အကူအညီ ယူပြီး အေးမြအောင် စတင်လုပ်ဆောင်ပါ။ ဤယေဘုယျအချက်အလက်သည် ရောဂါသတ်မှတ်ချက် မဟုတ်ပါ။",
-          )}
-        </p>
-        <p>
-          {t(
-            "After flooding, protect safe water and food, avoid contaminated water, and remove avoidable standing water. Weather conditions do not establish dengue or malaria transmission.",
-            "ရေကြီးပြီးနောက် သန့်ရှင်းသောရေနှင့် အစားအစာကို ကာကွယ်ပါ။ ညစ်ညမ်းရေကို ရှောင်၍ မလိုအပ်သော ရေတင်ကျန်မှု ဖယ်ရှားပါ။ ရာသီဥတုအခြေအနေက သွေးလွန်တုပ်ကွေး သို့မဟုတ် ငှက်ဖျားကူးစက်မှုကို မသတ်မှတ်နိုင်ပါ။",
-          )}
-        </p>
-        <Source id="preparedness" />
-      </section>
+      <OfficialHealth />
+      <EmergencyContacts />
       <section className="surface padded crop-section">
         <h2>{t("For your crop & season", "သင့်သီးနှံနှင့် ရာသီအတွက်")}</h2>
         <p>
@@ -489,7 +507,7 @@ export default function Safety() {
             <select
               aria-label={t("Crop", "သီးနှံ")}
               value={crop}
-              onChange={(e) => setCrop(e.target.value)}
+              onChange={(e) => changeCrop("crop", e.target.value)}
             >
               <option value="rice">{t("Rice", "စပါး")}</option>
               <option value="maize">{t("Maize", "ပြောင်း")}</option>
@@ -504,7 +522,7 @@ export default function Safety() {
                 "ယူဆထားသော ကြီးထွားအဆင့်",
               )}
               value={stage}
-              onChange={(e) => setStage(e.target.value)}
+              onChange={(e) => changeCrop("stage", e.target.value)}
             >
               {[
                 ["seedling", "Establishment", "အပင်ငယ်"],

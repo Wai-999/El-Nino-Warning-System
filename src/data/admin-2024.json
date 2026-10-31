@@ -1,0 +1,3450 @@
+{
+  "source": "https://data.humdata.org/dataset/cod-ab-mmr",
+  "license": "CC BY 3.0 IGO",
+  "workbookSha256": "ce7d5002d198844ee239c637c05f318eaaa82f034d681063cf518dcc8cb375aa",
+  "validOn": "2024-02-15",
+  "reviewedOn": "2025-10-30",
+  "resourceUpdatedAt": "2026-08-14",
+  "levels": {
+    "adm0": [
+      {
+        "code": "MMR",
+        "en": "Myanmar",
+        "my": "မြန်မာနိုင်ငံ",
+        "parentCode": null,
+        "lat": 19.25975366,
+        "lon": 95.91928612
+      }
+    ],
+    "adm1": [
+      {
+        "code": "MMR017",
+        "en": "Ayeyarwady",
+        "my": "ဧရာဝတီတိုင်းဒေသကြီး",
+        "parentCode": "MMR",
+        "lat": 17.10852352,
+        "lon": 95.14434051
+      },
+      {
+        "code": "MMR007",
+        "en": "Bago (East)",
+        "my": "ပဲခူးတိုင်းဒေသကြီး (အရှေ့)",
+        "parentCode": "MMR",
+        "lat": 18.15910799,
+        "lon": 96.65007446
+      },
+      {
+        "code": "MMR008",
+        "en": "Bago (West)",
+        "my": "ပဲခူးတိုင်းဒေသကြီး (အနောက်)",
+        "parentCode": "MMR",
+        "lat": 18.32781817,
+        "lon": 95.64292532
+      },
+      {
+        "code": "MMR004",
+        "en": "Chin",
+        "my": "ချင်းပြည်နယ်",
+        "parentCode": "MMR",
+        "lat": 22.37336889,
+        "lon": 93.60363426
+      },
+      {
+        "code": "MMR001",
+        "en": "Kachin",
+        "my": "ကချင်ပြည်နယ်",
+        "parentCode": "MMR",
+        "lat": 26.08932788,
+        "lon": 97.37115002
+      },
+      {
+        "code": "MMR002",
+        "en": "Kayah",
+        "my": "ကယားပြည်နယ်",
+        "parentCode": "MMR",
+        "lat": 19.24350066,
+        "lon": 97.32330186
+      },
+      {
+        "code": "MMR003",
+        "en": "Kayin",
+        "my": "ကရင်ပြည်နယ်",
+        "parentCode": "MMR",
+        "lat": 17.3647607,
+        "lon": 97.79109364
+      },
+      {
+        "code": "MMR009",
+        "en": "Magway",
+        "my": "မကွေးတိုင်းဒေသကြီး",
+        "parentCode": "MMR",
+        "lat": 20.79886204,
+        "lon": 94.54331319
+      },
+      {
+        "code": "MMR010",
+        "en": "Mandalay",
+        "my": "မန္တလေးတိုင်းဒေသကြီး",
+        "parentCode": "MMR",
+        "lat": 21.93926224,
+        "lon": 96.41336371
+      },
+      {
+        "code": "MMR011",
+        "en": "Mon",
+        "my": "မွန်ပြည်နယ်",
+        "parentCode": "MMR",
+        "lat": 17.11163675,
+        "lon": 97.32697246
+      },
+      {
+        "code": "MMR018",
+        "en": "Nay Pyi Taw",
+        "my": "နေပြည်တော်",
+        "parentCode": "MMR",
+        "lat": 19.87361901,
+        "lon": 96.12750979
+      },
+      {
+        "code": "MMR012",
+        "en": "Rakhine",
+        "my": "ရခိုင်ပြည်နယ်",
+        "parentCode": "MMR",
+        "lat": 19.40785928,
+        "lon": 94.22782407
+      },
+      {
+        "code": "MMR005",
+        "en": "Sagaing",
+        "my": "စစ်ကိုင်းတိုင်းဒေသကြီး",
+        "parentCode": "MMR",
+        "lat": 24.47414437,
+        "lon": 95.47506364
+      },
+      {
+        "code": "MMR016",
+        "en": "Shan (East)",
+        "my": "ရှမ်းပြည်နယ် (အရှေ့)",
+        "parentCode": "MMR",
+        "lat": 20.91778084,
+        "lon": 99.50279396
+      },
+      {
+        "code": "MMR015",
+        "en": "Shan (North)",
+        "my": "ရှမ်းပြည်နယ် (မြောက်)",
+        "parentCode": "MMR",
+        "lat": 22.82079488,
+        "lon": 98.00555059
+      },
+      {
+        "code": "MMR014",
+        "en": "Shan (South)",
+        "my": "ရှမ်းပြည်နယ် (တောင်)",
+        "parentCode": "MMR",
+        "lat": 20.78412208,
+        "lon": 97.53270576
+      },
+      {
+        "code": "MMR006",
+        "en": "Tanintharyi",
+        "my": "တနင်္သာရီတိုင်းဒေသကြီး",
+        "parentCode": "MMR",
+        "lat": 12.5383881,
+        "lon": 99.02730627
+      },
+      {
+        "code": "MMR013",
+        "en": "Yangon",
+        "my": "ရန်ကုန်တိုင်းဒေသကြီး",
+        "parentCode": "MMR",
+        "lat": 17.05754629,
+        "lon": 96.11279164
+      }
+    ],
+    "adm2": [
+      {
+        "code": "MMR001001",
+        "en": "Myitkyina",
+        "my": "မြစ်ကြီးနားခရိုင်",
+        "parentCode": "MMR001",
+        "lat": 25.82721219,
+        "lon": 97.7090099
+      },
+      {
+        "code": "MMR001002",
+        "en": "Mohnyin",
+        "my": "မိုးညှင်းခရိုင်",
+        "parentCode": "MMR001",
+        "lat": 25.31126108,
+        "lon": 96.54251879
+      },
+      {
+        "code": "MMR001003",
+        "en": "Bhamo",
+        "my": "ဗန်းမော်ခရိုင်",
+        "parentCode": "MMR001",
+        "lat": 24.2693424,
+        "lon": 97.17676049
+      },
+      {
+        "code": "MMR001004",
+        "en": "Puta-O",
+        "my": "ပူတာအိုခရိုင်",
+        "parentCode": "MMR001",
+        "lat": 27.25952958,
+        "lon": 97.89009344
+      },
+      {
+        "code": "MMR002001",
+        "en": "Loikaw",
+        "my": "လွိုင်ကော်ခရိုင်",
+        "parentCode": "MMR002",
+        "lat": 19.50837365,
+        "lon": 97.37487743
+      },
+      {
+        "code": "MMR002002",
+        "en": "Bawlake",
+        "my": "ဘောလခဲခရိုင်",
+        "parentCode": "MMR002",
+        "lat": 18.91704023,
+        "lon": 97.34718208
+      },
+      {
+        "code": "MMR003001",
+        "en": "Hpa-An",
+        "my": "ဘားအံခရိုင်",
+        "parentCode": "MMR003",
+        "lat": 17.17980817,
+        "lon": 97.87576377
+      },
+      {
+        "code": "MMR003002",
+        "en": "Myawaddy",
+        "my": "မြဝတီခရိုင်",
+        "parentCode": "MMR003",
+        "lat": 16.56633181,
+        "lon": 98.4933301
+      },
+      {
+        "code": "MMR003003",
+        "en": "Kawkareik",
+        "my": "ကော့ကရိတ်ခရိုင်",
+        "parentCode": "MMR003",
+        "lat": 16.0380698,
+        "lon": 98.21369047
+      },
+      {
+        "code": "MMR003004",
+        "en": "Hpapun",
+        "my": "ဖာပွန်ခရိုင်",
+        "parentCode": "MMR003",
+        "lat": 18.07040403,
+        "lon": 97.42566273
+      },
+      {
+        "code": "MMR004001",
+        "en": "Falam",
+        "my": "ဖလမ်းခရိုင်",
+        "parentCode": "MMR004",
+        "lat": 23.44632825,
+        "lon": 93.71253602
+      },
+      {
+        "code": "MMR004002",
+        "en": "Mindat",
+        "my": "မင်းတပ်ခရိုင်",
+        "parentCode": "MMR004",
+        "lat": 21.21899908,
+        "lon": 93.8080793
+      },
+      {
+        "code": "MMR004003",
+        "en": "Hakha",
+        "my": "ဟားခါးခရိုင်",
+        "parentCode": "MMR004",
+        "lat": 22.539059,
+        "lon": 93.56758305
+      },
+      {
+        "code": "MMR004004",
+        "en": "Matupi",
+        "my": "မတူပီခရိုင်",
+        "parentCode": "MMR004",
+        "lat": 21.46930303,
+        "lon": 93.05203181
+      },
+      {
+        "code": "MMR005001",
+        "en": "Sagaing",
+        "my": "စစ်ကိုင်းခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 21.91347763,
+        "lon": 95.46982915
+      },
+      {
+        "code": "MMR005002",
+        "en": "Shwebo",
+        "my": "ရွှေဘိုခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 22.73806125,
+        "lon": 95.3917466
+      },
+      {
+        "code": "MMR005003",
+        "en": "Monywa",
+        "my": "မုံရွာခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 22.21336917,
+        "lon": 95.34218464
+      },
+      {
+        "code": "MMR005004",
+        "en": "Katha",
+        "my": "ကသာခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 24.2360746,
+        "lon": 96.16922204
+      },
+      {
+        "code": "MMR005005",
+        "en": "Kale",
+        "my": "ကလေးခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 22.95372187,
+        "lon": 94.44391278
+      },
+      {
+        "code": "MMR005006",
+        "en": "Tamu",
+        "my": "တမူးခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 24.18508825,
+        "lon": 94.3918727
+      },
+      {
+        "code": "MMR005007",
+        "en": "Mawlaik",
+        "my": "မော်လိုက်ခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 23.94758351,
+        "lon": 94.75668491
+      },
+      {
+        "code": "MMR005008",
+        "en": "Hkamti",
+        "my": "ခန္တီးခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 25.39711056,
+        "lon": 95.5957194
+      },
+      {
+        "code": "MMR005009",
+        "en": "Yinmarbin",
+        "my": "ယင်းမာပင်ခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 22.30912876,
+        "lon": 94.69059844
+      },
+      {
+        "code": "MMR005010",
+        "en": "Kanbalu",
+        "my": "ကန့်ဘလူခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 23.35704672,
+        "lon": 95.42284181
+      },
+      {
+        "code": "MMR005011",
+        "en": "Kawlin",
+        "my": "ကောလင်းခရိုင်",
+        "parentCode": "MMR005",
+        "lat": 23.92471674,
+        "lon": 95.51796281
+      },
+      {
+        "code": "MMR005S001",
+        "en": "Naga Self-Administered Zone",
+        "my": "နာဂကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရဒေသ",
+        "parentCode": "MMR005",
+        "lat": 26.56549118,
+        "lon": 95.65120861
+      },
+      {
+        "code": "MMR006001",
+        "en": "Dawei",
+        "my": "ထားဝယ်ခရိုင်",
+        "parentCode": "MMR006",
+        "lat": 14.189618,
+        "lon": 98.44762753
+      },
+      {
+        "code": "MMR006002",
+        "en": "Myeik",
+        "my": "မြိတ်ခရိုင်",
+        "parentCode": "MMR006",
+        "lat": 12.42258124,
+        "lon": 99.03035498
+      },
+      {
+        "code": "MMR006003",
+        "en": "Kawthoung",
+        "my": "ကော့သောင်းခရိုင်",
+        "parentCode": "MMR006",
+        "lat": 10.93062327,
+        "lon": 98.85879538
+      },
+      {
+        "code": "MMR007001",
+        "en": "Bago",
+        "my": "ပဲခူးခရိုင်",
+        "parentCode": "MMR007",
+        "lat": 17.6624566,
+        "lon": 96.64270122
+      },
+      {
+        "code": "MMR007002",
+        "en": "Taungoo",
+        "my": "တောင်ငူခရိုင်",
+        "parentCode": "MMR007",
+        "lat": 18.80943123,
+        "lon": 96.23637267
+      },
+      {
+        "code": "MMR008001",
+        "en": "Pyay",
+        "my": "ပြည်ခရိုင်",
+        "parentCode": "MMR008",
+        "lat": 18.77427561,
+        "lon": 95.26004342
+      },
+      {
+        "code": "MMR008002",
+        "en": "Thayarwady",
+        "my": "သာယာဝတီခရိုင်",
+        "parentCode": "MMR008",
+        "lat": 18.12829411,
+        "lon": 95.76784958
+      },
+      {
+        "code": "MMR009001",
+        "en": "Magway",
+        "my": "မကွေးခရိုင်",
+        "parentCode": "MMR009",
+        "lat": 20.28448156,
+        "lon": 95.32974271
+      },
+      {
+        "code": "MMR009002",
+        "en": "Minbu",
+        "my": "မင်းဘူးခရိုင်",
+        "parentCode": "MMR009",
+        "lat": 20.34779777,
+        "lon": 94.47233215
+      },
+      {
+        "code": "MMR009003",
+        "en": "Thayet",
+        "my": "သရက်ခရိုင်",
+        "parentCode": "MMR009",
+        "lat": 19.41585998,
+        "lon": 95.14195453
+      },
+      {
+        "code": "MMR009004",
+        "en": "Pakokku",
+        "my": "ပခုက္ကူခရိုင်",
+        "parentCode": "MMR009",
+        "lat": 21.35484989,
+        "lon": 94.74891005
+      },
+      {
+        "code": "MMR009005",
+        "en": "Gangaw",
+        "my": "ဂန့်ဂေါခရိုင်",
+        "parentCode": "MMR009",
+        "lat": 21.79575659,
+        "lon": 94.15751773
+      },
+      {
+        "code": "MMR010001",
+        "en": "Mandalay",
+        "my": "မန္တလေးခရိုင်",
+        "parentCode": "MMR010",
+        "lat": 21.97002084,
+        "lon": 96.15576516
+      },
+      {
+        "code": "MMR010002",
+        "en": "Pyinoolwin",
+        "my": "ပြင်ဦးလွင်ခရိုင်",
+        "parentCode": "MMR010",
+        "lat": 22.67608169,
+        "lon": 96.0695398
+      },
+      {
+        "code": "MMR010003",
+        "en": "Kyaukse",
+        "my": "ကျောက်ဆည်ခရိုင်",
+        "parentCode": "MMR010",
+        "lat": 21.57803928,
+        "lon": 96.15210571
+      },
+      {
+        "code": "MMR010004",
+        "en": "Myingyan",
+        "my": "မြင်းခြံခရိုင်",
+        "parentCode": "MMR010",
+        "lat": 21.47133506,
+        "lon": 95.64288863
+      },
+      {
+        "code": "MMR010005",
+        "en": "Nyaung-U",
+        "my": "ညောင်ဦးခရိုင်",
+        "parentCode": "MMR010",
+        "lat": 20.92802801,
+        "lon": 95.16734595
+      },
+      {
+        "code": "MMR010006",
+        "en": "Yamethin",
+        "my": "ရမည်းသင်းခရိုင်",
+        "parentCode": "MMR010",
+        "lat": 20.4849453,
+        "lon": 96.10688121
+      },
+      {
+        "code": "MMR010007",
+        "en": "Meiktila",
+        "my": "မိတ္ထီလာခရိုင်",
+        "parentCode": "MMR010",
+        "lat": 20.95829567,
+        "lon": 95.89563806
+      },
+      {
+        "code": "MMR011001",
+        "en": "Mawlamyine",
+        "my": "မော်လမြိုင်ခရိုင်",
+        "parentCode": "MMR011",
+        "lat": 15.72103177,
+        "lon": 97.78965075
+      },
+      {
+        "code": "MMR011002",
+        "en": "Thaton",
+        "my": "သထုံခရိုင်",
+        "parentCode": "MMR011",
+        "lat": 17.11163675,
+        "lon": 97.32697246
+      },
+      {
+        "code": "MMR012001",
+        "en": "Sittwe",
+        "my": "စစ်တွေခရိုင်",
+        "parentCode": "MMR012",
+        "lat": 20.56315155,
+        "lon": 92.90936352
+      },
+      {
+        "code": "MMR012002",
+        "en": "Maungdaw",
+        "my": "မောင်တောခရိုင်",
+        "parentCode": "MMR012",
+        "lat": 20.96264428,
+        "lon": 92.48352038
+      },
+      {
+        "code": "MMR012003",
+        "en": "Kyaukpyu",
+        "my": "ကျောက်ဖြူခရိုင်",
+        "parentCode": "MMR012",
+        "lat": 19.70809118,
+        "lon": 94.06752929
+      },
+      {
+        "code": "MMR012004",
+        "en": "Thandwe",
+        "my": "သံတွဲခရိုင်",
+        "parentCode": "MMR012",
+        "lat": 18.43778978,
+        "lon": 94.54270627
+      },
+      {
+        "code": "MMR012005",
+        "en": "Mrauk-U",
+        "my": "မြောက်ဦးခရိုင်",
+        "parentCode": "MMR012",
+        "lat": 20.54295774,
+        "lon": 93.43522577
+      },
+      {
+        "code": "MMR013001",
+        "en": "Yangon (North)",
+        "my": "ရန်ကုန်(မြောက်ပိုင်း)",
+        "parentCode": "MMR013",
+        "lat": 17.31129243,
+        "lon": 96.00563723
+      },
+      {
+        "code": "MMR013002",
+        "en": "Yangon (East)",
+        "my": "ရန်ကုန်(အရှေ့ပိုင်း)",
+        "parentCode": "MMR013",
+        "lat": 16.89444772,
+        "lon": 96.23916709
+      },
+      {
+        "code": "MMR013003",
+        "en": "Yangon (South)",
+        "my": "ရန်ကုန်(တောင်ပိုင်း)",
+        "parentCode": "MMR013",
+        "lat": 16.73531492,
+        "lon": 96.4928201
+      },
+      {
+        "code": "MMR013004",
+        "en": "Yangon (West)",
+        "my": "ရန်ကုန်(အနောက်ပိုင်း)",
+        "parentCode": "MMR013",
+        "lat": 16.8304143,
+        "lon": 96.13500272
+      },
+      {
+        "code": "MMR014001",
+        "en": "Taunggyi",
+        "my": "တောင်ကြီးခရိုင်",
+        "parentCode": "MMR014",
+        "lat": 20.78397316,
+        "lon": 96.94645205
+      },
+      {
+        "code": "MMR014002",
+        "en": "Loilen",
+        "my": "လွိုင်လင်ခရိုင်",
+        "parentCode": "MMR014",
+        "lat": 21.29009521,
+        "lon": 98.05569877
+      },
+      {
+        "code": "MMR014003",
+        "en": "Langkho",
+        "my": "လင်းခေးခရိုင်",
+        "parentCode": "MMR014",
+        "lat": 20.27182748,
+        "lon": 98.06895394
+      },
+      {
+        "code": "MMR014S001",
+        "en": "Danu Self-Administered Zone",
+        "my": "ဓနု ကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရဒေသ",
+        "parentCode": "MMR014",
+        "lat": 21.22127147,
+        "lon": 96.50843047
+      },
+      {
+        "code": "MMR014S002",
+        "en": "Pa-O Self-Administered Zone",
+        "my": "ပအိုဝ်း ကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရဒေသ",
+        "parentCode": "MMR014",
+        "lat": 20.13690915,
+        "lon": 96.67353911
+      },
+      {
+        "code": "MMR015001",
+        "en": "Lashio",
+        "my": "လားရှိုးခရိုင်",
+        "parentCode": "MMR015",
+        "lat": 22.76676013,
+        "lon": 98.03293605
+      },
+      {
+        "code": "MMR015002",
+        "en": "Muse",
+        "my": "မူဆယ်ခရိုင်",
+        "parentCode": "MMR015",
+        "lat": 23.67284612,
+        "lon": 97.98328205
+      },
+      {
+        "code": "MMR015003",
+        "en": "Kyaukme",
+        "my": "ကျောက်မဲခရိုင်",
+        "parentCode": "MMR015",
+        "lat": 22.61863402,
+        "lon": 96.92914276
+      },
+      {
+        "code": "MMR015006",
+        "en": "Hopang",
+        "my": "ဟိုပန်ခရိုင်",
+        "parentCode": "MMR015",
+        "lat": 23.09974544,
+        "lon": 98.82022865
+      },
+      {
+        "code": "MMR015007",
+        "en": "Matman",
+        "my": "မက်မန်းခရိုင်",
+        "parentCode": "MMR015",
+        "lat": 22.18645779,
+        "lon": 98.89408605
+      },
+      {
+        "code": "MMR015008",
+        "en": "Mongmit",
+        "my": "မိုးမိတ်ခရိုင်",
+        "parentCode": "MMR015",
+        "lat": 23.52624308,
+        "lon": 96.73592404
+      },
+      {
+        "code": "MMR015S001",
+        "en": "Pa Laung Self-Administered Zone",
+        "my": "ပလောင် ကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရဒေသ",
+        "parentCode": "MMR015",
+        "lat": 23.2063735,
+        "lon": 97.16400621
+      },
+      {
+        "code": "MMR015S002",
+        "en": "Kokang Self-Administered Zone",
+        "my": "ကိုးကန့် ကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရဒေသ",
+        "parentCode": "MMR015",
+        "lat": 23.80691439,
+        "lon": 98.56591859
+      },
+      {
+        "code": "MMR016001",
+        "en": "Kengtung",
+        "my": "ကျိုင်းတုံခရိုင်",
+        "parentCode": "MMR016",
+        "lat": 21.3711481,
+        "lon": 99.42830479
+      },
+      {
+        "code": "MMR016002",
+        "en": "Monghsat",
+        "my": "မိုင်းဆတ်ခရိုင်",
+        "parentCode": "MMR016",
+        "lat": 20.33474367,
+        "lon": 99.07393388
+      },
+      {
+        "code": "MMR016003",
+        "en": "Tachileik",
+        "my": "တာချီလိတ်ခရိုင်",
+        "parentCode": "MMR016",
+        "lat": 21.04781293,
+        "lon": 100.24481656
+      },
+      {
+        "code": "MMR017001",
+        "en": "Pathein",
+        "my": "ပုသိမ်ခရိုင်",
+        "parentCode": "MMR017",
+        "lat": 16.76384392,
+        "lon": 94.6654057
+      },
+      {
+        "code": "MMR017002",
+        "en": "Hinthada",
+        "my": "ဟင်္သာတခရိုင်",
+        "parentCode": "MMR017",
+        "lat": 17.92636286,
+        "lon": 95.15581675
+      },
+      {
+        "code": "MMR017003",
+        "en": "Myaungmya",
+        "my": "မြောင်းမြခရိုင်",
+        "parentCode": "MMR017",
+        "lat": 16.62052721,
+        "lon": 95.1197276
+      },
+      {
+        "code": "MMR017004",
+        "en": "Labutta",
+        "my": "လပွတ္တာခရိုင်",
+        "parentCode": "MMR017",
+        "lat": 16.35400889,
+        "lon": 95.25320181
+      },
+      {
+        "code": "MMR017005",
+        "en": "Maubin",
+        "my": "မအူပင်ခရိုင်",
+        "parentCode": "MMR017",
+        "lat": 16.96080796,
+        "lon": 95.53629883
+      },
+      {
+        "code": "MMR017006",
+        "en": "Pyapon",
+        "my": "ဖျာပုံခရိုင်",
+        "parentCode": "MMR017",
+        "lat": 16.17819524,
+        "lon": 95.54372521
+      },
+      {
+        "code": "MMR018001",
+        "en": "Oke Ta Ra",
+        "my": "ဥတ္တရခရိုင်",
+        "parentCode": "MMR018",
+        "lat": 20.02201435,
+        "lon": 96.08130637
+      },
+      {
+        "code": "MMR018002",
+        "en": "Det Khi Na",
+        "my": "ဒက္ခိဏခရိုင်",
+        "parentCode": "MMR018",
+        "lat": 19.67891295,
+        "lon": 96.19892458
+      }
+    ],
+    "adm3": [
+      {
+        "code": "MMR001001",
+        "en": "Myitkyina",
+        "my": "မြစ်ကြီးနား",
+        "parentCode": "MMR001001",
+        "lat": 25.3687418,
+        "lon": 97.25404519
+      },
+      {
+        "code": "MMR001002",
+        "en": "Waingmaw",
+        "my": "ဝိုင်းမော်",
+        "parentCode": "MMR001001",
+        "lat": 25.22619501,
+        "lon": 97.54632367
+      },
+      {
+        "code": "MMR001003",
+        "en": "Injangyang",
+        "my": "အင်ဂျန်းယန်",
+        "parentCode": "MMR001001",
+        "lat": 26.19054185,
+        "lon": 97.94595357
+      },
+      {
+        "code": "MMR001004",
+        "en": "Tanai",
+        "my": "တနိုင်း",
+        "parentCode": "MMR001001",
+        "lat": 26.40381384,
+        "lon": 96.60279488
+      },
+      {
+        "code": "MMR001005",
+        "en": "Chipwi",
+        "my": "ချီ​ဖွေ",
+        "parentCode": "MMR001001",
+        "lat": 26.0282727,
+        "lon": 98.48438553
+      },
+      {
+        "code": "MMR001006",
+        "en": "Tsawlaw",
+        "my": "ဆော့လော်",
+        "parentCode": "MMR001001",
+        "lat": 26.43865645,
+        "lon": 98.42307015
+      },
+      {
+        "code": "MMR001007",
+        "en": "Mohnyin",
+        "my": "မိုးညှင်း",
+        "parentCode": "MMR001002",
+        "lat": 24.95610595,
+        "lon": 96.42204898
+      },
+      {
+        "code": "MMR001008",
+        "en": "Mogaung",
+        "my": "မိုးကောင်း",
+        "parentCode": "MMR001002",
+        "lat": 25.35522724,
+        "lon": 96.93348613
+      },
+      {
+        "code": "MMR001009",
+        "en": "Hpakant",
+        "my": "ဖားကန့်",
+        "parentCode": "MMR001002",
+        "lat": 25.69265246,
+        "lon": 96.53660268
+      },
+      {
+        "code": "MMR001010",
+        "en": "Bhamo",
+        "my": "ဗန်းမော်",
+        "parentCode": "MMR001003",
+        "lat": 24.2120469,
+        "lon": 97.17646929
+      },
+      {
+        "code": "MMR001011",
+        "en": "Shwegu",
+        "my": "ရွှေကူ",
+        "parentCode": "MMR001003",
+        "lat": 24.38630525,
+        "lon": 96.83544522
+      },
+      {
+        "code": "MMR001012",
+        "en": "Momauk",
+        "my": "မိုးမောက်",
+        "parentCode": "MMR001003",
+        "lat": 24.53284292,
+        "lon": 97.38713173
+      },
+      {
+        "code": "MMR001013",
+        "en": "Mansi",
+        "my": "မံစီ",
+        "parentCode": "MMR001003",
+        "lat": 23.91876683,
+        "lon": 97.29568061
+      },
+      {
+        "code": "MMR001014",
+        "en": "Puta-O",
+        "my": "ပူတာအို",
+        "parentCode": "MMR001004",
+        "lat": 27.34593655,
+        "lon": 97.27531841
+      },
+      {
+        "code": "MMR001015",
+        "en": "Sumprabum",
+        "my": "ဆွမ်ပရာဘွမ်",
+        "parentCode": "MMR001004",
+        "lat": 26.38956366,
+        "lon": 97.47854842
+      },
+      {
+        "code": "MMR001016",
+        "en": "Machanbaw",
+        "my": "မချမ်းဘော",
+        "parentCode": "MMR001004",
+        "lat": 27.24434212,
+        "lon": 97.86584579
+      },
+      {
+        "code": "MMR001017",
+        "en": "Nawngmun",
+        "my": "နောင်မွန်း",
+        "parentCode": "MMR001004",
+        "lat": 27.92702084,
+        "lon": 97.80935027
+      },
+      {
+        "code": "MMR001018",
+        "en": "Khaunglanhpu",
+        "my": "ခေါင်လန်ဖူး",
+        "parentCode": "MMR001004",
+        "lat": 27.18521876,
+        "lon": 98.40723678
+      },
+      {
+        "code": "MMR002001",
+        "en": "Loikaw",
+        "my": "လွိုင်ကော်",
+        "parentCode": "MMR002001",
+        "lat": 19.61853147,
+        "lon": 97.33450745
+      },
+      {
+        "code": "MMR002002",
+        "en": "Demoso",
+        "my": "ဒီးမော့ဆို",
+        "parentCode": "MMR002001",
+        "lat": 19.45763176,
+        "lon": 97.2828233
+      },
+      {
+        "code": "MMR002003",
+        "en": "Hpruso",
+        "my": "ဖရူဆို",
+        "parentCode": "MMR002001",
+        "lat": 19.27663836,
+        "lon": 97.02757237
+      },
+      {
+        "code": "MMR002004",
+        "en": "Shadaw",
+        "my": "ရှားတော",
+        "parentCode": "MMR002001",
+        "lat": 19.53007838,
+        "lon": 97.63015242
+      },
+      {
+        "code": "MMR002005",
+        "en": "Bawlake",
+        "my": "ဘောလခဲ",
+        "parentCode": "MMR002002",
+        "lat": 19.09010637,
+        "lon": 97.52159656
+      },
+      {
+        "code": "MMR002006",
+        "en": "Hpasawng",
+        "my": "ဖားဆောင်း",
+        "parentCode": "MMR002002",
+        "lat": 18.85367555,
+        "lon": 97.21837562
+      },
+      {
+        "code": "MMR002007",
+        "en": "Mese",
+        "my": "မယ်စဲ",
+        "parentCode": "MMR002002",
+        "lat": 18.74552925,
+        "lon": 97.54338913
+      },
+      {
+        "code": "MMR003001",
+        "en": "Hpa-An",
+        "my": "ဘားအံ",
+        "parentCode": "MMR003001",
+        "lat": 17.11040208,
+        "lon": 97.56840052
+      },
+      {
+        "code": "MMR003002",
+        "en": "Hlaingbwe",
+        "my": "လှိုင်းဘွဲ့",
+        "parentCode": "MMR003001",
+        "lat": 17.2614111,
+        "lon": 97.90456622
+      },
+      {
+        "code": "MMR003003",
+        "en": "Hpapun",
+        "my": "ဖာပွန်",
+        "parentCode": "MMR003004",
+        "lat": 18.07040403,
+        "lon": 97.42566273
+      },
+      {
+        "code": "MMR003004",
+        "en": "Thandaunggyi",
+        "my": "သံတောင်ကြီး",
+        "parentCode": "MMR003001",
+        "lat": 19.05456109,
+        "lon": 96.74071154
+      },
+      {
+        "code": "MMR003005",
+        "en": "Myawaddy",
+        "my": "မြဝတီ",
+        "parentCode": "MMR003002",
+        "lat": 16.56633181,
+        "lon": 98.4933301
+      },
+      {
+        "code": "MMR003006",
+        "en": "Kawkareik",
+        "my": "ကော့ကရိတ်",
+        "parentCode": "MMR003003",
+        "lat": 16.5282243,
+        "lon": 98.14384416
+      },
+      {
+        "code": "MMR003007",
+        "en": "Kyainseikgyi",
+        "my": "ကြာအင်းဆိပ်ကြီး",
+        "parentCode": "MMR003003",
+        "lat": 15.83913342,
+        "lon": 98.22247587
+      },
+      {
+        "code": "MMR004001",
+        "en": "Falam",
+        "my": "ဖလမ်း",
+        "parentCode": "MMR004001",
+        "lat": 23.07851113,
+        "lon": 93.66940569
+      },
+      {
+        "code": "MMR004002",
+        "en": "Hakha",
+        "my": "ဟားခါး",
+        "parentCode": "MMR004003",
+        "lat": 22.4189593,
+        "lon": 93.76333491
+      },
+      {
+        "code": "MMR004003",
+        "en": "Thantlang",
+        "my": "ထန်တလန်",
+        "parentCode": "MMR004003",
+        "lat": 22.57947461,
+        "lon": 93.29634596
+      },
+      {
+        "code": "MMR004004",
+        "en": "Tedim",
+        "my": "တီးတိန်",
+        "parentCode": "MMR004001",
+        "lat": 23.37331701,
+        "lon": 93.69475722
+      },
+      {
+        "code": "MMR004005",
+        "en": "Tonzang",
+        "my": "တွန်းဇန်",
+        "parentCode": "MMR004001",
+        "lat": 23.79638947,
+        "lon": 93.77008053
+      },
+      {
+        "code": "MMR004006",
+        "en": "Mindat",
+        "my": "မင်းတပ်",
+        "parentCode": "MMR004002",
+        "lat": 21.44158529,
+        "lon": 93.79069427
+      },
+      {
+        "code": "MMR004007",
+        "en": "Matupi",
+        "my": "မတူပီ",
+        "parentCode": "MMR004004",
+        "lat": 21.73161235,
+        "lon": 93.29907317
+      },
+      {
+        "code": "MMR004008",
+        "en": "Kanpetlet",
+        "my": "ကန်ပက်လက်",
+        "parentCode": "MMR004002",
+        "lat": 20.97081188,
+        "lon": 93.82303538
+      },
+      {
+        "code": "MMR004009",
+        "en": "Paletwa",
+        "my": "ပလက်ဝ",
+        "parentCode": "MMR004004",
+        "lat": 21.43086303,
+        "lon": 92.95922153
+      },
+      {
+        "code": "MMR005001",
+        "en": "Sagaing",
+        "my": "စစ်ကိုင်း",
+        "parentCode": "MMR005001",
+        "lat": 22.05098747,
+        "lon": 95.84276653
+      },
+      {
+        "code": "MMR005002",
+        "en": "Myinmu",
+        "my": "မြင်းမူ",
+        "parentCode": "MMR005001",
+        "lat": 21.99086299,
+        "lon": 95.51257341
+      },
+      {
+        "code": "MMR005003",
+        "en": "Myaung",
+        "my": "မြောင်",
+        "parentCode": "MMR005001",
+        "lat": 21.72164035,
+        "lon": 95.30789287
+      },
+      {
+        "code": "MMR005004",
+        "en": "Shwebo",
+        "my": "ရွှေဘို",
+        "parentCode": "MMR005002",
+        "lat": 22.57767973,
+        "lon": 95.7184957
+      },
+      {
+        "code": "MMR005005",
+        "en": "Khin-U",
+        "my": "ခင်ဦး",
+        "parentCode": "MMR005002",
+        "lat": 22.78214656,
+        "lon": 95.70428517
+      },
+      {
+        "code": "MMR005006",
+        "en": "Wetlet",
+        "my": "ဝက်လက်",
+        "parentCode": "MMR005002",
+        "lat": 22.34830102,
+        "lon": 95.77303683
+      },
+      {
+        "code": "MMR005007",
+        "en": "Kanbalu",
+        "my": "ကန့်ဘလူ",
+        "parentCode": "MMR005010",
+        "lat": 23.28518864,
+        "lon": 95.69777925
+      },
+      {
+        "code": "MMR005008",
+        "en": "Kyunhla",
+        "my": "ကျွန်းလှ",
+        "parentCode": "MMR005010",
+        "lat": 23.55644362,
+        "lon": 95.16769451
+      },
+      {
+        "code": "MMR005009",
+        "en": "Ye-U",
+        "my": "ရေဦး",
+        "parentCode": "MMR005002",
+        "lat": 22.85732051,
+        "lon": 95.03007481
+      },
+      {
+        "code": "MMR005010",
+        "en": "Tabayin",
+        "my": "ဒီပဲယင်း",
+        "parentCode": "MMR005002",
+        "lat": 22.63526092,
+        "lon": 95.20313541
+      },
+      {
+        "code": "MMR005011",
+        "en": "Taze",
+        "my": "တန့်ဆည်",
+        "parentCode": "MMR005002",
+        "lat": 23.07869702,
+        "lon": 95.15770999
+      },
+      {
+        "code": "MMR005012",
+        "en": "Monywa",
+        "my": "မုံရွာ",
+        "parentCode": "MMR005003",
+        "lat": 22.11734409,
+        "lon": 95.23339533
+      },
+      {
+        "code": "MMR005013",
+        "en": "Budalin",
+        "my": "ဘုတလင်",
+        "parentCode": "MMR005003",
+        "lat": 22.4381274,
+        "lon": 95.09673906
+      },
+      {
+        "code": "MMR005014",
+        "en": "Ayadaw",
+        "my": "အရာတော်",
+        "parentCode": "MMR005003",
+        "lat": 22.3003714,
+        "lon": 95.42040661
+      },
+      {
+        "code": "MMR005015",
+        "en": "Chaung-U",
+        "my": "ချောင်းဦး",
+        "parentCode": "MMR005003",
+        "lat": 21.92288148,
+        "lon": 95.2798882
+      },
+      {
+        "code": "MMR005016",
+        "en": "Yinmarbin",
+        "my": "ယင်းမာပင်",
+        "parentCode": "MMR005009",
+        "lat": 22.15489732,
+        "lon": 94.87304793
+      },
+      {
+        "code": "MMR005017",
+        "en": "Kani",
+        "my": "ကနီ",
+        "parentCode": "MMR005009",
+        "lat": 22.47270374,
+        "lon": 94.67715293
+      },
+      {
+        "code": "MMR005018",
+        "en": "Salingyi",
+        "my": "ဆားလင်းကြီး",
+        "parentCode": "MMR005009",
+        "lat": 21.98846071,
+        "lon": 95.02208189
+      },
+      {
+        "code": "MMR005019",
+        "en": "Pale",
+        "my": "ပုလဲ",
+        "parentCode": "MMR005009",
+        "lat": 22.01527935,
+        "lon": 94.62453858
+      },
+      {
+        "code": "MMR005020",
+        "en": "Katha",
+        "my": "ကသာ",
+        "parentCode": "MMR005004",
+        "lat": 24.13939623,
+        "lon": 96.38646073
+      },
+      {
+        "code": "MMR005021",
+        "en": "Indaw",
+        "my": "အင်းတော်",
+        "parentCode": "MMR005004",
+        "lat": 24.29710693,
+        "lon": 96.10497871
+      },
+      {
+        "code": "MMR005022",
+        "en": "Tigyaing",
+        "my": "ထီးချိုင့်",
+        "parentCode": "MMR005004",
+        "lat": 23.79576535,
+        "lon": 96.2422655
+      },
+      {
+        "code": "MMR005023",
+        "en": "Banmauk",
+        "my": "ဗန်းမောက်",
+        "parentCode": "MMR005004",
+        "lat": 24.55186446,
+        "lon": 95.73840798
+      },
+      {
+        "code": "MMR005024",
+        "en": "Kawlin",
+        "my": "ကောလင်း",
+        "parentCode": "MMR005011",
+        "lat": 23.69455,
+        "lon": 95.46389428
+      },
+      {
+        "code": "MMR005025",
+        "en": "Wuntho",
+        "my": "ဝန်းသို",
+        "parentCode": "MMR005011",
+        "lat": 24.00412453,
+        "lon": 95.79574666
+      },
+      {
+        "code": "MMR005026",
+        "en": "Pinlebu",
+        "my": "ပင်လည်ဘူး",
+        "parentCode": "MMR005011",
+        "lat": 24.03555039,
+        "lon": 95.34272159
+      },
+      {
+        "code": "MMR005027",
+        "en": "Kale",
+        "my": "ကလေး",
+        "parentCode": "MMR005005",
+        "lat": 23.11973429,
+        "lon": 94.09263088
+      },
+      {
+        "code": "MMR005028",
+        "en": "Kalewa",
+        "my": "ကလေးဝ",
+        "parentCode": "MMR005005",
+        "lat": 23.28209842,
+        "lon": 94.51945111
+      },
+      {
+        "code": "MMR005029",
+        "en": "Mingin",
+        "my": "မင်းကင်း",
+        "parentCode": "MMR005005",
+        "lat": 22.79237138,
+        "lon": 94.43149939
+      },
+      {
+        "code": "MMR005030",
+        "en": "Tamu",
+        "my": "တမူး",
+        "parentCode": "MMR005006",
+        "lat": 24.18508825,
+        "lon": 94.3918727
+      },
+      {
+        "code": "MMR005031",
+        "en": "Mawlaik",
+        "my": "မော်လိုက်",
+        "parentCode": "MMR005007",
+        "lat": 23.66262454,
+        "lon": 94.59316849
+      },
+      {
+        "code": "MMR005032",
+        "en": "Paungbyin",
+        "my": "ဖောင်းပြင်",
+        "parentCode": "MMR005007",
+        "lat": 24.1683949,
+        "lon": 94.82970137
+      },
+      {
+        "code": "MMR005033",
+        "en": "Hkamti",
+        "my": "ခန္တီး",
+        "parentCode": "MMR005008",
+        "lat": 25.90745372,
+        "lon": 95.63572471
+      },
+      {
+        "code": "MMR005034",
+        "en": "Homalin",
+        "my": "ဟုမ္မလင်း",
+        "parentCode": "MMR005008",
+        "lat": 24.91618809,
+        "lon": 95.22918337
+      },
+      {
+        "code": "MMR005035",
+        "en": "Layshi",
+        "my": "လေရှီး",
+        "parentCode": "MMR005S001",
+        "lat": 25.3104189,
+        "lon": 94.8222548
+      },
+      {
+        "code": "MMR005036",
+        "en": "Lahe",
+        "my": "လဟယ်",
+        "parentCode": "MMR005S001",
+        "lat": 26.22760893,
+        "lon": 95.38974227
+      },
+      {
+        "code": "MMR005037",
+        "en": "Nanyun",
+        "my": "နန်းယွန်း",
+        "parentCode": "MMR005S001",
+        "lat": 26.91725663,
+        "lon": 96.01722174
+      },
+      {
+        "code": "MMR006001",
+        "en": "Dawei",
+        "my": "ထားဝယ်",
+        "parentCode": "MMR006001",
+        "lat": 13.94717753,
+        "lon": 98.74368774
+      },
+      {
+        "code": "MMR006002",
+        "en": "Launglon",
+        "my": "လောင်းလုံး",
+        "parentCode": "MMR006001",
+        "lat": 13.87640936,
+        "lon": 98.15212412
+      },
+      {
+        "code": "MMR006003",
+        "en": "Thayetchaung",
+        "my": "သရက်ချောင်း",
+        "parentCode": "MMR006001",
+        "lat": 13.65948061,
+        "lon": 98.4587507
+      },
+      {
+        "code": "MMR006004",
+        "en": "Yebyu",
+        "my": "ရေဖြူ",
+        "parentCode": "MMR006001",
+        "lat": 14.63643185,
+        "lon": 98.15024807
+      },
+      {
+        "code": "MMR006005",
+        "en": "Myeik",
+        "my": "မြိတ်",
+        "parentCode": "MMR006002",
+        "lat": 12.48129787,
+        "lon": 98.75158108
+      },
+      {
+        "code": "MMR006006",
+        "en": "Kyunsu",
+        "my": "ကျွန်းစု",
+        "parentCode": "MMR006002",
+        "lat": 11.66215222,
+        "lon": 98.45549732
+      },
+      {
+        "code": "MMR006007",
+        "en": "Palaw",
+        "my": "ပုလော",
+        "parentCode": "MMR006002",
+        "lat": 13.11416443,
+        "lon": 98.71379389
+      },
+      {
+        "code": "MMR006008",
+        "en": "Tanintharyi",
+        "my": "တနင်္သာရီ",
+        "parentCode": "MMR006002",
+        "lat": 12.3860644,
+        "lon": 99.17899622
+      },
+      {
+        "code": "MMR006009",
+        "en": "Kawthoung",
+        "my": "ကော့သောင်း",
+        "parentCode": "MMR006003",
+        "lat": 10.45206679,
+        "lon": 98.6447704
+      },
+      {
+        "code": "MMR006010",
+        "en": "Bokpyin",
+        "my": "ဘုတ်ပြင်း",
+        "parentCode": "MMR006003",
+        "lat": 11.22302773,
+        "lon": 99.00521823
+      },
+      {
+        "code": "MMR007001",
+        "en": "Bago",
+        "my": "ပဲခူး",
+        "parentCode": "MMR007001",
+        "lat": 17.52639999,
+        "lon": 96.40050003
+      },
+      {
+        "code": "MMR007002",
+        "en": "Thanatpin",
+        "my": "သနပ်ပင်",
+        "parentCode": "MMR007001",
+        "lat": 17.25816218,
+        "lon": 96.70237345
+      },
+      {
+        "code": "MMR007003",
+        "en": "Kawa",
+        "my": "ကဝ",
+        "parentCode": "MMR007001",
+        "lat": 17.00987614,
+        "lon": 96.59420977
+      },
+      {
+        "code": "MMR007004",
+        "en": "Waw",
+        "my": "ဝေါ",
+        "parentCode": "MMR007001",
+        "lat": 17.54570108,
+        "lon": 96.73949236
+      },
+      {
+        "code": "MMR007005",
+        "en": "Nyaunglebin",
+        "my": "ညောင်လေးပင်",
+        "parentCode": "MMR007001",
+        "lat": 17.9120005,
+        "lon": 96.74692425
+      },
+      {
+        "code": "MMR007006",
+        "en": "Kyauktaga",
+        "my": "ကျောက်တံခါး",
+        "parentCode": "MMR007001",
+        "lat": 18.1956766,
+        "lon": 96.39049313
+      },
+      {
+        "code": "MMR007007",
+        "en": "Daik-U",
+        "my": "ဒိုက်ဦး",
+        "parentCode": "MMR007001",
+        "lat": 17.77200663,
+        "lon": 96.57539268
+      },
+      {
+        "code": "MMR007008",
+        "en": "Shwegyin",
+        "my": "ရွှေကျင်",
+        "parentCode": "MMR007001",
+        "lat": 17.85583928,
+        "lon": 97.01929719
+      },
+      {
+        "code": "MMR007009",
+        "en": "Taungoo",
+        "my": "တောင်ငူ",
+        "parentCode": "MMR007002",
+        "lat": 19.00954479,
+        "lon": 96.20757031
+      },
+      {
+        "code": "MMR007010",
+        "en": "Yedashe",
+        "my": "ရေတာရှည်",
+        "parentCode": "MMR007002",
+        "lat": 19.27654455,
+        "lon": 96.16219118
+      },
+      {
+        "code": "MMR007011",
+        "en": "Kyaukkyi",
+        "my": "ကျောက်ကြီး",
+        "parentCode": "MMR007002",
+        "lat": 18.38982694,
+        "lon": 96.8184496
+      },
+      {
+        "code": "MMR007012",
+        "en": "Phyu",
+        "my": "ဖြူး",
+        "parentCode": "MMR007002",
+        "lat": 18.53082476,
+        "lon": 96.26625001
+      },
+      {
+        "code": "MMR007013",
+        "en": "Oktwin",
+        "my": "အုတ်တွင်း",
+        "parentCode": "MMR007002",
+        "lat": 18.76907745,
+        "lon": 96.19483935
+      },
+      {
+        "code": "MMR007014",
+        "en": "Htantabin",
+        "my": "ထန်းတပင်",
+        "parentCode": "MMR007002",
+        "lat": 18.73692497,
+        "lon": 96.52079905
+      },
+      {
+        "code": "MMR008001",
+        "en": "Pyay",
+        "my": "ပြည်",
+        "parentCode": "MMR008001",
+        "lat": 18.91419027,
+        "lon": 95.27460668
+      },
+      {
+        "code": "MMR008002",
+        "en": "Paukkhaung",
+        "my": "ပေါက်ခေါင်း",
+        "parentCode": "MMR008001",
+        "lat": 18.96478638,
+        "lon": 95.65147955
+      },
+      {
+        "code": "MMR008003",
+        "en": "Padaung",
+        "my": "ပန်းတောင်း",
+        "parentCode": "MMR008001",
+        "lat": 18.67043455,
+        "lon": 94.92709391
+      },
+      {
+        "code": "MMR008004",
+        "en": "Paungde",
+        "my": "ပေါင်းတည်",
+        "parentCode": "MMR008001",
+        "lat": 18.63666257,
+        "lon": 95.63218301
+      },
+      {
+        "code": "MMR008005",
+        "en": "Thegon",
+        "my": "သဲကုန်း",
+        "parentCode": "MMR008001",
+        "lat": 18.6058079,
+        "lon": 95.42614323
+      },
+      {
+        "code": "MMR008006",
+        "en": "Shwedaung",
+        "my": "ရွှေတောင်",
+        "parentCode": "MMR008001",
+        "lat": 18.5613267,
+        "lon": 95.17174183
+      },
+      {
+        "code": "MMR008007",
+        "en": "Thayarwady",
+        "my": "သာယာဝတီ",
+        "parentCode": "MMR008002",
+        "lat": 17.69178795,
+        "lon": 95.78713179
+      },
+      {
+        "code": "MMR008008",
+        "en": "Letpadan",
+        "my": "လက်ပံတန်း",
+        "parentCode": "MMR008002",
+        "lat": 17.87090665,
+        "lon": 95.86337754
+      },
+      {
+        "code": "MMR008009",
+        "en": "Minhla",
+        "my": "မင်းလှ",
+        "parentCode": "MMR008002",
+        "lat": 17.98078901,
+        "lon": 95.71531661
+      },
+      {
+        "code": "MMR008010",
+        "en": "Okpho",
+        "my": "အုတ်ဖို",
+        "parentCode": "MMR008002",
+        "lat": 18.17728258,
+        "lon": 95.87957397
+      },
+      {
+        "code": "MMR008011",
+        "en": "Zigon",
+        "my": "ဇီးကုန်း",
+        "parentCode": "MMR008002",
+        "lat": 18.34628049,
+        "lon": 95.66898152
+      },
+      {
+        "code": "MMR008012",
+        "en": "Nattalin",
+        "my": "နတ်တလင်း",
+        "parentCode": "MMR008002",
+        "lat": 18.51768047,
+        "lon": 95.7931503
+      },
+      {
+        "code": "MMR008013",
+        "en": "Monyo",
+        "my": "မိုးညို",
+        "parentCode": "MMR008002",
+        "lat": 18.08939424,
+        "lon": 95.49493284
+      },
+      {
+        "code": "MMR008014",
+        "en": "Gyobingauk",
+        "my": "ကြို့ပင်ကောက်",
+        "parentCode": "MMR008002",
+        "lat": 18.27146175,
+        "lon": 95.66261837
+      },
+      {
+        "code": "MMR009001",
+        "en": "Magway",
+        "my": "မကွေး",
+        "parentCode": "MMR009001",
+        "lat": 20.07000855,
+        "lon": 95.09918719
+      },
+      {
+        "code": "MMR009002",
+        "en": "Yenangyaung",
+        "my": "ရေနံချောင်း",
+        "parentCode": "MMR009001",
+        "lat": 20.46347576,
+        "lon": 95.00063588
+      },
+      {
+        "code": "MMR009003",
+        "en": "Chauk",
+        "my": "ချောက်",
+        "parentCode": "MMR009001",
+        "lat": 20.73285666,
+        "lon": 94.87232053
+      },
+      {
+        "code": "MMR009004",
+        "en": "Taungdwingyi",
+        "my": "တောင်တွင်းကြီး",
+        "parentCode": "MMR009001",
+        "lat": 19.87598809,
+        "lon": 95.5668711
+      },
+      {
+        "code": "MMR009005",
+        "en": "Myothit",
+        "my": "မြို့သစ်",
+        "parentCode": "MMR009001",
+        "lat": 20.17772265,
+        "lon": 95.49414903
+      },
+      {
+        "code": "MMR009006",
+        "en": "Natmauk",
+        "my": "နတ်မောက်",
+        "parentCode": "MMR009001",
+        "lat": 20.52437975,
+        "lon": 95.44874178
+      },
+      {
+        "code": "MMR009007",
+        "en": "Minbu",
+        "my": "မင်းဘူး",
+        "parentCode": "MMR009002",
+        "lat": 20.09605437,
+        "lon": 94.73340772
+      },
+      {
+        "code": "MMR009008",
+        "en": "Pwintbyu",
+        "my": "ပွင့်ဖြူ",
+        "parentCode": "MMR009002",
+        "lat": 20.31827476,
+        "lon": 94.60753781
+      },
+      {
+        "code": "MMR009009",
+        "en": "Ngape",
+        "my": "ငဖဲ",
+        "parentCode": "MMR009002",
+        "lat": 19.95540766,
+        "lon": 94.43892478
+      },
+      {
+        "code": "MMR009010",
+        "en": "Salin",
+        "my": "စလင်း",
+        "parentCode": "MMR009002",
+        "lat": 20.69899825,
+        "lon": 94.51952424
+      },
+      {
+        "code": "MMR009011",
+        "en": "Sidoktaya",
+        "my": "စေတုတ္ထရာ",
+        "parentCode": "MMR009002",
+        "lat": 20.53296286,
+        "lon": 94.16404744
+      },
+      {
+        "code": "MMR009012",
+        "en": "Thayet",
+        "my": "သရက်",
+        "parentCode": "MMR009003",
+        "lat": 19.37504241,
+        "lon": 95.08392526
+      },
+      {
+        "code": "MMR009013",
+        "en": "Minhla",
+        "my": "မင်းလှ",
+        "parentCode": "MMR009003",
+        "lat": 19.76628244,
+        "lon": 94.72604564
+      },
+      {
+        "code": "MMR009014",
+        "en": "Mindon",
+        "my": "မင်းတုန်း",
+        "parentCode": "MMR009003",
+        "lat": 19.34313057,
+        "lon": 94.74697833
+      },
+      {
+        "code": "MMR009015",
+        "en": "Kamma",
+        "my": "ကံမ",
+        "parentCode": "MMR009003",
+        "lat": 19.01483545,
+        "lon": 94.89109184
+      },
+      {
+        "code": "MMR009016",
+        "en": "Aunglan",
+        "my": "အောင်လံ",
+        "parentCode": "MMR009003",
+        "lat": 19.20495899,
+        "lon": 95.50134747
+      },
+      {
+        "code": "MMR009017",
+        "en": "Sinbaungwe",
+        "my": "ဆင်ပေါင်ဝဲ",
+        "parentCode": "MMR009003",
+        "lat": 19.65580728,
+        "lon": 95.34603672
+      },
+      {
+        "code": "MMR009018",
+        "en": "Pakokku",
+        "my": "ပခုက္ကူ",
+        "parentCode": "MMR009004",
+        "lat": 21.19527804,
+        "lon": 94.77824793
+      },
+      {
+        "code": "MMR009019",
+        "en": "Yesagyo",
+        "my": "ရေစကြို",
+        "parentCode": "MMR009004",
+        "lat": 21.6176255,
+        "lon": 95.17914205
+      },
+      {
+        "code": "MMR009020",
+        "en": "Myaing",
+        "my": "မြိုင်",
+        "parentCode": "MMR009004",
+        "lat": 21.62761186,
+        "lon": 94.85172561
+      },
+      {
+        "code": "MMR009021",
+        "en": "Pauk",
+        "my": "ပေါက်",
+        "parentCode": "MMR009004",
+        "lat": 21.5038578,
+        "lon": 94.50991935
+      },
+      {
+        "code": "MMR009022",
+        "en": "Seikphyu",
+        "my": "ဆိပ်ဖြူ",
+        "parentCode": "MMR009004",
+        "lat": 21.05232472,
+        "lon": 94.53905473
+      },
+      {
+        "code": "MMR009023",
+        "en": "Gangaw",
+        "my": "ဂန့်ဂေါ",
+        "parentCode": "MMR009005",
+        "lat": 22.28151166,
+        "lon": 94.14308125
+      },
+      {
+        "code": "MMR009024",
+        "en": "Tilin",
+        "my": "ထီးလင်း",
+        "parentCode": "MMR009005",
+        "lat": 21.73052103,
+        "lon": 94.17379068
+      },
+      {
+        "code": "MMR009025",
+        "en": "Saw",
+        "my": "ဆော",
+        "parentCode": "MMR009005",
+        "lat": 21.20964609,
+        "lon": 94.20394573
+      },
+      {
+        "code": "MMR010001",
+        "en": "Aungmyaythazan",
+        "my": "အောင်မြေသာစံ",
+        "parentCode": "MMR010001",
+        "lat": 22.00335085,
+        "lon": 96.09700081
+      },
+      {
+        "code": "MMR010002",
+        "en": "Chanayethazan",
+        "my": "ချမ်းအေးသာစံ",
+        "parentCode": "MMR010001",
+        "lat": 21.97536068,
+        "lon": 96.09491012
+      },
+      {
+        "code": "MMR010003",
+        "en": "Mahaaungmyay",
+        "my": "မဟာအောင်မြေ",
+        "parentCode": "MMR010001",
+        "lat": 21.95965016,
+        "lon": 96.09136742
+      },
+      {
+        "code": "MMR010004",
+        "en": "Chanmyathazi",
+        "my": "ချမ်းမြသာစည်",
+        "parentCode": "MMR010001",
+        "lat": 21.9323078,
+        "lon": 96.10938241
+      },
+      {
+        "code": "MMR010005",
+        "en": "Pyigyitagon",
+        "my": "ပြည်ကြီးတံခွန်",
+        "parentCode": "MMR010001",
+        "lat": 21.90172285,
+        "lon": 96.10658859
+      },
+      {
+        "code": "MMR010006",
+        "en": "Amarapura",
+        "my": "အမရပူရ",
+        "parentCode": "MMR010001",
+        "lat": 21.86322294,
+        "lon": 96.10315999
+      },
+      {
+        "code": "MMR010007",
+        "en": "Patheingyi",
+        "my": "ပုသိမ်ကြီး",
+        "parentCode": "MMR010001",
+        "lat": 21.98899566,
+        "lon": 96.21376915
+      },
+      {
+        "code": "MMR010008",
+        "en": "Pyinoolwin",
+        "my": "ပြင်ဦးလွင်",
+        "parentCode": "MMR010002",
+        "lat": 22.0207417,
+        "lon": 96.54224931
+      },
+      {
+        "code": "MMR010009",
+        "en": "Madaya",
+        "my": "မတ္တရာ",
+        "parentCode": "MMR010002",
+        "lat": 22.20526177,
+        "lon": 96.17890829
+      },
+      {
+        "code": "MMR010010",
+        "en": "Singu",
+        "my": "စဉ့်ကူး",
+        "parentCode": "MMR010002",
+        "lat": 22.55078241,
+        "lon": 96.13894679
+      },
+      {
+        "code": "MMR010011",
+        "en": "Mogoke",
+        "my": "မိုးကုတ်",
+        "parentCode": "MMR010002",
+        "lat": 22.90763072,
+        "lon": 96.43951377
+      },
+      {
+        "code": "MMR010012",
+        "en": "Thabeikkyin",
+        "my": "သပိတ်ကျင်း",
+        "parentCode": "MMR010002",
+        "lat": 23.19113868,
+        "lon": 96.0668951
+      },
+      {
+        "code": "MMR010013",
+        "en": "Kyaukse",
+        "my": "ကျောက်ဆည်",
+        "parentCode": "MMR010003",
+        "lat": 21.72518603,
+        "lon": 96.60358
+      },
+      {
+        "code": "MMR010014",
+        "en": "Sintgaing",
+        "my": "စဉ့်ကိုင်",
+        "parentCode": "MMR010003",
+        "lat": 21.74982654,
+        "lon": 96.13944927
+      },
+      {
+        "code": "MMR010015",
+        "en": "Myittha",
+        "my": "မြစ်သား",
+        "parentCode": "MMR010003",
+        "lat": 21.34193932,
+        "lon": 96.21299418
+      },
+      {
+        "code": "MMR010016",
+        "en": "Tada-U",
+        "my": "တံတားဦး",
+        "parentCode": "MMR010003",
+        "lat": 21.69295648,
+        "lon": 95.90123977
+      },
+      {
+        "code": "MMR010017",
+        "en": "Myingyan",
+        "my": "မြင်းခြံ",
+        "parentCode": "MMR010004",
+        "lat": 21.5562516,
+        "lon": 95.47327417
+      },
+      {
+        "code": "MMR010018",
+        "en": "Taungtha",
+        "my": "တောင်သာ",
+        "parentCode": "MMR010004",
+        "lat": 21.20573375,
+        "lon": 95.41666605
+      },
+      {
+        "code": "MMR010019",
+        "en": "Natogyi",
+        "my": "နွားထိုးကြီး",
+        "parentCode": "MMR010004",
+        "lat": 21.46104302,
+        "lon": 95.73017245
+      },
+      {
+        "code": "MMR010020",
+        "en": "Kyaukpadaung",
+        "my": "ကျောက်ပန်းတောင်း",
+        "parentCode": "MMR010005",
+        "lat": 20.82952911,
+        "lon": 95.28052672
+      },
+      {
+        "code": "MMR010021",
+        "en": "Ngazun",
+        "my": "ငါန်းဇွန်",
+        "parentCode": "MMR010004",
+        "lat": 21.76885087,
+        "lon": 95.59963411
+      },
+      {
+        "code": "MMR010022",
+        "en": "Nyaung-U",
+        "my": "ညောင်ဦး",
+        "parentCode": "MMR010005",
+        "lat": 21.08614729,
+        "lon": 95.01988176
+      },
+      {
+        "code": "MMR010023",
+        "en": "Yamethin",
+        "my": "ရမည်းသင်း",
+        "parentCode": "MMR010006",
+        "lat": 20.3922881,
+        "lon": 96.1102638
+      },
+      {
+        "code": "MMR010024",
+        "en": "Pyawbwe",
+        "my": "ပျော်ဘွယ်",
+        "parentCode": "MMR010006",
+        "lat": 20.58512462,
+        "lon": 95.95429237
+      },
+      {
+        "code": "MMR010028",
+        "en": "Meiktila",
+        "my": "မိတ္ထီလာ",
+        "parentCode": "MMR010007",
+        "lat": 20.82828714,
+        "lon": 95.74961237
+      },
+      {
+        "code": "MMR010029",
+        "en": "Mahlaing",
+        "my": "မလှိုင်",
+        "parentCode": "MMR010007",
+        "lat": 21.10493611,
+        "lon": 95.65535618
+      },
+      {
+        "code": "MMR010030",
+        "en": "Thazi",
+        "my": "သာစည်",
+        "parentCode": "MMR010007",
+        "lat": 20.7813931,
+        "lon": 96.25340914
+      },
+      {
+        "code": "MMR010031",
+        "en": "Wundwin",
+        "my": "ဝမ်းတွင်း",
+        "parentCode": "MMR010007",
+        "lat": 21.19998727,
+        "lon": 95.99937694
+      },
+      {
+        "code": "MMR011001",
+        "en": "Mawlamyine",
+        "my": "မော်လမြိုင်",
+        "parentCode": "MMR011001",
+        "lat": 16.44059803,
+        "lon": 97.63968924
+      },
+      {
+        "code": "MMR011002",
+        "en": "Kyaikmaraw",
+        "my": "ကျိုက်မရော",
+        "parentCode": "MMR011001",
+        "lat": 16.33817422,
+        "lon": 97.85660278
+      },
+      {
+        "code": "MMR011003",
+        "en": "Chaungzon",
+        "my": "ချောင်းဆုံ",
+        "parentCode": "MMR011001",
+        "lat": 16.35192848,
+        "lon": 97.52713607
+      },
+      {
+        "code": "MMR011004",
+        "en": "Thanbyuzayat",
+        "my": "သံဖြူဇရပ်",
+        "parentCode": "MMR011001",
+        "lat": 15.85346841,
+        "lon": 97.77670084
+      },
+      {
+        "code": "MMR011005",
+        "en": "Mudon",
+        "my": "မုဒုံ",
+        "parentCode": "MMR011001",
+        "lat": 16.17841931,
+        "lon": 97.70971067
+      },
+      {
+        "code": "MMR011006",
+        "en": "Ye",
+        "my": "ရေး",
+        "parentCode": "MMR011001",
+        "lat": 15.27961542,
+        "lon": 97.9645241
+      },
+      {
+        "code": "MMR011007",
+        "en": "Thaton",
+        "my": "သထုံ",
+        "parentCode": "MMR011002",
+        "lat": 16.97969346,
+        "lon": 97.30731417
+      },
+      {
+        "code": "MMR011008",
+        "en": "Paung",
+        "my": "ပေါင်",
+        "parentCode": "MMR011002",
+        "lat": 16.66152776,
+        "lon": 97.46530387
+      },
+      {
+        "code": "MMR011009",
+        "en": "Kyaikto",
+        "my": "ကျိုက်ထို",
+        "parentCode": "MMR011002",
+        "lat": 17.43101728,
+        "lon": 97.02470748
+      },
+      {
+        "code": "MMR011010",
+        "en": "Bilin",
+        "my": "ဘီးလင်း",
+        "parentCode": "MMR011002",
+        "lat": 17.35256796,
+        "lon": 97.29397324
+      },
+      {
+        "code": "MMR012001",
+        "en": "Sittwe",
+        "my": "စစ်တွေ",
+        "parentCode": "MMR012001",
+        "lat": 20.20645099,
+        "lon": 92.83823184
+      },
+      {
+        "code": "MMR012002",
+        "en": "Ponnagyun",
+        "my": "ပုဏ္ဏားကျွန်း",
+        "parentCode": "MMR012001",
+        "lat": 20.60600627,
+        "lon": 92.91747863
+      },
+      {
+        "code": "MMR012003",
+        "en": "Mrauk-U",
+        "my": "မြောက်ဦး",
+        "parentCode": "MMR012005",
+        "lat": 20.60778079,
+        "lon": 93.16490123
+      },
+      {
+        "code": "MMR012004",
+        "en": "Kyauktaw",
+        "my": "ကျောက်တော်",
+        "parentCode": "MMR012005",
+        "lat": 20.90100992,
+        "lon": 92.9668422
+      },
+      {
+        "code": "MMR012005",
+        "en": "Minbya",
+        "my": "မင်းပြား",
+        "parentCode": "MMR012005",
+        "lat": 20.54908873,
+        "lon": 93.52111531
+      },
+      {
+        "code": "MMR012006",
+        "en": "Myebon",
+        "my": "မြေပုံ",
+        "parentCode": "MMR012005",
+        "lat": 20.06348219,
+        "lon": 93.53767891
+      },
+      {
+        "code": "MMR012007",
+        "en": "Pauktaw",
+        "my": "ပေါက်တော",
+        "parentCode": "MMR012001",
+        "lat": 20.26490992,
+        "lon": 93.09518496
+      },
+      {
+        "code": "MMR012008",
+        "en": "Rathedaung",
+        "my": "ရသေ့တောင်",
+        "parentCode": "MMR012001",
+        "lat": 20.5161061,
+        "lon": 92.79256645
+      },
+      {
+        "code": "MMR012009",
+        "en": "Maungdaw",
+        "my": "မောင်တော",
+        "parentCode": "MMR012002",
+        "lat": 20.96353486,
+        "lon": 92.33636784
+      },
+      {
+        "code": "MMR012010",
+        "en": "Buthidaung",
+        "my": "ဘူးသီးတောင်",
+        "parentCode": "MMR012002",
+        "lat": 20.98249972,
+        "lon": 92.54316053
+      },
+      {
+        "code": "MMR012011",
+        "en": "Kyaukpyu",
+        "my": "ကျောက်ဖြူ",
+        "parentCode": "MMR012003",
+        "lat": 19.43292074,
+        "lon": 93.76136979
+      },
+      {
+        "code": "MMR012012",
+        "en": "Munaung",
+        "my": "မာန်အောင်",
+        "parentCode": "MMR012003",
+        "lat": 18.7943936,
+        "lon": 93.63197393
+      },
+      {
+        "code": "MMR012013",
+        "en": "Ramree",
+        "my": "ရမ်းဗြဲ",
+        "parentCode": "MMR012003",
+        "lat": 19.12434902,
+        "lon": 93.8502995
+      },
+      {
+        "code": "MMR012014",
+        "en": "Ann",
+        "my": "အမ်း",
+        "parentCode": "MMR012003",
+        "lat": 19.9233013,
+        "lon": 94.03656303
+      },
+      {
+        "code": "MMR012015",
+        "en": "Thandwe",
+        "my": "သံတွဲ",
+        "parentCode": "MMR012004",
+        "lat": 18.34459944,
+        "lon": 94.61672921
+      },
+      {
+        "code": "MMR012016",
+        "en": "Toungup",
+        "my": "တောင်ကုတ်",
+        "parentCode": "MMR012004",
+        "lat": 19.08012612,
+        "lon": 94.37121874
+      },
+      {
+        "code": "MMR012017",
+        "en": "Gwa",
+        "my": "ဂွ",
+        "parentCode": "MMR012004",
+        "lat": 17.73798568,
+        "lon": 94.70462051
+      },
+      {
+        "code": "MMR013001",
+        "en": "Insein",
+        "my": "အင်းစိန်",
+        "parentCode": "MMR013001",
+        "lat": 16.90282377,
+        "lon": 96.10389661
+      },
+      {
+        "code": "MMR013002",
+        "en": "Mingaladon",
+        "my": "မင်္ဂလာဒုံ",
+        "parentCode": "MMR013001",
+        "lat": 16.98990784,
+        "lon": 96.13499718
+      },
+      {
+        "code": "MMR013003",
+        "en": "Hmawbi",
+        "my": "မှော်ဘီ",
+        "parentCode": "MMR013001",
+        "lat": 17.13096716,
+        "lon": 96.04363649
+      },
+      {
+        "code": "MMR013004",
+        "en": "Hlegu",
+        "my": "လှည်းကူး",
+        "parentCode": "MMR013001",
+        "lat": 17.29103176,
+        "lon": 96.20272976
+      },
+      {
+        "code": "MMR013005",
+        "en": "Taikkyi",
+        "my": "တိုက်ကြီး",
+        "parentCode": "MMR013001",
+        "lat": 17.48235298,
+        "lon": 95.90787382
+      },
+      {
+        "code": "MMR013006",
+        "en": "Htantabin",
+        "my": "ထန်းတပင်",
+        "parentCode": "MMR013001",
+        "lat": 17.05679492,
+        "lon": 95.88870224
+      },
+      {
+        "code": "MMR013007",
+        "en": "Shwepyithar",
+        "my": "ရွှေပြည်သာ",
+        "parentCode": "MMR013001",
+        "lat": 16.97789192,
+        "lon": 96.07270064
+      },
+      {
+        "code": "MMR013009",
+        "en": "Thingangyun",
+        "my": "သင်္ဃန်းကျွန်း",
+        "parentCode": "MMR013002",
+        "lat": 16.82975272,
+        "lon": 96.19534226
+      },
+      {
+        "code": "MMR013010",
+        "en": "Yankin",
+        "my": "ရန်ကင်း",
+        "parentCode": "MMR013002",
+        "lat": 16.83733177,
+        "lon": 96.16409074
+      },
+      {
+        "code": "MMR013011",
+        "en": "South Okkalapa",
+        "my": "တောင်ဥက္ကလာပ",
+        "parentCode": "MMR013002",
+        "lat": 16.84936123,
+        "lon": 96.18315896
+      },
+      {
+        "code": "MMR013012",
+        "en": "North Okkalapa",
+        "my": "မြောက်ဥက္ကလာပ",
+        "parentCode": "MMR013002",
+        "lat": 16.91598129,
+        "lon": 96.15940276
+      },
+      {
+        "code": "MMR013013",
+        "en": "Thaketa",
+        "my": "သာကေတ",
+        "parentCode": "MMR013002",
+        "lat": 16.79600134,
+        "lon": 96.21187724
+      },
+      {
+        "code": "MMR013014",
+        "en": "Dawbon",
+        "my": "ဒေါပုံ",
+        "parentCode": "MMR013002",
+        "lat": 16.79077459,
+        "lon": 96.19083645
+      },
+      {
+        "code": "MMR013015",
+        "en": "Tamwe",
+        "my": "တာမွေ",
+        "parentCode": "MMR013002",
+        "lat": 16.80945538,
+        "lon": 96.17881381
+      },
+      {
+        "code": "MMR013016",
+        "en": "Pazundaung",
+        "my": "ပုဇွန်တောင်",
+        "parentCode": "MMR013002",
+        "lat": 16.77798594,
+        "lon": 96.17457491
+      },
+      {
+        "code": "MMR013017",
+        "en": "Botahtaung",
+        "my": "ဗိုလ်တထောင်",
+        "parentCode": "MMR013002",
+        "lat": 16.77308675,
+        "lon": 96.17399623
+      },
+      {
+        "code": "MMR013018",
+        "en": "Dagon Myothit (South)",
+        "my": "ဒဂုံမြို့သစ် (တောင်ပိုင်း)",
+        "parentCode": "MMR013002",
+        "lat": 16.91666975,
+        "lon": 96.27398777
+      },
+      {
+        "code": "MMR013019",
+        "en": "Dagon Myothit (North)",
+        "my": "ဒဂုံမြို့သစ် (မြောက်ပိုင်း)",
+        "parentCode": "MMR013002",
+        "lat": 16.88624791,
+        "lon": 96.17984169
+      },
+      {
+        "code": "MMR013020",
+        "en": "Dagon Myothit (East)",
+        "my": "ဒဂုံမြို့သစ် (အရှေ့ပိုင်း)",
+        "parentCode": "MMR013002",
+        "lat": 16.94512022,
+        "lon": 96.25067817
+      },
+      {
+        "code": "MMR013021",
+        "en": "Dagon Myothit (Seikkan)",
+        "my": "ဒဂုံမြို့သစ် (ဆိပ်ကမ်း)",
+        "parentCode": "MMR013002",
+        "lat": 16.87822373,
+        "lon": 96.29035613
+      },
+      {
+        "code": "MMR013022",
+        "en": "Mingalartaungnyunt",
+        "my": "မင်္ဂလာတောင်ညွန့်",
+        "parentCode": "MMR013002",
+        "lat": 16.793927,
+        "lon": 96.18401195
+      },
+      {
+        "code": "MMR013023",
+        "en": "Thanlyin",
+        "my": "သန်လျင်",
+        "parentCode": "MMR013003",
+        "lat": 16.82495578,
+        "lon": 96.35961301
+      },
+      {
+        "code": "MMR013024",
+        "en": "Kyauktan",
+        "my": "ကျောက်တန်း",
+        "parentCode": "MMR013003",
+        "lat": 16.60234565,
+        "lon": 96.46946972
+      },
+      {
+        "code": "MMR013025",
+        "en": "Thongwa",
+        "my": "သုံးခွ",
+        "parentCode": "MMR013003",
+        "lat": 16.7082457,
+        "lon": 96.58778964
+      },
+      {
+        "code": "MMR013026",
+        "en": "Kayan",
+        "my": "ခရမ်း",
+        "parentCode": "MMR013003",
+        "lat": 16.88673935,
+        "lon": 96.58188005
+      },
+      {
+        "code": "MMR013027",
+        "en": "Twantay",
+        "my": "တွံတေး",
+        "parentCode": "MMR013003",
+        "lat": 16.73779566,
+        "lon": 95.98545886
+      },
+      {
+        "code": "MMR013028",
+        "en": "Kawhmu",
+        "my": "ကော့မှူး",
+        "parentCode": "MMR013003",
+        "lat": 16.54306375,
+        "lon": 96.10885828
+      },
+      {
+        "code": "MMR013029",
+        "en": "Kungyangon",
+        "my": "ကွမ်းခြံကုန်း",
+        "parentCode": "MMR013003",
+        "lat": 16.43262617,
+        "lon": 96.11047718
+      },
+      {
+        "code": "MMR013030",
+        "en": "Dala",
+        "my": "ဒလ",
+        "parentCode": "MMR013003",
+        "lat": 16.67991598,
+        "lon": 96.13825754
+      },
+      {
+        "code": "MMR013031",
+        "en": "Seikgyikanaungto",
+        "my": "ဆိပ်ကြီး/ခနောင်တို",
+        "parentCode": "MMR013003",
+        "lat": 16.76649676,
+        "lon": 96.11040694
+      },
+      {
+        "code": "MMR013032",
+        "en": "Cocokyun",
+        "my": "ကိုကိုးကျွန်း",
+        "parentCode": "MMR013003",
+        "lat": 14.87041159,
+        "lon": 93.62049852
+      },
+      {
+        "code": "MMR013033",
+        "en": "Kyauktada",
+        "my": "ကျောက်တံတား",
+        "parentCode": "MMR013004",
+        "lat": 16.7743332,
+        "lon": 96.16131697
+      },
+      {
+        "code": "MMR013034",
+        "en": "Pabedan",
+        "my": "ပန်းဘဲတန်း",
+        "parentCode": "MMR013004",
+        "lat": 16.77548142,
+        "lon": 96.15572775
+      },
+      {
+        "code": "MMR013035",
+        "en": "Lanmadaw",
+        "my": "လမ်းမတော်",
+        "parentCode": "MMR013004",
+        "lat": 16.7761608,
+        "lon": 96.14191474
+      },
+      {
+        "code": "MMR013036",
+        "en": "Latha",
+        "my": "လသာ",
+        "parentCode": "MMR013004",
+        "lat": 16.77616556,
+        "lon": 96.15051864
+      },
+      {
+        "code": "MMR013037",
+        "en": "Ahlone",
+        "my": "အလုံ",
+        "parentCode": "MMR013004",
+        "lat": 16.7855142,
+        "lon": 96.12699724
+      },
+      {
+        "code": "MMR013038",
+        "en": "Kyeemyindaing",
+        "my": "ကြည့်မြင်တိုင်",
+        "parentCode": "MMR013004",
+        "lat": 16.80646533,
+        "lon": 96.0925976
+      },
+      {
+        "code": "MMR013039",
+        "en": "Sanchaung",
+        "my": "စမ်းချောင်း",
+        "parentCode": "MMR013004",
+        "lat": 16.80699137,
+        "lon": 96.13353216
+      },
+      {
+        "code": "MMR013040",
+        "en": "Hlaing",
+        "my": "လှိုင်",
+        "parentCode": "MMR013004",
+        "lat": 16.84693303,
+        "lon": 96.12088316
+      },
+      {
+        "code": "MMR013041",
+        "en": "Kamaryut",
+        "my": "ကမာရွတ်",
+        "parentCode": "MMR013004",
+        "lat": 16.82329337,
+        "lon": 96.13152672
+      },
+      {
+        "code": "MMR013042",
+        "en": "Mayangone",
+        "my": "မရမ်းကုန်း",
+        "parentCode": "MMR013004",
+        "lat": 16.85931953,
+        "lon": 96.15344248
+      },
+      {
+        "code": "MMR013043",
+        "en": "Dagon",
+        "my": "ဒဂုံ",
+        "parentCode": "MMR013004",
+        "lat": 16.79300305,
+        "lon": 96.14449028
+      },
+      {
+        "code": "MMR013044",
+        "en": "Bahan",
+        "my": "ဗဟန်း",
+        "parentCode": "MMR013004",
+        "lat": 16.81105267,
+        "lon": 96.15700645
+      },
+      {
+        "code": "MMR013046",
+        "en": "Hlaingtharya (East)",
+        "my": "လှိုင်သာယာ (အရှေ့ပိုင်း)",
+        "parentCode": "MMR013001",
+        "lat": 16.8688221,
+        "lon": 96.06478162
+      },
+      {
+        "code": "MMR013047",
+        "en": "Hlaingtharya (West)",
+        "my": "လှိုင်သာယာ (အနောက်ပိုင်း)",
+        "parentCode": "MMR013001",
+        "lat": 16.89127675,
+        "lon": 96.03491738
+      },
+      {
+        "code": "MMR014001",
+        "en": "Taunggyi",
+        "my": "တောင်ကြီး",
+        "parentCode": "MMR014001",
+        "lat": 20.62528385,
+        "lon": 97.09044191
+      },
+      {
+        "code": "MMR014002",
+        "en": "Nyaungshwe",
+        "my": "ညောင်ရွှေ",
+        "parentCode": "MMR014001",
+        "lat": 20.35933032,
+        "lon": 96.90721608
+      },
+      {
+        "code": "MMR014003",
+        "en": "Hopong",
+        "my": "ဟိုပုံး",
+        "parentCode": "MMR014S002",
+        "lat": 21.00033391,
+        "lon": 97.25843352
+      },
+      {
+        "code": "MMR014004",
+        "en": "Hsihseng",
+        "my": "ဆီဆိုင်",
+        "parentCode": "MMR014S002",
+        "lat": 20.24277866,
+        "lon": 97.30632552
+      },
+      {
+        "code": "MMR014005",
+        "en": "Kalaw",
+        "my": "ကလော",
+        "parentCode": "MMR014001",
+        "lat": 20.73268264,
+        "lon": 96.77490089
+      },
+      {
+        "code": "MMR014006",
+        "en": "Pindaya",
+        "my": "ပင်းတယ",
+        "parentCode": "MMR014S001",
+        "lat": 20.92286675,
+        "lon": 96.66921993
+      },
+      {
+        "code": "MMR014007",
+        "en": "Ywangan",
+        "my": "ရွာငံ",
+        "parentCode": "MMR014S001",
+        "lat": 21.28373821,
+        "lon": 96.50094702
+      },
+      {
+        "code": "MMR014008",
+        "en": "Lawksawk",
+        "my": "ရပ်စောက်",
+        "parentCode": "MMR014001",
+        "lat": 21.63589378,
+        "lon": 96.971065
+      },
+      {
+        "code": "MMR014009",
+        "en": "Pinlaung",
+        "my": "ပင်လောင်း",
+        "parentCode": "MMR014S002",
+        "lat": 20.13690915,
+        "lon": 96.67353911
+      },
+      {
+        "code": "MMR014010",
+        "en": "Pekon",
+        "my": "ဖယ်ခုံ",
+        "parentCode": "MMR014001",
+        "lat": 19.64459672,
+        "lon": 96.79529321
+      },
+      {
+        "code": "MMR014011",
+        "en": "Loilen",
+        "my": "လွိုင်လင်",
+        "parentCode": "MMR014002",
+        "lat": 20.86435845,
+        "lon": 97.46413756
+      },
+      {
+        "code": "MMR014012",
+        "en": "Laihka",
+        "my": "လဲချား",
+        "parentCode": "MMR014002",
+        "lat": 21.29966864,
+        "lon": 97.76209613
+      },
+      {
+        "code": "MMR014013",
+        "en": "Nansang",
+        "my": "နမ့်စန်",
+        "parentCode": "MMR014002",
+        "lat": 20.83260347,
+        "lon": 97.85092584
+      },
+      {
+        "code": "MMR014014",
+        "en": "Kunhing",
+        "my": "ကွန်ဟိန်း",
+        "parentCode": "MMR014002",
+        "lat": 21.26356454,
+        "lon": 98.4671261
+      },
+      {
+        "code": "MMR014015",
+        "en": "Kyethi",
+        "my": "ကျေးသီး",
+        "parentCode": "MMR014002",
+        "lat": 21.67706386,
+        "lon": 98.05656879
+      },
+      {
+        "code": "MMR014016",
+        "en": "Mongkaing",
+        "my": "မိုင်းကိုင်",
+        "parentCode": "MMR014002",
+        "lat": 21.74641326,
+        "lon": 97.50360937
+      },
+      {
+        "code": "MMR014017",
+        "en": "Monghsu",
+        "my": "မိုင်းရှူး",
+        "parentCode": "MMR014002",
+        "lat": 21.81702689,
+        "lon": 98.36793857
+      },
+      {
+        "code": "MMR014018",
+        "en": "Langkho",
+        "my": "လင်းခေး",
+        "parentCode": "MMR014003",
+        "lat": 20.08424773,
+        "lon": 97.95969973
+      },
+      {
+        "code": "MMR014019",
+        "en": "Mongnai",
+        "my": "မိုးနဲ",
+        "parentCode": "MMR014003",
+        "lat": 20.6924379,
+        "lon": 98.19399999
+      },
+      {
+        "code": "MMR014020",
+        "en": "Mawkmai",
+        "my": "မောက်မယ်",
+        "parentCode": "MMR014003",
+        "lat": 20.09583465,
+        "lon": 97.57272948
+      },
+      {
+        "code": "MMR014021",
+        "en": "Mongpan",
+        "my": "မိုင်းပန်",
+        "parentCode": "MMR014003",
+        "lat": 20.25725344,
+        "lon": 98.36356862
+      },
+      {
+        "code": "MMR015001",
+        "en": "Lashio",
+        "my": "လားရှိုး",
+        "parentCode": "MMR015001",
+        "lat": 22.92764963,
+        "lon": 97.8271123
+      },
+      {
+        "code": "MMR015002",
+        "en": "Hseni",
+        "my": "သိန္နီ",
+        "parentCode": "MMR015001",
+        "lat": 23.25744778,
+        "lon": 98.08544181
+      },
+      {
+        "code": "MMR015003",
+        "en": "Mongyai",
+        "my": "မိုင်းရယ်",
+        "parentCode": "MMR015001",
+        "lat": 22.4465142,
+        "lon": 97.99785531
+      },
+      {
+        "code": "MMR015004",
+        "en": "Tangyan",
+        "my": "တန့်ယန်း",
+        "parentCode": "MMR015001",
+        "lat": 22.41109958,
+        "lon": 98.42488859
+      },
+      {
+        "code": "MMR015005",
+        "en": "Pangsang",
+        "my": "ပန်ဆန်း",
+        "parentCode": "MMR015007",
+        "lat": 22.51682382,
+        "lon": 98.79161596
+      },
+      {
+        "code": "MMR015006",
+        "en": "Narphan",
+        "my": "နားဖန်း",
+        "parentCode": "MMR015007",
+        "lat": 22.56493741,
+        "lon": 99.16485586
+      },
+      {
+        "code": "MMR015007",
+        "en": "Pangwaun",
+        "my": "ပန်ဝိုင်",
+        "parentCode": "MMR015006",
+        "lat": 22.93777767,
+        "lon": 99.26600942
+      },
+      {
+        "code": "MMR015008",
+        "en": "Mongmao",
+        "my": "မိုင်းမော",
+        "parentCode": "MMR015006",
+        "lat": 22.94768519,
+        "lon": 98.8268971
+      },
+      {
+        "code": "MMR015009",
+        "en": "Muse",
+        "my": "မူဆယ်",
+        "parentCode": "MMR015002",
+        "lat": 23.90046986,
+        "lon": 97.99537203
+      },
+      {
+        "code": "MMR015010",
+        "en": "Namhkan",
+        "my": "နမ့်ခမ်း",
+        "parentCode": "MMR015002",
+        "lat": 23.67374193,
+        "lon": 97.55812371
+      },
+      {
+        "code": "MMR015011",
+        "en": "Kutkai",
+        "my": "ကွတ်ခိုင်",
+        "parentCode": "MMR015002",
+        "lat": 23.62732133,
+        "lon": 98.13685846
+      },
+      {
+        "code": "MMR015012",
+        "en": "Kyaukme",
+        "my": "ကျောက်မဲ",
+        "parentCode": "MMR015003",
+        "lat": 22.5758188,
+        "lon": 96.82345546
+      },
+      {
+        "code": "MMR015013",
+        "en": "Nawnghkio",
+        "my": "နောင်ချို",
+        "parentCode": "MMR015003",
+        "lat": 22.36986065,
+        "lon": 96.60857924
+      },
+      {
+        "code": "MMR015014",
+        "en": "Hsipaw",
+        "my": "သီပေါ",
+        "parentCode": "MMR015003",
+        "lat": 22.40190975,
+        "lon": 97.55452357
+      },
+      {
+        "code": "MMR015015",
+        "en": "Namtu",
+        "my": "နမ္မတူ",
+        "parentCode": "MMR015003",
+        "lat": 23.00695692,
+        "lon": 97.4748618
+      },
+      {
+        "code": "MMR015016",
+        "en": "Namhsan",
+        "my": "နမ့်ဆန်",
+        "parentCode": "MMR015S001",
+        "lat": 22.94530444,
+        "lon": 97.16199081
+      },
+      {
+        "code": "MMR015017",
+        "en": "Mongmit",
+        "my": "မိုးမိတ်",
+        "parentCode": "MMR015008",
+        "lat": 23.16263366,
+        "lon": 96.5449377
+      },
+      {
+        "code": "MMR015018",
+        "en": "Mabein",
+        "my": "မဘိမ်း",
+        "parentCode": "MMR015008",
+        "lat": 23.70130127,
+        "lon": 96.72718606
+      },
+      {
+        "code": "MMR015019",
+        "en": "Manton",
+        "my": "မန်တုံ",
+        "parentCode": "MMR015S001",
+        "lat": 23.39402154,
+        "lon": 97.34434555
+      },
+      {
+        "code": "MMR015020",
+        "en": "Kunlong",
+        "my": "ကွမ်းလုံ",
+        "parentCode": "MMR015001",
+        "lat": 23.43722019,
+        "lon": 98.59407659
+      },
+      {
+        "code": "MMR015021",
+        "en": "Hopang",
+        "my": "ဟိုပန်",
+        "parentCode": "MMR015006",
+        "lat": 23.22056476,
+        "lon": 98.78132336
+      },
+      {
+        "code": "MMR015022",
+        "en": "Laukkaing",
+        "my": "လောက်ကိုင်",
+        "parentCode": "MMR015S002",
+        "lat": 23.64789765,
+        "lon": 98.73400428
+      },
+      {
+        "code": "MMR015023",
+        "en": "Konkyan",
+        "my": "ကုန်းကြမ်း",
+        "parentCode": "MMR015S002",
+        "lat": 23.95189435,
+        "lon": 98.55108251
+      },
+      {
+        "code": "MMR015024",
+        "en": "Matman",
+        "my": "မက်မန်း",
+        "parentCode": "MMR015007",
+        "lat": 21.8699645,
+        "lon": 98.79431541
+      },
+      {
+        "code": "MMR016001",
+        "en": "Kengtung",
+        "my": "ကျိုင်းတုံ",
+        "parentCode": "MMR016001",
+        "lat": 21.24210112,
+        "lon": 99.76251473
+      },
+      {
+        "code": "MMR016002",
+        "en": "Mongkhet",
+        "my": "မိုင်းခတ်",
+        "parentCode": "MMR016001",
+        "lat": 21.69569507,
+        "lon": 99.31720908
+      },
+      {
+        "code": "MMR016003",
+        "en": "Mongyang",
+        "my": "မိုင်းယန်း",
+        "parentCode": "MMR016001",
+        "lat": 21.91562711,
+        "lon": 99.51524264
+      },
+      {
+        "code": "MMR016005",
+        "en": "Mongla",
+        "my": "မိုင်းလား",
+        "parentCode": "MMR016001",
+        "lat": 21.51136816,
+        "lon": 99.89535206
+      },
+      {
+        "code": "MMR016006",
+        "en": "Monghsat",
+        "my": "မိုင်းဆတ်",
+        "parentCode": "MMR016002",
+        "lat": 20.53171792,
+        "lon": 99.33349529
+      },
+      {
+        "code": "MMR016007",
+        "en": "Mongping",
+        "my": "မိုင်းပျဉ်း",
+        "parentCode": "MMR016001",
+        "lat": 21.11837652,
+        "lon": 99.02779297
+      },
+      {
+        "code": "MMR016008",
+        "en": "Mongton",
+        "my": "မိုင်းတုံ",
+        "parentCode": "MMR016002",
+        "lat": 20.2331588,
+        "lon": 98.93586832
+      },
+      {
+        "code": "MMR016009",
+        "en": "Tachileik",
+        "my": "တာချီလိတ်",
+        "parentCode": "MMR016003",
+        "lat": 20.68216635,
+        "lon": 99.92868835
+      },
+      {
+        "code": "MMR016010",
+        "en": "Monghpyak",
+        "my": "မိုင်းဖြတ်",
+        "parentCode": "MMR016003",
+        "lat": 20.95212219,
+        "lon": 99.95537698
+      },
+      {
+        "code": "MMR016011",
+        "en": "Mongyawng",
+        "my": "မိုင်းယောင်း",
+        "parentCode": "MMR016003",
+        "lat": 21.36999612,
+        "lon": 100.56216086
+      },
+      {
+        "code": "MMR017001",
+        "en": "Pathein",
+        "my": "ပုသိမ်",
+        "parentCode": "MMR017001",
+        "lat": 17.04826023,
+        "lon": 94.52318363
+      },
+      {
+        "code": "MMR017002",
+        "en": "Kangyidaunt",
+        "my": "ကန်ကြီးထောင့်",
+        "parentCode": "MMR017001",
+        "lat": 16.79013616,
+        "lon": 94.88722097
+      },
+      {
+        "code": "MMR017003",
+        "en": "Thabaung",
+        "my": "သာပေါင်း",
+        "parentCode": "MMR017001",
+        "lat": 17.14896982,
+        "lon": 94.78211597
+      },
+      {
+        "code": "MMR017004",
+        "en": "Ngapudaw",
+        "my": "ငပုတော",
+        "parentCode": "MMR017001",
+        "lat": 16.34324427,
+        "lon": 94.42073689
+      },
+      {
+        "code": "MMR017005",
+        "en": "Kyonpyaw",
+        "my": "ကျုံပျော်",
+        "parentCode": "MMR017001",
+        "lat": 17.31950129,
+        "lon": 95.28611127
+      },
+      {
+        "code": "MMR017006",
+        "en": "Yegyi",
+        "my": "ရေကြည်",
+        "parentCode": "MMR017001",
+        "lat": 17.34926974,
+        "lon": 94.95629506
+      },
+      {
+        "code": "MMR017007",
+        "en": "Kyaunggon",
+        "my": "ကျောင်းကုန်း",
+        "parentCode": "MMR017001",
+        "lat": 17.05761317,
+        "lon": 95.18773646
+      },
+      {
+        "code": "MMR017008",
+        "en": "Hinthada",
+        "my": "ဟင်္သာတ",
+        "parentCode": "MMR017002",
+        "lat": 17.62063325,
+        "lon": 95.39117493
+      },
+      {
+        "code": "MMR017009",
+        "en": "Zalun",
+        "my": "ဇလွန်",
+        "parentCode": "MMR017002",
+        "lat": 17.48123266,
+        "lon": 95.61820598
+      },
+      {
+        "code": "MMR017010",
+        "en": "Lemyethna",
+        "my": "လေးမျက်နှာ",
+        "parentCode": "MMR017002",
+        "lat": 17.60300041,
+        "lon": 94.99968009
+      },
+      {
+        "code": "MMR017011",
+        "en": "Myanaung",
+        "my": "မြန်အောင်",
+        "parentCode": "MMR017002",
+        "lat": 18.1110781,
+        "lon": 95.14257647
+      },
+      {
+        "code": "MMR017012",
+        "en": "Kyangin",
+        "my": "ကြံခင်း",
+        "parentCode": "MMR017002",
+        "lat": 18.31664203,
+        "lon": 95.05628088
+      },
+      {
+        "code": "MMR017013",
+        "en": "Ingapu",
+        "my": "အင်္ဂပူ",
+        "parentCode": "MMR017002",
+        "lat": 17.83934885,
+        "lon": 95.18099361
+      },
+      {
+        "code": "MMR017014",
+        "en": "Myaungmya",
+        "my": "မြောင်းမြ",
+        "parentCode": "MMR017003",
+        "lat": 16.53273674,
+        "lon": 94.91423455
+      },
+      {
+        "code": "MMR017015",
+        "en": "Einme",
+        "my": "အိမ်မဲ",
+        "parentCode": "MMR017003",
+        "lat": 16.76543877,
+        "lon": 95.08151832
+      },
+      {
+        "code": "MMR017016",
+        "en": "Labutta",
+        "my": "လပွတ္တာ",
+        "parentCode": "MMR017004",
+        "lat": 15.96203947,
+        "lon": 94.94987091
+      },
+      {
+        "code": "MMR017017",
+        "en": "Wakema",
+        "my": "ဝါးခယ်မ",
+        "parentCode": "MMR017003",
+        "lat": 16.55179787,
+        "lon": 95.22399404
+      },
+      {
+        "code": "MMR017018",
+        "en": "Mawlamyinegyun",
+        "my": "မော်လမြိုင်ကျွန်း",
+        "parentCode": "MMR017004",
+        "lat": 16.35400889,
+        "lon": 95.25320181
+      },
+      {
+        "code": "MMR017019",
+        "en": "Maubin",
+        "my": "မအူပင်",
+        "parentCode": "MMR017005",
+        "lat": 16.71535494,
+        "lon": 95.64515449
+      },
+      {
+        "code": "MMR017020",
+        "en": "Pantanaw",
+        "my": "ပန်းတနော်",
+        "parentCode": "MMR017005",
+        "lat": 16.98958351,
+        "lon": 95.38206363
+      },
+      {
+        "code": "MMR017021",
+        "en": "Nyaungdon",
+        "my": "ညောင်တုန်း",
+        "parentCode": "MMR017005",
+        "lat": 17.03229862,
+        "lon": 95.68448086
+      },
+      {
+        "code": "MMR017022",
+        "en": "Danubyu",
+        "my": "ဓနုဖြူ",
+        "parentCode": "MMR017005",
+        "lat": 17.24189733,
+        "lon": 95.55377344
+      },
+      {
+        "code": "MMR017023",
+        "en": "Pyapon",
+        "my": "ဖျာပုံ",
+        "parentCode": "MMR017006",
+        "lat": 16.06170812,
+        "lon": 95.65107435
+      },
+      {
+        "code": "MMR017024",
+        "en": "Bogale",
+        "my": "ဘိုကလေး",
+        "parentCode": "MMR017006",
+        "lat": 16.12952934,
+        "lon": 95.45048143
+      },
+      {
+        "code": "MMR017025",
+        "en": "Kyaiklat",
+        "my": "ကျိုက်လတ်",
+        "parentCode": "MMR017006",
+        "lat": 16.51366218,
+        "lon": 95.64830515
+      },
+      {
+        "code": "MMR017026",
+        "en": "Dedaye",
+        "my": "ဒေးဒရဲ",
+        "parentCode": "MMR017006",
+        "lat": 16.30301316,
+        "lon": 95.79705907
+      },
+      {
+        "code": "MMR018001",
+        "en": "Zay Yar Thi Ri",
+        "my": "ဇေယျာသီရိ",
+        "parentCode": "MMR018001",
+        "lat": 19.86594616,
+        "lon": 96.33876427
+      },
+      {
+        "code": "MMR018002",
+        "en": "Za Bu Thi Ri",
+        "my": "ဇမ္ဗူသီရိ",
+        "parentCode": "MMR018002",
+        "lat": 19.74629645,
+        "lon": 96.09123779
+      },
+      {
+        "code": "MMR018003",
+        "en": "Tatkon",
+        "my": "တပ်ကုန်း",
+        "parentCode": "MMR018001",
+        "lat": 20.17162343,
+        "lon": 96.14172158
+      },
+      {
+        "code": "MMR018004",
+        "en": "Det Khi Na Thi Ri",
+        "my": "ဒက္ခိဏသီရိ",
+        "parentCode": "MMR018002",
+        "lat": 19.70136924,
+        "lon": 96.08676759
+      },
+      {
+        "code": "MMR018005",
+        "en": "Poke Ba Thi Ri",
+        "my": "ပုဗ္ဗသီရိ",
+        "parentCode": "MMR018001",
+        "lat": 19.88682521,
+        "lon": 96.19236491
+      },
+      {
+        "code": "MMR018006",
+        "en": "Pyinmana",
+        "my": "ပျဉ်းမနား",
+        "parentCode": "MMR018002",
+        "lat": 19.64388275,
+        "lon": 96.46309626
+      },
+      {
+        "code": "MMR018007",
+        "en": "Lewe",
+        "my": "လယ်ဝေး",
+        "parentCode": "MMR018002",
+        "lat": 19.67885564,
+        "lon": 95.88424179
+      },
+      {
+        "code": "MMR018008",
+        "en": "Oke Ta Ra Thi Ri",
+        "my": "ဥတ္တရသီရိ",
+        "parentCode": "MMR018001",
+        "lat": 19.91048996,
+        "lon": 96.02635323
+      }
+    ]
+  }
+}

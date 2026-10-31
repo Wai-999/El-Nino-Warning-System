@@ -6,6 +6,7 @@ import {
   warningHistory,
   COVERAGE_TTL,
   nextWarningTransition,
+  prioritizeAlerts,
 } from "../src/risk/engine";
 import {
   emptySnapshot,
@@ -47,6 +48,41 @@ const alert: Alert = {
 };
 const snapshot = { ...emptySnapshot, checkedAt: "2026-09-30T00:00:00Z" };
 describe("Fail-closed warning policy", () => {
+  it("prioritizes verified severity, selected region and validity without changing issuer labels", () => {
+    const high = {
+      ...alert,
+      id: "higher",
+      regionId: "MM-11",
+      severity: "severe" as const,
+    };
+    const local = { ...alert, id: "local", validUntil: "2026-09-30T04:00:00Z" };
+    const later = { ...alert, id: "later", validUntil: "2026-09-30T08:00:00Z" };
+    const other = {
+      ...alert,
+      id: "other",
+      regionId: "MM-11",
+      validUntil: "2026-09-30T01:00:00Z",
+    };
+    const expired = {
+      ...alert,
+      id: "expired",
+      validUntil: "2026-09-29T01:00:00Z",
+    };
+    const result = prioritizeAlerts(
+      { ...snapshot, alerts: [later, other, expired, high, local] },
+      "MM-04",
+      now,
+    );
+    expect(result.map((a) => a.id)).toEqual([
+      "higher",
+      "local",
+      "later",
+      "other",
+    ]);
+    expect(
+      result.every((a) => a.source.originalSeverity === "Test fixture"),
+    ).toBe(true);
+  });
   it("schedules future warning starts and non-interval-aligned expiries", () => {
     const expires = new Date(now + 17000).toISOString();
     expect(

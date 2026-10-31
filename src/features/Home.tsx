@@ -17,6 +17,9 @@ import {
   SectionHeading,
 } from "../components/Service";
 import ClimateSummary from "../components/ClimateSummary";
+import HomeMap from "../components/HomeMap";
+import SavedPlaces from "../components/SavedPlaces";
+import LocalBriefing from "../components/LocalBriefing";
 export default function Home() {
   const { t, lang, selected, operational: op, data, now } = useApp();
   const w = op.weather?.regions.find((r) => r.id === selected);
@@ -92,8 +95,11 @@ export default function Home() {
             </section>
           )}
         </div>
-        <ClimateSummary />
+        <HomeMap />
       </div>
+      <SavedPlaces />
+      <LocalBriefing />
+      <ClimateSummary />
       <div className="coverage-note">
         <ShieldCheck size={20} />
         <div>

@@ -44,3 +44,9 @@ Browser storage contains only language/area/map choices, checklists, dated snaps
 ## Review and limitations
 
 Review guidance/source terms at least every 90 days and on provider changes. Fluent Burmese editorial, assistive-technology user testing and Myanmar meteorological/agricultural review remain human review tasks; automated checks do not certify these. Do not describe uncalibrated screens as an authoritative national warning system.
+
+## V3.1 follow-up
+
+The owner-approved update adds a pinned 330-township gazetteer, device-local saved places/preferences and an independent WHO publication monitor. The existing four-daily job now includes `scripts/refresh-health-advisories.ts` and commits `public/data/health-advisories.json`. The worker keeps this snapshot network-first with dated cache fallback. A failed WHO fetch preserves original publication and last-success dates, publishes the safe fallback and is surfaced by the post-deploy health job. No subscription backend, credentials, paid service or extra high-frequency schedule was added.
+
+Township names do not change the regional ECMWF/ERA5 sampling or warning geography. Review [geography corrections](GEOGRAPHY_MAINTENANCE.md) before changing typed codes or saved-place migrations. The current UI uses official health publication metadata; legacy static clinical-health modules are no longer routed. Service scope accompanies every source-verified emergency contact.

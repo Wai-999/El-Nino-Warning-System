@@ -1,0 +1,35 @@
+name: Geography correction
+description: Request a reviewed change to a versioned administrative name, code or parent.
+title: "Geography correction: "
+body:
+  - type: markdown
+    attributes:
+      value: "This does not change live warnings automatically. Provide public source evidence; do not include personal or precise household location data."
+  - type: input
+    id: version
+    attributes:
+      label: Dataset version and geographic validity date
+      placeholder: "HDX COD-AB v01, valid 2024-02-15"
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: Administrative level and exact PCode
+      placeholder: "township:MMR001001"
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Current and proposed names or parents
+      description: Include Burmese and English names, old/new codes, and whether this is a spelling, rename, move or retirement.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Original public source evidence and dates
+      description: Provide the authoritative URL, publication/validity date, license and explanation. A recent download date alone does not establish current geography.
+    validations:
+      required: true

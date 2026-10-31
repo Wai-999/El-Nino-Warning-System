@@ -7,6 +7,11 @@ import {
   historyFresh,
 } from "../src/data/operational.ts";
 import { validateClimate } from "../src/data/climate.ts";
+import { validateHealthAdvisories } from "../src/data/healthAdvisories.ts";
+import { readFile } from "node:fs/promises";
+const packageVersion = JSON.parse(
+  await readFile(new URL("../package.json", import.meta.url)),
+).version;
 const base = new URL(process.argv[2]);
 if (base.protocol !== "https:")
   throw Error("Production verification requires HTTPS");
@@ -47,7 +52,7 @@ try {
   if (!assets.length) throw Error("Root-based build assets missing");
   for (const asset of assets) await get(asset);
   const release = JSON.parse(await get("release.json", "application/json"));
-  if (release.version !== "3.0.0") throw Error("Wrong release version");
+  if (release.version !== packageVersion) throw Error("Wrong release version");
   report.version = release.version;
   const official = snapshotSchema.parse(
     JSON.parse(await get("data/current.json", "application/json")),
@@ -60,6 +65,9 @@ try {
   );
   const registry = JSON.parse(
     await get("data/indicator-registry.json", "application/json"),
+  );
+  const health = validateHealthAdvisories(
+    JSON.parse(await get("data/health-advisories.json", "application/json")),
   );
   report.data = {
     officialCoverage: official.regionalCoverage,
@@ -74,6 +82,13 @@ try {
     probabilitySeasons: climate.probabilities?.rows.length,
     indicators: registry.indicators.length,
     providerHealth: op.health,
+    healthPublications: {
+      coverage: health.coverage,
+      ok: health.ok,
+      retrievedAt: health.retrievedAt,
+      latestIssue: health.items[0]?.issuedAt ?? null,
+      items: health.items.length,
+    },
   };
   const manifest = JSON.parse(await get("manifest.webmanifest"));
   if (
@@ -85,6 +100,7 @@ try {
   const worker = await get("sw.js", "javascript");
   if (
     !worker.includes("/data/climate.json") ||
+    !worker.includes("/data/health-advisories.json") ||
     !worker.includes("self.registration.scope+'pamphlet/'")
   )
     throw Error("Worker safety policies missing");

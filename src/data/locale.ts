@@ -1,6 +1,19 @@
 const myDigits = "၀၁၂၃၄၅၆၇၈၉";
-export const localDigits = (value: string, lang: string) =>
-  lang === "my" ? value.replace(/\d/g, (d) => myDigits[Number(d)]) : value;
+export type NumeralSystem = "latn" | "mymr";
+let numeralSystem: NumeralSystem = "latn";
+export function configureNumerals(system: NumeralSystem) {
+  numeralSystem = system;
+}
+export function localDigits(
+  value: string,
+  lang: string,
+  system = numeralSystem,
+) {
+  const latin = value.replace(/[၀-၉]/g, (d) => String(myDigits.indexOf(d)));
+  return lang === "my" && system === "mymr"
+    ? latin.replace(/\d/g, (d) => myDigits[Number(d)])
+    : latin;
+}
 const months = [
   "ဇန်နဝါရီ",
   "ဖေဖော်ဝါရီ",

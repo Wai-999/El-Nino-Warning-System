@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/data/current.json public/data/archive.json public/data/ingestion-health.json public/data/operational.json public/data/climate.json scripts/cache/climatology.json
+          git add public/data/current.json public/data/archive.json public/data/ingestion-health.json public/data/operational.json public/data/climate.json public/data/health-advisories.json scripts/cache/climatology.json
           if [ -f scripts/cache/ingestion-budget.json ]; then git add scripts/cache/ingestion-budget.json; fi
           if ! git diff --cached --quiet; then
             git commit -m 'data: refresh sourced climate and weather snapshots'
@@ -78,4 +78,4 @@ jobs:
         with:
           ref: main
       - name: Surface source failures after publishing the safe fallback
-        run: node -e "const x=require('./public/data/ingestion-health.json'); const o=require('./public/data/operational.json'); const c=require('./public/data/climate.json'); if(!x.ok || [...Object.values(o.health),...Object.values(c.health)].some(h=>!h.ok))throw Error('Source refresh failed; a dated fallback was deployed. Inspect provider health.');"
+        run: node -e "const x=require('./public/data/ingestion-health.json'); const o=require('./public/data/operational.json'); const c=require('./public/data/climate.json'); const h=require('./public/data/health-advisories.json'); if(!x.ok || !h.ok || [...Object.values(o.health),...Object.values(c.health)].some(h=>!h.ok))throw Error('Source refresh failed; a dated fallback was deployed. Inspect provider health.');"

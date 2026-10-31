@@ -11,7 +11,7 @@ import {
   probabilitiesFresh,
   loadClimate,
 } from "../src/data/climate";
-import { localDate, localDigits } from "../src/data/locale";
+import { localDate, localDigits, configureNumerals } from "../src/data/locale";
 import {
   educationalAnomaly,
   educationalStandardScore,
@@ -29,6 +29,7 @@ const roni = parseRoni(text, stamp),
   probabilities = parseProbabilities(html, stamp);
 const snapshot = { ...emptyClimate, checkedAt: stamp, roni, probabilities };
 afterEach(() => {
+  configureNumerals("latn");
   vi.unstubAllGlobals();
   vi.useRealTimers();
 });
@@ -169,12 +170,20 @@ describe("NOAA climate provenance", () => {
 });
 describe("localization, exports and isolated education", () => {
   it("formats Myanmar numbers/dates even without native Myanmar locale support", () => {
+    expect(number(31.2, "my")).toBe("31.2");
+    expect(localDate("2026-10-31T18:00:00Z", "my", true)).toBe(
+      "2026 နိုဝင်ဘာ 1၊ 00:30 MMT",
+    );
+    configureNumerals("mymr");
     expect(number(31.2, "my")).toBe("၃၁.၂");
     expect(localDigits("2026-10", "my")).toBe("၂၀၂၆-၁၀");
     expect(localDate("2026-10-31T18:00:00Z", "my", true)).toBe(
       "၂၀၂၆ နိုဝင်ဘာ ၁၊ ၀၀:၃၀ MMT",
     );
     expect(localDate("invalid", "my")).toBe("—");
+    expect(number(31.2, "en")).toBe("31.2");
+    configureNumerals("latn");
+    expect(localDigits("၇ ရက်", "my")).toBe("7 ရက်");
   });
   it("handles zero baselines and prevents a toy standard score from pretending to be SPI", () => {
     expect(educationalAnomaly(10, 0)).toEqual({

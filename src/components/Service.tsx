@@ -14,6 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { ReactNode } from "react";
+import WeatherScene from "./WeatherScene";
 
 export function Source({ id }: { id: string }) {
   const { t } = useApp();
@@ -85,6 +86,7 @@ export function WeatherSummary({ compact = false }: { compact?: boolean }) {
       className={`weather-summary ${compact ? "compact-weather" : ""}`}
       aria-label={t("Weather summary", "မိုးလေဝသ အကျဉ်းချုပ်")}
     >
+      {w && <WeatherScene code={w.now.code} />}
       <div className="weather-main">
         <div>
           <p className="eyebrow">
@@ -198,6 +200,15 @@ export function OfficialNotice({ alert }: { alert: Alert }) {
         <div>
           <dt>{t("Area", "ဒေသ")}</dt>
           <dd>{alert.affected[lang]}</dd>
+        </div>
+        <div>
+          <dt>{t("Issuer urgency", "ထုတ်ပြန်သူ၏ အရေးတကြီးအဆင့်")}</dt>
+          <dd>
+            {t(
+              "Not supplied in this validated record; not inferred from weather or ENSO.",
+              "ဤအတည်ပြုမှတ်တမ်းတွင် မပေးထားပါ။ မိုးလေဝသ သို့မဟုတ် ENSO မှ မခန့်မှန်းပါ။",
+            )}
+          </dd>
         </div>
         <div>
           <dt>{t("Published", "ထုတ်ပြန်ရက်")}</dt>

@@ -53,3 +53,9 @@ The Pages base remains `/El-Nino-Warning-System/`; Vercel overrides only the bui
 ## Rollback
 
 Record the release commit and Vercel deployment ID. Promote a prior ready deployment through Vercel rollback, or revert the faulty merge commit and rebuild. For the first Vercel release, the preserved Pages site/base commit is the fallback. Retain valid dated datasets and compatible schemas; never force-push or delete history to recover. A rollback must still expose stale/expired states. Main integration and future source refreshes remain recoverable through normal Git history.
+
+## V3.1 follow-up
+
+The owner-approved update adds a pinned 330-township gazetteer, device-local saved places/preferences and an independent WHO publication monitor. The existing four-daily job now includes `scripts/refresh-health-advisories.ts` and commits `public/data/health-advisories.json`. The worker keeps this snapshot network-first with dated cache fallback. A failed WHO fetch preserves original publication and last-success dates, publishes the safe fallback and is surfaced by the post-deploy health job. No subscription backend, credentials, paid service or extra high-frequency schedule was added.
+
+Township names do not change the regional ECMWF/ERA5 sampling or warning geography. Review [geography corrections](GEOGRAPHY_MAINTENANCE.md) before changing typed codes or saved-place migrations. The current UI uses official health publication metadata; legacy static clinical-health modules are no longer routed. Service scope accompanies every source-verified emergency contact.

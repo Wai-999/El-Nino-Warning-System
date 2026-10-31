@@ -38,6 +38,17 @@ import { nextWarningTransition } from "../risk/engine";
 import { loadClimate, emptyClimate } from "../data/climate";
 import { regionIds, regionName, canonicalRegions } from "../data/regions";
 import sampleData from "../../scripts/cache/samples.json";
+import {
+  townshipByCode,
+  searchTownships,
+  readSavedPlaces,
+  savedPlace,
+} from "../data/locations";
+import {
+  configureNumerals,
+  localDigits,
+  type NumeralSystem,
+} from "../data/locale";
 import Home from "../features/Home";
 const Weather = lazy(() => import("../features/Weather"));
 const Climate = lazy(() => import("../features/Climate"));
@@ -45,6 +56,7 @@ const MapPage = lazy(() => import("../features/AreaMap"));
 const Safety = lazy(() => import("../features/Safety"));
 const Sources = lazy(() => import("../features/Sources"));
 const Learn = lazy(() => import("../features/Learn"));
+const Township = lazy(() => import("../features/Township"));
 function pref(key: string, fallback: string) {
   try {
     return localStorage.getItem(key) || fallback;
@@ -102,17 +114,22 @@ function LocationDialog({
   selected,
   onSelect,
   lang,
+  township,
+  onTownship,
 }: {
   open: boolean;
   onClose: () => void;
   selected: string;
   onSelect: (id: string) => void;
   lang: Lang;
+  township: string | null;
+  onTownship: (code: string) => void;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [query, setQuery] = useState("");
   const [geo, setGeo] = useState("");
-  const t = (en: string, my: string) => (lang === "en" ? en : my);
+  const t = (en: string, my: string) =>
+    localDigits(lang === "en" ? en : my, lang);
   useEffect(() => {
     if (open) {
       setQuery("");
@@ -124,6 +141,10 @@ function LocationDialog({
     r.source_aliases.some((a) =>
       a.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()),
     ),
+  );
+  const townshipResults = searchTownships(
+    query,
+    query.trim() ? undefined : selected,
   );
   function locate() {
     if (!navigator.geolocation) {
@@ -209,13 +230,15 @@ function LocationDialog({
       </div>
       <p className="muted">
         {t(
-          "State / region samples. Township and village measurements are not available.",
-          "ပြည်နယ် / တိုင်းဒေသကြီး နမူနာများဖြစ်သည်။ မြို့နယ်နှင့် ကျေးရွာ တိုင်းတာချက် မရရှိပါ။",
+          "Search 330 townships by name, alternate name or PCode. Weather remains a labeled parent-region estimate. Village coverage is incomplete.",
+          "မြို့နယ် 330 ကို အမည်၊ အမည်ကွဲ သို့မဟုတ် PCode ဖြင့် ရှာပါ။ မိုးလေဝသသည် သက်ဆိုင်ရာ ပြည်နယ်/တိုင်း ခန့်မှန်းတန်ဖိုးသာ ဖြစ်သည်။ ကျေးရွာစာရင်း မပြည့်စုံပါ။",
         )}
       </p>
       <label className="search-field">
         <Search size={18} />
-        <span className="sr-only">{t("Search regions", "ဒေသရှာရန်")}</span>
+        <span className="sr-only">
+          {t("Search regions or townships", "ဒေသ သို့မဟုတ် မြို့နယ် ရှာရန်")}
+        </span>
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -235,10 +258,13 @@ function LocationDialog({
         </p>
       )}
       <div className="location-options">
+        <p className="small muted">
+          {t("States / regions", "ပြည်နယ် / တိုင်းဒေသကြီး")}
+        </p>
         {results.map((r) => (
           <button
             key={r.canonical_region_id}
-            aria-pressed={selected === r.canonical_region_id}
+            aria-pressed={!township && selected === r.canonical_region_id}
             onClick={() => {
               onSelect(r.canonical_region_id);
               onClose();
@@ -253,11 +279,40 @@ function LocationDialog({
             )}
           </button>
         ))}
-        {results.length === 0 && (
+        <p className="small muted">
+          {t("Townships", "မြို့နယ်များ")} · {townshipResults.length}
+        </p>
+        {townshipResults.slice(0, 40).map((r) => (
+          <button
+            key={`township:${r.code}`}
+            aria-pressed={township === r.code}
+            onClick={() => {
+              onTownship(r.code);
+              onClose();
+            }}
+          >
+            <MapPin size={17} />
+            <span>
+              {r[lang]}
+              <small>
+                {r.district[lang]} · {r.admin1[lang]} · {r.code}
+              </small>
+            </span>
+          </button>
+        ))}
+        {townshipResults.length > 40 && (
+          <p className="small">
+            {t(
+              "First 40 matches shown. Add a name or PCode to narrow the results.",
+              "ပထမ 40 ခုကို ပြထားသည်။ အမည် သို့မဟုတ် PCode ဖြင့် ထပ်စစ်ထုတ်ပါ။",
+            )}
+          </p>
+        )}
+        {results.length === 0 && townshipResults.length === 0 && (
           <p role="status">
             {t(
-              "No region matches. Try another name.",
-              "ကိုက်ညီသောဒေသ မရှိပါ။ အမည်တစ်မျိုးဖြင့် စမ်းပါ။",
+              "No place matches. Try another name or PCode.",
+              "ကိုက်ညီသောဒေသ မရှိပါ။ အမည်တစ်မျိုး သို့မဟုတ် PCode ဖြင့် စမ်းပါ။",
             )}
           </p>
         )}
@@ -275,14 +330,65 @@ export default function App() {
   const [lang, setLang] = useState<Lang>(() =>
     pref("mokinn-language", "my") === "en" ? "en" : "my",
   );
-  const t = (en: string, my: string) => (lang === "en" ? en : my);
-  const [selected, setSelected] = useState(() => {
+  const [numerals, updateNumerals] = useState<NumeralSystem>(() => {
+    const value = pref("mokinn-numerals", "latn") === "mymr" ? "mymr" : "latn";
+    configureNumerals(value);
+    return value;
+  });
+  const [motion, setMotion] = useState(
+    () => pref("mokinn-motion", "true") !== "false",
+  );
+  const t = (en: string, my: string) =>
+    localDigits(lang === "en" ? en : my, lang);
+  const [selected, selectRegion] = useState(() => {
+    const area = townshipByCode(
+      getRoute().startsWith("/township/")
+        ? getRoute().split("/")[2]
+        : pref("mokinn-township", ""),
+    );
+    if (area) return area.regionId;
     const p = pref("mokinn-region", "MM-04");
     return regionIds.includes(p as (typeof regionIds)[number]) ? p : "MM-04";
   });
+  const [township, selectTownship] = useState<string | null>(
+    () =>
+      townshipByCode(
+        getRoute().startsWith("/township/")
+          ? getRoute().split("/")[2]
+          : pref("mokinn-township", ""),
+      )?.code || null,
+  );
+  const [savedPlaces, setSavedPlaces] = useState(() =>
+    readSavedPlaces(pref("mokinn-saved-places", "[]")),
+  );
+  function setSelected(id: string) {
+    if (!regionIds.includes(id as (typeof regionIds)[number])) return;
+    selectRegion(id);
+    selectTownship(null);
+  }
+  function setTownship(code: string) {
+    const area = townshipByCode(code);
+    if (area) {
+      selectTownship(code);
+      selectRegion(area.regionId);
+    }
+  }
+  function togglePlace(id: string) {
+    if (savedPlace(id))
+      setSavedPlaces((old) =>
+        old.includes(id)
+          ? old.filter((p) => p !== id)
+          : [...old, id].slice(0, 12),
+      );
+  }
   const [rawRoute, setRoute] = useState(getRoute);
   const route =
-    aliases[rawRoute] || (rawRoute.startsWith("/region/") ? "/map" : rawRoute);
+    aliases[rawRoute] ||
+    (rawRoute.startsWith("/region/")
+      ? "/map"
+      : rawRoute.startsWith("/township/")
+        ? "/township"
+        : rawRoute);
   const [menu, setMenu] = useState(false),
     [locationOpen, setLocationOpen] = useState(false);
   const [snapshot, setSnapshot] = useState({
@@ -369,8 +475,18 @@ export default function App() {
     save("mokinn-language", lang);
   }, [lang]);
   useEffect(() => save("mokinn-region", selected), [selected]);
+  useEffect(() => save("mokinn-township", township || ""), [township]);
+  useEffect(
+    () => save("mokinn-saved-places", JSON.stringify(savedPlaces)),
+    [savedPlaces],
+  );
+  useEffect(() => {
+    const p = townshipByCode(township);
+    if (p) selectRegion(p.regionId);
+  }, [township]);
   useEffect(() => {
     const id = rawRoute.split("/")[2];
+    if (rawRoute.startsWith("/township/")) setTownship(id);
     if (
       rawRoute.startsWith("/region/") &&
       regionIds.includes(id as (typeof regionIds)[number])
@@ -392,8 +508,8 @@ export default function App() {
   ] as const;
   const name = nav.find((n) => n[0] === route);
   useEffect(() => {
-    document.title = `${name ? (lang === "en" ? name[1] : name[2]) : lang === "en" ? "Learn" : "လေ့လာရန်"} · El Niño Warning System`;
-  }, [lang, name]);
+    document.title = `${name ? (lang === "en" ? name[1] : name[2]) : route === "/township" ? (lang === "en" ? "Township overview" : "မြို့နယ် အကျဉ်းချုပ်") : lang === "en" ? "Learn" : "လေ့လာရန်"} · El Niño Warning System`;
+  }, [lang, name, route]);
   let page: ReactNode;
   if (route === "/") page = <Home />;
   else if (route === "/weather") page = <Weather />;
@@ -402,6 +518,8 @@ export default function App() {
   else if (route === "/safety") page = <Safety />;
   else if (route === "/sources") page = <Sources />;
   else if (route === "/learn") page = <Learn />;
+  else if (route === "/township")
+    page = <Township code={rawRoute.split("/")[2]} />;
   else
     page = (
       <div className="empty-panel">
@@ -426,6 +544,13 @@ export default function App() {
         lowData,
         selected,
         setSelected,
+        township,
+        setTownship,
+        savedPlaces,
+        togglePlace,
+        openLocations: () => setLocationOpen(true),
+        numerals,
+        motion,
         climate: climate.data,
         climateCached: climate.cached || !online,
       }}
@@ -515,6 +640,28 @@ export default function App() {
             </a>
             <a href="#/learn">{t("Learn & explore", "လေ့လာစမ်းသပ်ရန်")}</a>
             <button
+              aria-pressed={numerals === "mymr"}
+              onClick={() => {
+                const value = numerals === "latn" ? "mymr" : "latn";
+                configureNumerals(value);
+                updateNumerals(value);
+                save("mokinn-numerals", value);
+              }}
+            >
+              {t("Myanmar numerals", "မြန်မာဂဏန်း")} ·{" "}
+              {numerals === "mymr" ? t("On", "ဖွင့်") : t("Off", "ပိတ်")}
+            </button>
+            <button
+              aria-pressed={motion}
+              onClick={() => {
+                setMotion(!motion);
+                save("mokinn-motion", String(!motion));
+              }}
+            >
+              {t("Weather animation", "မိုးလေဝသ လှုပ်ရှားပုံ")} ·{" "}
+              {motion ? t("On", "ဖွင့်") : t("Paused", "ရပ်ထား")}
+            </button>
+            <button
               aria-pressed={lowData}
               onClick={() => {
                 setLowData(!lowData);
@@ -547,7 +694,9 @@ export default function App() {
             aria-haspopup="dialog"
           >
             <MapPin size={17} />
-            <span>{regionName(selected, lang)}</span>
+            <span>
+              {townshipByCode(township)?.[lang] || regionName(selected, lang)}
+            </span>
             <ChevronDown size={15} />
           </button>
           <div className="context-tools">
@@ -619,6 +768,24 @@ export default function App() {
               </p>
             }
           >
+            {township && (
+              <div className="township-context small">
+                <MapPin size={17} />
+                <span>
+                  {t(
+                    "Weather uses parent-region samples:",
+                    "မိုးလေဝသအတွက် သက်ဆိုင်ရာ ပြည်နယ်/တိုင်းဒေတာ သုံးသည်။",
+                  )}{" "}
+                  {regionName(selected, lang)} ·{" "}
+                  <a href={`#/township/${township}`}>
+                    {t(
+                      "Township overview & data limits",
+                      "မြို့နယ် အကျဉ်းချုပ်နှင့် ဒေတာကန့်သတ်ချက်",
+                    )}
+                  </a>
+                </span>
+              </div>
+            )}
             {page}
           </Suspense>
         </ErrorBoundary>
@@ -678,6 +845,8 @@ export default function App() {
         selected={selected}
         onSelect={setSelected}
         lang={lang}
+        township={township}
+        onTownship={setTownship}
       />
     </AppContext>
   );

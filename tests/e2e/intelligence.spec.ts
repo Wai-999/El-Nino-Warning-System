@@ -82,8 +82,8 @@ test("invalid source snapshots leave honest unavailable states and static guidan
   );
   await expect(page.locator("main")).toContainText("could not be refreshed");
   await page.goto("./#/safety");
-  await expect(page.locator(".health-education")).toContainText(
-    "not a diagnosis",
+  await expect(page.locator(".official-health")).toContainText(
+    "Weather never generates these notices",
   );
   await expect(page.locator(".warning-center")).toContainText(
     "no listed warning is not an all-clear",

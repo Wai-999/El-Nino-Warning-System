@@ -43,3 +43,17 @@ Fluent Burmese editorial review, assistive-technology user testing and Myanmar m
 - Pull request: https://github.com/Wai-999/El-Nino-Warning-System/pull/1 . Initial GitHub build run `41227123693` passed.
 
 The owner explicitly approved continuous deployment after automatic approval review required confirmation of persistent GitHub access and future deployment triggers. The Vercel CLI then confirmed the repository connection. No bypass or alternate integration was used. Main-branch code/data commits can now trigger Vercel publication; the existing bounded four-daily ingestion schedule remains best effort.
+
+## V3.1 owner-decision completion checks
+
+The preceding production evidence records the original 3.0.0 release. The V3.1 follow-up applies the subsequently confirmed 49-decision document; complete acceptance and remaining external gates are in `V3_DECISIONS_ACCEPTANCE.md`.
+
+- 94 unit tests pass (8 files), including geographic hierarchy/ambiguity, WHO country/date/expiry failure cases, cached fallback and verified notice priority.
+- Full Playwright matrix: 68 passed, four intentionally skipped duplicate viewport cases. Both languages and all primary pages pass WCAG-tagged rules on desktop, tablet and mobile; the township overview also passes automated accessibility checks. Offline warning expiry, cache upgrades and printed QR checks remain green.
+- Formatting, lint, data validation and TypeScript production build pass. Validation covers 330 townships and every parent, 46 registry entries, three historical WHO publications, 15 weather/reanalysis regions, 920 RONI seasons and nine probability rows.
+- Observed failures were repaired: animation-background contrast, source publication calendar date shifted by MMT conversion, and exact-name locator ambiguity after township results were added. No expiry or new clinical advice was manufactured.
+- Entry JS is approximately 135 kB gzip; CSS approximately 11.5 kB gzip; offline shell about 1.65 MB uncompressed excluding the protected leaflet and first-use regional geometry. Township polygons are not downloaded. These are build/lab sizes, not field Core Web Vitals.
+- `npm audit` still reports 11 moderate minimatch-related development-tool advisories (no high/critical); production dependencies remain clear. The reported fixed minimatch major and forced ESLint downgrade are not blindly substituted into incompatible tool APIs. This is documented development-tool exposure, not a shipped runtime dependency.
+- Qualified Burmese/subject-matter, assistive-technology and physical-phone review remain external gates. The WHO monitor provides limited official publication metadata, not complete Myanmar current health-advisory coverage.
+
+Post-merge public HTTP/browser evidence will be recorded separately to avoid an evidence-only commit causing another scheduled refresh and deployment.
