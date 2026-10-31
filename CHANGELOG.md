@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.1.0 — 2026-10-31
+
+- Apply the owner-approved V3 decisions: pinned MIMU/HDX 330-township bilingual hierarchy, typed PCodes, reviewed aliases, township overviews and explicit parent-region weather fallback.
+- Add bounded device-local saved places, per-place preparedness/crop choices, a deterministic bilingual briefing and an accessible homepage map alongside weather.
+- Default to international numerals, add a Myanmar-numeral preference and glossary, and add lightweight weather animation with pause, reduced-motion and low-data behavior.
+- Replace the current static clinical-health panel with an independent exact-country WHO publication monitor. Preserve original issue dates, unknown expiry, limited coverage and dated fallback. Add scoped official humanitarian contacts.
+- Preserve scientific rules, the printed QR hub, four-daily bounded ingestion and both hosting targets. Add source-integrity, selection, preference, offline and accessibility tests; acceptance/remaining external review gates are recorded in docs.
+
+## 3.0.0 — 2026-10-31
+
+- Ship the white-first six-page redesign, interactive Learn, NOAA RONI/probability adapters, complete source registry and dated offline PWA. Verify Vercel production and connect owner-approved continuous deployment while preserving GitHub Pages and printed leaflet URLs. See `docs/CHANGELOG_REDESIGN.md` for detailed migration and evidence.
+
 ## 2.2.1 — 2026-10-14
 
 - Add the single-QR digital leaflet hub at [`pamphlet/el-nino/`](https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/): the complete 2026-10 Burmese El Niño bi-fold as accessible text and facsimiles, the full print PDF, a searchable source library with a claim-to-source map, the two Facebook links and an explicit, verified “Save for offline”. Static files only, generated outside the app; see [docs/pamphlet](docs/pamphlet/).

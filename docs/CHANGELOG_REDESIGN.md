@@ -34,3 +34,11 @@ Official live warning ingestion, township/village datasets, flood extent/gauges,
 ## Dependency security
 
 Migrate inherited Zod 3 validation to patched Zod 4.6.7, explicitly retaining string-key record schemas and the scientific regression suite. Apply compatible Vite/Vitest/source-map patches. Production dependency audit is clean; remaining moderate minimatch advisories are confined to the lint/TypeScript development toolchain and documented in QA. No forced ESLint downgrade is applied.
+
+## V3.1 owner-decision completion
+
+Apply the explicitly confirmed V3 decision document. Add a pinned 330-township hierarchy, typed IDs, nine individually reviewed alternate names and correction workflow; multiple local saved places; township overview with per-indicator parent fallback; local briefing; per-place crop and preparedness state; default international numerals plus optional Myanmar digits; glossary; pausable lightweight weather art; compact homepage map.
+
+The original scientific aggregation and warning thresholds remain unchanged. Source urgency is unknown when absent. Village records remain excluded because the source coverage is partial; township geography does not create township meteorological data. Replace the current static clinical-health panel with independently fetched original WHO publication metadata and explicit incomplete coverage. No bulletin expiry or current health alert is manufactured. Source-verified MRCS/ICRC contacts include their actual service scope. Legacy clinical code remains in history/unused files, outside current routes and production chunks.
+
+Add `public/data/health-advisories.json` to scheduled ingestion, validation, snapshot commits and network-first offline caching. Existing preferences are retained; the former unscoped checklist migrates once to the selected place. No account, subscriber backend, paid service, high-frequency cron, repository deletion or printed-QR modification occurs.

@@ -46,3 +46,15 @@ if (
 )
   throw Error("Duplicate indicator ID");
 console.log(`Validated ${registry.indicators.length} registry entries.`);
+const { geography } = await import("../src/data/locations.ts");
+console.log(
+  `Validated ${geography.levels.adm3.length} townships and administrative parents.`,
+);
+const { validateHealthAdvisories } =
+  await import("../src/data/healthAdvisories.ts");
+const health = validateHealthAdvisories(
+  JSON.parse(await readFile("public/data/health-advisories.json", "utf8")),
+);
+console.log(
+  `Validated ${health.items.length} official WHO publication records; expiry is unknown.`,
+);

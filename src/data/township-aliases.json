@@ -1,0 +1,101 @@
+[
+  {
+    "pcode": "MMR008001",
+    "alias": "Prome",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1299154/",
+    "sourceName": "Pyay",
+    "sourceFeature": "PPL",
+    "sourceModifiedOn": "2024-03-09",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR006001",
+    "alias": "Tavoy",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1293625/",
+    "sourceName": "Dawei",
+    "sourceFeature": "PPLA",
+    "sourceModifiedOn": "2026-04-14",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR006005",
+    "alias": "Mergui",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1309611/",
+    "sourceName": "Myeik",
+    "sourceFeature": "PPL",
+    "sourceModifiedOn": "2017-12-29",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR011001",
+    "alias": "Moulmein",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1308465/",
+    "sourceName": "Mawlamyine",
+    "sourceFeature": "PPLA",
+    "sourceModifiedOn": "2026-04-14",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR011001",
+    "alias": "Mawlamyaing",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1308465/",
+    "sourceName": "Mawlamyine",
+    "sourceFeature": "PPLA",
+    "sourceModifiedOn": "2026-04-14",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR017001",
+    "alias": "Bassein",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1328421/",
+    "sourceName": "Pathein",
+    "sourceFeature": "PPLA",
+    "sourceModifiedOn": "2026-04-14",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR010008",
+    "alias": "Maymyo",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1309937/",
+    "sourceName": "Pyin Oo Lwin",
+    "sourceFeature": "PPL",
+    "sourceModifiedOn": "2026-09-14",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR010008",
+    "alias": "Maymo",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1309937/",
+    "sourceName": "Pyin Oo Lwin",
+    "sourceFeature": "PPL",
+    "sourceModifiedOn": "2026-09-14",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  },
+  {
+    "pcode": "MMR012001",
+    "alias": "Akyab",
+    "source": "GeoNames",
+    "sourceUrl": "https://www.geonames.org/1295765/",
+    "sourceName": "Sittwe",
+    "sourceFeature": "PPLA",
+    "sourceModifiedOn": "2026-04-14",
+    "license": "CC BY 4.0",
+    "scope": "alternate name search aid; not an administrative boundary change"
+  }
+]

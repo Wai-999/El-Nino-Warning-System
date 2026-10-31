@@ -1,3 +1,4 @@
+@import "./v3.css";
 @import url("./service-map.css");
 :root {
   font-family:
@@ -476,6 +477,8 @@ small,
 }
 .metric-source {
   display: inline-flex;
+  min-height: 36px;
+  padding: 5px 2px;
   align-items: center;
   gap: 5px;
   font-size: 0.67rem;

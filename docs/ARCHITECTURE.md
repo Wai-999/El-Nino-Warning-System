@@ -15,7 +15,7 @@ Vercel builds the same source with `VITE_BASE_PATH=/`; Pages keeps `/El-Nino-War
 - Data classes: modeled forecast, reanalysis, derived estimate, official assessment, official warning, educational guidance. They are labeled separately.
 - Warning active status is recomputed against the device clock on load, visibility change and every 30 seconds and at the next warning-validity deadline, including offline. Future, expired and invalid dates cannot be active. Retain issuer taxonomy verbatim.
 - Stale forecasts remain dated historical snapshots, never current weather. Missing values display an em dash and a reason. ENSO never determines local warning severity.
-- No standalone live health-risk engine; health content is static, attributed education. Agriculture guidance is general, with crop/stage assumptions.
+- No standalone live health-risk engine. The V3.1 owner decision replaces the static clinical panel with independent official WHO publication metadata, with unknown expiry/current advisory status. Agriculture guidance is general, with crop/stage assumptions.
 
 ## Interface
 
@@ -28,3 +28,9 @@ Static hosting, scheduled GitHub Actions and public noncommercial APIs require n
 ## Rollback
 
 Keep base commit and current Pages deployment. Review a pull request before main integration. Vercel can promote a prior successful deployment; revert the merge commit to roll back source. Printed hub and its own service worker are outside the redesign scope. Preserve last-good snapshot timestamps during recovery.
+
+## V3.1 architecture amendment
+
+Approved owner decisions on 31 October 2026 add a validated static administrative-reference module and a separate `HealthAdvisories` snapshot. Typed hierarchy/PCodes and saved places do not change regional weather sampling. WHO is queried once per existing scheduled run, independently validated and atomically written with last-good fallback, then checked after safe deployment. Its records never enter meteorological risk calculations. Bibliographic metadata and links avoid clinical generation and unreviewed critical translation.
+
+The main weather/map interface stays source-backed and lightweight. The homepage map reuses the existing lazy regional map; township geometry is not loaded. Numerals, motion and saved-place/preparedness/crop preferences are local only. No hosting migration, server backend, paid service or notification store is introduced. The owner’s updated decisions authorize multiple saved places and international numerals by default, superseding the earlier single-location/number-format choices.

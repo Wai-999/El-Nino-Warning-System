@@ -1,6 +1,6 @@
 {
   "name": "myanmar-el-nino-warning",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "data:refresh": "node --experimental-strip-types scripts/refresh-data.ts && node --experimental-strip-types scripts/refresh-operational.ts && node --experimental-strip-types scripts/refresh-archive.ts && node --experimental-strip-types scripts/refresh-climate.ts",
+    "data:refresh": "node --experimental-strip-types scripts/refresh-data.ts && node --experimental-strip-types scripts/refresh-operational.ts && node --experimental-strip-types scripts/refresh-archive.ts && node --experimental-strip-types scripts/refresh-climate.ts && node --experimental-strip-types scripts/refresh-health-advisories.ts",
     "data:validate": "node --experimental-strip-types scripts/validate-data.ts",
     "typecheck": "tsc --noEmit"
   },

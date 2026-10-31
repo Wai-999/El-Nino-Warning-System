@@ -1,5 +1,7 @@
 # Data gaps and research decisions · 4 October 2026
 
+Historical research record: current V3.1 coverage, township/WHO additions and source limitations are in [the acceptance checklist](docs/V3_DECISIONS_ACCEPTANCE.md) and the runtime Sources page. This record retains its original review date.
+
 Research order: Myanmar official → ASEAN/regional official → WMO/UN → recognized international operational → research → defensible derived indicators. A missing application connection is not a claim that no authoritative dataset exists. No credentials, paid subscriptions or unsupported scrapers were introduced. All gaps below have a **4 November 2026** review target; this is a documented target, not a scheduled automation.
 
 Quality gate: named publisher, Myanmar geography, source issue/validity period, cadence, documented units/method/baseline, license, machine access, stable identifier, and explicit failure semantics. Every numerical dataset must pass schema/scientific checks before atomic publication. General references are linked rather than bulk rehosted; downstream reuse licensing needs validation before new ingestion.

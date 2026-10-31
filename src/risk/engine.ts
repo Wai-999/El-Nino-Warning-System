@@ -32,6 +32,20 @@ export function activeAlerts(data: Snapshot, now = Date.now()): Alert[] {
     )
     .sort((a, b) => rank[b.severity] - rank[a.severity]);
 }
+export function prioritizeAlerts(
+  data: Snapshot,
+  regionId: string,
+  now = Date.now(),
+) {
+  return activeAlerts(data, now).sort(
+    (a, b) =>
+      rank[b.severity] - rank[a.severity] ||
+      Number(b.regionId === regionId) - Number(a.regionId === regionId) ||
+      Date.parse(a.validUntil) - Date.parse(b.validUntil) ||
+      Date.parse(b.issuedAt) - Date.parse(a.issuedAt) ||
+      a.id.localeCompare(b.id),
+  );
+}
 
 export function nextWarningTransition(
   data: Snapshot,

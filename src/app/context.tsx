@@ -4,6 +4,7 @@ import type { Snapshot } from "../data/schema";
 import type { Archive } from "../data/archive";
 import type { ClimateSnapshot } from "../data/climate";
 import { localDate } from "../data/locale";
+import type { NumeralSystem } from "../data/locale";
 export type Lang = "my" | "en";
 export type Translate = (en: string, my: string) => string;
 export const AppContext = createContext<{
@@ -21,6 +22,13 @@ export const AppContext = createContext<{
   lowData: boolean;
   selected: string;
   setSelected: (id: string) => void;
+  township: string | null;
+  setTownship: (code: string) => void;
+  savedPlaces: string[];
+  togglePlace: (id: string) => void;
+  openLocations: () => void;
+  numerals: NumeralSystem;
+  motion: boolean;
   climate: ClimateSnapshot;
   climateCached: boolean;
 }>(null!);

@@ -34,20 +34,20 @@ test("six synthetic lessons work with keyboard controls and reset", async ({
     .click();
   await expect(page.locator(".simulation-result")).toContainText("Turn back.");
 });
-test("health content remains static when weather inputs change", async ({
+test("official health publications stay independent when weather inputs change", async ({
   page,
 }) => {
   await page.goto("./#/safety");
   await page.getByRole("button", { name: "Switch to English" }).click();
-  const before = await page.locator(".health-education").innerText();
+  const before = await page.locator(".official-health").innerText();
   await page.route("**/data/operational.json", (r) =>
     r.fulfill({ status: 503, body: "Unavailable" }),
   );
   await page.reload();
   await expect
-    .poll(() => page.locator(".health-education").innerText())
+    .poll(() => page.locator(".official-health").innerText())
     .toBe(before);
-  await expect(page.locator(".health-education")).toContainText(
-    "Weather conditions do not establish dengue or malaria transmission",
+  await expect(page.locator(".official-health")).toContainText(
+    "Weather never generates these notices",
   );
 });

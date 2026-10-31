@@ -17,6 +17,10 @@ import {
 import { roniFresh, probabilitiesFresh } from "../data/climate";
 import { freshness } from "../risk/engine";
 import { download } from "../data/presentation";
+import { terminology } from "../data/terminology";
+import OfficialHealth from "../components/OfficialHealth";
+import { geography } from "../data/locations";
+import aliasEvidence from "../data/township-aliases.json" with { type: "json" };
 const bibliography = [
   [
     "NOAA CPC",
@@ -370,6 +374,88 @@ export default function Sources() {
           )}
         </p>
       </section>
+      <section className="surface padded terminology">
+        <h2>{t("Plain-language glossary", "လွယ်ကူသော ဝေါဟာရအဓိပ္ပာယ်များ")}</h2>
+        <p>
+          {t(
+            "Editorial terminology for consistent explanations. Critical warning translations require qualified Burmese and subject-matter review; automated tests do not provide that approval.",
+            "ရှင်းပြချက် တစ်သမတ်တည်းဖြစ်ရန် ရေးသားထားသော ဝေါဟာရများဖြစ်သည်။ အရေးကြီးသတိပေးဘာသာပြန်ကို ကျွမ်းကျင်မြန်မာဘာသာနှင့် ဘာသာရပ်ပညာရှင် စစ်ဆေးရန် လိုသည်။ အလိုအလျောက်စမ်းသပ်မှုက ထိုအတည်ပြုချက် မပေးပါ။",
+          )}
+        </p>
+        <dl>
+          {terminology
+            .filter(
+              (row) =>
+                !query ||
+                row
+                  .join(" ")
+                  .toLocaleLowerCase()
+                  .includes(query.toLocaleLowerCase()),
+            )
+            .map(([en, my, definition, definitionMy]) => (
+              <div key={en}>
+                <dt>{t(en, my)}</dt>
+                <dd>{t(definition, definitionMy)}</dd>
+              </div>
+            ))}
+        </dl>
+      </section>
+      <details className="disclosure">
+        <summary>
+          {t(
+            "Township geography: version, aliases and corrections",
+            "မြို့နယ်နယ်နိမိတ်၊ ဗားရှင်း၊ အမည်ကွဲနှင့် ပြင်ဆင်မှု",
+          )}
+        </summary>
+        <div>
+          <p>
+            {t(
+              "MIMU-derived OCHA/HDX COD-AB: 330 townships, 80 districts, 18 source admin1 units mapped to 15 app regions. Source validity, review and resource-upload dates are distinct. This is a pinned version, not a claim to current boundaries.",
+              "MIMU အခြေခံ OCHA/HDX COD-AB မှ မြို့နယ် 330၊ ခရိုင် 80၊ ရင်းမြစ် ပြည်နယ်/တိုင်းခွဲ 18 ကို အက်ပ်ဒေသ 15 ခုနှင့် ချိတ်ထားသည်။ နယ်နိမိတ်အကျုံးဝင်ရက်၊ စစ်ဆေးရက်နှင့် ဖိုင်မွမ်းမံရက် မတူပါ။ သတ်မှတ်ဗားရှင်းဖြစ်ပြီး လက်ရှိနယ်နိမိတ်ဟု မဆိုလိုပါ။",
+            )}
+          </p>
+          <p>
+            {geography.validOn} / {geography.reviewedOn} /{" "}
+            {geography.resourceUpdatedAt} ·{" "}
+            <a href={geography.source} target="_blank" rel="noreferrer">
+              MIMU / OCHA / HDX
+            </a>{" "}
+            ·{" "}
+            <a
+              href="https://creativecommons.org/licenses/by/3.0/igo/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {geography.license}
+            </a>
+          </p>
+          <p>
+            {t(
+              "Changes require original-source evidence and review of renamed, moved and retired typed PCodes. No user submission changes live warnings automatically. Partial village records are excluded from search.",
+              "ပြောင်းလဲမှုတွင် မူရင်းအထောက်အထားနှင့် အဆင့်ပါ PCode ၏ အမည်၊ ပြောင်းရွှေ့၊ ပယ်ဖျက်မှု စစ်ဆေးရန် လိုသည်။ အသုံးပြုသူတင်ပြချက်မှ တိုက်ရိုက်သတိပေးချက် မပြောင်းပါ။ မပြည့်စုံသော ကျေးရွာစာရင်းကို ရှာဖွေမှုမှ ဖယ်ထားသည်။",
+            )}
+          </p>
+          <ul>
+            {aliasEvidence.map((a) => (
+              <li key={`${a.pcode}:${a.alias}`}>
+                {a.alias} → {a.sourceName} · {a.pcode} ·{" "}
+                <a href={a.sourceUrl} target="_blank" rel="noreferrer">
+                  GeoNames
+                </a>{" "}
+                · CC BY 4.0
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://github.com/Wai-999/El-Nino-Warning-System/blob/main/docs/GEOGRAPHY_MAINTENANCE.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t("Reviewed correction workflow", "စစ်ဆေးပြင်ဆင်ရေး လုပ်ငန်းစဉ်")}
+          </a>
+        </div>
+      </details>
+      <OfficialHealth />
       <section className="registry-section">
         <div className="section-heading">
           <h2>{t("Indicator registry", "ညွှန်းကိန်း စာရင်း")}</h2>

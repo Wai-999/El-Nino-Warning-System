@@ -17,3 +17,13 @@ Scope: owner confirmed on 31 October 2026 that the supplied master redesign docu
 - [x] Connect continuous deployment after explicit owner approval; Vercel confirmed the GitHub connection.
 
 Unavailable features must retain specific reasons. Human Burmese editorial and assistive-technology review cannot be claimed from automated tests.
+
+## Owner-approved V3 decision follow-up
+
+- [x] Reconcile the updated decisions with the deployed master redesign and record all 49 acceptance outcomes.
+- [x] Verify/version bilingual township hierarchy and reviewed aliases; add saved places, overview and explicit weather fallback.
+- [x] Implement numeral/motion preferences, compact homepage map, per-place preparedness/crops, glossary and local briefing.
+- [x] Verify official WHO country-tagged API/contact scopes; replace clinical panel with independent dated publication monitor.
+- [x] Add source-integrity, preference, missing-data, offline and accessibility checks; run the full required suite.
+- [x] Document corrections, migration, source terms and remaining external review/feed/delivery gates.
+- [x] Publish V3.1 production and verify its public source contracts; final main-branch rollout remains gated by the follow-up PR checks.

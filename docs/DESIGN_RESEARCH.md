@@ -51,3 +51,7 @@ Use short paraphrases and original links: [WHO heat prevention](https://www.who.
 | GitHub scheduled ingestion                       | [Public-repository standard runners are free](https://docs.github.com/en/billing/concepts/product-billing/github-actions). [Schedules](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule) may delay/drop, run on default branch and disable after 60 days of inactivity. | Retain four daily schedules away from minute zero and manual dispatch. Never claim emergency-grade delivery.          |
 
 [Vercel Vite support](https://vercel.com/docs/frameworks/frontend/vite) permits retaining this framework. Hash routing needs no catch-all rewrite that could mask missing JSON with HTML. Longer term, a separate snapshot publishing endpoint could avoid even four data-triggered builds daily; no new storage service is justified at current scale.
+
+## V3.1 source review
+
+Owner-approved decisions changed geography, saved locations, numerals, animation and health delivery. Exact original endpoint evidence, licensing, dataset vintages, geographic/date counterexamples and verification limits are retained in [township research](research/V3_GEOGRAPHY_SOURCES.md) and [WHO/contact research](research/V3_HEALTH_SOURCES.md). See the runtime Sources page for the canonical public reference. The geographic and health source additions reuse static hosting and existing bounded scheduling; no new paid resource, subscriber backend or emergency-delivery SLA is implied.

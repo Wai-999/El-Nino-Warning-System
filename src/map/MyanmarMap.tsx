@@ -103,6 +103,17 @@ export default function MyanmarMap({
   }, [geo]);
   return (
     <div className={`map-component ${compact ? "compact" : ""}`}>
+      {compact && (
+        <p className="small">
+          {t(
+            ...(layers.find((l) => l[0] === layer)!.slice(1, 3) as [
+              string,
+              string,
+            ]),
+          )}{" "}
+          · {t("State / region samples", "ပြည်နယ် / တိုင်း နမူနာများ")}
+        </p>
+      )}
       {!compact && (
         <div className="map-toolbar">
           <label>

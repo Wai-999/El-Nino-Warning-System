@@ -585,7 +585,7 @@
         "my": "ကြိုတင်ပြင်ဆင်ရေးနှင့် ကျန်းမာရေးပညာပေး"
       },
       "question": "What general protective actions can I take?",
-      "definition": "Static paraphrased official guidance; independent of live model values; no diagnosis or disease prediction.",
+      "definition": "General hazard-specific preparedness. Clinical-health panel removed under the updated V3 decision; official health publications use their own independent source entry.",
       "unit": "checklist",
       "kind": "educational guidance",
       "spatial": "Explicit issuer coverage / general guidance",
@@ -608,7 +608,7 @@
       "visualization": "Text with units, source and date; optional table/chart",
       "fallback": "Retain dated last-good snapshot, label delayed; otherwise unavailable.",
       "status": "implemented",
-      "summaryMy": "ရာသီဥတုတန်ဖိုးများမှ ထုတ်လုပ်သော အကြံပြုချက် မဟုတ်ဘဲ တရားဝင်ရင်းမြစ်ကို အခြေခံသည့် ယေဘုယျ ပညာပေးဖြစ်သည်။"
+      "summaryMy": "ဘေးအလိုက် ယေဘုယျကြိုတင်ပြင်ဆင်ရေးဖြစ်သည်။ ကျန်းမာရေးထုတ်ပြန်စာကို သီးခြားတရားဝင်ရင်းမြစ်ဖြင့်သာ ပြသည်။"
     },
     {
       "id": "agriculture",
@@ -938,31 +938,36 @@
     {
       "id": "townships",
       "name": {
-        "en": "Township / village search and flood coverage",
-        "my": "မြို့နယ် / ကျေးရွာ ရှာဖွေမှု"
+        "en": "Township search and hierarchy",
+        "my": "မြို့နယ် ရှာဖွေမှုနှင့် အဆင့်ဆင့်အမည်စာရင်း"
       },
-      "question": "Is validated data available for this capability?",
-      "definition": "No validated township/village gazetteer and warning geography. Only verified state/region boundaries are offered.",
-      "unit": "not available",
-      "kind": "unavailable",
-      "spatial": "Not claimed",
-      "temporal": "Not available",
+      "question": "Which source township and parent geography have I selected?",
+      "definition": "Pinned MIMU-derived OCHA/HDX COD-AB v01: country, 18 source admin1 units, 80 districts and 330 townships with bilingual names and typed PCodes. Nine individually reviewed GeoNames alternate-name search aids. Parent-region weather fallback is explicit. Partial village coverage is not exposed.",
+      "unit": "PCode / names",
+      "kind": "administrative reference",
+      "spatial": "Source administrative township; not meteorological resolution",
+      "temporal": "Valid 2024-02-15; reviewed 2025-10-30; resource uploaded 2026-08-14",
       "primarySource": "boundaries",
       "sourceUrl": "https://data.humdata.org/dataset/cod-ab-mmr",
       "backupSource": null,
-      "license": "Integration terms must be verified before ingestion",
-      "refresh": "Not connected",
-      "freshnessTTL": "Not applicable",
+      "license": "MIMU / OCHA / HDX CC BY 3.0 IGO; GeoNames aliases CC BY 4.0; extracted and normalized with attribution",
+      "refresh": "Manually reviewed version changes; no automatic rename of saved places",
+      "freshnessTTL": "Pinned geography; resource upload does not refresh validity",
       "historicalBaseline": null,
-      "uncertainty": "Not assessed",
+      "uncertainty": "Not a claim to the latest MIMU PCode release. Villages are partial. Duplicate names require a parent and exact code.",
       "qa": [
-        "Require validated source, method and geography before activation"
+        "330 unique township PCodes",
+        "Every typed administrative parent resolves",
+        "18 source units explicitly map to 15 canonical regions",
+        "Both language names present",
+        "Source workbook SHA256 retained",
+        "Known ambiguous and historical names tested"
       ],
-      "warningApplicability": "None",
-      "visualization": "Explicit unavailable state with reason",
-      "fallback": "No validated township/village gazetteer and warning geography. Only verified state/region boundaries are offered.",
-      "status": "unavailable",
-      "summaryMy": "အတည်ပြုမြို့နယ်၊ ကျေးရွာအမည်စာရင်းနှင့် သတိပေးနယ်နိမိတ် မရှိသေးသဖြင့် ပြည်နယ်/တိုင်းသာ ရွေးနိုင်သည်။"
+      "warningApplicability": "Administrative lookup only. No township warnings, flood measurements or inference from a regional forecast.",
+      "visualization": "Search, parent hierarchy, saved places, overview and per-indicator fallback disclosure",
+      "fallback": "Retain pinned source and saved code. Unknown/retired codes require reviewed correction; no silent reassignment.",
+      "status": "implemented",
+      "summaryMy": "မြို့နယ် 330 ၏ မြန်မာ/အင်္ဂလိပ်အမည်၊ PCode နှင့် အဆင့်ဆင့်နယ်နိမိတ်စာရင်းကို သတ်မှတ်ဗားရှင်းဖြင့် သုံးသည်။ မိုးလေဝသသည် ပြည်နယ်/တိုင်းနောက်ခံသာဖြစ်ပြီး ကျေးရွာနှင့် မြို့နယ်ရေကြီးတိုင်းတာချက် မရရှိပါ။"
     },
     {
       "id": "spi",
@@ -1355,6 +1360,73 @@
       "fallback": "Retain dated last-good snapshot, label delayed; otherwise unavailable.",
       "status": "implemented",
       "summaryMy": "ပစိဖိတ် သမုဒ္ဒရာနှင့် လေထုအပြန်အလှန်သက်ရောက်မှု အယူအဆဖြစ်သည်။ ရုပ်ပုံနှင့် စိတ်ကူးယဉ်နမူနာက မြန်မာမိုးလေဝသ မခန့်မှန်းပါ။"
+    },
+    {
+      "id": "health-advisories",
+      "name": {
+        "en": "Official WHO health publications",
+        "my": "တရားဝင် WHO ကျန်းမာရေးထုတ်ပြန်စာ"
+      },
+      "question": "Which original Myanmar-tagged WHO publications were returned?",
+      "definition": "Independently checked WHO Disease Outbreak News metadata, exact Myanmar country taxonomy. Source issue uses PublicationDateAndTime, not CMS migration/modification or retrieval date. Original English titles link to full official pages.",
+      "unit": "publication metadata",
+      "kind": "official health bulletin",
+      "spatial": "WHO Myanmar country tag; no township applicability supplied",
+      "temporal": "Original issue date; no bulletin expiry or warning severity supplied",
+      "primarySource": "WHO DON",
+      "sourceUrl": "https://www.who.int/emergencies/disease-outbreak-news",
+      "backupSource": null,
+      "license": "Bibliographic metadata and direct links under WHO linking policy; no full clinical text, images, logo or endorsement",
+      "refresh": "One bounded request per scheduled run, four daily; no public browser upstream polling",
+      "freshnessTTL": "18-hour fetch display policy; 30-day recency filter is not expiry",
+      "historicalBaseline": null,
+      "uncertainty": "Selected WHO publications only, not complete national health-advisory coverage. Unknown current local status even when recent query is empty.",
+      "qa": [
+        "Exact source Myanmar tag",
+        "Original source issue date, not CMS publication field",
+        "Safe original WHO URL slug",
+        "No duplicates/future dates",
+        "No expiry/severity synthesized",
+        "Foreign title substring rejected",
+        "Failures retain dated last-good metadata"
+      ],
+      "warningApplicability": "Separate health publication metadata; never fed to meteorological warnings, active alert counts or disease estimates.",
+      "visualization": "Recent publication list and historical expander, limited coverage, original dates and source health",
+      "fallback": "Retain original issue and retrieval dates, mark source delayed/cached; otherwise unavailable. Empty does not mean safe.",
+      "status": "implemented",
+      "summaryMy": "WHO နိုင်ငံသတ်မှတ်ချက်ဖြင့် မြန်မာထုတ်ပြန်စာကို သီးခြားယူသည်။ မူရင်းအင်္ဂလိပ်ခေါင်းစဉ်နှင့် ထုတ်ပြန်ရက်ကို ထိန်းထားသည်။ လက်ရှိဒေသသတိပေးချက်ဟု မယူဆသကဲ့သို့ စာရင်းဗလာကို ဘေးကင်းဟု မဆိုလိုပါ။"
+    },
+    {
+      "id": "emergency-contacts",
+      "name": {
+        "en": "Verified emergency contacts",
+        "my": "အတည်ပြု အရေးပေါ်ဆက်သွယ်ရန်"
+      },
+      "question": "Which source-listed contact and service scope can I check?",
+      "definition": "Source-listed MRCS ambulance contact via ICRC Myanmar FAQ, and MRCS EOC coordination hotline. Ambulance service is in some locations only; EOC is 24/7 during emergency activation. No nationwide availability or dispatch guarantee.",
+      "unit": "telephone / directory metadata",
+      "kind": "official contact reference",
+      "spatial": "Source-described service scope; no nationwide coverage claim",
+      "temporal": "Sources checked 2026-10-31; ICRC FAQ dated 2026-06-30",
+      "primarySource": "ICRC / Myanmar Red Cross Society",
+      "sourceUrl": "https://www.icrc.org/en/article/FAQ-icrc-work-myanmar",
+      "backupSource": "https://www.redcross.org.mm/our-work/emergency-operations-center/",
+      "license": "Short contact metadata and direct original-page links; no logos/endorsement",
+      "refresh": "Editorial check every 90 days and on corrections",
+      "freshnessTTL": "Source check date displayed; not a live availability feed",
+      "historicalBaseline": null,
+      "uncertainty": "Numbers were verified on original public pages, not by calling. Coverage, response and activation can change.",
+      "qa": [
+        "Official original-page verification",
+        "Service scope accompanies every number",
+        "No universal dispatch/availability claim",
+        "No test calls"
+      ],
+      "warningApplicability": "Contact reference only, not an issuing warning or an active health advisory.",
+      "visualization": "Scoped contact list with tel links and original directories",
+      "fallback": "Show source directory and dated verification; remove unsupported numbers through reviewed correction.",
+      "status": "implemented",
+      "summaryMy": "မူရင်း ICRC နှင့် မြန်မာကြက်ခြေနီစာမျက်နှာမှ ဆက်သွယ်ရန်ကို ဝန်ဆောင်မှုအကျုံးဝင်မှုနှင့် ပြသည်။ တစ်နိုင်ငံလုံး ချက်ချင်းရရှိမှု မကတိပြုပါ။"
     }
   ]
 }

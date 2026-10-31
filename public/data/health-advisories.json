@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "coverage": "who-don-only",
+  "checkedAt": "2026-10-31T22:20:34.033Z",
+  "retrievedAt": "2026-10-31T22:20:34.033Z",
+  "ok": true,
+  "error": null,
+  "items": [
+    {
+      "id": "7444e74a-20ad-4065-ad19-aa6accd88be9",
+      "title": "Circulating vaccine-derived poliovirus type 1 – Myanmar",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2019-DON183",
+      "issuedAt": "2019-08-22T19:00:00Z",
+      "sourceModifiedAt": "2022-07-28T22:44:17Z",
+      "country": "MM",
+      "expiresAt": null,
+      "kind": "official-health-bulletin"
+    },
+    {
+      "id": "2b5cc655-4bc0-430e-a00e-a81c87dbd74e",
+      "title": "Circulating vaccine-derived poliovirus type 2– Myanmar",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/21-december-2015-polio-myanmar-en",
+      "issuedAt": "2015-12-21T00:00:00Z",
+      "sourceModifiedAt": "2024-01-15T17:58:52Z",
+      "country": "MM",
+      "expiresAt": null,
+      "kind": "official-health-bulletin"
+    },
+    {
+      "id": "3d8a52fc-883f-4810-a63a-86e693221d06",
+      "title": "Avian influenza – situation in Myanmar",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2007_12_14-en",
+      "issuedAt": "2007-12-14T00:00:00Z",
+      "sourceModifiedAt": "2021-07-04T07:31:49Z",
+      "country": "MM",
+      "expiresAt": null,
+      "kind": "official-health-bulletin"
+    }
+  ]
+}

@@ -6,7 +6,15 @@ import { number } from "../data/presentation";
 import { WeatherSummary, Source, Unavailable } from "../components/Service";
 const MyanmarMap = lazy(() => import("../map/MyanmarMap"));
 export default function AreaMap() {
-  const { t, lang, selected, setSelected, lowData, operational: op } = useApp(),
+  const {
+      t,
+      lang,
+      selected,
+      setSelected,
+      lowData,
+      openLocations,
+      operational: op,
+    } = useApp(),
     [query, setQuery] = useState("");
   const regions = canonicalRegions.filter((r) =>
     r.source_aliases.some((a) =>
@@ -25,6 +33,13 @@ export default function AreaMap() {
           )}
         </p>
       </header>
+      <button className="township-search-button" onClick={openLocations}>
+        <Search size={17} />
+        {t(
+          "Search townships by name or PCode",
+          "အမည် သို့မဟုတ် PCode ဖြင့် မြို့နယ်ရှာရန်",
+        )}
+      </button>
       <div className="area-map-layout">
         <section className="surface map-surface">
           {lowData ? (
@@ -112,8 +127,8 @@ export default function AreaMap() {
       </section>
       <Unavailable>
         {t(
-          "Township/village search, verified flood extent, gauge levels and township flood alerts are unavailable. No validated gazetteer or live hydrology feed is connected.",
-          "မြို့နယ်/ကျေးရွာရှာဖွေမှု၊ အတည်ပြုရေလွှမ်းဧရိယာ၊ မြစ်ရေမှတ်နှင့် မြို့နယ်ရေကြီးသတိပေးချက် မရရှိပါ။ အတည်ပြုအမည်စာရင်းနှင့် ရေဗေဒဒေတာ မချိတ်ဆက်ရသေးပါ။",
+          "Township name search is available from the pinned gazetteer. Village search, verified flood extent, gauge levels and township flood alerts remain unavailable; there is no validated live hydrology feed.",
+          "သတ်မှတ်ဗားရှင်းအမည်စာရင်းမှ မြို့နယ်ရှာနိုင်ပါသည်။ ကျေးရွာရှာဖွေမှု၊ အတည်ပြုရေလွှမ်းဧရိယာ၊ မြစ်ရေမှတ်နှင့် မြို့နယ်ရေကြီးသတိပေးချက် မရရှိပါ။ အတည်ပြုတိုက်ရိုက်ရေဗေဒဒေတာ မရှိပါ။",
         )}
       </Unavailable>
       <Source id="townships" />
