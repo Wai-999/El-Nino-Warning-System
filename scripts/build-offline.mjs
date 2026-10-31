@@ -3,6 +3,10 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 const pkg = JSON.parse(await readFile("package.json", "utf8"));
 await writeFile(
+  "dist/data/indicator-registry.json",
+  await readFile("src/data/indicators.json"),
+);
+await writeFile(
   "dist/release.json",
   JSON.stringify({ version: pkg.version }) + "\n",
 );
@@ -11,7 +15,7 @@ await writeFile(
   "dist/index.html",
   html.replace(
     "<head>",
-    `<head><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://i.ytimg.com; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">`,
+    `<head><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">`,
   ),
 );
 async function files(dir) {
@@ -50,7 +54,7 @@ self.addEventListener('fetch',event=>{
  const req=event.request,url=new URL(req.url);
  if(req.method!=='GET'||url.origin!==self.location.origin||!url.href.startsWith(self.registration.scope))return;
  if(url.href.startsWith(self.registration.scope+'pamphlet/'))return;
- if((url.pathname.endsWith('/data/current.json')||url.pathname.endsWith('/data/operational.json')||url.pathname.endsWith('/data/archive.json'))){
+ if((url.pathname.endsWith('/data/current.json')||url.pathname.endsWith('/data/operational.json')||url.pathname.endsWith('/data/archive.json')||url.pathname.endsWith('/data/climate.json'))){
   event.respondWith((async()=>{const cache=await caches.open(CACHE);try{const response=await fetch(req);if(!response.ok)throw Error('Unavailable');await cache.put(req,response.clone());return response;}catch{const cached=await cache.match(req,{ignoreVary:true});if(!cached)return Response.error();const headers=new Headers(cached.headers);headers.set('X-Mokinn-Cache','true');return new Response(await cached.arrayBuffer(),{status:200,headers});}})());return;
  }
  event.respondWith((async()=>{const cache=await caches.open(CACHE);const saved=req.mode==='navigate'?await cache.match('./index.html'):(await cache.match(req,{ignoreVary:true}))||(await caches.match(req,{ignoreVary:true}));if(saved)return saved;try{const response=await fetch(req);if(response.ok)await cache.put(req,response.clone());return response;}catch{if(req.mode==='navigate')return (await cache.match('./index.html'))||Response.error();return Response.error();}})());

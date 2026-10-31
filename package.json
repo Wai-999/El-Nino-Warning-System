@@ -1,6 +1,6 @@
 {
   "name": "myanmar-el-nino-warning",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,8 +12,9 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "data:refresh": "node --experimental-strip-types scripts/refresh-data.ts && node --experimental-strip-types scripts/refresh-operational.ts && node --experimental-strip-types scripts/refresh-archive.ts",
-    "data:validate": "node --experimental-strip-types scripts/validate-data.ts"
+    "data:refresh": "node --experimental-strip-types scripts/refresh-data.ts && node --experimental-strip-types scripts/refresh-operational.ts && node --experimental-strip-types scripts/refresh-archive.ts && node --experimental-strip-types scripts/refresh-climate.ts",
+    "data:validate": "node --experimental-strip-types scripts/validate-data.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fontsource/noto-sans-myanmar": "^5.2.0",
@@ -21,7 +22,7 @@
     "lucide-react": "^0.468.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "zod": "^3.24.0"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",
@@ -41,5 +42,8 @@
     "typescript-eslint": "^8.0.0",
     "vite": "^7.1.0",
     "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

@@ -31,3 +31,18 @@ const archive = validateArchive(
   JSON.parse(await readFile("public/data/archive.json", "utf8")),
 );
 console.log(`Validated ${archive.snapshots.length} archived summaries.`);
+
+const { validateClimate } = await import("../src/data/climate.ts");
+const climate = validateClimate(
+  JSON.parse(await readFile("public/data/climate.json", "utf8")),
+);
+console.log(
+  `Validated NOAA climate: ${climate.roni?.points.length ?? 0} RONI seasons; ${climate.probabilities?.rows.length ?? 0} probability rows.`,
+);
+const registry = JSON.parse(await readFile("src/data/indicators.json", "utf8"));
+if (
+  new Set(registry.indicators.map((i: { id: string }) => i.id)).size !==
+  registry.indicators.length
+)
+  throw Error("Duplicate indicator ID");
+console.log(`Validated ${registry.indicators.length} registry entries.`);

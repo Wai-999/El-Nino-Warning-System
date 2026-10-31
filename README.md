@@ -1,67 +1,56 @@
-# မိုးကင်း · Mokinn 2.1
+# El Niño Warning System
 
-Burmese-first **Myanmar weather, climate, impacts and El Niño preparedness**, with English available.
+[Open the verified production site](https://el-nino-warning-system.vercel.app/)
 
-[Open the live application](https://wai-999.github.io/El-Nino-Warning-System/)
+Burmese-first Myanmar weather, climate context and practical preparedness, with English available. Independent public information aid; follow Myanmar DMH/local instructions for urgent decisions.
 
-## Everyday operational information
+## Version 3
 
-- All 15 States/Regions, including Nay Pyi Taw: ECMWF IFS forecast weather, current modeled hour, humidity/apparent temperature, rain, wind/gusts and seven-day outlook.
-- Real 30-day temperature and rainfall anomalies from ERA5 against matching **1991–2020** calendar-day normals; seven/30-day rainfall and trailing dry spells.
-- Ten map layers, source/validity/units, keyboard selection, regional profiles and practical actions.
-- Independent heat, rain, wind, dryness, water and agriculture screening signals; source-backed NOAA ENSO status, monthly Niño 3.4 trend and supported seasonal strength outlook.
-- Current evidence-driven health, agriculture, water and energy implications. Official warnings, system risk signals and information updates have distinct labels.
-- All-region warning matrix and mobile cards with concern, hazard, freshness and official-only filters. Coverage separates monitoring from general context; missing feeds stay explicit.
-- Records with sourced historical reports, dated screening snapshots and real change comparisons. Overview prioritizes ENSO, regional concerns, preparation and data quality.
-- Burmese/English, Low Data Mode, offline preparedness checklists, cached-date labels, self-hosted fonts, no account or tracking.
+- Six core pages: Home, Weather, Climate, Map, Safety, Sources; secondary Learn with six lightweight, keyboard-operable synthetic activities.
+- Real ECMWF model samples across all 15 states/regions, seven daily forecasts, apparent temperature, humidity, rain and wind. Model estimates are not station observations or township measurements.
+- ERA5 recent temperature/rainfall comparisons against matching 1991–2020 normals, original dates and delayed states.
+- Dated official NOAA ENSO assessment, separate RONI history, all nine phase-probability seasons, monthly Niño 3.4 and source event-strength statement where available.
+- Searchable single Sources page, source health and machine-readable indicator registry; CSV/JSON exports retain units, dates, provenance and licensing.
+- Keyboard-selectable regional map, accessible searchable list, local language/location/map preferences and optional consent-based approximate geolocation.
+- Hazard-specific offline checklists, static WHO/NWS health education and conservative FAO-informed crop/stage considerations.
+- Installable PWA with cached timestamps, exact alert expiry even offline, safe cache upgrades and low-data map fallback.
 
-**Operational limits:** this is an independent preparedness resource, not an official emergency service. Official Myanmar warning-feed coverage is not connected. ECMWF values are forecasts, ERA5 is delayed reanalysis, and regional estimates use three spatial sample cells rather than complete grid coverage. Screening thresholds have not been calibrated against Myanmar impacts; forecast confidence is not invented. Missing observations, rainfall probabilities, soil moisture, river/reservoir levels, crop losses and grid outages stay unavailable. Follow DMH/local instructions for urgent decisions.
+**Coverage limits:** no verified automated Myanmar warning feed, township/village gazetteer, local flood/gauge/extent product, calibrated seasonal/subseasonal outlook, SPI/SPEI/soil-moisture integration, UV/air-quality feed or browser/Telegram delivery. These have specific unavailable states and reasons. Empty warning lists do not mean all clear. Regional automated screens are not locally calibrated official warnings. Health material is static education, not weather-triggered diagnosis or disease prediction.
 
-## Architecture and development
+## Development
 
-React + TypeScript + Vite; static GitHub Pages. Provider adapters and Zod schemas normalize external data in Node/GitHub Actions. The client reads small same-origin snapshots, never external APIs or large climatology files. Numerical rules live in `src/climate` and `src/risk`; map layers in `src/map`; reusable operational evidence UI in `src/components`.
+React + TypeScript + Vite; Node 24. No provider credentials are required. Public `VITE_BASE_PATH` selects deployment path; never put secrets in VITE variables.
 
 ```sh
 npm ci
 npm run dev
-npm run data:refresh   # real source fetch; initial baseline takes several minutes
+npm run data:refresh
 npm run data:validate
 npm run format:check
 npm run lint
+npm run typecheck
 npm test
 npm run build
-npx playwright install chromium
 npm run test:e2e
 ```
 
-Node 24 required. Development: `http://127.0.0.1:5173/El-Nino-Warning-System/`. No API keys. Public `VITE_BASE_PATH` may override the deployment base; never expose private credentials through VITE variables.
+Local preview: `http://127.0.0.1:5173/El-Nino-Warning-System/`. Vercel uses root base `/` through `vercel.json`; GitHub Pages retains its repository base. Source refresh uses shared validated snapshots, independent source dates, bounded provider calls and last-good fallback. Missing baseline construction takes several minutes. Schedules are best effort and cannot guarantee emergency delivery.
 
-## Methods, sources and refresh
+- [Audit and retained features](docs/AUDIT.md)
+- [Architecture decision](docs/ARCHITECTURE.md)
+- [Primary-source research and zero-cost comparison](docs/DESIGN_RESEARCH.md)
+- [Indicator coverage](docs/INDICATOR_REGISTRY.md) / [machine-readable definitions](src/data/indicators.json)
+- [Source matrix](docs/SOURCE_MATRIX.md)
+- [Numerical methods and screening thresholds](docs/RISK_METHODOLOGY.md)
+- [Deployment and rollback](docs/DEPLOYMENT.md)
+- [Operations, recovery and quotas](docs/OPERATIONS.md)
+- [Validation evidence and limitations](docs/QA_REPORT.md)
+- [Redesign migration](docs/CHANGELOG_REDESIGN.md)
 
-Temperature anomaly is recent period mean minus the normal for equivalent calendar dates. Rainfall departure is recent total minus expected total; percentages are suppressed for expected rain below 10 mm. Both sides use the same ERA5 model, sampling, units and Myanmar calendar days. Historical periods end approximately six days before ingestion and are explicitly dated.
+Attribution: ECMWF / Copernicus / Open-Meteo (CC BY 4.0, noncommercial API terms), NOAA public information, MIMU/OCHA/HDX boundaries (CC BY 3.0 IGO), and linked WHO/NWS/FAO guidance. See the runtime Sources page for individual definitions and terms. No incompatible provider is silently substituted.
 
-Signals use the maximum independent usable hazard; there is no opaque AI score. The regional matrix presents Low platform risk, Attention, Elevated, High and Very high, mapped to the existing internal threshold levels. An unknown input is never normal. ENSO changes context and presentation, not local severity. All active validated Myanmar official advisories outrank weather screens; immediate high weather screens outrank ENSO context.
+## Printed leaflet URL
 
-Scheduled Actions refresh forecasts four times daily, ERA5 daily, and missing baseline dates only when needed. Validated last-good data survives source failures without rewritten timestamps. Weather becomes stale after 18 hours; ERA5 becomes stale when its final day is more than ten days old. The final workflow health job reports failures after the safe fallback is deployed.
+Keep [the existing single-QR Burmese leaflet hub](https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/) available. `public/pamphlet/el-nino/` is an independent generated site with its own worker and offline copy; its 30 tracked files are preserved. The main PWA neither precaches nor intercepts this path. Do not move the path, rename the repository or disable GitHub Pages. [Leaflet deployment evidence](docs/pamphlet/DEPLOYMENT.md).
 
-- [Source registry, licenses, resolution and limitations](docs/DATA_SOURCES.md)
-- [Regional coverage, source hierarchy and snapshot comparisons](docs/METHODOLOGY.md)
-- [2.1 release report](NEXT_VERSION_RELEASE_REPORT.md)
-- [Scientific methods and screening thresholds](docs/RISK_METHODOLOGY.md)
-- [Deployment, ingestion and rollback](docs/DEPLOYMENT.md)
-- [V2 audit](docs/V2_AUDIT.md)
-- [Validation record](docs/VALIDATION.md)
-
-Attribution: **ECMWF / Copernicus Climate Change Service / Open-Meteo**, CC BY 4.0; **MIMU / OCHA / HDX**, CC BY 3.0 IGO (simplified 2024 reference geometry, Bago/Shan subdivisions dissolved); **NOAA CPC** ENSO public information. WHO/NWS/FAO/WMO guidance is linked and briefly paraphrased. Open-Meteo free endpoints are noncommercial and rate-limited; there is no SLA.
-
-## Printed leaflet hub (single QR)
-
-The 2026-10 Burmese El Niño bi-fold leaflet carries one QR code that opens <https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/> — a separate static hub in `public/pamphlet/el-nino/` (generated; do not hand-edit) with its own service worker and opt-in offline copy. Keep this path, the repository name and GitHub Pages enabled: printed copies depend on them. Audit, deployment and QR test records: [docs/pamphlet](docs/pamphlet/).
-
-## Privacy, offline and safety
-
-Language, region, cached data and checklist progress stay in the browser. No analytics, geolocation tracking or accounts. First-visit connectivity is needed; browser storage may be evicted. Maps cache after first use. Low Data Mode preserves text and warnings while skipping maps and optional charts. Cached/stale views always retain source dates.
-
-Automated accessibility and browser tests do not establish full WCAG certification or operational meteorological validation. Fluent Burmese editorial, assistive-technology, meteorological and clinical review would strengthen an official rollout. Health advice is general; seek urgent medical help for heatstroke symptoms. The app does not send SMS, email, push or messaging alerts.
-
-V1 commit history remains intact. V2 is an evolution of the existing application, not a replacement repository.
+Language, region, map layer, dated caches and checklists stay in browser storage. No analytics, reading account or subscriber contacts are collected. Human Burmese editorial, assistive-technology and meteorological review remain valuable release limitations; automated testing is not formal WCAG or warning-system certification.

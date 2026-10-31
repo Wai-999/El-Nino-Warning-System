@@ -1,0 +1,147 @@
+{
+  "checkedAt": "2026-10-31T17:59:12.991Z",
+  "base": "https://el-nino-warning-system.vercel.app/",
+  "resources": [
+    {
+      "path": "",
+      "status": 200,
+      "type": "text/html; charset=utf-8",
+      "bytes": 999,
+      "sha256": "b92bcea4dfc6e27f4e280d8d648723b29a64981d77d3ac020090847de406470f",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "/assets/index-CIPY0_0n.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 376985,
+      "sha256": "8ce23ac14c0fc8abd857ec39684bdd95c0c4fe17f03da546013be3a7878c9d0f",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "/assets/index-BJa7GsYz.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 47583,
+      "sha256": "a6214669732a88cbeab3fb556032476a5058d1bcdad0ea634d21ef25136e7628",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "release.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 20,
+      "sha256": "aed49b6fa2a1f3a9fd59b7b849ff0b0c3cc4a69363ba2d3b55fe2106953f235e",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/current.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 835,
+      "sha256": "67144f43c6c705b310608b79ca4577337ee970d93723beb184526fc50aad819b",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/operational.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 41554,
+      "sha256": "761db8fc901871574f4e733188ef6cc63a906c877cdb9e811bee85a5dc6963b5",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/climate.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 82954,
+      "sha256": "c9287c5cfe70575f4a88cddd929ec035d889d9c638af238a41d387e9f4257fd0",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "data/indicator-registry.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 74681,
+      "sha256": "e88ca6ac5ce6c48f1f8e46ec0fd7fafd875325d0d890a58ba77c0b3a043ae2a3",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "status": 200,
+      "type": "application/manifest+json; charset=utf-8",
+      "bytes": 499,
+      "sha256": "da0cf7c54a684e9f7b7b17e7f4364e73c732aa4ef508f14e168d5a88fe73e134",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "icon.svg",
+      "status": 200,
+      "type": "image/svg+xml",
+      "bytes": 407,
+      "sha256": "24251ac34eb7fb84ac6e8982fa53bba612134ede2c91f7d38d9d25b9ed8dfc0e",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "icon-192.png",
+      "status": 200,
+      "type": "image/png",
+      "bytes": 9822,
+      "sha256": "5bc4f2e17c95a3819834154394d829ea97f816f871dd2b9d2c3a36f33f222bf0",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "icon-512.png",
+      "status": 200,
+      "type": "image/png",
+      "bytes": 30803,
+      "sha256": "3a46c815706de71f62bf2421bf7989b874e701c7e21f08f8434689342defe41a",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 2895,
+      "sha256": "b651a77c8c8d525079a470bb164845b1a0d95ce11ba8302cfc9b6b6177b78df4",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    }
+  ],
+  "data": {
+    "officialCoverage": "unavailable",
+    "officialAlertCount": 0,
+    "weatherRegions": 15,
+    "weatherValidAt": "2026-10-31T17:30:00.000Z",
+    "weatherFresh": true,
+    "historyStart": "2026-09-26",
+    "historyEnd": "2026-10-25",
+    "historyFresh": true,
+    "roniSeasons": 920,
+    "probabilitySeasons": 9,
+    "indicators": 44,
+    "providerHealth": {
+      "ecmwf": {
+        "checkedAt": "2026-10-31T17:41:10.468Z",
+        "lastSuccess": "2026-10-31T17:41:10.468Z",
+        "ok": true,
+        "error": null
+      },
+      "era5": {
+        "checkedAt": "2026-10-31T17:41:10.468Z",
+        "lastSuccess": "2026-10-31T17:33:11.914Z",
+        "ok": true,
+        "error": null
+      },
+      "nino34": {
+        "checkedAt": "2026-10-31T17:41:10.468Z",
+        "lastSuccess": "2026-10-30T20:50:26.358Z",
+        "ok": true,
+        "error": null
+      }
+    }
+  },
+  "failures": [],
+  "version": "3.0.0",
+  "missingDataStatus": 404,
+  "ok": true
+}

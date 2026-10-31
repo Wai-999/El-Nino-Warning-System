@@ -3,8 +3,7 @@ import { createRoot } from "react-dom/client";
 import "@fontsource/noto-sans-myanmar/myanmar-400.css";
 import "@fontsource/noto-sans-myanmar/myanmar-600.css";
 import App from "./app/App";
-import "./styles/main.css";
-import "./styles/responsive.css";
+import "./styles/service.css";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
@@ -18,7 +17,3 @@ if ("serviceWorker" in navigator && import.meta.env.PROD)
         /* App remains usable without offline caching. */
       });
   });
-
-import "./styles/operational.css";
-
-import "./styles/intelligence.css";

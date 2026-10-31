@@ -1,29 +1,55 @@
-# Build, ingestion and deployment
+# Deployment, ingestion and rollback
 
-Production: https://wai-999.github.io/El-Nino-Warning-System/
+Version 3 retains React/TypeScript/Vite, Node 24 and static hosting. Vercel Hobby is the new production target; the existing GitHub Pages site and printed QR hub remain enabled. The verified production URL and deployment evidence are recorded in `QA_REPORT.md` after publication.
 
-Node 24; `npm ci`. Run `npm run format:check`, `npm run lint`, `npm test`, `npm run data:validate`, `npm run build`, then `npm run test:e2e` after `npx playwright install chromium`. The browser suite uses the production preview on port 4173. Use `npm run dev` for local editing on port 5173.
+## Reproducible local checks
 
-## Data pipeline
+```sh
+npm ci
+npm run format:check
+npm run lint
+npm run typecheck
+npm test
+npm run data:validate
+npm run build
+npm run test:e2e
+```
 
-`npm run data:refresh` runs NOAA ingestion, `scripts/refresh-operational.ts`, and `scripts/refresh-archive.ts`. The last step atomically appends distinct validated screening summaries and retains official history; invalid input leaves the prior archive untouched. Forecast, reanalysis and monthly Niño index have independent last-known-good fallbacks. `public/data/operational.json` is the compact validated client artifact. `scripts/cache/samples.json` and `climatology.json` are versioned server-side preprocessing inputs; no 30-year arrays reach the browser. The initial baseline fetch is several minutes and respects weighted rate limits. ERA5 recent data is fetched only when its end date changes; the baseline is replenished only for uncached calendar dates, with future buffer. Failed baseline construction never replaces a valid baseline.
+The Playwright suite serves `dist/` at `127.0.0.1:4173/El-Nino-Warning-System/`; local editing uses port 5173. Browsers must be installed (`npx playwright install chromium`) if absent. The source-matched production dependency audit is `npm audit --omit=dev`. Do not use `npm audit fix --force` to downgrade the lint toolchain.
 
-The same sample hash must match the baseline. A boundary/sampling change requires rebuilding compatible baseline dates. To reproduce geometry, download the source GeoJSON archive linked in `public/data/boundary-source.json`, extract admin1, run `node scripts/prepare-geography.mjs path/to/mmr_admin1.geojson`, then simplify the generated `/tmp/mokinn-merged.geojson` with mapshaper `-dissolve shapeISO copy-fields=shapeName -simplify weighted 4% keep-shapes -o public/data/myanmar.geojson format=geojson precision=0.0001 force`. Review boundary changes before publication. Source archive is not committed.
+## Vercel settings
 
-GitHub Actions runs at 04:17, 10:17, 16:17, 22:17 UTC, after upstream six-hour model cycles with processing allowance. Schedules are best-effort, not guaranteed delivery. Manual dispatch and main pushes also run. Pull requests validate without refreshing published source data or deploying. No paid credentials or secrets are required. Free Open-Meteo is for noncommercial use; obtain a commercial plan before monetizing.
+The authenticated scope was inspected and confirmed Hobby before creating `el-nino-warning-system`. No paid service, database, function, cron or notification service is provisioned. The project is linked locally; `.vercel/` and `.env.local` are ignored and must never be committed/uploaded. `.vercelignore` also excludes all environment files, tests, documentation and the large server-side baseline cache; sample coordinates and public runtime data remain available to the build.
 
-The workflow formats-checks/lints/tests, refreshes sources, validates/builds, runs desktop/tablet/mobile accessibility and offline checks, commits successful dated snapshots/cache using GITHUB_TOKEN, uploads dist, and deploys Pages. Bot data pushes do not recursively trigger workflows. Data failures deploy safe dated fallbacks; the final health job then fails to make the source issue visible. Check Actions and the in-app Data Status panel for provider problems. Never reset failed data to zero or rewrite valid times.
+`vercel.json` declares Vite, `npm ci`, `VITE_BASE_PATH=/ npm run build`, output `dist`, fresh HTML/service-worker/data cache policies, MIME-sniffing protection, referrer policy and restricted camera/microphone permissions. `package.json` pins Node 24.x. There is no catch-all rewrite that serves HTML for a missing JSON file. Hash routes work at the root URL.
 
-## Pages and release
+Deployment with an authenticated official CLI:
 
-Pages source is GitHub Actions. Vite base is `/El-Nino-Warning-System/`; hash routes need no server rewrites. CSP restricts scripts/styles/fonts/connect to self. The service worker uses content-versioned caches, network-first data and explicit offline markers. Precache requests bypass the HTTP cache so a still-fresh older HTML document cannot enter a new shell. The cache fingerprint includes both resource content and cache-policy source. Activation keeps the current and immediate prior shell, allowing already-open pages to load prior lazy assets. Navigation uses the current shell. It does not force-reload an active user's session.
+```sh
+vercel link --yes --project el-nino-warning-system
+vercel deploy --prod --yes
+```
 
-Before releasing, verify all 15 polygons including Nay Pyi Taw, real regional values and dates, anomalies with 1991–2020 reference, official/system distinction, map layers and low-data/offline behavior. Check production `/`, `#/map`, `#/warnings`, `#/records`, `#/impacts`, `#/region/MM-18` on desktop and mobile; load the production operational JSON and inspect model, valid/fetched dates, provider health and 15-region coverage. Run `node scripts/verify-release.mjs https://wai-999.github.io/El-Nino-Warning-System/ docs/next-production-verification.json` to record live routing, responsive bilingual accessibility, source schemas and full offline restart. The regression suite also exercises a still-fresh prior HTTP cache during a service-worker upgrade. Create a semver Git tag/release only after successful Pages deployment and live verification. Preserve V1 commits.
+Do not claim success merely from uploading. Wait for ready status, request the literal returned public URL without authentication, and verify main HTML, release version, source JSON, manifest/icons/worker, bilingual navigation, exports, map/list, unavailable states and offline expiry. Inspect deployment/build logs. The release is not an authoritative warning issuer.
 
-The printed leaflet's single QR code targets `pamphlet/el-nino/`, a separate static hub copied from `public/pamphlet/` into `dist/`. `scripts/build-offline.mjs` excludes it from the app shell and the app service worker returns early for `pamphlet/` URLs; `tests/e2e/pamphlet.spec.ts` guards both. Never move that path. See `docs/pamphlet/DEPLOYMENT.md`.
+For continuous delivery, connect the approved GitHub repository to this Vercel project and use `main` as the production branch. Make this connection only after the first redesign production deployment is verified, then integrate the tested branch through a normal reviewed pull request workflow. Do not use protected-branch bypass, force pushes, domain deletion or project deletion. Existing GitHub Pages remains an independent rollback/reference and printed-material destination.
 
-Concurrency serializes runs on the same ref. Branch protection must permit the documented data bot or use a reviewed PR workflow; do not bypass protection. GitHub may disable schedules on inactive public repositories. There is no operational SLA; freshness labels remain the safety boundary if ingestion stops.
+## Shared data pipeline and quotas
+
+`npm run data:refresh` runs the retained official assessment ingestion, operational weather/reanalysis, archive update and the new independent NOAA climate adapter. Atomic snapshots preserve independent source issue, model/observation, retrieval and valid times. Missing/invalid input does not become zero. The climate adapter retains all 1950+ RONI rows and nine source phase-probability rows with month-level issue precision.
+
+The Actions workflow runs four times daily and on manual dispatch/main changes; PRs validate without refreshing or deploying. Forecast requests explicitly specify the Myanmar calendar range, avoiding a verified upstream midnight-default mismatch. ERA5 uses the same sample hash, same model and matching 1991–2020 normals. Only missing baseline dates are fetched; failed construction cannot replace a valid baseline. A persisted daily quota reservation caps baseline work at 4,500 weighted calls across retries and throttles below 450/minute, leaving headroom under free-tier quotas for forecasts/recent history. See `OPERATIONS.md` and current provider terms.
+
+The workflow saves dated source snapshots, baseline cache and any daily budget ledger. Successful data commits can trigger the connected Vercel build (up to the existing four scheduled changes/day), below the verified Hobby deployment count. Bot commits do not recursively run the Pages workflow. This bounded static approach does not promise instant delivery; a future independently published snapshot store could separate data from builds if usage justifies it. No per-visitor provider polling and no invalid high-frequency Hobby cron are configured.
+
+The final ingestion-health job reports provider failures after safe dated fallback publication. A green hosting status alone does not prove fresh data. GitHub schedules can delay/drop or disable after inactivity; retain manual dispatch and freshness checks.
+
+## Offline and printed QR safety
+
+The Pages base remains `/El-Nino-Warning-System/`; Vercel overrides only the build base. The content-versioned service worker bypasses HTTP cache during shell upgrades, retains the current and immediate prior shell, loads source data network-first and marks offline responses. Original dates survive fallback and expired warnings cannot be active. CSP permits same-origin scripts/styles/fonts/connect only; original-source links open normally. No provider secrets are needed.
+
+`public/pamphlet/el-nino/` is a separate generated static hub with its own worker and explicit offline copy. The app never precaches/intercepts `pamphlet/`; all 30 tracked files remain unchanged. Keep the canonical printed [QR destination](https://wai-999.github.io/El-Nino-Warning-System/pamphlet/el-nino/) and GitHub Pages enabled. Existing pamphlet regression tests are retained unchanged.
 
 ## Rollback
 
-Prefer reverting the faulty code commit and running the workflow; retain valid dated source snapshots. Do not delete history or force-push main. If reverting to V1, use its compatible data schema and disclose that numerical regional capabilities are unavailable. Do not label obsolete forecasts live. Release artifacts and prior commits remain recoverable.
+Record the release commit and Vercel deployment ID. Promote a prior ready deployment through Vercel rollback, or revert the faulty merge commit and rebuild. For the first Vercel release, the preserved Pages site/base commit is the fallback. Retain valid dated datasets and compatible schemas; never force-push or delete history to recover. A rollback must still expose stale/expired states. Main integration and future source refreshes remain recoverable through normal Git history.

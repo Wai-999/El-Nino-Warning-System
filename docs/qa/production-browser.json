@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-31T18:07:09.656943+00:00",
+  "base": "https://el-nino-warning-system.vercel.app/",
+  "method": "Live CUA browser verification",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": {
+    "burmeseDefault": true,
+    "myanmarDigitsAndDates": true,
+    "englishSwitch": true,
+    "mapRegions": 15,
+    "accessibleRegionList": true,
+    "dailyForecastRows": 7,
+    "csvDownloadCompleted": true,
+    "sourceRegistryEntries": 44,
+    "temperatureSourceDeepLinkOpened": true,
+    "educationalModules": 6,
+    "ensoPhaseControlChangedDiagram": true,
+    "syntheticLabelVisible": true,
+    "horizontalOverflow": false
+  }
+}

@@ -23,6 +23,10 @@ import {
   departure,
   trailingDryDays,
 } from "../src/climate/calculations.ts";
+import {
+  reserveBaselineBudget,
+  type IngestionBudget,
+} from "../src/data/providerBudget.ts";
 const now = new Date(),
   stamp = now.toISOString();
 const sampleText = await readFile("scripts/cache/samples.json", "utf8");
@@ -149,16 +153,24 @@ await ingest("era5", async () => {
         last.push(key);
       else spans.push([key]);
     }
-    let weightedCalls = 0;
+    // Persist a daily budget across scheduled runs, including failed attempts.
+    // A per-run cap alone could exceed the provider's daily quota after retries.
+    const budgetPath = "scripts/cache/ingestion-budget.json";
+    const budgetDay = stamp.slice(0, 10);
+    let budget: IngestionBudget | null = null;
+    try {
+      budget = JSON.parse(await readFile(budgetPath, "utf8"));
+    } catch {
+      /* First budget on this checkout. */
+    }
     for (let year = 1991; year <= 2020; year++)
       for (const span of spans) {
         const a = year + "-" + span[0],
           b = year + "-" + span.at(-1);
         const days = (Date.parse(b) - Date.parse(a)) / DAY + 1;
         const cost = samples.length * Math.max(1, days / 14);
-        weightedCalls += cost;
-        if (weightedCalls > 4500)
-          throw Error("Baseline budget exhausted; retry on next scheduled day");
+        budget = reserveBaselineBudget(budget, budgetDay, cost);
+        await atomic(budgetPath, budget);
         const daily = aggregateDaily(
           samples,
           await requestSeries(samples, true, a, b),
