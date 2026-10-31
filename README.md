@@ -1,5 +1,7 @@
 # El Niño Warning System
 
+[Open the verified production site](https://el-nino-warning-system.vercel.app/)
+
 Burmese-first Myanmar weather, climate context and practical preparedness, with English available. Independent public information aid; follow Myanmar DMH/local instructions for urgent decisions.
 
 ## Version 3

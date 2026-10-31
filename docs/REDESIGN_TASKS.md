@@ -12,7 +12,8 @@ Scope: owner confirmed on 31 October 2026 that the supplied master redesign docu
 - [x] Implement accessible map, timestamped offline states and exports.
 - [x] Verify data, science rules, warning expiry, responsive UI and accessibility.
 - [x] Finish operational, migration, source and QA documentation.
-- [ ] Publish reviewable Git branch and pull request.
-- [ ] Deploy Vercel production and verify public URL, if account access exists.
+- [x] Publish reviewable Git branch and pull request.
+- [x] Deploy Vercel production and verify public URL.
+- [x] Connect continuous deployment after explicit owner approval; Vercel confirmed the GitHub connection.
 
 Unavailable features must retain specific reasons. Human Burmese editorial and assistive-technology review cannot be claimed from automated tests.

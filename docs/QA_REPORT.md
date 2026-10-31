@@ -30,3 +30,16 @@ After the security migration, the entry JavaScript is about 116 kB gzip and CSS 
 Official live Myanmar feed, township/village search and flood geography, river gauges/flood extent, calibrated long outlooks, standardized drought products, UV/air quality and browser/Telegram delivery remain unshipped with explicit reasons in the registry. Health guidance is static. No fake measurement, forecast probability, local warning, contact subscription or disease estimate is substituted.
 
 Fluent Burmese editorial review, assistive-technology user testing and Myanmar meteorological/agricultural review cannot be certified by automated checks; these remain human review tasks. Simulations are explicitly educational/synthetic and isolated from warning inputs.
+
+## Verified production publication
+
+- Public production: https://el-nino-warning-system.vercel.app/
+- Vercel deployment: `dpl_AsY8m3HhHSASSdv9LTBD1yBeY7xL`, ready production, basic Hobby build machine.
+- Deployed code commit: `6228b197bae8c30fe71053848b4fd77648be2987`.
+- Public HTTP evidence: `docs/qa/production-http.json`, all checks passed without authentication. Root JS/CSS, release 3.0.0, source contracts, 44-entry registry, manifest/icons and worker returned successfully; a missing JSON URL correctly returned 404. Weather and ERA5 were fresh and all operational provider health checks succeeded.
+- Production build logs inspected: build/deployment succeeded; only documented development advisories and upstream annotation warnings remained. No runtime service/function was provisioned.
+- Live browser evidence: `docs/qa/production-browser.json`. Burmese default, Myanmar digits/dates, English switch, 15 map regions/list, seven daily forecasts, CSV download, 44 registry entries and deep links, six synthetic learning modules and ENSO controls all worked at the production root without horizontal overflow at 390×844.
+- Vercel project settings explicitly confirmed Vite, Node 24.x, `npm ci`, root-base build and `dist` output.
+- Pull request: https://github.com/Wai-999/El-Nino-Warning-System/pull/1 . Initial GitHub build run `41227123693` passed.
+
+The owner explicitly approved continuous deployment after automatic approval review required confirmation of persistent GitHub access and future deployment triggers. The Vercel CLI then confirmed the repository connection. No bypass or alternate integration was used. Main-branch code/data commits can now trigger Vercel publication; the existing bounded four-daily ingestion schedule remains best effort.
