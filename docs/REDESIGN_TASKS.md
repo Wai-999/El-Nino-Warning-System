@@ -37,8 +37,8 @@ Unavailable features must retain specific reasons. Human Burmese editorial and a
 - [x] Fix retired saved-reference handling, parent-qualified search and briefing calendar dates; add completed three-day rain accumulation.
 - [x] Run required unit, lint, format, data-validation, build and production-dependency audit; visually inspect the new picker/map.
 - [x] Finish the full local browser matrix after observed failure repairs: 84 pass, six duplicate viewport cases skipped.
-- [ ] Verify the independent Linux CI release matrix.
-- [ ] Publish the reviewable PR/preview and verify deployed source contracts.
+- [x] Independent Linux CI passed for `464938f`; final PR-head checks remain required after the homepage city-search wording repair.
+- [x] Publish [PR #3](https://github.com/Wai-999/El-Nino-Warning-System/pull/3) and a ready Vercel preview; authenticated browser checks confirm v3.2, real city labels and hourly fields. Public preview HTTP reaches Vercel sign-in; no protection settings or automation bypass credentials were changed.
 - [ ] Complete authorized main/production rollout and public smoke checks within approval boundaries.
 
 External/source/scientific/human gates are tracked in SPEC_COMPLETION_AUDIT.md; unchecked release work and unavailable capabilities are not marked complete by this list.

@@ -9,7 +9,7 @@ export default function HomeMap() {
       <div className="section-heading">
         <h2 id="home-map-title">{t("Find your place", "သင့်ဒေသကို ရှာပါ")}</h2>
         <button onClick={openLocations}>
-          {t("Search townships", "မြို့နယ် ရှာရန်")}
+          {t("Search cities & townships", "မြို့ / မြို့နယ် ရှာရန်")}
         </button>
       </div>
       {lowData ? (
@@ -26,8 +26,8 @@ export default function HomeMap() {
       )}
       <p className="small muted">
         {t(
-          "Select a state/region on the map, or search 330 townships. Colors follow the named layer and its dated source; they do not establish township warning coverage.",
-          "မြေပုံမှ ပြည်နယ်/တိုင်းရွေးပါ သို့မဟုတ် မြို့နယ် 330 ကို ရှာပါ။ အရောင်များသည် အမည်ဖော်ပြအလွှာနှင့် ရက်စွဲပါရင်းမြစ်ကို လိုက်နာပြီး မြို့နယ်သတိပေးဒေတာကို မသတ်မှတ်ပါ။",
+          "Select a state/region on the map, or search city/town names and 330 townships. Colors follow the named layer and its dated source; they do not establish city or township warning coverage.",
+          "မြေပုံမှ ပြည်နယ်/တိုင်းရွေးပါ သို့မဟုတ် မြို့အမည်နှင့် မြို့နယ် 330 ကို ရှာပါ။ အရောင်များသည် အမည်ဖော်ပြအလွှာနှင့် ရက်စွဲပါရင်းမြစ်ကို လိုက်နာပြီး မြို့ သို့မဟုတ် မြို့နယ်သတိပေးဒေတာကို မသတ်မှတ်ပါ။",
         )}
       </p>
       <Source id="boundaries" /> <Source id="townships" />
