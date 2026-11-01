@@ -23,6 +23,12 @@ import { geography } from "../data/locations";
 import aliasEvidence from "../data/township-aliases.json" with { type: "json" };
 const bibliography = [
   [
+    "GeoNames",
+    "City / town / settlement extract and language-tagged names",
+    "https://www.geonames.org/export/",
+    "CC BY 4.0. Pinned bounded extract, not a complete legal town/village list. Source record dates and derived 2024 HDX reference-parent lookup are disclosed.",
+  ],
+  [
     "NOAA CPC",
     "ENSO discussion / official assessment",
     "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
@@ -284,6 +290,7 @@ export default function Sources() {
     "official warning": "တရားဝင်သတိပေးချက်",
     "educational guidance": "ပညာပေးလမ်းညွှန်",
     reference: "ရည်ညွှန်း",
+    "administrative reference": "အုပ်ချုပ်ရေး ရည်ညွှန်း",
     unavailable: "မရရှိပါ",
   };
   return (

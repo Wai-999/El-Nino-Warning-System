@@ -76,10 +76,12 @@ test("location dialog searches aliases and persists the chosen region", async ({
   await page.getByRole("button", { name: "Switch to English" }).click();
   await page.locator(".location-button").click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await page.getByLabel("Search regions or townships").fill("Rangoon");
+  await page
+    .getByLabel("Search cities, towns, regions or townships")
+    .fill("Rangoon");
   await page
     .getByRole("dialog")
-    .getByRole("button", { name: "Yangon", exact: true })
+    .getByRole("button", { name: "Yangon State / region", exact: true })
     .click();
   await expect(page.locator(".weather-main h2")).toHaveText("Yangon");
   await page.reload();

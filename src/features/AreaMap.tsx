@@ -3,6 +3,12 @@ import { Search, MapPin } from "lucide-react";
 import { useApp } from "../app/context";
 import { canonicalRegions, regionName } from "../data/regions";
 import { number } from "../data/presentation";
+import {
+  searchSettlements,
+  settlementName,
+  townshipByCode,
+  settlementById,
+} from "../data/locations";
 import { WeatherSummary, Source, Unavailable } from "../components/Service";
 const MyanmarMap = lazy(() => import("../map/MyanmarMap"));
 export default function AreaMap() {
@@ -11,14 +17,19 @@ export default function AreaMap() {
       lang,
       selected,
       setSelected,
+      settlement,
+      setSettlement,
       lowData,
       openLocations,
       operational: op,
     } = useApp(),
     [query, setQuery] = useState("");
+  const [placeLimit, setPlaceLimit] = useState(20);
+  const [regionQuery, setRegionQuery] = useState("");
+  const places = searchSettlements(query, query.trim() ? undefined : selected);
   const regions = canonicalRegions.filter((r) =>
     r.source_aliases.some((a) =>
-      a.toLocaleLowerCase().includes(query.toLocaleLowerCase().trim()),
+      a.toLocaleLowerCase().includes(regionQuery.toLocaleLowerCase().trim()),
     ),
   );
   return (
@@ -36,8 +47,8 @@ export default function AreaMap() {
       <button className="township-search-button" onClick={openLocations}>
         <Search size={17} />
         {t(
-          "Search townships by name or PCode",
-          "အမည် သို့မဟုတ် PCode ဖြင့် မြို့နယ်ရှာရန်",
+          "Search cities, towns or townships",
+          "မြို့ သို့မဟုတ် မြို့နယ် ရှာရန်",
         )}
       </button>
       <div className="area-map-layout">
@@ -66,6 +77,14 @@ export default function AreaMap() {
           </div>
         </section>
         <aside className="selected-area">
+          {settlementById(settlement) && (
+            <p className="precision-note">
+              <a href={`#/settlement/${settlement}`}>
+                {settlementName(settlementById(settlement)!, lang)} ·{" "}
+                {t("Place overview", "တည်နေရာ အကျဉ်းချုပ်")} →
+              </a>
+            </p>
+          )}
           <WeatherSummary compact />
           <div className="precision-note">
             <MapPin size={18} />
@@ -79,6 +98,59 @@ export default function AreaMap() {
         </aside>
       </div>
       <section className="area-list-section">
+        <h2>{t("Cities, towns & settlements", "မြို့နှင့် အခြေချနေရာများ")}</h2>
+        <p>
+          {t(
+            "Search named settlement points separately from administrative townships. The list begins in your selected region; type a name to search all 515 points. A selected point is labeled on the map.",
+            "အုပ်ချုပ်ရေးမြို့နယ်များနှင့် သီးခြား အမည်ပါ အခြေချနေရာမှတ်များကို ရှာပါ။ စာရင်းကို ရွေးထားသော ပြည်နယ်/တိုင်းမှ စပြသည်။ နေရာမှတ် 515 ခုလုံးရှာရန် အမည်ရိုက်ပါ။ ရွေးထားသောနေရာကို မြေပုံတွင် အမည်ဖြင့် ပြသည်။",
+          )}
+        </p>
+        <label className="search-field">
+          <Search size={18} />
+          <span className="sr-only">
+            {t("Search city or town names", "မြို့အမည် ရှာရန်")}
+          </span>
+          <input
+            value={query}
+            onChange={(event) => {
+              setQuery(event.target.value);
+              setPlaceLimit(20);
+            }}
+            placeholder={t(
+              "City, town or parent area…",
+              "မြို့ သို့မဟုတ် သက်ဆိုင်ရာဒေသ…",
+            )}
+          />
+        </label>
+        <p className="small" role="status">
+          {places.length}{" "}
+          {t("settlement points match", "ကိုက်ညီသော အခြေချနေရာမှတ်")}
+        </p>
+        <div className="area-list settlement-list">
+          {places.slice(0, placeLimit).map((point) => (
+            <button
+              key={point.id}
+              onClick={() => setSettlement(point.id)}
+              aria-pressed={point.id === settlement}
+            >
+              <MapPin size={17} />
+              <span>
+                {settlementName(point, lang)}
+                <small>
+                  {point.en} · {townshipByCode(point.townshipCode)?.[lang]}
+                </small>
+              </span>
+            </button>
+          ))}
+        </div>
+        {places.length > placeLimit && (
+          <button onClick={() => setPlaceLimit((n) => n + 40)}>
+            {t("Show more places", "နေရာများ ထပ်ပြရန်")}
+          </button>
+        )}
+        <Source id="settlements" />
+      </section>
+      <section className="area-list-section">
         <div className="section-heading">
           <h2>{t("Choose from the list", "စာရင်းမှ ရွေးရန်")}</h2>
         </div>
@@ -88,15 +160,15 @@ export default function AreaMap() {
             {t("Filter regions", "ဒေသစစ်ထုတ်ရန်")}
           </span>
           <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            value={regionQuery}
+            onChange={(e) => setRegionQuery(e.target.value)}
             placeholder={t(
               "Search state or region…",
               "ပြည်နယ် သို့မဟုတ် တိုင်း ရှာပါ…",
             )}
           />
         </label>
-        <div className="area-list">
+        <div className="area-list region-list">
           {regions.map((r) => {
             const w = op.weather?.regions.find(
               (w) => w.id === r.canonical_region_id,

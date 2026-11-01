@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewedOn": "2026-10-31",
+  "reviewedOn": "2026-11-01",
   "indicators": [
     {
       "id": "temperature",
@@ -325,11 +325,11 @@
     {
       "id": "rain-history",
       "name": {
-        "en": "7 / 30-day rainfall",
-        "my": "၇ ရက် / ရက် ၃၀ မိုးရေ"
+        "en": "3 / 7 / 30-day rainfall",
+        "my": "3 / 7 / 30 ရက် မိုးရေ"
       },
       "question": "How much rain occurred in the retained reanalysis period?",
-      "definition": "Daily sampled ERA5 sums for trailing 7 and 30 days; not gauges.",
+      "definition": "Daily sampled ERA5 sums for trailing 7 and 30 days; not gauges. Three-day accumulation is the sum of the final three stored, completed ERA5 daily amounts (rounded to 0.01 mm); never treated as observations or a drought index.",
       "unit": "mm",
       "kind": "reanalysis",
       "spatial": "Myanmar state/region; three 0.25° sample cells",
@@ -681,27 +681,31 @@
         "my": "နာရီအလိုက် ခန့်မှန်းချက်"
       },
       "question": "Is validated data available for this capability?",
-      "definition": "The retained snapshot contains the latest model hour, next24 summary and seven daily periods; full hourly arrays are not retained.",
-      "unit": "not available",
+      "definition": "Full seven-day point time series of temperature, apparent temperature, humidity, precipitation, wind and gusts; no spatial averaging of point-specific probabilities or angles.",
+      "unit": "°C / mm / km/h / %",
       "kind": "unavailable",
-      "spatial": "Not claimed",
-      "temporal": "Not available",
+      "spatial": "One of three representative ECMWF 0.25° cells in the selected parent region; exact returned grid coordinates shown",
+      "temporal": "168 hourly valid times over seven Myanmar calendar days",
       "primarySource": "ecmwf",
       "sourceUrl": "https://open-meteo.com/en/docs/ecmwf-api",
       "backupSource": null,
-      "license": "Integration terms must be verified before ingestion",
-      "refresh": "Not connected",
-      "freshnessTTL": "Not applicable",
+      "license": "CC BY 4.0 via Open-Meteo; free noncommercial API",
+      "refresh": "Four scheduled checks daily, shared request with the regional forecast",
+      "freshnessTTL": "18 hours, bounded by original reference hour and next-24h coverage",
       "historicalBaseline": null,
-      "uncertainty": "Not assessed",
+      "uncertainty": "Model/grid error is unquantified. Provider interpolates native 3/6-hour model steps to hourly. Not city, township, station or farm measurements.",
       "qa": [
-        "Require validated source, method and geography before activation"
+        "Units and physical bounds for every field",
+        "168 unique continuous hourly timestamps",
+        "45 unique sample IDs, three per region and weights sum to one",
+        "Returned coordinates within 0.13 degree of requested cells",
+        "Original retrieval/reference hour preserved on fallback"
       ],
-      "warningApplicability": "None",
+      "warningApplicability": "No official warning or calibrated local hazard threshold. Never infer missing values or local alert status.",
       "visualization": "Explicit unavailable state with reason",
-      "fallback": "The retained snapshot contains the latest model hour, next24 summary and seven daily periods; full hourly arrays are not retained.",
-      "status": "unavailable",
-      "summaryMy": "လက်ရှိမော်ဒယ်နာရီ၊ ၂၄ နာရီအကျဉ်းချုပ်နှင့် ၇ ရက် နေ့စဉ်ဒေတာသာ သိမ်းထားသဖြင့် နာရီအလိုက်အပြည့်အစုံ မရရှိပါ။"
+      "fallback": "On optional field validation failure show unavailable for that point. On source failure retain the dated last-good detail snapshot; cached content is labeled and never freshened.",
+      "status": "implemented",
+      "summaryMy": "ဒေသနမူနာသုံးခုမှ ရွေးထားသော ဂရစ်နေရာ၏ နာရီအလိုက် ၇ ရက် မော်ဒယ်တန်ဖိုးများဖြစ်သည်။"
     },
     {
       "id": "rain-probability",
@@ -710,27 +714,31 @@
         "my": "မိုးရွာနိုင်ခြေ"
       },
       "question": "Is validated data available for this capability?",
-      "definition": "The selected deterministic ECMWF adapter does not retain calibrated ensemble rainfall probabilities. Amount is not probability.",
-      "unit": "not available",
-      "kind": "unavailable",
-      "spatial": "Not claimed",
-      "temporal": "Not available",
+      "definition": "Open-Meteo ECMWF IFS ensemble 0.25° probability of more than 0.1 mm precipitation in the preceding hour at the selected grid point. Not probability anywhere in a whole region, accumulated multi-day chance, or flood probability.",
+      "unit": "%",
+      "kind": "forecast",
+      "spatial": "One of three representative ECMWF 0.25° cells in the selected parent region; exact returned grid coordinates shown",
+      "temporal": "168 hourly valid times over seven Myanmar calendar days",
       "primarySource": "ecmwf",
       "sourceUrl": "https://open-meteo.com/en/docs/ecmwf-api",
       "backupSource": null,
-      "license": "Integration terms must be verified before ingestion",
-      "refresh": "Not connected",
-      "freshnessTTL": "Not applicable",
+      "license": "CC BY 4.0 via Open-Meteo; free noncommercial API",
+      "refresh": "Four scheduled checks daily, shared request with the regional forecast",
+      "freshnessTTL": "18 hours, bounded by original reference hour and next-24h coverage",
       "historicalBaseline": null,
-      "uncertainty": "Not assessed",
+      "uncertainty": "Model/grid error is unquantified. Provider interpolates native 3/6-hour model steps to hourly. Not city, township, station or farm measurements.",
       "qa": [
-        "Require validated source, method and geography before activation"
+        "Units and physical bounds for every field",
+        "168 unique continuous hourly timestamps",
+        "45 unique sample IDs, three per region and weights sum to one",
+        "Returned coordinates within 0.13 degree of requested cells",
+        "Original retrieval/reference hour preserved on fallback"
       ],
-      "warningApplicability": "None",
+      "warningApplicability": "No official warning or calibrated local hazard threshold. Never infer missing values or local alert status.",
       "visualization": "Explicit unavailable state with reason",
-      "fallback": "The selected deterministic ECMWF adapter does not retain calibrated ensemble rainfall probabilities. Amount is not probability.",
-      "status": "unavailable",
-      "summaryMy": "ရွေးထားသော မော်ဒယ်ချိတ်ဆက်မှုတွင် မိုးရွာနိုင်ခြေကို မသိမ်းထားပါ။ မိုးရေပမာဏမှ မခန့်မှန်းပါ။"
+      "fallback": "On optional field validation failure show unavailable for that point. On source failure retain the dated last-good detail snapshot; cached content is labeled and never freshened.",
+      "status": "implemented",
+      "summaryMy": "ရွေးထားသော ဂရစ်နေရာ၌ ပြီးခဲ့သည့်တစ်နာရီအတွင်း 0.1 mm ထက်ပို မိုးရွာရန် အစုလိုက်မော်ဒယ် ဖြစ်နိုင်ခြေဖြစ်သည်။ ရေကြီးနိုင်ခြေ မဟုတ်ပါ။"
     },
     {
       "id": "long-outlook",
@@ -826,27 +834,31 @@
         "my": "ရေစိုသာမိုမီတာ အပူချိန်"
       },
       "question": "Is validated data available for this capability?",
-      "definition": "Validated pressure and psychrometric method are not integrated. Feels-like is not wet-bulb.",
-      "unit": "not available",
-      "kind": "unavailable",
-      "spatial": "Not claimed",
-      "temporal": "Not available",
+      "definition": "Open-Meteo derived wet_bulb_temperature_2m retained at each source grid point; not a physiological safety limit or calibrated heatwave warning.",
+      "unit": "°C",
+      "kind": "derived",
+      "spatial": "One of three representative ECMWF 0.25° cells in the selected parent region; exact returned grid coordinates shown",
+      "temporal": "168 hourly valid times over seven Myanmar calendar days",
       "primarySource": "ecmwf",
       "sourceUrl": "https://open-meteo.com/en/docs/ecmwf-api",
       "backupSource": null,
-      "license": "Integration terms must be verified before ingestion",
-      "refresh": "Not connected",
-      "freshnessTTL": "Not applicable",
+      "license": "CC BY 4.0 via Open-Meteo; free noncommercial API",
+      "refresh": "Four scheduled checks daily, shared request with the regional forecast",
+      "freshnessTTL": "18 hours, bounded by original reference hour and next-24h coverage",
       "historicalBaseline": null,
-      "uncertainty": "Not assessed",
+      "uncertainty": "Model/grid error is unquantified. Provider interpolates native 3/6-hour model steps to hourly. Not city, township, station or farm measurements.",
       "qa": [
-        "Require validated source, method and geography before activation"
+        "Units and physical bounds for every field",
+        "168 unique continuous hourly timestamps",
+        "45 unique sample IDs, three per region and weights sum to one",
+        "Returned coordinates within 0.13 degree of requested cells",
+        "Original retrieval/reference hour preserved on fallback"
       ],
-      "warningApplicability": "None",
+      "warningApplicability": "No official warning or calibrated local hazard threshold. Never infer missing values or local alert status.",
       "visualization": "Explicit unavailable state with reason",
-      "fallback": "Validated pressure and psychrometric method are not integrated. Feels-like is not wet-bulb.",
-      "status": "unavailable",
-      "summaryMy": "မှန်ကန်သော လေဖိအားနှင့် စိုထိုင်းအပူချိန်တွက်နည်း မချိတ်ဆက်ရသေးပါ။"
+      "fallback": "On optional field validation failure show unavailable for that point. On source failure retain the dated last-good detail snapshot; cached content is labeled and never freshened.",
+      "status": "implemented",
+      "summaryMy": "ပံ့ပိုးသူတွက်ထုတ်သည့် ဂရစ်နေရာ ရေစိုအပူချိန်ဖြစ်ပြီး လူ့ခံနိုင်ရည်ကန့်သတ်ချက် မဟုတ်ပါ။"
     },
     {
       "id": "pressure-direction",
@@ -855,27 +867,31 @@
         "my": "လေဖိအား / လေဦးတည်ရာ"
       },
       "question": "Is validated data available for this capability?",
-      "definition": "Not retained by the current validated source adapter.",
-      "unit": "not available",
-      "kind": "unavailable",
-      "spatial": "Not claimed",
-      "temporal": "Not available",
+      "definition": "Point mean sea-level and surface pressure are distinct fields. Wind direction describes where wind comes from, clockwise from north; angles are never arithmetically averaged.",
+      "unit": "hPa / degrees from north",
+      "kind": "modelled",
+      "spatial": "One of three representative ECMWF 0.25° cells in the selected parent region; exact returned grid coordinates shown",
+      "temporal": "168 hourly valid times over seven Myanmar calendar days",
       "primarySource": "ecmwf",
       "sourceUrl": "https://open-meteo.com/en/docs/ecmwf-api",
       "backupSource": null,
-      "license": "Integration terms must be verified before ingestion",
-      "refresh": "Not connected",
-      "freshnessTTL": "Not applicable",
+      "license": "CC BY 4.0 via Open-Meteo; free noncommercial API",
+      "refresh": "Four scheduled checks daily, shared request with the regional forecast",
+      "freshnessTTL": "18 hours, bounded by original reference hour and next-24h coverage",
       "historicalBaseline": null,
-      "uncertainty": "Not assessed",
+      "uncertainty": "Model/grid error is unquantified. Provider interpolates native 3/6-hour model steps to hourly. Not city, township, station or farm measurements.",
       "qa": [
-        "Require validated source, method and geography before activation"
+        "Units and physical bounds for every field",
+        "168 unique continuous hourly timestamps",
+        "45 unique sample IDs, three per region and weights sum to one",
+        "Returned coordinates within 0.13 degree of requested cells",
+        "Original retrieval/reference hour preserved on fallback"
       ],
-      "warningApplicability": "None",
+      "warningApplicability": "No official warning or calibrated local hazard threshold. Never infer missing values or local alert status.",
       "visualization": "Explicit unavailable state with reason",
-      "fallback": "Not retained by the current validated source adapter.",
-      "status": "unavailable",
-      "summaryMy": "လက်ရှိချိတ်ဆက်မှုတွင် လေဖိအားနှင့် လေဦးတည်ရာကို မသိမ်းထားပါ။"
+      "fallback": "On optional field validation failure show unavailable for that point. On source failure retain the dated last-good detail snapshot; cached content is labeled and never freshened.",
+      "status": "implemented",
+      "summaryMy": "ပင်လယ်ရေမျက်နှာပြင်နှင့် မြေပြင်လေဖိအားကို ခွဲပြသည်။ လေလာရာကို မြောက်မှ နာရီလက်တံအတိုင်း ဖော်ပြသည်။"
     },
     {
       "id": "river-gauges",
@@ -1030,31 +1046,35 @@
     {
       "id": "soil-moisture",
       "name": {
-        "en": "Soil moisture and anomaly",
-        "my": "မြေဆီလွှာ အစိုဓာတ်နှင့် ကွာဟချက်"
+        "en": "Soil moisture at named depths",
+        "my": "ဖော်ပြအနက်ရှိ မြေဆီလွှာအစိုဓာတ်"
       },
       "question": "Is validated data available for this capability?",
-      "definition": "No validated depth-specific soil moisture product integrated. Regional rainfall cannot establish field moisture.",
-      "unit": "not available",
-      "kind": "unavailable",
-      "spatial": "Not claimed",
-      "temporal": "Not available",
-      "primarySource": "era5",
-      "sourceUrl": "https://open-meteo.com/en/docs/historical-weather-api",
+      "definition": "ECMWF volumetric model soil moisture at 0–7 cm and 7–28 cm for the selected representative cell. No soil-moisture anomaly, crop water deficit or drought category is inferred; those need matching climatology and local validation.",
+      "unit": "m³/m³",
+      "kind": "modelled",
+      "spatial": "One of three representative ECMWF 0.25° cells in the selected parent region; exact returned grid coordinates shown",
+      "temporal": "168 hourly valid times over seven Myanmar calendar days",
+      "primarySource": "ecmwf",
+      "sourceUrl": "https://open-meteo.com/en/docs/ecmwf-api",
       "backupSource": null,
-      "license": "Integration terms must be verified before ingestion",
-      "refresh": "Not connected",
-      "freshnessTTL": "Not applicable",
+      "license": "CC BY 4.0 via Open-Meteo; free noncommercial API",
+      "refresh": "Four scheduled checks daily, shared request with the regional forecast",
+      "freshnessTTL": "18 hours, bounded by original reference hour and next-24h coverage",
       "historicalBaseline": null,
-      "uncertainty": "Not assessed",
+      "uncertainty": "Model/grid error is unquantified. Provider interpolates native 3/6-hour model steps to hourly. Not city, township, station or farm measurements.",
       "qa": [
-        "Require validated source, method and geography before activation"
+        "Units and physical bounds for every field",
+        "168 unique continuous hourly timestamps",
+        "45 unique sample IDs, three per region and weights sum to one",
+        "Returned coordinates within 0.13 degree of requested cells",
+        "Original retrieval/reference hour preserved on fallback"
       ],
-      "warningApplicability": "None",
+      "warningApplicability": "No official warning or calibrated local hazard threshold. Never infer missing values or local alert status.",
       "visualization": "Explicit unavailable state with reason",
-      "fallback": "No validated depth-specific soil moisture product integrated. Regional rainfall cannot establish field moisture.",
-      "status": "unavailable",
-      "summaryMy": "မြေအနက်အလိုက် အတည်ပြုအစိုဓာတ်ဒေတာ မချိတ်ဆက်ရသေးပါ။ မိုးရေပမာဏမှ လယ်ကွင်းအစိုဓာတ် မသတ်မှတ်ပါ။"
+      "fallback": "On optional field validation failure show unavailable for that point. On source failure retain the dated last-good detail snapshot; cached content is labeled and never freshened.",
+      "status": "implemented",
+      "summaryMy": "0–7 cm နှင့် 7–28 cm အနက်ရှိ ထုထည်အလိုက် မော်ဒယ်ရေပါဝင်မှု ဖြစ်သည်။ ကွာဟချက်နှင့် မိုးခေါင်အဆင့် မတွက်ပါ။"
     },
     {
       "id": "vegetation",
@@ -1117,11 +1137,11 @@
     {
       "id": "advanced-enso",
       "name": {
-        "en": "ONI / SOI / MEI / winds / subsurface",
-        "my": "ONI / SOI / MEI / လေ / ရေအောက်"
+        "en": "Standalone trade-wind and subsurface indicators",
+        "my": "သီးခြား ကုန်သွယ်လေနှင့် သမုဒ္ဒရာရေအောက်ညွှန်းကိန်းများ"
       },
       "question": "Is validated data available for this capability?",
-      "definition": "Distinct indices require separate validated adapters and provenance; none is inferred from RONI.",
+      "definition": "Standalone wind and ocean-heat profiles have no validated adapter, spatial/depth selection or source-baseline contract. Published ONI, SOI and MEI.v2 are separate implemented entries; do not substitute them for these fields.",
       "unit": "not available",
       "kind": "unavailable",
       "spatial": "Not claimed",
@@ -1141,7 +1161,7 @@
       "visualization": "Explicit unavailable state with reason",
       "fallback": "Distinct indices require separate validated adapters and provenance; none is inferred from RONI.",
       "status": "unavailable",
-      "summaryMy": "ညွှန်းကိန်းတစ်ခုစီအတွက် သီးခြားအတည်ပြုရင်းမြစ် လိုသည်။ RONI မှ အစားထိုး မတွက်ပါ။"
+      "summaryMy": "သီးခြား လေနှင့် ရေအောက်အပူဒေတာအတွက် နေရာ၊ အနက်နှင့် အခြေခံကာလ အတည်ပြုမှု မရှိသေးပါ။ ONI၊ SOI နှင့် MEI.v2 ကို သီးခြား ကြည့်နိုင်သည်။"
     },
     {
       "id": "uv-air",
@@ -1427,6 +1447,171 @@
       "fallback": "Show source directory and dated verification; remove unsupported numbers through reviewed correction.",
       "status": "implemented",
       "summaryMy": "မူရင်း ICRC နှင့် မြန်မာကြက်ခြေနီစာမျက်နှာမှ ဆက်သွယ်ရန်ကို ဝန်ဆောင်မှုအကျုံးဝင်မှုနှင့် ပြသည်။ တစ်နိုင်ငံလုံး ချက်ချင်းရရှိမှု မကတိပြုပါ။"
+    },
+    {
+      "id": "reference-et",
+      "name": {
+        "en": "Reference evapotranspiration (ET₀)",
+        "my": "ရည်ညွှန်း ရေငွေ့ပျံမှု (ET₀)"
+      },
+      "question": "How much water could a reference grass surface lose?",
+      "definition": "Provider FAO reference evapotranspiration for the preceding hour at the selected ECMWF grid point. Well-watered reference grass, not actual crop evapotranspiration, irrigation demand or SPEI.",
+      "unit": "mm per preceding hour",
+      "kind": "derived",
+      "spatial": "One of three representative ECMWF 0.25° cells in the selected parent region; exact returned grid coordinates shown",
+      "temporal": "168 hourly valid times over seven Myanmar calendar days",
+      "primarySource": "ecmwf",
+      "sourceUrl": "https://open-meteo.com/en/docs/ecmwf-api",
+      "backupSource": null,
+      "license": "CC BY 4.0 via Open-Meteo; free noncommercial API",
+      "refresh": "Four scheduled checks daily, shared request with the regional forecast",
+      "freshnessTTL": "18 hours, bounded by original reference hour and next-24h coverage",
+      "historicalBaseline": null,
+      "uncertainty": "Model/grid error is unquantified. Provider interpolates native 3/6-hour model steps to hourly. Not city, township, station or farm measurements.",
+      "qa": [
+        "Units and physical bounds for every field",
+        "168 unique continuous hourly timestamps",
+        "45 unique sample IDs, three per region and weights sum to one",
+        "Returned coordinates within 0.13 degree of requested cells",
+        "Original retrieval/reference hour preserved on fallback"
+      ],
+      "warningApplicability": "No official warning or calibrated local hazard threshold. Never infer missing values or local alert status.",
+      "visualization": "Explicit unavailable state with reason",
+      "fallback": "On optional field validation failure show unavailable for that point. On source failure retain the dated last-good detail snapshot; cached content is labeled and never freshened.",
+      "status": "implemented",
+      "summaryMy": "ရေလုံလောက်သော ရည်ညွှန်းမြက်မျက်နှာပြင်အတွက် ပံ့ပိုးသူ၏ တစ်နာရီ ET₀ ဖြစ်သည်။ အမှန်တကယ်သီးနှံရေသုံးစွဲမှု သို့မဟုတ် SPEI မဟုတ်ပါ။"
+    },
+    {
+      "id": "settlements",
+      "name": {
+        "en": "City, town and settlement names",
+        "my": "မြို့နှင့် အခြေချနေရာအမည်များ"
+      },
+      "question": "Which named settlement point did I select?",
+      "definition": "515 GeoNames settlement points: PPLC/PPLA/PPLA2/PPLA3 or PPL with source population >=500. Not a complete legal town/village list. Language-tagged Myanmar-script labels are present for 337; original English is retained otherwise. Unique point-in-polygon lookup in pinned 2024 HDX township polygons supplies a derived reference parent, not the legal footprint of a city.",
+      "unit": "GeoNames ID / names / WGS84 point",
+      "kind": "administrative reference",
+      "spatial": "Named settlement points; city extents may span several townships",
+      "temporal": "Pinned extract retrieved 2026-11-01; per-record modification dates retained; reference boundaries valid 2024-02-15",
+      "primarySource": "geonames",
+      "sourceUrl": "https://www.geonames.org/export/",
+      "backupSource": null,
+      "license": "GeoNames CC BY 4.0; derived HDX parent lookup CC BY 3.0 IGO",
+      "refresh": "Reviewed version changes only, never silent scheduled geography replacement",
+      "freshnessTTL": "No live/current boundary guarantee; record and reference dates shown",
+      "historicalBaseline": null,
+      "uncertainty": "Community-maintained source may contain name/coordinate errors and omissions. Original upstream parent codes are retained alongside derived containment for review.",
+      "qa": [
+        "Unique stable GeoNames IDs",
+        "Myanmar coordinate bounds",
+        "Exactly one pinned township polygon contains each source point",
+        "Language-tagged names; no guessed missing Burmese names",
+        "Reference township exists; typed place keys distinguish settlement from township"
+      ],
+      "warningApplicability": "Reference lookup only. Does not create city/township weather measurements or warnings.",
+      "visualization": "Searchable picker, saved places, overview, collision-reduced map names and accessible list",
+      "fallback": "Original English name if no validated source Burmese label; unknown IDs rejected without reassigning another place.",
+      "status": "implemented",
+      "summaryMy": "မြို့နှင့် အခြေချနေရာမှတ် 515 ကို သီးခြား ရှာနိုင်သည်။ မြို့နယ်နှင့် မတူပါ။ ရင်းမြစ်မြန်မာအမည် မရှိလျှင် မူရင်းအင်္ဂလိပ်အမည်ကို သုံးသည်။"
+    },
+    {
+      "id": "oni",
+      "name": {
+        "en": "Oceanic Niño Index (ONI) · ERSSTv6",
+        "my": "သမုဒ္ဒရာ အယ်လ်နီညိုညွှန်းကိန်း (ONI) · ERSSTv6"
+      },
+      "question": "What does this distinct published Pacific index describe?",
+      "definition": "Official ONI v6 table; three-month Niño 3.4 SST anomaly. Distinct from RONI, which CPC now uses for official monitoring. Latest values are provisional. No app-based ENSO reclassification.",
+      "unit": "°C",
+      "kind": "derived",
+      "spatial": "Pacific ocean–atmosphere index; no Myanmar local resolution",
+      "temporal": "Three-month overlapping seasons",
+      "primarySource": "noaa",
+      "sourceUrl": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v6/",
+      "backupSource": null,
+      "license": "US government public information; attribution",
+      "refresh": "Four bounded scheduled source checks daily, sharing existing Actions publication cadence",
+      "freshnessTTL": "Retrieval <45 days and latest completed index period <93 days; not warning validity",
+      "historicalBaseline": "Centered 30-year base periods updated every five years",
+      "uncertainty": "Index/outlook values are revisable and do not determine local weather.",
+      "qa": [
+        "Version/header and correct table/block identity",
+        "Missing sentinels removed without zero filling",
+        "Original period widths, order and completeness",
+        "Future/repeated/malformed dates rejected",
+        "Independent last-good source fallback"
+      ],
+      "warningApplicability": "Pacific context only; never modifies local warning or model-screening severity",
+      "visualization": "Advanced expander with latest value, last 24 periods/full history, method and provenance export",
+      "fallback": "Retain original dated index independently on source failure; stale historical values remain explicitly dated.",
+      "status": "implemented",
+      "summaryMy": "သုံးလ Niño 3.4 ကွာဟချက်ဖြစ်ပြီး နှိုင်းရ RONI နှင့် မတူပါ။ နောက်ဆုံးတန်ဖိုး ပြန်ပြင်နိုင်သည်။"
+    },
+    {
+      "id": "soi",
+      "name": {
+        "en": "Southern Oscillation Index · CPC standardized",
+        "my": "တောင်ပိုင်း လေဖိအားလှုပ်ရှားမှုညွှန်းကိန်း · CPC စံပြု"
+      },
+      "question": "What does this distinct published Pacific index describe?",
+      "definition": "CPC standardized Tahiti-minus-Darwin pressure index, parsed exclusively from STANDARDIZED DATA, not the unstandardized anomaly block. Not the differently scaled Australian SOI.",
+      "unit": "standardized index",
+      "kind": "derived",
+      "spatial": "Pacific ocean–atmosphere index; no Myanmar local resolution",
+      "temporal": "Completed calendar months",
+      "primarySource": "noaa",
+      "sourceUrl": "https://www.cpc.ncep.noaa.gov/data/indices/soi",
+      "backupSource": null,
+      "license": "US government public information; attribution",
+      "refresh": "Four bounded scheduled source checks daily, sharing existing Actions publication cadence",
+      "freshnessTTL": "Retrieval <45 days and latest completed index period <93 days; not warning validity",
+      "historicalBaseline": "CPC FAQ general baseline section says 1991–2020, SOI-specific paragraph retains 1981–2010. No harmonized baseline asserted.",
+      "uncertainty": "Index/outlook values are revisable and do not determine local weather.",
+      "qa": [
+        "Version/header and correct table/block identity",
+        "Missing sentinels removed without zero filling",
+        "Original period widths, order and completeness",
+        "Future/repeated/malformed dates rejected",
+        "Independent last-good source fallback"
+      ],
+      "warningApplicability": "Pacific context only; never modifies local warning or model-screening severity",
+      "visualization": "Advanced expander with latest value, last 24 periods/full history, method and provenance export",
+      "fallback": "Retain original dated index independently on source failure; stale historical values remain explicitly dated.",
+      "status": "implemented",
+      "summaryMy": "CPC စံပြု တဟီတီနှင့် ဒါဝင် လေဖိအားခြားနားမှုဖြစ်ပြီး အခြား SOI စကေးနှင့် မတူပါ။"
+    },
+    {
+      "id": "mei",
+      "name": {
+        "en": "Multivariate ENSO Index · MEI.v2",
+        "my": "အချက်မျိုးစုံပါ ENSO ညွှန်းကိန်း · MEI.v2"
+      },
+      "question": "What does this distinct published Pacific index describe?",
+      "definition": "Published overlapping two-month multivariate index from five tropical-Pacific fields. January column is Dec–Jan. PSL documents JRA55-to-JRA3Q transition; retain source revisions.",
+      "unit": "standardized index",
+      "kind": "derived",
+      "spatial": "Pacific ocean–atmosphere index; no Myanmar local resolution",
+      "temporal": "Two-month overlapping seasons",
+      "primarySource": "noaa-psl",
+      "sourceUrl": "https://psl.noaa.gov/enso/mei/data/meiv2.data",
+      "backupSource": null,
+      "license": "US government public information; attribution",
+      "refresh": "Four bounded scheduled source checks daily, sharing existing Actions publication cadence",
+      "freshnessTTL": "Retrieval <45 days and latest completed index period <93 days; not warning validity",
+      "historicalBaseline": "Source seasonal standardization; JRA55/JRA3Q reanalysis transition documented by NOAA PSL",
+      "uncertainty": "Index/outlook values are revisable and do not determine local weather.",
+      "qa": [
+        "Version/header and correct table/block identity",
+        "Missing sentinels removed without zero filling",
+        "Original period widths, order and completeness",
+        "Future/repeated/malformed dates rejected",
+        "Independent last-good source fallback"
+      ],
+      "warningApplicability": "Pacific context only; never modifies local warning or model-screening severity",
+      "visualization": "Advanced expander with latest value, last 24 periods/full history, method and provenance export",
+      "fallback": "Retain original dated index independently on source failure; stale historical values remain explicitly dated.",
+      "status": "implemented",
+      "summaryMy": "ပစိဖိတ် ဒေတာငါးမျိုးပါဝင်သည့် နှစ်လထပ်ဆုံ စံပြုညွှန်းကိန်း ဖြစ်သည်။ ဇန်နဝါရီကော်လံသည် ဒီဇင်ဘာ–ဇန်နဝါရီ နှစ်လဖြစ်သည်။"
     }
   ]
 }

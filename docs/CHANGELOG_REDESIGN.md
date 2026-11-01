@@ -42,3 +42,11 @@ Apply the explicitly confirmed V3 decision document. Add a pinned 330-township h
 The original scientific aggregation and warning thresholds remain unchanged. Source urgency is unknown when absent. Village records remain excluded because the source coverage is partial; township geography does not create township meteorological data. Replace the current static clinical-health panel with independently fetched original WHO publication metadata and explicit incomplete coverage. No bulletin expiry or current health alert is manufactured. Source-verified MRCS/ICRC contacts include their actual service scope. Legacy clinical code remains in history/unused files, outside current routes and production chunks.
 
 Add `public/data/health-advisories.json` to scheduled ingestion, validation, snapshot commits and network-first offline caching. Existing preferences are retained; the former unscoped checklist migrates once to the selected place. No account, subscriber backend, paid service, high-frequency cron, repository deletion or printed-QR modification occurs.
+
+## 3.2.0 — approved-spec audit and source-backed gap repairs
+
+- Separate city/town/settlement search and map names from township administrative units; add place-type filters, parent-qualified queries, persistent saved points and overviews. Preserve unresolved saved references for review.
+- Retain full hourly point forecasts and verified ensemble rain probability, pressure/direction, wet-bulb, depth-specific soil moisture and reference ET₀; on-demand loading, exact units/periods and source-aware exports.
+- Add independent published NOAA ONI v6, standardized SOI and MEI.v2 histories with source-version and cross-year period validation; preserve RONI and official assessment as different products.
+- Add three-day completed-rainfall accumulation and correct briefing calendar-day wording across Myanmar midnight. No official-warning or scientific risk threshold changed.
+- Tighten the 49-decision and master-spec audits: bounded geography, missing scientific products, delivery infrastructure and human review are no longer called fully implemented. Preserve all source/failure/offline/QR contracts and repeat release checks.

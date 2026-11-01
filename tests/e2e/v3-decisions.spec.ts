@@ -6,7 +6,13 @@ async function english(page: import("@playwright/test").Page) {
 }
 async function choose(page: import("@playwright/test").Page, code: string) {
   await page.locator(".location-button").click();
-  await page.getByLabel("Search regions or townships").fill(code);
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Townships", exact: true })
+    .click();
+  await page
+    .getByLabel("Search cities, towns, regions or townships")
+    .fill(code);
   await page
     .getByRole("dialog")
     .getByRole("button")
@@ -51,14 +57,22 @@ test("historical aliases and ambiguous township names require explicit selection
 }) => {
   await english(page);
   await page.locator(".location-button").click();
-  await page.getByLabel("Search regions or townships").fill("Prome");
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Townships", exact: true })
+    .click();
+  await page
+    .getByLabel("Search cities, towns, regions or townships")
+    .fill("Prome");
   await expect(page.getByRole("dialog")).toContainText("MMR008001");
-  await page.getByLabel("Search regions or townships").fill("Htantabin");
+  await page
+    .getByLabel("Search cities, towns, regions or townships")
+    .fill("Htantabin");
   await expect(page.locator(".location-options button")).toHaveCount(2);
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(page.locator(".location-button")).toContainText("Mandalay");
   await page
-    .getByLabel("Search regions or townships")
+    .getByLabel("Search cities, towns, regions or townships")
     .fill("မြစ်\u200bကြီးနား");
   await expect(page.getByRole("dialog")).toContainText("MMR001001");
 });

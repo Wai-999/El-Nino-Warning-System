@@ -8,6 +8,7 @@ import { useApp } from "../app/context";
 import { regionName, regionIds } from "../data/regions";
 import { layers, layerScale, layerValue, type Layer } from "./layers";
 import { mmt } from "../data/operational";
+import { settlements, settlementById, settlementName } from "../data/locations";
 type MapData = FeatureCollection<
   Geometry,
   { shapeISO: string; shapeName: string }
@@ -21,7 +22,14 @@ export default function MyanmarMap({
   onSelect: (id: string) => void;
   compact?: boolean;
 }) {
-  const { lang, t, data, now, operational } = useApp();
+  const { lang, t, data, now, operational, settlement } = useApp();
+  const [showNames, setShowNames] = useState(() => {
+    try {
+      return localStorage.getItem("el-nino-map-place-names") !== "false";
+    } catch {
+      return true;
+    }
+  });
   const [geo, setGeo] = useState<MapData | null>(null);
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -101,6 +109,51 @@ export default function MyanmarMap({
       center: path.centroid(f),
     }));
   }, [geo]);
+  const placeLabels = useMemo(() => {
+    if (!geo || !showNames) return [];
+    const projection = geoMercator().fitExtent(
+      [
+        [80, 25],
+        [445, 560],
+      ],
+      geo,
+    );
+    const chosen = settlementById(settlement);
+    const candidates = [
+      ...(chosen ? [chosen] : []),
+      ...settlements.filter(
+        (p) => p.featureCode === "PPLC" || p.featureCode === "PPLA",
+      ),
+      ...(zoom > 1
+        ? settlements.filter((p) => p.regionId === selected).slice(0, 25)
+        : []),
+    ];
+    const seen = new Set<string>(),
+      boxes: number[][] = [];
+    return candidates
+      .flatMap((point) => {
+        if (seen.has(point.id)) return [];
+        seen.add(point.id);
+        const xy = projection([point.lon, point.lat]);
+        if (!xy) return [];
+        const name = settlementName(point, lang),
+          width = Math.min(150, [...name].length * 6.5 + 14) / zoom;
+        const anchor = xy[0] > 350 ? "end" : "start";
+        const x0 =
+          anchor === "end" ? xy[0] - width - 6 / zoom : xy[0] + 6 / zoom;
+        const box = [x0, xy[1] - 13 / zoom, x0 + width, xy[1] + 5 / zoom];
+        if (
+          boxes.some(
+            (b) =>
+              box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1],
+          )
+        )
+          return [];
+        boxes.push(box);
+        return [{ ...point, xy, name, anchor }];
+      })
+      .slice(0, compact ? 9 : 28);
+  }, [geo, showNames, settlement, selected, zoom, lang, compact]);
   return (
     <div className={`map-component ${compact ? "compact" : ""}`}>
       {compact && (
@@ -132,6 +185,24 @@ export default function MyanmarMap({
           <span className="meta">
             {t("State / Region level", "ပြည်နယ် / တိုင်းအဆင့်")}
           </span>
+          <label className="check-option">
+            <input
+              type="checkbox"
+              checked={showNames}
+              onChange={(event) => {
+                setShowNames(event.target.checked);
+                try {
+                  localStorage.setItem(
+                    "el-nino-map-place-names",
+                    String(event.target.checked),
+                  );
+                } catch {
+                  /* Optional preference. */
+                }
+              }}
+            />
+            {t("City / town names", "မြို့အမည်များ")}
+          </label>
         </div>
       )}
       <div className="map-canvas">
@@ -222,6 +293,36 @@ export default function MyanmarMap({
                   </path>
                 );
               })}
+              <g
+                className="settlement-labels"
+                aria-hidden="true"
+                pointerEvents="none"
+              >
+                {placeLabels.map((point) => (
+                  <g
+                    key={point.id}
+                    data-testid={`settlement-label-${point.id}`}
+                  >
+                    <circle
+                      cx={point.xy[0]}
+                      cy={point.xy[1]}
+                      r={(point.id === settlement ? 4 : 2.5) / zoom}
+                      fill={point.id === settlement ? "#853d13" : "#163d52"}
+                      stroke="white"
+                      strokeWidth={1.2 / zoom}
+                    />
+                    <text
+                      x={point.xy[0] + (point.anchor === "end" ? -6 : 6) / zoom}
+                      y={point.xy[1]}
+                      textAnchor={point.anchor as "start" | "end"}
+                      fontSize={(compact ? 11 : 12) / zoom}
+                      className={point.id === settlement ? "selected" : ""}
+                    >
+                      {point.name}
+                    </text>
+                  </g>
+                ))}
+              </g>
             </g>
           </svg>
         )}
@@ -312,6 +413,13 @@ export default function MyanmarMap({
           {t("Unavailable / stale", "မရရှိ / သက်တမ်းကျော်")}
         </span>
       </div>
+      <p className="map-credit">
+        {t(
+          "Named points are GeoNames settlement references, not township boundaries or local measurements. Labels are reduced to avoid overlap; search the place list for the complete bounded extract.",
+          "အမည်ပါနေရာမှတ်များသည် GeoNames အခြေချနေရာ ရည်ညွှန်းချက်ဖြစ်ပြီး မြို့နယ်နယ်နိမိတ် သို့မဟုတ် ဒေသတိုင်းတာချက် မဟုတ်ပါ။ စာသားမထပ်စေရန် အမည်အချို့ကိုသာ ပြပြီး စာရင်းအပိုင်းအားလုံးအတွက် တည်နေရာရှာဖွေမှုကို သုံးပါ။",
+        )}{" "}
+        <a href="#/sources?indicator=settlements">GeoNames · CC BY 4.0</a>
+      </p>
       <p className="map-credit">
         {layers.find((l) => l[0] === layer)?.[3]} ·{" "}
         {layer === "official"

@@ -40,9 +40,13 @@ const hash = createHash("sha256");
 hash.update(await readFile(new URL(import.meta.url)));
 for (const p of paths) hash.update(await readFile(p));
 const version = hash.digest("hex").slice(0, 12);
-const urls = paths
-  .filter((p) => !p.endsWith("myanmar.geojson"))
-  .map((p) => "./" + path.relative("dist", p));
+const shellPaths = paths.filter(
+  (p) =>
+    !p.endsWith("myanmar.geojson") &&
+    !p.endsWith("weather-details.json") &&
+    !p.endsWith("enso-indices.json"),
+);
+const urls = shellPaths.map((p) => "./" + path.relative("dist", p));
 await writeFile(
   "dist/sw.js",
   `const CACHE='mokinn-${version}';
@@ -54,12 +58,12 @@ self.addEventListener('fetch',event=>{
  const req=event.request,url=new URL(req.url);
  if(req.method!=='GET'||url.origin!==self.location.origin||!url.href.startsWith(self.registration.scope))return;
  if(url.href.startsWith(self.registration.scope+'pamphlet/'))return;
- if((url.pathname.endsWith('/data/current.json')||url.pathname.endsWith('/data/operational.json')||url.pathname.endsWith('/data/archive.json')||url.pathname.endsWith('/data/climate.json')||url.pathname.endsWith('/data/health-advisories.json'))){
+ if((url.pathname.endsWith('/data/current.json')||url.pathname.endsWith('/data/operational.json')||url.pathname.endsWith('/data/archive.json')||url.pathname.endsWith('/data/climate.json')||url.pathname.endsWith('/data/health-advisories.json')||url.pathname.endsWith('/data/weather-details.json')||url.pathname.endsWith('/data/enso-indices.json'))){
   event.respondWith((async()=>{const cache=await caches.open(CACHE);try{const response=await fetch(req);if(!response.ok)throw Error('Unavailable');await cache.put(req,response.clone());return response;}catch{const cached=await cache.match(req,{ignoreVary:true});if(!cached)return Response.error();const headers=new Headers(cached.headers);headers.set('X-Mokinn-Cache','true');return new Response(await cached.arrayBuffer(),{status:200,headers});}})());return;
  }
  event.respondWith((async()=>{const cache=await caches.open(CACHE);const saved=req.mode==='navigate'?await cache.match('./index.html'):(await cache.match(req,{ignoreVary:true}))||(await caches.match(req,{ignoreVary:true}));if(saved)return saved;try{const response=await fetch(req);if(response.ok)await cache.put(req,response.clone());return response;}catch{if(req.mode==='navigate')return (await cache.match('./index.html'))||Response.error();return Response.error();}})());
 });\n`,
 );
 console.log(
-  `Offline shell ${version}: ${urls.length} local resources, ${(await Promise.all(paths.map(async (p) => (await readFile(p)).length))).reduce((a, b) => a + b, 0)} bytes.`,
+  `Offline shell ${version}: ${urls.length} local resources, ${(await Promise.all(shellPaths.map(async (p) => (await readFile(p)).length))).reduce((a, b) => a + b, 0)} bytes; first-use geography and detailed weather excluded.`,
 );

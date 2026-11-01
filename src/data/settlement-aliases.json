@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1298824",
+    "alias": "Rangoon",
+    "sourceName": "Yangon",
+    "sourceUrl": "https://www.geonames.org/1298824/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "6611854",
+    "alias": "Naypyidaw",
+    "sourceName": "Nay Pyi Taw",
+    "sourceUrl": "https://www.geonames.org/6611854/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "6611854",
+    "alias": "Naypyitaw",
+    "sourceName": "Nay Pyi Taw",
+    "sourceUrl": "https://www.geonames.org/6611854/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1300466",
+    "alias": "Pegu",
+    "sourceName": "Bago",
+    "sourceUrl": "https://www.geonames.org/1300466/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1299154",
+    "alias": "Prome",
+    "sourceName": "Pyay",
+    "sourceUrl": "https://www.geonames.org/1299154/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1293625",
+    "alias": "Tavoy",
+    "sourceName": "Dawei",
+    "sourceUrl": "https://www.geonames.org/1293625/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1309611",
+    "alias": "Mergui",
+    "sourceName": "Myeik",
+    "sourceUrl": "https://www.geonames.org/1309611/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1308465",
+    "alias": "Moulmein",
+    "sourceName": "Mawlamyine",
+    "sourceUrl": "https://www.geonames.org/1308465/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1328421",
+    "alias": "Bassein",
+    "sourceName": "Pathein",
+    "sourceUrl": "https://www.geonames.org/1328421/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1295765",
+    "alias": "Akyab",
+    "sourceName": "Sittwe",
+    "sourceUrl": "https://www.geonames.org/1295765/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1309937",
+    "alias": "Maymyo",
+    "sourceName": "Pyin Oo Lwin",
+    "sourceUrl": "https://www.geonames.org/1309937/",
+    "reviewedOn": "2026-11-01"
+  },
+  {
+    "id": "1309937",
+    "alias": "Maymo",
+    "sourceName": "Pyin Oo Lwin",
+    "sourceUrl": "https://www.geonames.org/1309937/",
+    "reviewedOn": "2026-11-01"
+  }
+]

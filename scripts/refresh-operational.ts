@@ -15,7 +15,12 @@ import {
   requestSeries,
   aggregateForecast,
   aggregateDaily,
+  detailedForecast,
 } from "../src/data/providers/openMeteo.ts";
+import {
+  validateWeatherDetails,
+  type WeatherDetails,
+} from "../src/data/weatherDetails.ts";
 import {
   mean,
   sum,
@@ -76,10 +81,33 @@ async function ingest(id: string, work: () => Promise<void>) {
     };
   }
 }
+let details: WeatherDetails | null = null;
 await ingest("ecmwf", async () => {
-  out.weather = weatherSchema.parse(
-    aggregateForecast(samples, await requestSeries(samples), stamp),
+  const series = await requestSeries(samples);
+  out.weather = weatherSchema.parse(aggregateForecast(samples, series, stamp));
+  details = validateWeatherDetails(detailedForecast(samples, series, stamp));
+});
+await ingest("weather-details", async () => {
+  if (!details)
+    throw Error(
+      "Detailed source refresh failed; retain original dated snapshot",
+    );
+  await writeFile(
+    "public/data/weather-details.json.tmp",
+    JSON.stringify(details) + "\n",
   );
+  await rename(
+    "public/data/weather-details.json.tmp",
+    "public/data/weather-details.json",
+  );
+  if (
+    details.points.some((point) =>
+      Object.values(point.values).some((values) => values === null),
+    )
+  )
+    throw Error(
+      "Some optional forecast fields are missing or invalid; dated available values published without substitution",
+    );
 });
 await atomic("public/data/operational.json", operationalSchema.parse(out));
 const iso = (d: number) => new Date(d).toISOString().slice(0, 10);

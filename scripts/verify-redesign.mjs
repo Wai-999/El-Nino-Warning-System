@@ -8,6 +8,8 @@ import {
 } from "../src/data/operational.ts";
 import { validateClimate } from "../src/data/climate.ts";
 import { validateHealthAdvisories } from "../src/data/healthAdvisories.ts";
+import { validateWeatherDetails } from "../src/data/weatherDetails.ts";
+import { validateEnsoIndices, indexIds } from "../src/data/ensoIndices.ts";
 import { readFile } from "node:fs/promises";
 const packageVersion = JSON.parse(
   await readFile(new URL("../package.json", import.meta.url)),
@@ -69,6 +71,12 @@ try {
   const health = validateHealthAdvisories(
     JSON.parse(await get("data/health-advisories.json", "application/json")),
   );
+  const details = validateWeatherDetails(
+    JSON.parse(await get("data/weather-details.json", "application/json")),
+  );
+  const indices = validateEnsoIndices(
+    JSON.parse(await get("data/enso-indices.json", "application/json")),
+  );
   report.data = {
     officialCoverage: official.regionalCoverage,
     officialAlertCount: official.alerts.length,
@@ -81,6 +89,18 @@ try {
     roniSeasons: climate.roni?.points.length,
     probabilitySeasons: climate.probabilities?.rows.length,
     indicators: registry.indicators.length,
+    hourlyPoints: details.points.length,
+    hourlyPeriods: details.times.length,
+    publishedIndices: Object.fromEntries(
+      indexIds.map((id) => [
+        id,
+        {
+          periods: indices.series[id]?.points.length ?? 0,
+          latest: indices.series[id]?.points.at(-1)?.label ?? null,
+          health: indices.health[id],
+        },
+      ]),
+    ),
     providerHealth: op.health,
     healthPublications: {
       coverage: health.coverage,
@@ -101,6 +121,8 @@ try {
   if (
     !worker.includes("/data/climate.json") ||
     !worker.includes("/data/health-advisories.json") ||
+    !worker.includes("/data/weather-details.json") ||
+    !worker.includes("/data/enso-indices.json") ||
     !worker.includes("self.registration.scope+'pamphlet/'")
   )
     throw Error("Worker safety policies missing");

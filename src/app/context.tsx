@@ -24,6 +24,8 @@ export const AppContext = createContext<{
   setSelected: (id: string) => void;
   township: string | null;
   setTownship: (code: string) => void;
+  settlement: string | null;
+  setSettlement: (id: string) => void;
   savedPlaces: string[];
   togglePlace: (id: string) => void;
   openLocations: () => void;
