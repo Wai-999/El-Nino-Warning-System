@@ -1612,6 +1612,38 @@
       "fallback": "Retain original dated index independently on source failure; stale historical values remain explicitly dated.",
       "status": "implemented",
       "summaryMy": "ပစိဖိတ် ဒေတာငါးမျိုးပါဝင်သည့် နှစ်လထပ်ဆုံ စံပြုညွှန်းကိန်း ဖြစ်သည်။ ဇန်နဝါရီကော်လံသည် ဒီဇင်ဘာ–ဇန်နဝါရီ နှစ်လဖြစ်သည်။"
+    },
+    {
+      "id": "weather-condition",
+      "name": {
+        "en": "Model weather condition",
+        "my": "မော်ဒယ် မိုးလေဝသအခြေအနေ"
+      },
+      "question": "Which weather phenomenon does the provider model code describe?",
+      "definition": "Provider WMO interpretation code from the largest-weight representative regional sample at the snapshot reference hour; discrete codes are not spatially averaged. Code 1 means mainly clear, 2 partly cloudy, 3 overcast. Freezing precipitation and hail retain their phenomena; unsupported codes are unavailable. These modeled descriptions are not official warnings.",
+      "unit": "WMO interpretation code / description",
+      "kind": "derived",
+      "spatial": "Primary (largest-weight) representative 0.25° cell in the selected region; exact point codes retained in hourly detail",
+      "temporal": "hourly",
+      "primarySource": "ecmwf",
+      "sourceUrl": "https://open-meteo.com/en/docs/ecmwf-api",
+      "backupSource": null,
+      "license": "CC BY 4.0 via Open-Meteo; noncommercial API terms",
+      "refresh": "Four scheduled checks daily; ERA5 daily; editorial guidance manually reviewed",
+      "freshnessTTL": "18 hours",
+      "historicalBaseline": null,
+      "uncertainty": "Model/sample error and local variation are not quantified. No invented confidence intervals.",
+      "qa": [
+        "Finite values and units",
+        "Chronological valid timestamps",
+        "Source geographic bounds",
+        "No source timestamp overwritten on fallback"
+      ],
+      "warningApplicability": "Only an explicitly validated official bulletin can be an official Myanmar warning.",
+      "visualization": "Text with units, source and date; optional table/chart",
+      "fallback": "Unsupported condition codes show unavailable with neutral decoration; never infer fog or thunderstorms from an unknown numeric range.",
+      "status": "implemented",
+      "summaryMy": "အလေးချိန်အများဆုံး ဒေသနမူနာနေရာ၏ ပံ့ပိုးသူ WMO ကုဒ်ဖြစ်ပြီး ကုဒ်များကို ပျမ်းမျှမတွက်ပါ။ ကုဒ် 3 သည် တိမ်ထူထပ်ခြင်း ဖြစ်သည်။ တရားဝင်သတိပေးချက် မဟုတ်ပါ။"
     }
   ]
 }

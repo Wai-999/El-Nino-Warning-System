@@ -211,3 +211,19 @@ it("retains syntactically valid retired saved IDs for review instead of deleting
   ).toEqual(["township:MMR999999", "settlement:999999999", "region:MM-99"]);
   expect(savedPlace("township:MMR999999")).toBeNull();
 });
+
+import { condition, weatherKind } from "../src/data/presentation";
+it("preserves the provider WMO meanings for mainly clear, partly cloudy, overcast, freezing rain and hail", () => {
+  expect(condition(1)[0]).toBe("Mainly clear");
+  expect(condition(2)[0]).toBe("Partly cloudy");
+  expect(condition(3)).toEqual(["Overcast", "တိမ်ထူထပ်"]);
+  expect(weatherKind(3)).toBe("overcast");
+  expect(condition(67)[0]).toBe("Freezing rain");
+  expect(condition(99)[0]).toBe("Thunderstorms with hail");
+});
+it("never invents fog or a thunderstorm description for unsupported weather codes", () => {
+  for (const code of [-1, 4, 62, 100, NaN]) {
+    expect(condition(code)[0]).toBe("Condition unavailable");
+    expect(weatherKind(code)).toBe("unknown");
+  }
+});

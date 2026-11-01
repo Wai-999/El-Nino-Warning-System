@@ -1,11 +1,17 @@
 import { useApp } from "../app/context";
 import { mmt, weatherFresh } from "../data/operational";
-import { number, condition, alertState } from "../data/presentation";
+import {
+  number,
+  condition,
+  alertState,
+  weatherKind,
+} from "../data/presentation";
 import { regionName } from "../data/regions";
 import type { Alert } from "../data/schema";
 import {
   ArrowUpRight,
   CloudSun,
+  Cloud,
   Droplets,
   Wind,
   Info,
@@ -65,13 +71,18 @@ export function Stale({ stamp }: { stamp?: string }) {
   );
 }
 export function WeatherSymbol({
-  code = 0,
+  code,
   size = 44,
 }: {
   code?: number;
   size?: number;
 }) {
-  return code >= 51 ? (
+  const kind = weatherKind(code ?? NaN);
+  if (kind === "unknown")
+    return <Info size={size} strokeWidth={1.4} aria-hidden="true" />;
+  if (kind === "overcast")
+    return <Cloud size={size} strokeWidth={1.4} aria-hidden="true" />;
+  return ["rain", "snow"].includes(kind) ? (
     <Droplets size={size} strokeWidth={1.4} aria-hidden="true" />
   ) : (
     <CloudSun size={size} strokeWidth={1.4} aria-hidden="true" />
@@ -94,9 +105,16 @@ export function WeatherSummary({ compact = false }: { compact?: boolean }) {
           </p>
           <h2>{regionName(selected, lang)}</h2>
           <p className="weather-condition">
-            {w
-              ? t(...condition(w.now.code))
-              : t("Weather unavailable", "မိုးလေဝသဒေတာ မရရှိပါ")}
+            {w ? (
+              <a
+                className="condition-source"
+                href="#/sources?indicator=weather-condition"
+              >
+                {t(...condition(w.now.code))}
+              </a>
+            ) : (
+              t("Weather unavailable", "မိုးလေဝသဒေတာ မရရှိပါ")
+            )}
           </p>
         </div>
         <WeatherSymbol code={w?.now.code} size={72} />

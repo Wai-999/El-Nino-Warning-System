@@ -255,6 +255,12 @@ test("advanced NOAA indices preserve distinct methods and periods in both langua
     "ဒီဇင်ဘာ–ဇန်နဝါရီ",
   );
   await accessible(page);
+  await page.goto("./#/sources");
+  await expect(page.locator(".enso-source-status")).toContainText(
+    source.series.mei.points.at(-1).label,
+  );
+  await expect(page.locator(".enso-source-status tbody tr")).toHaveCount(3);
+  await accessible(page);
 });
 
 test("unknown saved place references survive a geography upgrade without reassignment", async ({

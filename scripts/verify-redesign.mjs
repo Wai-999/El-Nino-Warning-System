@@ -65,9 +65,21 @@ try {
   const climate = validateClimate(
     JSON.parse(await get("data/climate.json", "application/json")),
   );
-  const registry = JSON.parse(
-    await get("data/indicator-registry.json", "application/json"),
+  const registryText = await get(
+    "data/indicator-registry.json",
+    "application/json",
   );
+  const registry = JSON.parse(registryText);
+  if (
+    registryText !==
+    (await readFile(
+      new URL("../src/data/indicators.json", import.meta.url),
+      "utf8",
+    ))
+  )
+    throw Error(
+      "Deployed indicator registry does not match this reviewed source",
+    );
   const health = validateHealthAdvisories(
     JSON.parse(await get("data/health-advisories.json", "application/json")),
   );

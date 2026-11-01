@@ -1,16 +1,8 @@
 import { useApp } from "../app/context";
+import { weatherKind } from "../data/presentation";
 export default function WeatherScene({ code }: { code: number }) {
   const { motion, lowData } = useApp();
-  const kind =
-    (code >= 71 && code <= 77) || (code >= 85 && code <= 86)
-      ? "snow"
-      : code >= 51
-        ? "rain"
-        : code >= 45
-          ? "fog"
-          : code === 0
-            ? "sun"
-            : "cloud";
+  const kind = weatherKind(code);
   return (
     <div
       className={`weather-scene weather-kind-${kind} ${!motion || lowData ? "scene-paused" : ""}`}

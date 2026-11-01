@@ -12,7 +12,11 @@ import { number, download } from "../data/presentation";
 import { mmt } from "../data/operational";
 import { Source, Stale, Unavailable } from "./Service";
 
-export default function EnsoIndices() {
+export default function EnsoIndices({
+  statusOnly = false,
+}: {
+  statusOnly?: boolean;
+}) {
   const { t, lang, now } = useApp();
   const [result, setResult] = useState({
       data: emptyEnsoIndices,
@@ -53,10 +57,102 @@ export default function EnsoIndices() {
     return (
       <Unavailable>
         {t(
-          "Published ENSO indices could not be loaded. The NOAA assessment and RONI above remain independent.",
-          "ထုတ်ပြန်ပြီး ENSO ညွှန်းကိန်းများ မဖွင့်နိုင်ပါ။ အပေါ်ရှိ NOAA သုံးသပ်ချက်နှင့် RONI သည် သီးခြားဖြစ်သည်။",
+          "Published ENSO indices could not be loaded. The NOAA assessment and RONI remain independent.",
+          "ထုတ်ပြန်ပြီး ENSO ညွှန်းကိန်းများ မဖွင့်နိုင်ပါ။ NOAA သုံးသပ်ချက်နှင့် RONI သည် သီးခြားဖြစ်သည်။",
         )}
       </Unavailable>
+    );
+  if (statusOnly)
+    return (
+      <section className="surface padded enso-source-status">
+        <h2>
+          {t(
+            "Published ENSO index source status",
+            "ထုတ်ပြန်ပြီး ENSO ညွှန်းကိန်း ရင်းမြစ်အခြေအနေ",
+          )}
+        </h2>
+        <div
+          className="table-scroll"
+          tabIndex={0}
+          role="region"
+          aria-label={t(
+            "Published index source status table",
+            "ထုတ်ပြန်ပြီး ညွှန်းကိန်းရင်းမြစ် အခြေအနေဇယား",
+          )}
+        >
+          <table className="data-table">
+            <caption>
+              {t(
+                "Original scientific periods and retrieval/check times are distinct",
+                "မူရင်း သိပ္ပံကာလနှင့် ရယူ/စစ်ဆေးချိန်သည် သီးခြားဖြစ်သည်",
+              )}
+            </caption>
+            <thead>
+              <tr>
+                <th>{t("Index", "ညွှန်းကိန်း")}</th>
+                <th>{t("Data state", "ဒေတာအခြေအနေ")}</th>
+                <th>{t("Latest source period", "နောက်ဆုံးရင်းမြစ်ကာလ")}</th>
+                <th>{t("Retrieved", "ရယူချိန်")}</th>
+                <th>{t("Last check", "နောက်ဆုံး စစ်ဆေးမှု")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {indexIds.map((id) => {
+                const item = result.data.series[id],
+                  health = result.data.health[id];
+                return (
+                  <tr key={id}>
+                    <th scope="row">
+                      <a href={`#/sources?indicator=${id}`}>
+                        {indexDefinitions[id].name}
+                      </a>
+                    </th>
+                    <td>
+                      {item
+                        ? indexFresh(item, now)
+                          ? t("Within policy", "သက်တမ်းအတွင်း")
+                          : t("Delayed / historical", "နောက်ကျ / သမိုင်းဒေတာ")
+                        : t("Unavailable", "မရရှိပါ")}
+                    </td>
+                    <td>{item?.points.at(-1)?.label || "—"}</td>
+                    <td>{item ? mmt(item.retrievedAt, lang) : "—"}</td>
+                    <td>
+                      {health ? (
+                        <>
+                          {health.ok
+                            ? t("Succeeded", "အောင်မြင်")
+                            : t(
+                                "Failed; retained original periods",
+                                "မအောင်မြင်၊ မူရင်းကာလ ထိန်းထား",
+                              )}
+                          <br />
+                          {mmt(health.checkedAt, lang)}
+                        </>
+                      ) : (
+                        t("Not checked", "မစစ်ဆေးရသေး")
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        {result.cached && (
+          <p className="small">
+            {t(
+              "Previously cached snapshot; source periods are unchanged.",
+              "ယခင်သိမ်းထားသော ဒေတာဖြစ်ပြီး ရင်းမြစ်ကာလကို မပြောင်းပါ။",
+            )}
+          </p>
+        )}
+        <p className="small">
+          {t(
+            "Source issue clock times are unknown. These independent Pacific indices do not determine local Myanmar warnings.",
+            "ရင်းမြစ်ထုတ်နာရီ မသိပါ။ ဤသီးခြား ပစိဖိတ်ညွှန်းကိန်းများက မြန်မာဒေသသတိပေးချက်ကို မဆုံးဖြတ်ပါ။",
+          )}
+        </p>
+      </section>
     );
   return (
     <section

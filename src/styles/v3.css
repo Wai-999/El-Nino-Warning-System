@@ -442,3 +442,17 @@
     display: none;
   }
 }
+
+.weather-kind-overcast .scene-sun,
+.weather-kind-overcast .scene-precip,
+.weather-kind-unknown > * {
+  display: none;
+}
+
+.condition-source {
+  color: inherit;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+}
