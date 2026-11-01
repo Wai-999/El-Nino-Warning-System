@@ -1,32 +1,32 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-31T22:58:12.510Z",
+  "generatedAt": "2026-11-01T01:16:38.215Z",
   "weather": {
-    "fetchedAt": "2026-10-31T22:58:12.510Z",
-    "validAt": "2026-10-31T22:30:00.000Z",
-    "through": "2026-11-01T22:30:00.000Z",
+    "fetchedAt": "2026-11-01T01:16:38.215Z",
+    "validAt": "2026-11-01T00:30:00.000Z",
+    "through": "2026-11-02T00:30:00.000Z",
     "model": "ECMWF IFS 0.25°",
     "regions": [
       {
         "id": "MM-01",
         "now": {
-          "temperature": 23.44,
-          "apparent": 27.91,
-          "humidity": 90.78,
+          "temperature": 24.85,
+          "apparent": 29.36,
+          "humidity": 84.14,
           "rain": 0,
-          "wind": 1.97,
-          "gust": 4.87,
-          "code": 1,
-          "min": 21,
-          "max": 25.6
+          "wind": 2.28,
+          "gust": 7.47,
+          "code": 0,
+          "min": 22.3,
+          "max": 27
         },
         "next24": {
           "min": 22.5,
           "max": 30.3,
-          "rain": 1.73,
-          "maxRain": 2.1,
+          "rain": 2,
+          "maxRain": 2.2,
           "heat": 36.1,
-          "gust": 21.2
+          "gust": 22.7
         },
         "days": [
           {
@@ -90,15 +90,15 @@
       {
         "id": "MM-02",
         "now": {
-          "temperature": 24.33,
-          "apparent": 29.73,
-          "humidity": 97.45,
+          "temperature": 26.01,
+          "apparent": 31.84,
+          "humidity": 90.57,
           "rain": 0,
-          "wind": 4.15,
-          "gust": 5.48,
-          "code": 1,
-          "min": 23.7,
-          "max": 25.2
+          "wind": 3.09,
+          "gust": 8.23,
+          "code": 0,
+          "min": 25.3,
+          "max": 26.7
         },
         "next24": {
           "min": 24.37,
@@ -170,15 +170,15 @@
       {
         "id": "MM-03",
         "now": {
-          "temperature": 24.31,
-          "apparent": 29.3,
-          "humidity": 95.62,
+          "temperature": 25.99,
+          "apparent": 31.18,
+          "humidity": 88.32,
           "rain": 0,
-          "wind": 5.42,
-          "gust": 9.07,
-          "code": 2,
-          "min": 23.4,
-          "max": 24.8
+          "wind": 5.57,
+          "gust": 11.42,
+          "code": 3,
+          "min": 25.4,
+          "max": 26.3
         },
         "next24": {
           "min": 23.94,
@@ -250,21 +250,21 @@
       {
         "id": "MM-04",
         "now": {
-          "temperature": 24.24,
-          "apparent": 28.91,
-          "humidity": 91.83,
+          "temperature": 25.98,
+          "apparent": 30.71,
+          "humidity": 84.88,
           "rain": 0,
-          "wind": 5.41,
-          "gust": 8.87,
-          "code": 1,
-          "min": 21.4,
-          "max": 25.5
+          "wind": 6.09,
+          "gust": 12.51,
+          "code": 0,
+          "min": 23.4,
+          "max": 27.1
         },
         "next24": {
           "min": 23.51,
           "max": 30.87,
-          "rain": 3.85,
-          "maxRain": 4.5,
+          "rain": 4.28,
+          "maxRain": 5.2,
           "heat": 38.09,
           "gust": 23.8
         },
@@ -330,20 +330,20 @@
       {
         "id": "MM-05",
         "now": {
-          "temperature": 24.55,
-          "apparent": 29.58,
-          "humidity": 92.3,
+          "temperature": 26.06,
+          "apparent": 31.11,
+          "humidity": 85.2,
           "rain": 0,
-          "wind": 3.66,
-          "gust": 8.58,
+          "wind": 4.24,
+          "gust": 10.96,
           "code": 3,
-          "min": 22.9,
-          "max": 27
+          "min": 24.4,
+          "max": 28
         },
         "next24": {
           "min": 23.53,
           "max": 30.96,
-          "rain": 5.58,
+          "rain": 5.61,
           "maxRain": 9.3,
           "heat": 38.35,
           "gust": 20.5
@@ -410,15 +410,15 @@
       {
         "id": "MM-06",
         "now": {
-          "temperature": 25.16,
-          "apparent": 30.99,
-          "humidity": 97.46,
+          "temperature": 26.89,
+          "apparent": 32.83,
+          "humidity": 89.3,
           "rain": 0,
-          "wind": 4.58,
-          "gust": 6.91,
+          "wind": 5.17,
+          "gust": 9.8,
           "code": 0,
-          "min": 24.7,
-          "max": 26
+          "min": 26.4,
+          "max": 27.6
         },
         "next24": {
           "min": 25.49,
@@ -490,15 +490,15 @@
       {
         "id": "MM-07",
         "now": {
-          "temperature": 25.19,
-          "apparent": 31.59,
-          "humidity": 98.75,
+          "temperature": 26.72,
+          "apparent": 33.23,
+          "humidity": 92.18,
           "rain": 0,
-          "wind": 1.92,
-          "gust": 2.6,
-          "code": 1,
-          "min": 24.8,
-          "max": 25.5
+          "wind": 2.83,
+          "gust": 6.76,
+          "code": 0,
+          "min": 26.3,
+          "max": 26.9
         },
         "next24": {
           "min": 25.03,
@@ -570,21 +570,21 @@
       {
         "id": "MM-11",
         "now": {
-          "temperature": 20.56,
-          "apparent": 23.95,
-          "humidity": 97.4,
-          "rain": 0.16,
-          "wind": 3.81,
-          "gust": 9.66,
-          "code": 51,
-          "min": 16.8,
-          "max": 23
+          "temperature": 21.63,
+          "apparent": 25.02,
+          "humidity": 93.29,
+          "rain": 0.22,
+          "wind": 5,
+          "gust": 12.77,
+          "code": 2,
+          "min": 17.3,
+          "max": 24.2
         },
         "next24": {
           "min": 19.69,
           "max": 27.42,
-          "rain": 1.84,
-          "maxRain": 6.3,
+          "rain": 1.46,
+          "maxRain": 5.1,
           "heat": 33.45,
           "gust": 23.4
         },
@@ -650,15 +650,15 @@
       {
         "id": "MM-12",
         "now": {
-          "temperature": 21.7,
-          "apparent": 25.72,
-          "humidity": 96.12,
+          "temperature": 23.66,
+          "apparent": 28.06,
+          "humidity": 88.24,
           "rain": 0,
-          "wind": 2.4,
-          "gust": 5.63,
+          "wind": 1.92,
+          "gust": 8.69,
           "code": 0,
-          "min": 21.2,
-          "max": 22.4
+          "min": 23.2,
+          "max": 24.4
         },
         "next24": {
           "min": 21.55,
@@ -730,20 +730,20 @@
       {
         "id": "MM-13",
         "now": {
-          "temperature": 23.03,
-          "apparent": 27.35,
-          "humidity": 89.78,
+          "temperature": 24.77,
+          "apparent": 29.55,
+          "humidity": 84.48,
           "rain": 0,
-          "wind": 2.05,
-          "gust": 4.78,
+          "wind": 1.3,
+          "gust": 7.68,
           "code": 0,
-          "min": 19.4,
-          "max": 25.3
+          "min": 21.2,
+          "max": 26.9
         },
         "next24": {
           "min": 22.97,
           "max": 29.83,
-          "rain": 1.77,
+          "rain": 1.8,
           "maxRain": 3.3,
           "heat": 37.74,
           "gust": 21.6
@@ -810,15 +810,15 @@
       {
         "id": "MM-14",
         "now": {
-          "temperature": 14.93,
-          "apparent": 16.11,
-          "humidity": 98.81,
+          "temperature": 17.69,
+          "apparent": 19.34,
+          "humidity": 87.95,
           "rain": 0,
-          "wind": 2.67,
-          "gust": 11.94,
+          "wind": 1.9,
+          "gust": 11.7,
           "code": 2,
-          "min": 13.8,
-          "max": 16.1
+          "min": 16.4,
+          "max": 19.4
         },
         "next24": {
           "min": 14.5,
@@ -890,21 +890,21 @@
       {
         "id": "MM-15",
         "now": {
-          "temperature": 25.41,
-          "apparent": 30.79,
-          "humidity": 95.83,
+          "temperature": 26.92,
+          "apparent": 32.36,
+          "humidity": 88.05,
           "rain": 0,
-          "wind": 7.94,
-          "gust": 13.37,
-          "code": 1,
-          "min": 24.8,
-          "max": 26.3
+          "wind": 7.63,
+          "gust": 14.86,
+          "code": 0,
+          "min": 26.5,
+          "max": 27.6
         },
         "next24": {
-          "min": 25.74,
+          "min": 25.99,
           "max": 32.22,
-          "rain": 1.45,
-          "maxRain": 2.1,
+          "rain": 1.74,
+          "maxRain": 2.6,
           "heat": 39.82,
           "gust": 25.6
         },
@@ -970,15 +970,15 @@
       {
         "id": "MM-16",
         "now": {
-          "temperature": 24.31,
-          "apparent": 29.5,
-          "humidity": 96.42,
+          "temperature": 25.96,
+          "apparent": 31.32,
+          "humidity": 89.18,
           "rain": 0,
-          "wind": 4.91,
-          "gust": 7.77,
+          "wind": 4.89,
+          "gust": 10.26,
           "code": 2,
-          "min": 23.1,
-          "max": 25.1
+          "min": 25.5,
+          "max": 26.3
         },
         "next24": {
           "min": 24.13,
@@ -1050,15 +1050,15 @@
       {
         "id": "MM-17",
         "now": {
-          "temperature": 18.59,
-          "apparent": 20.95,
-          "humidity": 93.29,
+          "temperature": 20.83,
+          "apparent": 23.61,
+          "humidity": 84.43,
           "rain": 0,
-          "wind": 1.99,
-          "gust": 5.15,
+          "wind": 0.92,
+          "gust": 7.01,
           "code": 0,
-          "min": 17.3,
-          "max": 20
+          "min": 19.6,
+          "max": 21.9
         },
         "next24": {
           "min": 18.5,
@@ -1130,15 +1130,15 @@
       {
         "id": "MM-18",
         "now": {
-          "temperature": 23.58,
-          "apparent": 28.6,
-          "humidity": 96.27,
+          "temperature": 25.52,
+          "apparent": 30.77,
+          "humidity": 88.09,
           "rain": 0,
-          "wind": 2.9,
-          "gust": 5,
+          "wind": 2.86,
+          "gust": 7.35,
           "code": 0,
-          "min": 22.6,
-          "max": 24
+          "min": 24.7,
+          "max": 25.9
         },
         "next24": {
           "min": 23.95,
@@ -1210,27 +1210,26 @@
     ]
   },
   "history": {
-    "fetchedAt": "2026-10-31T17:33:11.914Z",
-    "start": "2026-09-26",
-    "end": "2026-10-25",
+    "fetchedAt": "2026-11-01T01:16:38.215Z",
+    "start": "2026-09-27",
+    "end": "2026-10-26",
     "baseline": "1991–2020",
     "model": "ERA5 0.25°",
     "sampleHash": "661812c631d7dabd45e22501301793f43f49df6c6362dbbfb31db9868abd73e2",
     "regions": [
       {
         "id": "MM-01",
-        "temperature": 26.92,
-        "temperatureNormal": 25.76,
-        "temperatureAnomaly": 1.16,
-        "rain7": 4.69,
-        "rain30": 84.57,
-        "rainNormal7": 32.5,
-        "rainNormal30": 226.63,
-        "rainDifference": -142.06,
-        "rainPercent": -62.68,
-        "dryDays": 3,
+        "temperature": 26.87,
+        "temperatureNormal": 25.68,
+        "temperatureAnomaly": 1.19,
+        "rain7": 4.65,
+        "rain30": 84.41,
+        "rainNormal7": 30.7,
+        "rainNormal30": 220.92,
+        "rainDifference": -136.51,
+        "rainPercent": -61.79,
+        "dryDays": 4,
         "rainDaily": [
-          0.17,
           0.21,
           0.08,
           2.63,
@@ -1259,23 +1258,23 @@
           1.32,
           0.06,
           0.09,
+          0,
           0
         ]
       },
       {
         "id": "MM-02",
-        "temperature": 28.38,
-        "temperatureNormal": 27.35,
-        "temperatureAnomaly": 1.03,
-        "rain7": 9.12,
-        "rain30": 166.25,
-        "rainNormal7": 29.66,
-        "rainNormal30": 179.49,
-        "rainDifference": -13.25,
-        "rainPercent": -7.38,
+        "temperature": 28.36,
+        "temperatureNormal": 27.34,
+        "temperatureAnomaly": 1.02,
+        "rain7": 11.55,
+        "rain30": 167.33,
+        "rainNormal7": 28.75,
+        "rainNormal30": 175.56,
+        "rainDifference": -8.23,
+        "rainPercent": -4.69,
         "dryDays": 0,
         "rainDaily": [
-          2.74,
           3.59,
           50.79,
           35.16,
@@ -1304,23 +1303,23 @@
           1.6,
           0.71,
           0.97,
-          2.31
+          2.31,
+          3.83
         ]
       },
       {
         "id": "MM-03",
-        "temperature": 28.26,
-        "temperatureNormal": 27.4,
-        "temperatureAnomaly": 0.86,
-        "rain7": 8.84,
-        "rain30": 130.33,
-        "rainNormal7": 22.54,
-        "rainNormal30": 147.9,
-        "rainDifference": -17.57,
-        "rainPercent": -11.88,
-        "dryDays": 0,
+        "temperature": 28.25,
+        "temperatureNormal": 27.36,
+        "temperatureAnomaly": 0.89,
+        "rain7": 8.28,
+        "rain30": 129.92,
+        "rainNormal7": 20.07,
+        "rainNormal30": 144.05,
+        "rainDifference": -14.13,
+        "rainPercent": -9.81,
+        "dryDays": 1,
         "rainDaily": [
-          1.15,
           0.11,
           14.67,
           27.43,
@@ -1349,23 +1348,23 @@
           0.37,
           0.28,
           0.22,
-          2.49
+          2.49,
+          0.74
         ]
       },
       {
         "id": "MM-04",
-        "temperature": 28.14,
-        "temperatureNormal": 27.17,
-        "temperatureAnomaly": 0.96,
-        "rain7": 18.43,
-        "rain30": 127.51,
-        "rainNormal7": 33.82,
-        "rainNormal30": 183.3,
-        "rainDifference": -55.79,
-        "rainPercent": -30.43,
-        "dryDays": 4,
+        "temperature": 28.09,
+        "temperatureNormal": 27.12,
+        "temperatureAnomaly": 0.97,
+        "rain7": 14.55,
+        "rain30": 127.84,
+        "rainNormal7": 33.05,
+        "rainNormal30": 180.29,
+        "rainDifference": -52.45,
+        "rainPercent": -29.09,
+        "dryDays": 5,
         "rainDaily": [
-          0.23,
           0.09,
           1.9,
           19.45,
@@ -1394,23 +1393,23 @@
           0.67,
           0.62,
           0.47,
-          0.21
+          0.21,
+          0.56
         ]
       },
       {
         "id": "MM-05",
-        "temperature": 26.86,
+        "temperature": 26.95,
         "temperatureNormal": 25.71,
-        "temperatureAnomaly": 1.15,
-        "rain7": 37.87,
-        "rain30": 424.11,
-        "rainNormal7": 44.13,
-        "rainNormal30": 316.82,
-        "rainDifference": 107.28,
-        "rainPercent": 33.86,
+        "temperatureAnomaly": 1.24,
+        "rain7": 27.55,
+        "rain30": 333.38,
+        "rainNormal7": 42.71,
+        "rainNormal30": 310.1,
+        "rainDifference": 23.29,
+        "rainPercent": 7.51,
         "dryDays": 0,
         "rainDaily": [
-          91.81,
           132.31,
           39.88,
           7.06,
@@ -1439,23 +1438,23 @@
           1.72,
           2.03,
           5.99,
-          3.73
+          3.73,
+          1.08
         ]
       },
       {
         "id": "MM-06",
-        "temperature": 29.21,
+        "temperature": 29.23,
         "temperatureNormal": 28.11,
-        "temperatureAnomaly": 1.1,
-        "rain7": 4.4,
-        "rain30": 187.01,
-        "rainNormal7": 29.06,
-        "rainNormal30": 191.71,
-        "rainDifference": -4.7,
-        "rainPercent": -2.45,
-        "dryDays": 0,
+        "temperatureAnomaly": 1.11,
+        "rain7": 3.94,
+        "rain30": 181.15,
+        "rainNormal7": 28.39,
+        "rainNormal30": 185.51,
+        "rainDifference": -4.36,
+        "rainPercent": -2.35,
+        "dryDays": 1,
         "rainDaily": [
-          6.77,
           27.08,
           77.07,
           43.54,
@@ -1484,23 +1483,23 @@
           0.48,
           0.32,
           0,
-          1.37
+          1.37,
+          0.91
         ]
       },
       {
         "id": "MM-07",
-        "temperature": 28.41,
+        "temperature": 28.42,
         "temperatureNormal": 27.45,
-        "temperatureAnomaly": 0.96,
-        "rain7": 24.48,
-        "rain30": 195.41,
-        "rainNormal7": 34.12,
-        "rainNormal30": 215.1,
-        "rainDifference": -19.69,
-        "rainPercent": -9.16,
+        "temperatureAnomaly": 0.97,
+        "rain7": 24.07,
+        "rain30": 191.58,
+        "rainNormal7": 33.97,
+        "rainNormal30": 209.24,
+        "rainDifference": -17.66,
+        "rainPercent": -8.44,
         "dryDays": 0,
         "rainDaily": [
-          4.87,
           6.66,
           56.06,
           42.41,
@@ -1529,23 +1528,23 @@
           2.81,
           1.12,
           6.34,
-          6.54
+          6.54,
+          1.04
         ]
       },
       {
         "id": "MM-11",
-        "temperature": 24.41,
-        "temperatureNormal": 23.61,
-        "temperatureAnomaly": 0.8,
+        "temperature": 24.28,
+        "temperatureNormal": 23.51,
+        "temperatureAnomaly": 0.77,
         "rain7": 0.37,
-        "rain30": 100.13,
-        "rainNormal7": 47.84,
-        "rainNormal30": 284.61,
-        "rainDifference": -184.48,
-        "rainPercent": -64.82,
-        "dryDays": 19,
+        "rain30": 99.35,
+        "rainNormal7": 42.18,
+        "rainNormal30": 273.61,
+        "rainDifference": -174.26,
+        "rainPercent": -63.69,
+        "dryDays": 20,
         "rainDaily": [
-          0.78,
           1.68,
           1.24,
           0.14,
@@ -1574,23 +1573,23 @@
           0.03,
           0.31,
           0.03,
+          0,
           0
         ]
       },
       {
         "id": "MM-12",
-        "temperature": 25.66,
-        "temperatureNormal": 24.9,
-        "temperatureAnomaly": 0.76,
-        "rain7": 0.87,
-        "rain30": 111.5,
-        "rainNormal7": 20.96,
-        "rainNormal30": 118.34,
-        "rainDifference": -6.85,
-        "rainPercent": -5.78,
-        "dryDays": 8,
+        "temperature": 25.62,
+        "temperatureNormal": 24.86,
+        "temperatureAnomaly": 0.75,
+        "rain7": 12.19,
+        "rain30": 118.26,
+        "rainNormal7": 20.31,
+        "rainNormal30": 115.69,
+        "rainDifference": 2.58,
+        "rainPercent": 2.23,
+        "dryDays": 0,
         "rainDaily": [
-          4.68,
           0.98,
           11.84,
           51.25,
@@ -1619,23 +1618,23 @@
           0.07,
           0.04,
           0.24,
-          0.21
+          0.21,
+          11.44
         ]
       },
       {
         "id": "MM-13",
         "temperature": 26.44,
-        "temperatureNormal": 25.48,
+        "temperatureNormal": 25.47,
         "temperatureAnomaly": 0.97,
-        "rain7": 12.08,
-        "rain30": 227.57,
-        "rainNormal7": 29.18,
-        "rainNormal30": 240.08,
-        "rainDifference": -12.51,
-        "rainPercent": -5.21,
+        "rain7": 19.86,
+        "rain30": 213.78,
+        "rainNormal7": 28.48,
+        "rainNormal30": 230.43,
+        "rainDifference": -16.65,
+        "rainPercent": -7.23,
         "dryDays": 0,
         "rainDaily": [
-          22.65,
           9.63,
           60.2,
           36.46,
@@ -1664,23 +1663,23 @@
           1.02,
           2.63,
           2.84,
-          2.96
+          2.96,
+          8.86
         ]
       },
       {
         "id": "MM-14",
-        "temperature": 21.14,
-        "temperatureNormal": 20.55,
-        "temperatureAnomaly": 0.59,
-        "rain7": 28.43,
-        "rain30": 180.94,
-        "rainNormal7": 27.27,
-        "rainNormal30": 181.58,
-        "rainDifference": -0.64,
-        "rainPercent": -0.35,
+        "temperature": 21.11,
+        "temperatureNormal": 20.49,
+        "temperatureAnomaly": 0.63,
+        "rain7": 24.96,
+        "rain30": 177.1,
+        "rainNormal7": 25.74,
+        "rainNormal30": 176.83,
+        "rainDifference": 0.27,
+        "rainPercent": 0.15,
         "dryDays": 0,
         "rainDaily": [
-          5.23,
           2.46,
           2.26,
           15.58,
@@ -1709,23 +1708,23 @@
           1.29,
           0.41,
           0.89,
-          1.86
+          1.86,
+          1.38
         ]
       },
       {
         "id": "MM-15",
-        "temperature": 28.64,
-        "temperatureNormal": 27.52,
-        "temperatureAnomaly": 1.13,
-        "rain7": 12.96,
-        "rain30": 302.11,
-        "rainNormal7": 33.09,
-        "rainNormal30": 257.37,
-        "rainDifference": 44.74,
-        "rainPercent": 17.38,
+        "temperature": 28.66,
+        "temperatureNormal": 27.54,
+        "temperatureAnomaly": 1.12,
+        "rain7": 15.04,
+        "rain30": 268.6,
+        "rainNormal7": 32.06,
+        "rainNormal30": 246.65,
+        "rainDifference": 21.95,
+        "rainPercent": 8.9,
         "dryDays": 0,
         "rainDaily": [
-          36.67,
           18.71,
           100.45,
           78.63,
@@ -1754,23 +1753,23 @@
           1.03,
           1.24,
           1.57,
-          5.23
+          5.23,
+          3.16
         ]
       },
       {
         "id": "MM-16",
-        "temperature": 27.55,
+        "temperature": 27.57,
         "temperatureNormal": 26.48,
-        "temperatureAnomaly": 1.07,
-        "rain7": 14.72,
-        "rain30": 157.97,
-        "rainNormal7": 34.14,
-        "rainNormal30": 226.75,
-        "rainDifference": -68.79,
-        "rainPercent": -30.34,
-        "dryDays": 0,
+        "temperatureAnomaly": 1.09,
+        "rain7": 7.69,
+        "rain30": 157.62,
+        "rainNormal7": 30.1,
+        "rainNormal30": 217.65,
+        "rainDifference": -60.03,
+        "rainPercent": -27.58,
+        "dryDays": 1,
         "rainDaily": [
-          0.78,
           0.5,
           13.08,
           38.9,
@@ -1799,23 +1798,23 @@
           0.58,
           0.66,
           0.47,
-          2.07
+          2.07,
+          0.43
         ]
       },
       {
         "id": "MM-17",
-        "temperature": 22.8,
-        "temperatureNormal": 22.19,
+        "temperature": 22.73,
+        "temperatureNormal": 22.13,
         "temperatureAnomaly": 0.6,
-        "rain7": 3.71,
-        "rain30": 100.83,
-        "rainNormal7": 27.36,
-        "rainNormal30": 151.62,
-        "rainDifference": -50.79,
-        "rainPercent": -33.5,
-        "dryDays": 6,
+        "rain7": 6.15,
+        "rain30": 102.37,
+        "rainNormal7": 26.82,
+        "rainNormal30": 149.06,
+        "rainDifference": -46.68,
+        "rainPercent": -31.32,
+        "dryDays": 0,
         "rainDaily": [
-          2.19,
           0.7,
           3.47,
           19.57,
@@ -1844,23 +1843,23 @@
           0.27,
           0.28,
           0.37,
-          0.65
+          0.65,
+          3.73
         ]
       },
       {
         "id": "MM-18",
-        "temperature": 27.84,
-        "temperatureNormal": 26.96,
-        "temperatureAnomaly": 0.89,
-        "rain7": 6.03,
-        "rain30": 126.78,
-        "rainNormal7": 19.94,
-        "rainNormal30": 130.92,
-        "rainDifference": -4.15,
-        "rainPercent": -3.17,
-        "dryDays": 5,
+        "temperature": 27.79,
+        "temperatureNormal": 26.94,
+        "temperatureAnomaly": 0.85,
+        "rain7": 9.82,
+        "rain30": 129.47,
+        "rainNormal7": 18.78,
+        "rainNormal30": 128.83,
+        "rainDifference": 0.64,
+        "rainPercent": 0.5,
+        "dryDays": 0,
         "rainDaily": [
-          2.52,
           1.98,
           3.71,
           30.5,
@@ -1889,7 +1888,8 @@
           0.66,
           0.65,
           0.79,
-          0.75
+          0.75,
+          5.22
         ]
       }
     ]
@@ -1926,19 +1926,19 @@
   },
   "health": {
     "ecmwf": {
-      "checkedAt": "2026-10-31T22:58:12.510Z",
-      "lastSuccess": "2026-10-31T22:58:12.510Z",
+      "checkedAt": "2026-11-01T01:16:38.215Z",
+      "lastSuccess": "2026-11-01T01:16:38.215Z",
       "ok": true,
       "error": null
     },
     "era5": {
-      "checkedAt": "2026-10-31T22:58:12.510Z",
-      "lastSuccess": "2026-10-31T17:33:11.914Z",
+      "checkedAt": "2026-11-01T01:16:38.215Z",
+      "lastSuccess": "2026-11-01T01:16:38.215Z",
       "ok": true,
       "error": null
     },
     "nino34": {
-      "checkedAt": "2026-10-31T22:58:12.510Z",
+      "checkedAt": "2026-11-01T01:16:38.215Z",
       "lastSuccess": "2026-10-31T22:58:12.510Z",
       "ok": true,
       "error": null
