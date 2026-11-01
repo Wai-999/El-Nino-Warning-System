@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-01T17:53:27.699Z",
+  "checkedAt": "2026-11-01T18:49:01.809Z",
   "series": {
     "oni": {
       "source": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v6/",
-      "retrievedAt": "2026-11-01T17:53:27.699Z",
+      "retrievedAt": "2026-11-01T18:49:01.809Z",
       "points": [
         {
           "label": "DJF 1950",
@@ -6450,7 +6450,7 @@
     },
     "soi": {
       "source": "https://www.cpc.ncep.noaa.gov/data/indices/soi",
-      "retrievedAt": "2026-11-01T17:53:27.699Z",
+      "retrievedAt": "2026-11-01T18:49:01.809Z",
       "points": [
         {
           "label": "1951-01",
@@ -12819,7 +12819,7 @@
     },
     "mei": {
       "source": "https://psl.noaa.gov/enso/mei/data/meiv2.data",
-      "retrievedAt": "2026-11-01T17:53:27.699Z",
+      "retrievedAt": "2026-11-01T18:49:01.809Z",
       "points": [
         {
           "label": "DJ 1979",
@@ -16838,17 +16838,17 @@
   "health": {
     "oni": {
       "ok": true,
-      "checkedAt": "2026-11-01T17:53:27.699Z",
+      "checkedAt": "2026-11-01T18:49:01.809Z",
       "error": null
     },
     "soi": {
       "ok": true,
-      "checkedAt": "2026-11-01T17:53:27.699Z",
+      "checkedAt": "2026-11-01T18:49:01.809Z",
       "error": null
     },
     "mei": {
       "ok": true,
-      "checkedAt": "2026-11-01T17:53:27.699Z",
+      "checkedAt": "2026-11-01T18:49:01.809Z",
       "error": null
     }
   }

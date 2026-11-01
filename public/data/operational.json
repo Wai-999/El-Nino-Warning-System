@@ -1,24 +1,24 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-01T18:05:34.040Z",
+  "generatedAt": "2026-11-01T18:48:59.718Z",
   "weather": {
-    "fetchedAt": "2026-11-01T17:34:24.043Z",
-    "validAt": "2026-11-01T17:30:00.000Z",
-    "through": "2026-11-02T17:30:00.000Z",
+    "fetchedAt": "2026-11-01T18:48:59.718Z",
+    "validAt": "2026-11-01T18:30:00.000Z",
+    "through": "2026-11-02T18:30:00.000Z",
     "model": "ECMWF IFS 0.25°",
     "regions": [
       {
         "id": "MM-01",
         "now": {
-          "temperature": 23.8,
-          "apparent": 28.93,
-          "humidity": 95.38,
-          "rain": 0.46,
-          "wind": 2.13,
-          "gust": 6.74,
-          "code": 55,
-          "min": 21,
-          "max": 26.5
+          "temperature": 23.5,
+          "apparent": 28.49,
+          "humidity": 95.97,
+          "rain": 0,
+          "wind": 2.67,
+          "gust": 7.15,
+          "code": 2,
+          "min": 20.7,
+          "max": 26.2
         },
         "next24": {
           "min": 22.15,
@@ -90,18 +90,18 @@
       {
         "id": "MM-02",
         "now": {
-          "temperature": 26.36,
-          "apparent": 32.35,
-          "humidity": 90.01,
+          "temperature": 26.1,
+          "apparent": 31.96,
+          "humidity": 90.48,
           "rain": 0,
-          "wind": 2.69,
-          "gust": 4.47,
+          "wind": 2.98,
+          "gust": 5.18,
           "code": 0,
-          "min": 25,
-          "max": 28.2
+          "min": 24.8,
+          "max": 27.9
         },
         "next24": {
-          "min": 25,
+          "min": 24.86,
           "max": 33.05,
           "rain": 4.05,
           "maxRain": 7.2,
@@ -170,15 +170,15 @@
       {
         "id": "MM-03",
         "now": {
-          "temperature": 25.98,
-          "apparent": 31.27,
-          "humidity": 86.84,
+          "temperature": 25.69,
+          "apparent": 30.94,
+          "humidity": 88.53,
           "rain": 0,
-          "wind": 4,
-          "gust": 7.2,
+          "wind": 3.97,
+          "gust": 7.39,
           "code": 0,
-          "min": 25.7,
-          "max": 26.2
+          "min": 25.3,
+          "max": 26
         },
         "next24": {
           "min": 24.47,
@@ -250,15 +250,15 @@
       {
         "id": "MM-04",
         "now": {
-          "temperature": 24.46,
-          "apparent": 29.41,
-          "humidity": 90.91,
+          "temperature": 24.36,
+          "apparent": 29.34,
+          "humidity": 91.24,
           "rain": 0,
-          "wind": 3.3,
-          "gust": 7.03,
-          "code": 3,
+          "wind": 2.86,
+          "gust": 5.84,
+          "code": 2,
           "min": 21,
-          "max": 25.7
+          "max": 25.6
         },
         "next24": {
           "min": 23.64,
@@ -330,18 +330,18 @@
       {
         "id": "MM-05",
         "now": {
-          "temperature": 25,
-          "apparent": 30.65,
-          "humidity": 94.52,
+          "temperature": 24.76,
+          "apparent": 30.22,
+          "humidity": 94.78,
           "rain": 0,
-          "wind": 3.17,
-          "gust": 8.03,
+          "wind": 3.21,
+          "gust": 8.37,
           "code": 3,
-          "min": 22.5,
-          "max": 27.7
+          "min": 22.3,
+          "max": 27.5
         },
         "next24": {
-          "min": 24.1,
+          "min": 23.89,
           "max": 30.01,
           "rain": 3.86,
           "maxRain": 5.4,
@@ -410,18 +410,18 @@
       {
         "id": "MM-06",
         "now": {
-          "temperature": 27.52,
-          "apparent": 33.15,
-          "humidity": 86.53,
+          "temperature": 27.22,
+          "apparent": 32.87,
+          "humidity": 87.92,
           "rain": 0,
-          "wind": 7.55,
-          "gust": 11.76,
+          "wind": 7.13,
+          "gust": 11.91,
           "code": 0,
-          "min": 27,
-          "max": 28.2
+          "min": 26.6,
+          "max": 27.9
         },
         "next24": {
-          "min": 25.46,
+          "min": 25.32,
           "max": 33.25,
           "rain": 5.4,
           "maxRain": 7.5,
@@ -490,15 +490,15 @@
       {
         "id": "MM-07",
         "now": {
-          "temperature": 26.7,
-          "apparent": 32.65,
-          "humidity": 90.18,
+          "temperature": 26.42,
+          "apparent": 32.35,
+          "humidity": 91.18,
           "rain": 0,
-          "wind": 5.18,
-          "gust": 8.41,
+          "wind": 4.69,
+          "gust": 8.24,
           "code": 0,
-          "min": 26.7,
-          "max": 26.7
+          "min": 26.4,
+          "max": 26.5
         },
         "next24": {
           "min": 25.51,
@@ -570,21 +570,21 @@
       {
         "id": "MM-11",
         "now": {
-          "temperature": 21.24,
-          "apparent": 24.72,
-          "humidity": 93.75,
-          "rain": 0,
-          "wind": 3.2,
-          "gust": 6.49,
+          "temperature": 20.9,
+          "apparent": 24.27,
+          "humidity": 95.09,
+          "rain": 0.19,
+          "wind": 3.74,
+          "gust": 8.18,
           "code": 1,
-          "min": 17,
-          "max": 24
+          "min": 16.7,
+          "max": 23.6
         },
         "next24": {
           "min": 19.62,
           "max": 28.93,
-          "rain": 1.99,
-          "maxRain": 6,
+          "rain": 1.98,
+          "maxRain": 6.5,
           "heat": 34.39,
           "gust": 21.2
         },
@@ -650,18 +650,18 @@
       {
         "id": "MM-12",
         "now": {
-          "temperature": 22.79,
-          "apparent": 27.15,
-          "humidity": 92.65,
+          "temperature": 22.5,
+          "apparent": 26.71,
+          "humidity": 92.3,
           "rain": 0,
-          "wind": 1.86,
-          "gust": 6.3,
+          "wind": 1.65,
+          "gust": 5.71,
           "code": 0,
-          "min": 22.5,
-          "max": 23.5
+          "min": 22,
+          "max": 23.2
         },
         "next24": {
-          "min": 21.54,
+          "min": 21.51,
           "max": 31.15,
           "rain": 7.11,
           "maxRain": 8.4,
@@ -730,18 +730,18 @@
       {
         "id": "MM-13",
         "now": {
-          "temperature": 24.16,
-          "apparent": 28.74,
-          "humidity": 86.33,
+          "temperature": 23.91,
+          "apparent": 28.39,
+          "humidity": 86.62,
           "rain": 0,
-          "wind": 1.46,
-          "gust": 4.49,
+          "wind": 1.25,
+          "gust": 4.57,
           "code": 0,
-          "min": 20,
-          "max": 26.7
+          "min": 19.6,
+          "max": 26.5
         },
         "next24": {
-          "min": 22.88,
+          "min": 22.78,
           "max": 29.97,
           "rain": 5.98,
           "maxRain": 6.6,
@@ -810,15 +810,15 @@
       {
         "id": "MM-14",
         "now": {
-          "temperature": 16.7,
-          "apparent": 18.6,
+          "temperature": 16.29,
+          "apparent": 18.01,
           "humidity": 99,
           "rain": 0,
-          "wind": 2.35,
-          "gust": 11.06,
+          "wind": 2.63,
+          "gust": 11.93,
           "code": 3,
-          "min": 15,
-          "max": 18.5
+          "min": 14.4,
+          "max": 18.1
         },
         "next24": {
           "min": 14.53,
@@ -890,18 +890,18 @@
       {
         "id": "MM-15",
         "now": {
-          "temperature": 27.15,
-          "apparent": 33.45,
-          "humidity": 88.12,
+          "temperature": 26.97,
+          "apparent": 33.31,
+          "humidity": 88.68,
           "rain": 0,
-          "wind": 2.46,
-          "gust": 6.4,
+          "wind": 2.23,
+          "gust": 6.01,
           "code": 0,
-          "min": 26.5,
-          "max": 28
+          "min": 26.4,
+          "max": 27.6
         },
         "next24": {
-          "min": 25.73,
+          "min": 25.57,
           "max": 32.32,
           "rain": 9.06,
           "maxRain": 18.3,
@@ -970,15 +970,15 @@
       {
         "id": "MM-16",
         "now": {
-          "temperature": 25.91,
-          "apparent": 31.86,
-          "humidity": 91.09,
+          "temperature": 25.68,
+          "apparent": 31.52,
+          "humidity": 92.23,
           "rain": 0,
-          "wind": 2.65,
-          "gust": 5.69,
+          "wind": 2.74,
+          "gust": 5.41,
           "code": 0,
-          "min": 24.2,
-          "max": 26.7
+          "min": 23.9,
+          "max": 26.5
         },
         "next24": {
           "min": 24.45,
@@ -1050,15 +1050,15 @@
       {
         "id": "MM-17",
         "now": {
-          "temperature": 19.45,
-          "apparent": 22.13,
-          "humidity": 91.53,
+          "temperature": 19.2,
+          "apparent": 21.78,
+          "humidity": 91.96,
           "rain": 0,
           "wind": 1.31,
-          "gust": 4.31,
+          "gust": 4.24,
           "code": 0,
-          "min": 17.5,
-          "max": 21.7
+          "min": 17.4,
+          "max": 21.3
         },
         "next24": {
           "min": 18.18,
@@ -1130,15 +1130,15 @@
       {
         "id": "MM-18",
         "now": {
-          "temperature": 25.1,
-          "apparent": 31.07,
-          "humidity": 94.91,
+          "temperature": 24.87,
+          "apparent": 30.75,
+          "humidity": 94.73,
           "rain": 0,
-          "wind": 1.35,
-          "gust": 4.29,
+          "wind": 1.25,
+          "gust": 3.8,
           "code": 2,
-          "min": 24.5,
-          "max": 25.5
+          "min": 24.3,
+          "max": 25.2
         },
         "next24": {
           "min": 23.87,
@@ -1926,26 +1926,26 @@
   },
   "health": {
     "ecmwf": {
-      "checkedAt": "2026-11-01T17:34:24.043Z",
-      "lastSuccess": "2026-11-01T17:34:24.043Z",
+      "checkedAt": "2026-11-01T18:48:59.718Z",
+      "lastSuccess": "2026-11-01T18:48:59.718Z",
       "ok": true,
       "error": null
     },
     "era5": {
-      "checkedAt": "2026-11-01T11:19:52.282Z",
+      "checkedAt": "2026-11-01T18:48:59.718Z",
       "lastSuccess": "2026-11-01T01:16:38.215Z",
       "ok": true,
       "error": null
     },
     "nino34": {
-      "checkedAt": "2026-10-31T22:58:12.510Z",
+      "checkedAt": "2026-11-01T18:48:59.718Z",
       "lastSuccess": "2026-10-31T22:58:12.510Z",
       "ok": true,
       "error": null
     },
     "weather-details": {
-      "checkedAt": "2026-11-01T17:34:24.043Z",
-      "lastSuccess": "2026-11-01T17:34:24.043Z",
+      "checkedAt": "2026-11-01T18:48:59.718Z",
+      "lastSuccess": "2026-11-01T18:48:59.718Z",
       "ok": true,
       "error": null
     }
