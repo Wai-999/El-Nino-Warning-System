@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Download, ArrowUpRight } from "lucide-react";
 import { useApp, dateLabel } from "../app/context";
 import { regionName } from "../data/regions";
 import { weatherFresh, historyFresh, mmt } from "../data/operational";
 import { number, download, csv } from "../data/presentation";
-import { heatIndex } from "../climate/calculations";
+import { heatIndex, rainfallAccumulation } from "../climate/calculations";
 import {
   WeatherSummary,
   Source,
@@ -12,6 +12,7 @@ import {
   Unavailable,
   SectionHeading,
 } from "../components/Service";
+const HourlyForecast = lazy(() => import("../components/HourlyForecast"));
 export default function Weather() {
   const { t, lang, selected, operational: op, now } = useApp();
   const [range, setRange] = useState("daily");
@@ -124,6 +125,7 @@ export default function Weather() {
         aria-label={t("Weather time range", "မိုးလေဝသ ကာလရွေးရန်")}
       >
         {[
+          ["hourly", "Hourly", "နာရီအလိုက်"],
           ["daily", "Daily", "နေ့စဉ်"],
           ["weekly", "7-day summary", "၇ ရက် အကျဉ်းချုပ်"],
           ["history", "Past 30 days", "ပြီးခဲ့သည့် ရက် ၃၀"],
@@ -138,6 +140,17 @@ export default function Weather() {
           </button>
         ))}
       </div>
+      {range === "hourly" && (
+        <Suspense
+          fallback={
+            <p role="status">
+              {t("Loading hourly view…", "နာရီအလိုက်မြင်ကွင်း ဖွင့်နေသည်…")}
+            </p>
+          }
+        >
+          <HourlyForecast />
+        </Suspense>
+      )}
       {range === "daily" &&
         (w ? (
           <div
@@ -286,16 +299,22 @@ export default function Weather() {
                 <div>
                   <span>
                     {t(
-                      "7-day rain / dry spell",
-                      "၇ ရက် မိုးရေ / မိုးမရွာရက်ဆက်",
+                      "3 / 7-day rain and dry spell",
+                      "3 / 7 ရက် မိုးရေနှင့် မိုးမရွာရက်ဆက်",
                     )}
                   </span>
-                  <strong>{number(h.rain7, lang)} mm</strong>
+                  <strong>
+                    {number(rainfallAccumulation(h.rainDaily, 3), lang)} /{" "}
+                    {number(h.rain7, lang)} mm
+                  </strong>
                   <small>
                     {number(h.dryDays, lang, 0)}{" "}
                     {t("consecutive days below 1 mm", "ရက်ဆက် ၁ မီလီမီတာအောက်")}
                   </small>
-                  <Source id="dry-days" />
+                  <div className="row">
+                    <Source id="rain-history" />
+                    <Source id="dry-days" />
+                  </div>
                 </div>
               </div>
               <p className="small">
@@ -366,8 +385,8 @@ export default function Weather() {
           <Source id="heat-index" />
           <Unavailable>
             {t(
-              "Full hourly arrays, rainfall probability, wind direction, pressure, wet-bulb, calibrated heatwave duration, percentiles and monthly/seasonal anomalies are unavailable in this snapshot.",
-              "ဤဒေတာတွင် နာရီအလိုက်အပြည့်အစုံ၊ မိုးရွာနိုင်ခြေ၊ လေဦးတည်ရာ၊ လေဖိအား၊ ရေစိုအပူချိန်၊ အပူလှိုင်းကြာချိန်၊ ရာခိုင်နှုန်းအဆင့်နှင့် လ/ရာသီကွာဟချက်များ မရရှိပါ။",
+              "Calibrated heatwave duration, soil-moisture anomalies, rainfall percentiles and monthly/seasonal anomalies remain unavailable. View supported point measurements in the Hourly tab.",
+              "ချိန်ညှိအပူလှိုင်းကြာချိန်၊ မြေဆီလွှာအစိုဓာတ်ကွာဟချက်၊ မိုးရေ ရာခိုင်နှုန်းအဆင့်နှင့် လ/ရာသီကွာဟချက်များ မရရှိသေးပါ။ ပံ့ပိုးထားသော နမူနာနေရာဒေတာကို နာရီအလိုက်ကဏ္ဍတွင် ကြည့်ပါ။",
             )}
           </Unavailable>
           <a href="#/sources?indicator=hourly-forecast">

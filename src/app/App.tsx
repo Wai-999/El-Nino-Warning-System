@@ -25,8 +25,6 @@ import {
   ShieldCheck,
   BookOpen,
   ArrowUpRight,
-  Search,
-  LocateFixed,
 } from "lucide-react";
 import { AppContext, type Lang } from "./context";
 import { emptyArchive } from "../data/archive";
@@ -36,13 +34,14 @@ import { loadSnapshot } from "../data/load";
 import { emptySnapshot } from "../data/schema";
 import { nextWarningTransition } from "../risk/engine";
 import { loadClimate, emptyClimate } from "../data/climate";
-import { regionIds, regionName, canonicalRegions } from "../data/regions";
-import sampleData from "../../scripts/cache/samples.json";
+import { regionIds, regionName } from "../data/regions";
+import LocationDialog from "../components/LocationPicker";
 import {
   townshipByCode,
-  searchTownships,
   readSavedPlaces,
   savedPlace,
+  settlementById,
+  settlementName,
 } from "../data/locations";
 import {
   configureNumerals,
@@ -57,6 +56,7 @@ const Safety = lazy(() => import("../features/Safety"));
 const Sources = lazy(() => import("../features/Sources"));
 const Learn = lazy(() => import("../features/Learn"));
 const Township = lazy(() => import("../features/Township"));
+const Settlement = lazy(() => import("../features/Settlement"));
 function pref(key: string, fallback: string) {
   try {
     return localStorage.getItem(key) || fallback;
@@ -108,224 +108,6 @@ class ErrorBoundary extends Component<
     );
   }
 }
-function LocationDialog({
-  open,
-  onClose,
-  selected,
-  onSelect,
-  lang,
-  township,
-  onTownship,
-}: {
-  open: boolean;
-  onClose: () => void;
-  selected: string;
-  onSelect: (id: string) => void;
-  lang: Lang;
-  township: string | null;
-  onTownship: (code: string) => void;
-}) {
-  const ref = useRef<HTMLDialogElement>(null);
-  const [query, setQuery] = useState("");
-  const [geo, setGeo] = useState("");
-  const t = (en: string, my: string) =>
-    localDigits(lang === "en" ? en : my, lang);
-  useEffect(() => {
-    if (open) {
-      setQuery("");
-      setGeo("");
-      ref.current?.showModal();
-    } else ref.current?.close();
-  }, [open]);
-  const results = canonicalRegions.filter((r) =>
-    r.source_aliases.some((a) =>
-      a.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()),
-    ),
-  );
-  const townshipResults = searchTownships(
-    query,
-    query.trim() ? undefined : selected,
-  );
-  function locate() {
-    if (!navigator.geolocation) {
-      setGeo(
-        t(
-          "Geolocation unavailable. Choose a region below.",
-          "တည်နေရာရှာမရပါ။ အောက်မှ ဒေသရွေးပါ။",
-        ),
-      );
-      return;
-    }
-    setGeo(
-      t(
-        "Waiting for your location permission…",
-        "တည်နေရာခွင့်ပြုချက် စောင့်နေသည်…",
-      ),
-    );
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        const samples = sampleData.samples
-          .map((s) => ({
-            ...s,
-            distance: Math.hypot(
-              (s.lat - coords.latitude) * 111,
-              (s.lon - coords.longitude) *
-                111 *
-                Math.cos((coords.latitude * Math.PI) / 180),
-            ),
-          }))
-          .sort((a, b) => a.distance - b.distance);
-        const nearest = samples[0];
-        if (
-          coords.latitude < 9 ||
-          coords.latitude > 29 ||
-          coords.longitude < 92 ||
-          coords.longitude > 102 ||
-          nearest.distance > 200
-        ) {
-          setGeo(
-            t(
-              "No nearby validated Myanmar sample. Please choose manually.",
-              "နီးစပ်သော မြန်မာဒေသနမူနာ မတွေ့ပါ။ ကိုယ်တိုင်ရွေးပါ။",
-            ),
-          );
-          return;
-        }
-        onSelect(nearest.regionId);
-        setGeo(
-          t(
-            "Approximate region selected. Check the selection below; this is not a precise boundary lookup.",
-            "အနီးစပ်ဆုံးဒေသကို ရွေးထားသည်။ အောက်ပါရွေးချယ်မှုကို စစ်ဆေးပါ။ တိကျသောနယ်နိမိတ်ရှာဖွေမှု မဟုတ်ပါ။",
-          ),
-        );
-      },
-      () =>
-        setGeo(
-          t(
-            "Location permission denied or unavailable. Choose manually.",
-            "တည်နေရာခွင့် မရရှိပါ။ ကိုယ်တိုင်ရွေးနိုင်ပါသည်။",
-          ),
-        ),
-      { enableHighAccuracy: false, timeout: 12000, maximumAge: 300000 },
-    );
-  }
-  return (
-    <dialog
-      ref={ref}
-      className="location-dialog"
-      onCancel={onClose}
-      aria-labelledby="location-title"
-    >
-      <div className="row spread">
-        <h2 id="location-title">
-          {t("Choose your area", "သင့်ဒေသကို ရွေးပါ")}
-        </h2>
-        <button
-          className="icon-button"
-          onClick={onClose}
-          aria-label={t("Close location picker", "ဒေသရွေးချယ်မှု ပိတ်ရန်")}
-        >
-          <X size={20} />
-        </button>
-      </div>
-      <p className="muted">
-        {t(
-          "Search 330 townships by name, alternate name or PCode. Weather remains a labeled parent-region estimate. Village coverage is incomplete.",
-          "မြို့နယ် 330 ကို အမည်၊ အမည်ကွဲ သို့မဟုတ် PCode ဖြင့် ရှာပါ။ မိုးလေဝသသည် သက်ဆိုင်ရာ ပြည်နယ်/တိုင်း ခန့်မှန်းတန်ဖိုးသာ ဖြစ်သည်။ ကျေးရွာစာရင်း မပြည့်စုံပါ။",
-        )}
-      </p>
-      <label className="search-field">
-        <Search size={18} />
-        <span className="sr-only">
-          {t("Search regions or townships", "ဒေသ သို့မဟုတ် မြို့နယ် ရှာရန်")}
-        </span>
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t(
-            "Search in English or Burmese…",
-            "မြန်မာ သို့မဟုတ် အင်္ဂလိပ်ဖြင့် ရှာပါ…",
-          )}
-        />
-      </label>
-      <button className="locate-button" onClick={locate}>
-        <LocateFixed size={17} />
-        {t("Use approximate location", "အနီးစပ်ဆုံးတည်နေရာ သုံးရန်")}
-      </button>
-      {geo && (
-        <p className="small" role="status">
-          {geo}
-        </p>
-      )}
-      <div className="location-options">
-        <p className="small muted">
-          {t("States / regions", "ပြည်နယ် / တိုင်းဒေသကြီး")}
-        </p>
-        {results.map((r) => (
-          <button
-            key={r.canonical_region_id}
-            aria-pressed={!township && selected === r.canonical_region_id}
-            onClick={() => {
-              onSelect(r.canonical_region_id);
-              onClose();
-            }}
-          >
-            <MapPin size={17} />
-            <span>
-              {lang === "en" ? r.canonical_name_en : r.canonical_name_my}
-            </span>
-            {selected === r.canonical_region_id && (
-              <span aria-hidden="true">✓</span>
-            )}
-          </button>
-        ))}
-        <p className="small muted">
-          {t("Townships", "မြို့နယ်များ")} · {townshipResults.length}
-        </p>
-        {townshipResults.slice(0, 40).map((r) => (
-          <button
-            key={`township:${r.code}`}
-            aria-pressed={township === r.code}
-            onClick={() => {
-              onTownship(r.code);
-              onClose();
-            }}
-          >
-            <MapPin size={17} />
-            <span>
-              {r[lang]}
-              <small>
-                {r.district[lang]} · {r.admin1[lang]} · {r.code}
-              </small>
-            </span>
-          </button>
-        ))}
-        {townshipResults.length > 40 && (
-          <p className="small">
-            {t(
-              "First 40 matches shown. Add a name or PCode to narrow the results.",
-              "ပထမ 40 ခုကို ပြထားသည်။ အမည် သို့မဟုတ် PCode ဖြင့် ထပ်စစ်ထုတ်ပါ။",
-            )}
-          </p>
-        )}
-        {results.length === 0 && townshipResults.length === 0 && (
-          <p role="status">
-            {t(
-              "No place matches. Try another name or PCode.",
-              "ကိုက်ညီသောဒေသ မရှိပါ။ အမည်တစ်မျိုး သို့မဟုတ် PCode ဖြင့် စမ်းပါ။",
-            )}
-          </p>
-        )}
-      </div>
-      <p className="small muted">
-        {t(
-          "Your selection stays on this device. Location is requested only when you press the location button.",
-          "ရွေးထားသောဒေသကို ဤစက်တွင်သာ သိမ်းသည်။ တည်နေရာခလုတ် နှိပ်မှသာ တည်နေရာတောင်းသည်။",
-        )}
-      </p>
-    </dialog>
-  );
-}
 export default function App() {
   const [lang, setLang] = useState<Lang>(() =>
     pref("mokinn-language", "my") === "en" ? "en" : "my",
@@ -340,7 +122,18 @@ export default function App() {
   );
   const t = (en: string, my: string) =>
     localDigits(lang === "en" ? en : my, lang);
+  const initialSettlement = settlementById(
+    getRoute().startsWith("/settlement/")
+      ? getRoute().split("/")[2]
+      : getRoute().startsWith("/township/")
+        ? null
+        : pref("mokinn-settlement", ""),
+  );
+  const [settlement, selectSettlement] = useState<string | null>(
+    () => initialSettlement?.id || null,
+  );
   const [selected, selectRegion] = useState(() => {
+    if (initialSettlement) return initialSettlement.regionId;
     const area = townshipByCode(
       getRoute().startsWith("/township/")
         ? getRoute().split("/")[2]
@@ -352,11 +145,13 @@ export default function App() {
   });
   const [township, selectTownship] = useState<string | null>(
     () =>
+      initialSettlement?.townshipCode ||
       townshipByCode(
         getRoute().startsWith("/township/")
           ? getRoute().split("/")[2]
           : pref("mokinn-township", ""),
-      )?.code || null,
+      )?.code ||
+      null,
   );
   const [savedPlaces, setSavedPlaces] = useState(() =>
     readSavedPlaces(pref("mokinn-saved-places", "[]")),
@@ -365,16 +160,26 @@ export default function App() {
     if (!regionIds.includes(id as (typeof regionIds)[number])) return;
     selectRegion(id);
     selectTownship(null);
+    selectSettlement(null);
   }
   function setTownship(code: string) {
     const area = townshipByCode(code);
     if (area) {
       selectTownship(code);
       selectRegion(area.regionId);
+      selectSettlement(null);
+    }
+  }
+  function setSettlement(id: string) {
+    const place = settlementById(id);
+    if (place) {
+      selectSettlement(id);
+      selectTownship(place.townshipCode);
+      selectRegion(place.regionId);
     }
   }
   function togglePlace(id: string) {
-    if (savedPlace(id))
+    if (savedPlace(id) || savedPlaces.includes(id))
       setSavedPlaces((old) =>
         old.includes(id)
           ? old.filter((p) => p !== id)
@@ -386,9 +191,11 @@ export default function App() {
     aliases[rawRoute] ||
     (rawRoute.startsWith("/region/")
       ? "/map"
-      : rawRoute.startsWith("/township/")
-        ? "/township"
-        : rawRoute);
+      : rawRoute.startsWith("/settlement/")
+        ? "/settlement"
+        : rawRoute.startsWith("/township/")
+          ? "/township"
+          : rawRoute);
   const [menu, setMenu] = useState(false),
     [locationOpen, setLocationOpen] = useState(false);
   const [snapshot, setSnapshot] = useState({
@@ -476,6 +283,7 @@ export default function App() {
   }, [lang]);
   useEffect(() => save("mokinn-region", selected), [selected]);
   useEffect(() => save("mokinn-township", township || ""), [township]);
+  useEffect(() => save("mokinn-settlement", settlement || ""), [settlement]);
   useEffect(
     () => save("mokinn-saved-places", JSON.stringify(savedPlaces)),
     [savedPlaces],
@@ -487,6 +295,7 @@ export default function App() {
   useEffect(() => {
     const id = rawRoute.split("/")[2];
     if (rawRoute.startsWith("/township/")) setTownship(id);
+    if (rawRoute.startsWith("/settlement/")) setSettlement(id);
     if (
       rawRoute.startsWith("/region/") &&
       regionIds.includes(id as (typeof regionIds)[number])
@@ -508,7 +317,7 @@ export default function App() {
   ] as const;
   const name = nav.find((n) => n[0] === route);
   useEffect(() => {
-    document.title = `${name ? (lang === "en" ? name[1] : name[2]) : route === "/township" ? (lang === "en" ? "Township overview" : "မြို့နယ် အကျဉ်းချုပ်") : lang === "en" ? "Learn" : "လေ့လာရန်"} · El Niño Warning System`;
+    document.title = `${name ? (lang === "en" ? name[1] : name[2]) : route === "/settlement" ? (lang === "en" ? "City / town overview" : "မြို့ အကျဉ်းချုပ်") : route === "/township" ? (lang === "en" ? "Township overview" : "မြို့နယ် အကျဉ်းချုပ်") : lang === "en" ? "Learn" : "လေ့လာရန်"} · El Niño Warning System`;
   }, [lang, name, route]);
   let page: ReactNode;
   if (route === "/") page = <Home />;
@@ -520,6 +329,8 @@ export default function App() {
   else if (route === "/learn") page = <Learn />;
   else if (route === "/township")
     page = <Township code={rawRoute.split("/")[2]} />;
+  else if (route === "/settlement")
+    page = <Settlement id={rawRoute.split("/")[2]} />;
   else
     page = (
       <div className="empty-panel">
@@ -546,6 +357,8 @@ export default function App() {
         setSelected,
         township,
         setTownship,
+        settlement,
+        setSettlement,
         savedPlaces,
         togglePlace,
         openLocations: () => setLocationOpen(true),
@@ -695,7 +508,10 @@ export default function App() {
           >
             <MapPin size={17} />
             <span>
-              {townshipByCode(township)?.[lang] || regionName(selected, lang)}
+              {settlementById(settlement)
+                ? settlementName(settlementById(settlement)!, lang)
+                : townshipByCode(township)?.[lang] ||
+                  regionName(selected, lang)}
             </span>
             <ChevronDown size={15} />
           </button>
@@ -777,10 +593,16 @@ export default function App() {
                     "မိုးလေဝသအတွက် သက်ဆိုင်ရာ ပြည်နယ်/တိုင်းဒေတာ သုံးသည်။",
                   )}{" "}
                   {regionName(selected, lang)} ·{" "}
-                  <a href={`#/township/${township}`}>
+                  <a
+                    href={
+                      settlement
+                        ? `#/settlement/${settlement}`
+                        : `#/township/${township}`
+                    }
+                  >
                     {t(
-                      "Township overview & data limits",
-                      "မြို့နယ် အကျဉ်းချုပ်နှင့် ဒေတာကန့်သတ်ချက်",
+                      "Place overview & data limits",
+                      "တည်နေရာ အကျဉ်းချုပ်နှင့် ဒေတာကန့်သတ်ချက်",
                     )}
                   </a>
                 </span>
@@ -847,6 +669,8 @@ export default function App() {
         lang={lang}
         township={township}
         onTownship={setTownship}
+        settlement={settlement}
+        onSettlement={setSettlement}
       />
     </AppContext>
   );

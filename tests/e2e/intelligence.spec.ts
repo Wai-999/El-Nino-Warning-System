@@ -33,7 +33,7 @@ test("keyboard map, simplified layers, persisted preferences and list fallback",
   await page.reload();
   await expect(page.locator(".map-fallback")).toContainText("Map unavailable");
   await page.getByLabel("Filter regions").fill("Naypyidaw");
-  await page.locator(".area-list button").click();
+  await page.locator(".region-list button").click();
   await expect(page.locator(".weather-main h2")).toHaveText("Nay Pyi Taw");
 });
 test("stale model data is dated and never paints a current map value", async ({

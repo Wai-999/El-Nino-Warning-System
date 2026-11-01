@@ -40,3 +40,11 @@ Up to 12 validated typed place IDs are stored locally. Crop/stage choices and pr
 ## Changelog
 
 - 2026-10-31 / app 3.1.0: first pinned bilingual 330-township hierarchy, reviewed aliases, typed IDs, bounded saved places and correction workflow. No boundary or warning-data precision increase claimed.
+
+## Separate settlement reference (V3.2)
+
+`src/data/settlements.json` pins the CC BY 4.0 GeoNames country and language-tagged-name ZIPs with checksums and per-record modification dates. The bounded 515-point extract follows the documented administrative-seat / PPL population-at-least-500 selection; it includes settlements, not a complete legal city/town/village inventory. Do not display this criterion as population exposure data. Original English remains when a validated source Burmese label is absent. Separately reviewed aliases are in `settlement-aliases.json`; do not bulk-import all upstream aliases.
+
+`scripts/build-settlements.py` accepts the two source ZIPs and the exact pinned HDX admin3 GeoJSON, verifies the reviewed geometry checksum and requires unique point-in-polygon containment. All 515 points meet this criterion. Retain the GeoNames upstream township code even when it differs; the new parent is a disclosed derived lookup in 2024 reference geometry, not a whole city’s footprint or current legal reassignment. Review coordinates, names, duplicate names, language tags, source rights and all diffs before repinning. The importer is deliberately manual, not scheduled. No separately licensed MIMU TownPoint data is embedded.
+
+Save keys are `settlement:<GeoNames ID>` in addition to existing typed township/region keys. A syntactically valid saved ID that no longer resolves is retained as unavailable, with removal available and no automatic replacement. The correction issue template accepts both identity types. A correction never modifies live warning applicability automatically.

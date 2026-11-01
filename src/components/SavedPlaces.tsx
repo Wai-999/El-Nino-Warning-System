@@ -1,7 +1,7 @@
 import { Bookmark, X, Plus } from "lucide-react";
 import { useApp } from "../app/context";
 import { savedPlace, placeName } from "../data/locations";
-import { activeAlerts } from "../risk/engine";
+import { activeAlerts, coverageCurrent } from "../risk/engine";
 export default function SavedPlaces() {
   const {
     t,
@@ -11,12 +11,18 @@ export default function SavedPlaces() {
     township,
     togglePlace,
     setTownship,
+    settlement,
+    setSettlement,
     setSelected,
     openLocations,
     data,
     now,
   } = useApp();
-  const current = township ? `township:${township}` : `region:${selected}`;
+  const current = settlement
+    ? `settlement:${settlement}`
+    : township
+      ? `township:${township}`
+      : `region:${selected}`;
   return (
     <section className="saved-places" aria-labelledby="saved-places-title">
       <div className="section-heading">
@@ -42,7 +48,34 @@ export default function SavedPlaces() {
       </p>
       <div className="saved-place-list">
         {savedPlaces.map((id) => {
-          const p = savedPlace(id)!;
+          const p = savedPlace(id);
+          if (!p)
+            return (
+              <article key={id}>
+                <div className="saved-place-select">
+                  <strong>
+                    {t(
+                      "Saved reference unavailable",
+                      "သိမ်းထားသော ရည်ညွှန်းဒေသ မရရှိ",
+                    )}
+                  </strong>
+                  <small>
+                    {id} ·{" "}
+                    {t(
+                      "Original ID retained; no replacement assigned.",
+                      "မူရင်းအမှတ်စဉ်ကို ထိန်းထားပြီး အခြားဒေသသို့ မပြောင်းပါ။",
+                    )}
+                  </small>
+                </div>
+                <button
+                  className="icon-button"
+                  onClick={() => togglePlace(id)}
+                  aria-label={`${t("Remove unavailable saved reference", "မရရှိသော သိမ်းထားဒေသ ဖယ်ရန်")} ${id}`}
+                >
+                  <X size={17} />
+                </button>
+              </article>
+            );
           const alerts = activeAlerts(data, now).filter(
             (a) => a.regionId === p.regionId,
           );
@@ -51,16 +84,23 @@ export default function SavedPlaces() {
               <button
                 className="saved-place-select"
                 onClick={() =>
-                  p.township
-                    ? setTownship(p.township.code)
-                    : setSelected(p.regionId)
+                  p.settlement
+                    ? setSettlement(p.settlement.id)
+                    : p.township
+                      ? setTownship(p.township.code)
+                      : setSelected(p.regionId)
                 }
               >
                 <strong>{placeName(id, lang)}</strong>
                 <small>
                   {alerts.length
                     ? `${alerts.length} ${t("parent-region official notices", "သက်ဆိုင်ရာ ပြည်နယ်/တိုင်း ကြေညာချက်")}`
-                    : t("Official coverage unknown", "တရားဝင်သတိပေးဒေတာ မသိ")}
+                    : coverageCurrent(data, now)
+                      ? t(
+                          "No active parent-region notice found; not an all-clear",
+                          "သက်တမ်းရှိ ပြည်နယ်/တိုင်းကြေညာချက် မတွေ့၊ ဘေးကင်းဟု မဆိုလို",
+                        )
+                      : t("Official coverage unknown", "တရားဝင်သတိပေးဒေတာ မသိ")}
                 </small>
               </button>
               <button

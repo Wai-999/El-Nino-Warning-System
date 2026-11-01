@@ -1,5 +1,5 @@
 name: Geography correction
-description: Request a reviewed change to a versioned administrative name, code or parent.
+description: Request a reviewed administrative or settlement name, code or reference-parent correction.
 title: "Geography correction: "
 body:
   - type: markdown
@@ -15,8 +15,8 @@ body:
   - type: input
     id: code
     attributes:
-      label: Administrative level and exact PCode
-      placeholder: "township:MMR001001"
+      label: Exact typed administrative PCode or GeoNames settlement ID
+      placeholder: "township:MMR001001 or settlement:1298824"
     validations:
       required: true
   - type: textarea

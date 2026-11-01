@@ -1,6 +1,12 @@
 import { z } from "zod";
 import type { Sample, Weather } from "../operational.ts";
 import {
+  detailFields,
+  optionalForecastFields,
+  type DetailField,
+  type WeatherDetails,
+} from "../weatherDetails.ts";
+import {
   mean,
   sum,
   round,
@@ -19,6 +25,9 @@ export const variables = [
   "weather_code",
 ] as const;
 const units: Record<string, string> = {
+  ...Object.fromEntries(
+    Object.entries(detailFields).map(([key, field]) => [key, field.unit]),
+  ),
   temperature_2m: "°C",
   relative_humidity_2m: "%",
   apparent_temperature: "°C",
@@ -43,7 +52,12 @@ export const rawSchema = base.extend({
   hourly_units: z.record(z.string(), z.string()).optional(),
   daily_units: z.record(z.string(), z.string()).optional(),
 });
-export type Series = { time: string[]; values: Record<string, number[]> };
+export type Series = {
+  time: string[];
+  values: Record<string, number[]>;
+  latitude?: number;
+  longitude?: number;
+};
 export function parseSeries(
   raw: unknown,
   s: Sample,
@@ -87,19 +101,27 @@ export function parseSeries(
     if (u[n] !== units[n] || values[n].length !== expected)
       throw Error("Unit or length mismatch: " + n);
     for (const v of values[n]) {
-      const limits = n.includes("temperature")
-        ? [-90, 100]
-        : n === "relative_humidity_2m"
-          ? [0, 100]
-          : n === "weather_code"
-            ? [0, 99]
-            : n.includes("wind")
-              ? [0, 400]
-              : [0, 5000];
+      const field = detailFields[n as DetailField];
+      const limits = field
+        ? [field.min, field.max]
+        : n.includes("temperature")
+          ? [-90, 100]
+          : n === "relative_humidity_2m"
+            ? [0, 100]
+            : n === "weather_code"
+              ? [0, 99]
+              : n.includes("wind")
+                ? [0, 400]
+                : [0, 5000];
       if (v < limits[0] || v > limits[1]) throw Error("Impossible value: " + n);
     }
   }
-  return { time: data.time, values };
+  return {
+    time: data.time,
+    values,
+    latitude: p.latitude,
+    longitude: p.longitude,
+  };
 }
 export function buildUrl(
   samples: Sample[],
@@ -107,6 +129,7 @@ export function buildUrl(
   start?: string,
   end?: string,
   now = Date.now(),
+  extended = true,
 ) {
   const u = new URL(archive ? ARCHIVE : FORECAST);
   const p = u.searchParams;
@@ -121,7 +144,10 @@ export function buildUrl(
     p.set("end_date", end!);
     p.set("daily", "temperature_2m_mean,precipitation_sum");
   } else {
-    p.set("hourly", variables.join(","));
+    p.set(
+      "hourly",
+      [...variables, ...(extended ? optionalForecastFields : [])].join(","),
+    );
     // Explicit Myanmar calendar dates avoid an upstream default-date rollover
     // around Myanmar midnight (which precedes UTC midnight by 6.5 hours).
     const localDay = new Date(now + 23400000).toISOString().slice(0, 10);
@@ -139,9 +165,15 @@ export async function requestSeries(
   start?: string,
   end?: string,
 ) {
-  const r = await fetch(buildUrl(samples, archive, start, end), {
+  let r = await fetch(buildUrl(samples, archive, start, end), {
     signal: AbortSignal.timeout(120000),
   });
+  // An upstream variable withdrawal must not take down the established core
+  // forecast. One bounded retry requests only the original validated fields.
+  if (!archive && r.status === 400)
+    r = await fetch(buildUrl(samples, false, start, end, Date.now(), false), {
+      signal: AbortSignal.timeout(120000),
+    });
   if (!r.ok) throw Error("Open-Meteo HTTP " + r.status);
   const raw: unknown = await r.json();
   const list = Array.isArray(raw) ? raw : [raw];
@@ -158,11 +190,67 @@ export async function requestSeries(
       count,
     ),
   );
+  if (!archive)
+    for (const [i, point] of parsed.entries()) {
+      for (const name of optionalForecastFields) {
+        try {
+          point.values[name] = parseSeries(
+            list[i],
+            samples[i],
+            "hourly",
+            [name],
+            count,
+          ).values[name];
+        } catch {
+          /* Missing or invalid optional fields stay unavailable, never zero. */
+        }
+      }
+    }
   if (parsed.some((p) => p.time.join() !== parsed[0].time.join()))
     throw Error("Misaligned sample dates");
   if (archive && (parsed[0].time[0] !== start || parsed[0].time.at(-1) !== end))
     throw Error("Requested archive dates do not match response");
   return parsed;
+}
+export function detailedForecast(
+  samples: Sample[],
+  raw: Series[],
+  fetchedAt: string,
+): WeatherDetails {
+  const forecast = aggregateForecast(samples, raw, fetchedAt);
+  return {
+    version: 1,
+    fetchedAt,
+    validAt: forecast.validAt,
+    through: forecast.through,
+    issueTime: null,
+    model: "ECMWF IFS 0.25°",
+    probabilityModel: "ECMWF IFS ensemble 0.25° via Open-Meteo",
+    source: "https://open-meteo.com/en/docs/ecmwf-api",
+    license: "CC BY 4.0; Open-Meteo noncommercial API",
+    times: raw[0].time.map((time) =>
+      new Date(time + ":00+06:30").toISOString(),
+    ),
+    points: samples.map((sample, i) => {
+      if (raw[i].latitude === undefined || raw[i].longitude === undefined)
+        throw Error("Missing returned grid coordinates");
+      return {
+        ...sample,
+        id: `${sample.regionId}:${sample.lat}:${sample.lon}`,
+        modelLat: raw[i].latitude!,
+        modelLon: raw[i].longitude!,
+        values: Object.fromEntries(
+          (Object.keys(detailFields) as DetailField[]).map((key) => [
+            key,
+            raw[i].values[key]?.map((v) => {
+              const scale = key.startsWith("soil_moisture") ? 10000 : 100;
+              return Math.round(v * scale) / scale;
+            }) ?? null,
+          ]),
+        ) as WeatherDetails["points"][number]["values"],
+      };
+    }),
+  };
 }
 export function aggregateForecast(
   samples: Sample[],

@@ -143,8 +143,21 @@ function readFilter() {
   }
 }
 export default function Safety() {
-  const { t, lang, data, now, selected, township, operational: op } = useApp();
-  const place = township ? `township:${township}` : `region:${selected}`;
+  const {
+    t,
+    lang,
+    data,
+    now,
+    selected,
+    township,
+    settlement,
+    operational: op,
+  } = useApp();
+  const place = settlement
+    ? `settlement:${settlement}`
+    : township
+      ? `township:${township}`
+      : `region:${selected}`;
   const [filter, setFilter] = useState(readFilter),
     [saved, setSaved] = useState("");
   const [hazard, setHazard] = useState("flood"),

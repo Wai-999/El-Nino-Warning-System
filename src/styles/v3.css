@@ -17,6 +17,102 @@
   font-size: 0.72rem;
   margin-top: 4px;
 }
+.place-kinds,
+.hourly-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px;
+  margin: 14px 0;
+}
+.location-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 90dvh;
+}
+.location-dialog > * {
+  flex-shrink: 0;
+}
+.location-dialog .location-options {
+  flex: 1 1 auto;
+  min-height: 100px;
+  max-height: 36dvh;
+  margin: 6px 0 12px;
+}
+.location-dialog > .muted {
+  margin: 10px 0 12px;
+}
+.location-dialog > .small {
+  margin: 5px 0;
+  font-size: 0.73rem;
+}
+.location-dialog .place-kinds {
+  margin: 8px 0;
+  gap: 4px;
+}
+.location-dialog .place-kinds button {
+  padding: 8px;
+}
+.place-kinds button {
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+}
+.place-kinds button[aria-pressed="true"] {
+  background: #eaf3f8;
+  border-color: #247ba0;
+  color: #164d69;
+}
+.hourly-controls label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.8rem;
+  max-width: 100%;
+}
+.hourly-controls select {
+  min-height: 44px;
+  max-width: 100%;
+}
+.hourly-controls button {
+  min-height: 44px;
+}
+.check-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 0.8rem;
+}
+.check-option input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.hourly-forecast {
+  min-width: 0;
+}
+.hourly-forecast th {
+  min-width: 110px;
+  vertical-align: top;
+}
+.hourly-forecast th small {
+  display: block;
+}
+.hourly-forecast > .metric-source {
+  margin-right: 10px;
+}
+.settlement-labels text {
+  fill: #163d52;
+  stroke: white;
+  stroke-width: 3px;
+  paint-order: stroke;
+  stroke-linejoin: round;
+}
+.settlement-labels text.selected {
+  fill: #753510;
+  font-weight: 600;
+}
 .home-map {
   padding: 22px;
   overflow: hidden;
@@ -345,4 +441,18 @@
   .weather-scene {
     display: none;
   }
+}
+
+.weather-kind-overcast .scene-sun,
+.weather-kind-overcast .scene-precip,
+.weather-kind-unknown > * {
+  display: none;
+}
+
+.condition-source {
+  color: inherit;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
 }

@@ -12,10 +12,12 @@ import {
   SectionHeading,
 } from "../components/Service";
 const RoniHistory = lazy(() => import("../components/RoniHistory"));
+const EnsoIndices = lazy(() => import("../components/EnsoIndices"));
 export default function Climate() {
   const { t, lang, data, climate, now, operational: op, lowData } = useApp(),
     [season, setSeason] = useState(0),
-    [history, setHistory] = useState(false);
+    [history, setHistory] = useState(false),
+    [advanced, setAdvanced] = useState(false);
   const b = data.enso,
     r = climate.roni?.points.at(-1),
     p = climate.probabilities,
@@ -274,7 +276,10 @@ export default function Climate() {
           )}
         </div>
       </details>
-      <details className="disclosure">
+      <details
+        className="disclosure"
+        onToggle={(event) => setAdvanced(event.currentTarget.open)}
+      >
         <summary>
           {t(
             "Drought, seasonal outlooks & advanced indicators",
@@ -327,8 +332,8 @@ export default function Climate() {
           <h3>{t("Drought information", "မိုးခေါင်မှု အချက်အလက်")}</h3>
           <Unavailable>
             {t(
-              "SPI-1/3/6, SPEI, soil moisture, evapotranspiration and vegetation stress are not integrated. A rainfall deficit alone is not a drought classification.",
-              "SPI-1/3/6၊ SPEI၊ မြေဆီလွှာအစိုဓာတ်၊ ရေငွေ့ပျံမှုနှင့် အပင်ဖိအားဒေတာ မချိတ်ဆက်ရသေးပါ။ မိုးရေလိုငွေတစ်ခုတည်းက မိုးခေါင်မှုအဆင့် မဟုတ်ပါ။",
+              "SPI-1/3/6, SPEI, soil-moisture anomalies and vegetation stress are unavailable without validated matching baselines. Modeled soil moisture and reference ET₀ are available in Weather’s Hourly view. A rainfall deficit alone is not a drought classification.",
+              "သင့်လျော်သော အတည်ပြုအခြေခံကာလ မရှိသဖြင့် SPI-1/3/6၊ SPEI၊ မြေဆီလွှာအစိုဓာတ်ကွာဟချက်နှင့် အပင်ဖိအားဒေတာ မရရှိပါ။ မော်ဒယ်မြေဆီလွှာအစိုဓာတ်နှင့် ရည်ညွှန်း ET₀ ကို မိုးလေဝသ နာရီအလိုက်ကဏ္ဍတွင် ကြည့်နိုင်သည်။ မိုးရေလိုငွေတစ်ခုတည်းက မိုးခေါင်မှုအဆင့် မဟုတ်ပါ။",
             )}
           </Unavailable>
           <p>
@@ -365,12 +370,26 @@ export default function Climate() {
               </strong>
             )}
             {t(
-              "Monthly Niño 3.4 is separate from RONI. ONI, SOI, MEI, trade-wind and subsurface indicators have no validated adapter here.",
-              "လစဉ် Niño 3.4 သည် RONI နှင့် ကွာသည်။ ONI၊ SOI၊ MEI၊ ကုန်သွယ်လေနှင့် ရေအောက်ညွှန်းကိန်းများအတွက် အတည်ပြုချိတ်ဆက်မှု မရှိပါ။",
+              "Monthly Niño 3.4 is separate from RONI. Published ONI, SOI and MEI.v2 use the distinct methods below. Standalone trade-wind and subsurface-ocean adapters remain unavailable.",
+              "လစဉ် Niño 3.4 သည် RONI နှင့် ကွာသည်။ ထုတ်ပြန်ပြီး ONI၊ SOI နှင့် MEI.v2 သည် အောက်ပါ သီးခြားနည်းလမ်းများကို သုံးသည်။ သီးခြား ကုန်သွယ်လေနှင့် သမုဒ္ဒရာရေအောက်ညွှန်းကိန်းများ မရရှိသေးပါ။",
             )}
           </p>
           <Source id="nino34" />
           <Source id="advanced-enso" />
+          {advanced && (
+            <Suspense
+              fallback={
+                <p>
+                  {t(
+                    "Loading published indices…",
+                    "ထုတ်ပြန်ပြီး ညွှန်းကိန်းများ ဖွင့်နေသည်…",
+                  )}
+                </p>
+              }
+            >
+              <EnsoIndices />
+            </Suspense>
+          )}
         </div>
       </details>
       <button

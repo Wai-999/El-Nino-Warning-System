@@ -1,6 +1,16 @@
 export const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
 export const mean = (xs: number[]) => sum(xs) / xs.length;
 export const round = (n: number) => Math.round(n * 100) / 100;
+export function rainfallAccumulation(daily: number[], days: number) {
+  if (
+    !Number.isInteger(days) ||
+    days < 1 ||
+    daily.length < days ||
+    daily.some((value) => !Number.isFinite(value) || value < 0)
+  )
+    throw Error("Incomplete rainfall window");
+  return round(sum(daily.slice(-days)));
+}
 export function weighted(values: number[], weights: number[]) {
   if (
     !values.length ||

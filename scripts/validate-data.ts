@@ -46,9 +46,9 @@ if (
 )
   throw Error("Duplicate indicator ID");
 console.log(`Validated ${registry.indicators.length} registry entries.`);
-const { geography } = await import("../src/data/locations.ts");
+const { geography, settlements } = await import("../src/data/locations.ts");
 console.log(
-  `Validated ${geography.levels.adm3.length} townships and administrative parents.`,
+  `Validated ${geography.levels.adm3.length} townships and ${settlements.length} distinct settlement points with reference parents.`,
 );
 const { validateHealthAdvisories } =
   await import("../src/data/healthAdvisories.ts");
@@ -57,4 +57,20 @@ const health = validateHealthAdvisories(
 );
 console.log(
   `Validated ${health.items.length} official WHO publication records; expiry is unknown.`,
+);
+const { validateWeatherDetails } =
+  await import("../src/data/weatherDetails.ts");
+const details = validateWeatherDetails(
+  JSON.parse(await readFile("public/data/weather-details.json", "utf8")),
+);
+console.log(
+  `Validated ${details.points.length} representative forecast points × ${details.times.length} hours.`,
+);
+const { validateEnsoIndices, indexIds } =
+  await import("../src/data/ensoIndices.ts");
+const indices = validateEnsoIndices(
+  JSON.parse(await readFile("public/data/enso-indices.json", "utf8")),
+);
+console.log(
+  `Validated published ENSO indices: ${indexIds.map((id) => `${id} ${indices.series[id]?.points.length ?? 0} periods`).join(", ")}.`,
 );

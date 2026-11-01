@@ -5,6 +5,7 @@ public/data/myanmar.geojson
 playwright-report
 test-results
 public/data/operational.json
+public/data/weather-details.json
 scripts/cache/*.json
 
 public/data/archive.json

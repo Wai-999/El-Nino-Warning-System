@@ -16,16 +16,66 @@ export function number(
         lang,
       );
 }
+type WeatherKind =
+  "sun" | "cloud" | "overcast" | "fog" | "rain" | "snow" | "unknown";
+// Provider WMO interpretation codes; descriptions never create an official warning.
+const weatherDescriptions: {
+  codes: number[];
+  text: readonly [string, string];
+  kind: WeatherKind;
+}[] = [
+  { codes: [0], text: ["Clear skies", "ကောင်းကင်ကြည်လင်"], kind: "sun" },
+  {
+    codes: [1],
+    text: ["Mainly clear", "အများအားဖြင့် ကောင်းကင်ကြည်လင်"],
+    kind: "cloud",
+  },
+  { codes: [2], text: ["Partly cloudy", "တိမ်အသင့်အတင့်"], kind: "cloud" },
+  { codes: [3], text: ["Overcast", "တိမ်ထူထပ်"], kind: "overcast" },
+  { codes: [45, 48], text: ["Foggy", "မြူဆိုင်း"], kind: "fog" },
+  { codes: [51, 53, 55], text: ["Drizzle", "မိုးဖွဲ"], kind: "rain" },
+  {
+    codes: [56, 57],
+    text: ["Freezing drizzle", "ရေခဲဖြစ်စေသော မိုးဖွဲ"],
+    kind: "rain",
+  },
+  { codes: [61, 63, 65], text: ["Rain", "မိုးရွာ"], kind: "rain" },
+  {
+    codes: [66, 67],
+    text: ["Freezing rain", "ရေခဲဖြစ်စေသော မိုး"],
+    kind: "rain",
+  },
+  { codes: [71, 73, 75, 77], text: ["Snow", "နှင်းကျ"], kind: "snow" },
+  {
+    codes: [80, 81, 82],
+    text: ["Rain showers", "နေရာကွက်ကျား မိုးရွာ"],
+    kind: "rain",
+  },
+  { codes: [85, 86], text: ["Snow showers", "နှင်းပွင့်ကျ"], kind: "snow" },
+  {
+    codes: [95, 97],
+    text: ["Thunderstorms", "မိုးကြိုးမုန်တိုင်း"],
+    kind: "rain",
+  },
+  {
+    codes: [96, 99],
+    text: ["Thunderstorms with hail", "မိုးသီးပါ မိုးကြိုးမုန်တိုင်း"],
+    kind: "rain",
+  },
+];
 export function condition(code: number): readonly [string, string] {
-  if (code === 0) return ["Clear skies", "ကောင်းကင်ကြည်လင်"] as const;
-  if (code <= 3) return ["Partly cloudy", "တိမ်အသင့်အတင့်"] as const;
-  if (code <= 48) return ["Foggy", "မြူဆိုင်း"] as const;
-  if (code <= 57) return ["Drizzle", "မိုးဖွဲ"] as const;
-  if (code <= 67) return ["Rain", "မိုးရွာ"] as const;
-  if (code <= 77) return ["Snow", "နှင်းကျ"] as const;
-  if (code <= 82) return ["Rain showers", "နေရာကွက်ကျား မိုးရွာ"] as const;
-  if (code <= 86) return ["Snow showers", "နှင်းပွင့်ကျ"] as const;
-  return ["Thunderstorms", "မိုးကြိုးမုန်တိုင်း"] as const;
+  return (
+    weatherDescriptions.find((row) => row.codes.includes(code))?.text || [
+      "Condition unavailable",
+      "မိုးလေဝသအခြေအနေ မရရှိပါ",
+    ]
+  );
+}
+export function weatherKind(code: number): WeatherKind {
+  return (
+    weatherDescriptions.find((row) => row.codes.includes(code))?.kind ||
+    "unknown"
+  );
 }
 export function alertState(
   a: Alert,

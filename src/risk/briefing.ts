@@ -20,9 +20,11 @@ export function localBriefing(
             high: region.days[0].max,
             low: region.days[0].min,
             rain24: region.next24.rain,
+            day: region.days[0].date,
           }
         : null,
     forecastAt: op.weather?.validAt || null,
+    forecastThrough: op.weather?.through || null,
     retrievedAt: op.weather?.fetchedAt || null,
     history:
       historyFresh(op.history, now) && history

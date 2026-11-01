@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import {
   Search,
   Download,
@@ -21,7 +21,14 @@ import { terminology } from "../data/terminology";
 import OfficialHealth from "../components/OfficialHealth";
 import { geography } from "../data/locations";
 import aliasEvidence from "../data/township-aliases.json" with { type: "json" };
+const EnsoSourceStatus = lazy(() => import("../components/EnsoIndices"));
 const bibliography = [
+  [
+    "GeoNames",
+    "City / town / settlement extract and language-tagged names",
+    "https://www.geonames.org/export/",
+    "CC BY 4.0. Pinned bounded extract, not a complete legal town/village list. Source record dates and derived 2024 HDX reference-parent lookup are disclosed.",
+  ],
   [
     "NOAA CPC",
     "ENSO discussion / official assessment",
@@ -284,6 +291,7 @@ export default function Sources() {
     "official warning": "တရားဝင်သတိပေးချက်",
     "educational guidance": "ပညာပေးလမ်းညွှန်",
     reference: "ရည်ညွှန်း",
+    "administrative reference": "အုပ်ချုပ်ရေး ရည်ညွှန်း",
     unavailable: "မရရှိပါ",
   };
   return (
@@ -374,6 +382,41 @@ export default function Sources() {
           )}
         </p>
       </section>
+      <p className="small">
+        {t("Hourly grid field check", "နာရီအလိုက် ဂရစ်ဒေတာ စစ်ဆေးမှု")}:{" "}
+        {op.health["weather-details"] ? (
+          <>
+            {op.health["weather-details"].ok
+              ? t("Succeeded", "အောင်မြင်")
+              : t(
+                  "Partial or failed; available and missing fields are shown individually",
+                  "တစ်စိတ်တစ်ပိုင်း သို့မဟုတ် မအောင်မြင်၊ ရရှိ/မရရှိတန်ဖိုးကို တစ်ခုစီ ပြသည်",
+                )}{" "}
+            · {mmt(op.health["weather-details"].checkedAt, lang)} ·{" "}
+            {t(
+              "Last full source success",
+              "နောက်ဆုံး ရင်းမြစ်အပြည့်အစုံ အောင်မြင်ချိန်",
+            )}{" "}
+            {op.health["weather-details"].lastSuccess
+              ? mmt(op.health["weather-details"].lastSuccess!, lang)
+              : "—"}
+          </>
+        ) : (
+          t("Unavailable", "မရရှိပါ")
+        )}
+      </p>
+      <Suspense
+        fallback={
+          <p role="status">
+            {t(
+              "Loading index source status…",
+              "ညွှန်းကိန်း ရင်းမြစ်အခြေအနေ ဖွင့်နေသည်…",
+            )}
+          </p>
+        }
+      >
+        <EnsoSourceStatus statusOnly />
+      </Suspense>
       <section className="surface padded terminology">
         <h2>{t("Plain-language glossary", "လွယ်ကူသော ဝေါဟာရအဓိပ္ပာယ်များ")}</h2>
         <p>

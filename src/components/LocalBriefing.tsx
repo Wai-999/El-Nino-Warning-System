@@ -1,7 +1,11 @@
-import { useApp } from "../app/context";
+import { useApp, dateLabel } from "../app/context";
 import { localBriefing } from "../risk/briefing";
 import { regionName } from "../data/regions";
-import { townshipByCode } from "../data/locations";
+import {
+  townshipByCode,
+  settlementById,
+  settlementName,
+} from "../data/locations";
 import { number } from "../data/presentation";
 import { mmt } from "../data/operational";
 import { Source } from "./Service";
@@ -14,6 +18,7 @@ export default function LocalBriefing({
     data,
     selected: contextRegion,
     township: contextTownship,
+    settlement,
     now,
     t,
     lang,
@@ -33,7 +38,11 @@ export default function LocalBriefing({
           "နေ့စဉ် အကျဉ်းချုပ် · ရင်းမြစ်အခြေခံ စာသားပုံစံ",
         )}
       </p>
-      <h2 id="briefing-title">{area?.[lang] || regionName(selected, lang)}</h2>
+      <h2 id="briefing-title">
+        {!townshipCode && settlementById(settlement)
+          ? settlementName(settlementById(settlement)!, lang)
+          : area?.[lang] || regionName(selected, lang)}
+      </h2>
       {area && (
         <p className="small">
           {t("Weather context from", "မိုးလေဝသနောက်ခံရင်းမြစ်ဒေသ")}{" "}
@@ -44,8 +53,8 @@ export default function LocalBriefing({
       <p>
         {brief.forecast
           ? t(
-              `The latest regional model snapshot estimates ${number(brief.forecast.temperature, lang)}°C. Today's high / low: ${number(brief.forecast.high, lang)}° / ${number(brief.forecast.low, lang)}°. Rain in the next 24 hours: ${number(brief.forecast.rain24, lang)} mm. Local conditions can differ.`,
-              `နောက်ဆုံးဒေသမော်ဒယ်အရ အပူချိန် ${number(brief.forecast.temperature, lang)}°C ဖြစ်သည်။ ယနေ့ အမြင့်ဆုံး ${number(brief.forecast.high, lang)}°C၊ အနိမ့်ဆုံး ${number(brief.forecast.low, lang)}°C နှင့် လာမည့် 24 နာရီ မိုးရေ ${number(brief.forecast.rain24, lang)} mm ခန့်မှန်းထားသည်။ နေရာအလိုက် ကွာခြားနိုင်သည်။`,
+              `The latest regional model snapshot estimates ${number(brief.forecast.temperature, lang)}°C. Forecast day ${dateLabel(brief.forecast.day + "T12:00:00+06:30", lang)} high / low: ${number(brief.forecast.high, lang)}° / ${number(brief.forecast.low, lang)}°. Rain over its following 24 model hours: ${number(brief.forecast.rain24, lang)} mm. Local conditions can differ.`,
+              `နောက်ဆုံးဒေသမော်ဒယ်အရ အပူချိန် ${number(brief.forecast.temperature, lang)}°C ဖြစ်သည်။ ${dateLabel(brief.forecast.day + "T12:00:00+06:30", lang)} အတွက် အမြင့်ဆုံး ${number(brief.forecast.high, lang)}°C၊ အနိမ့်ဆုံး ${number(brief.forecast.low, lang)}°C နှင့် ထိုမော်ဒယ်နာရီနောက် 24 နာရီ မိုးရေ ${number(brief.forecast.rain24, lang)} mm ခန့်မှန်းထားသည်။ နေရာအလိုက် ကွာခြားနိုင်သည်။`,
             )
           : t(
               "Current forecast evidence is unavailable or delayed. Check the dated weather page and original sources before making plans.",
@@ -84,6 +93,12 @@ export default function LocalBriefing({
       {brief.forecastAt && (
         <p className="small muted">
           {t("Model time", "မော်ဒယ်အချိန်")} {mmt(brief.forecastAt, lang)} ·{" "}
+          {brief.forecastThrough && (
+            <>
+              {t("24-hour window ends", "24 နာရီကာလဆုံးချိန်")}{" "}
+              {mmt(brief.forecastThrough, lang)} ·{" "}
+            </>
+          )}
           {t("Retrieved", "ရယူချိန်")} {mmt(brief.retrievedAt!, lang)}
         </p>
       )}
