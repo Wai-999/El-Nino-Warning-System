@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-01T18:49:00.689Z",
+  "checkedAt": "2026-11-01T20:33:32.328Z",
   "roni": {
     "source": "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt",
-    "retrievedAt": "2026-11-01T18:49:00.689Z",
+    "retrievedAt": "2026-11-01T20:33:32.328Z",
     "points": [
       {
         "season": "DJF",
@@ -4609,7 +4609,7 @@
   },
   "probabilities": {
     "source": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/probabilities/",
-    "retrievedAt": "2026-11-01T18:49:00.689Z",
+    "retrievedAt": "2026-11-01T20:33:32.328Z",
     "issueMonth": "2026-10",
     "rows": [
       {
@@ -4671,12 +4671,12 @@
   "health": {
     "roni": {
       "ok": true,
-      "checkedAt": "2026-11-01T18:49:00.689Z",
+      "checkedAt": "2026-11-01T20:33:32.328Z",
       "error": null
     },
     "probabilities": {
       "ok": true,
-      "checkedAt": "2026-11-01T18:49:00.689Z",
+      "checkedAt": "2026-11-01T20:33:32.328Z",
       "error": null
     }
   }
