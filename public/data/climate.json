@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "checkedAt": "2026-11-12T12:51:53.506Z",
+  "checkedAt": "2026-11-12T22:17:17.470Z",
   "roni": {
     "source": "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt",
-    "retrievedAt": "2026-11-12T12:51:53.506Z",
+    "retrievedAt": "2026-11-12T22:17:17.470Z",
     "points": [
       {
         "season": "DJF",
@@ -4614,15 +4614,9 @@
   },
   "probabilities": {
     "source": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/probabilities/",
-    "retrievedAt": "2026-11-12T12:51:53.506Z",
-    "issueMonth": "2026-10",
+    "retrievedAt": "2026-11-12T22:17:17.470Z",
+    "issueMonth": "2026-11",
     "rows": [
-      {
-        "season": "SON",
-        "laNina": 0,
-        "neutral": 0,
-        "elNino": 100
-      },
       {
         "season": "OND",
         "laNina": 0,
@@ -4656,32 +4650,38 @@
       {
         "season": "MAM",
         "laNina": 0,
-        "neutral": 15,
-        "elNino": 85
+        "neutral": 20,
+        "elNino": 80
       },
       {
         "season": "AMJ",
         "laNina": 1,
-        "neutral": 54,
-        "elNino": 45
+        "neutral": 61,
+        "elNino": 38
       },
       {
         "season": "MJJ",
         "laNina": 13,
-        "neutral": 70,
-        "elNino": 17
+        "neutral": 75,
+        "elNino": 12
+      },
+      {
+        "season": "JJA",
+        "laNina": 33,
+        "neutral": 61,
+        "elNino": 6
       }
     ]
   },
   "health": {
     "roni": {
       "ok": true,
-      "checkedAt": "2026-11-12T12:51:53.506Z",
+      "checkedAt": "2026-11-12T22:17:17.470Z",
       "error": null
     },
     "probabilities": {
       "ok": true,
-      "checkedAt": "2026-11-12T12:51:53.506Z",
+      "checkedAt": "2026-11-12T22:17:17.470Z",
       "error": null
     }
   }
