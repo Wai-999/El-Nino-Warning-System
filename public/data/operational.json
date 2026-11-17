@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-17T00:17:49.787Z",
+  "generatedAt": "2026-11-17T13:32:55.211Z",
   "weather": {
     "fetchedAt": "2026-11-16T02:13:07.697Z",
     "validAt": "2026-11-16T01:30:00.000Z",
@@ -1895,7 +1895,7 @@
     ]
   },
   "nino": {
-    "fetchedAt": "2026-11-16T12:51:02.778Z",
+    "fetchedAt": "2026-11-17T13:32:55.211Z",
     "source": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
     "months": [
       {
@@ -1926,25 +1926,25 @@
   },
   "health": {
     "ecmwf": {
-      "checkedAt": "2026-11-17T00:17:49.787Z",
+      "checkedAt": "2026-11-17T13:32:55.211Z",
       "lastSuccess": "2026-11-16T02:13:07.697Z",
       "ok": false,
-      "error": "Impossible value: precipitation"
+      "error": "fetch failed"
     },
     "era5": {
-      "checkedAt": "2026-11-17T00:17:49.787Z",
+      "checkedAt": "2026-11-17T13:32:55.211Z",
       "lastSuccess": "2026-11-07T01:58:52.607Z",
       "ok": false,
-      "error": "The operation was aborted due to timeout"
+      "error": "fetch failed"
     },
     "nino34": {
-      "checkedAt": "2026-11-17T00:17:49.787Z",
-      "lastSuccess": "2026-11-16T12:51:02.778Z",
+      "checkedAt": "2026-11-17T13:32:55.211Z",
+      "lastSuccess": "2026-11-17T13:32:55.211Z",
       "ok": true,
       "error": null
     },
     "weather-details": {
-      "checkedAt": "2026-11-17T00:17:49.787Z",
+      "checkedAt": "2026-11-17T13:32:55.211Z",
       "lastSuccess": "2026-11-16T02:13:07.697Z",
       "ok": false,
       "error": "Detailed source refresh failed; retain original dated snapshot"
