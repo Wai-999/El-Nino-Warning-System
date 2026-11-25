@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-25T00:50:13.174Z",
+  "generatedAt": "2026-11-25T14:30:25.737Z",
   "weather": {
     "fetchedAt": "2026-11-25T00:50:13.174Z",
     "validAt": "2026-11-25T00:30:00.000Z",
@@ -1895,7 +1895,7 @@
     ]
   },
   "nino": {
-    "fetchedAt": "2026-11-24T02:56:03.629Z",
+    "fetchedAt": "2026-11-25T14:30:25.737Z",
     "source": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
     "months": [
       {
@@ -1926,28 +1926,28 @@
   },
   "health": {
     "ecmwf": {
-      "checkedAt": "2026-11-25T00:50:13.174Z",
+      "checkedAt": "2026-11-25T14:30:25.737Z",
       "lastSuccess": "2026-11-25T00:50:13.174Z",
-      "ok": true,
-      "error": null
+      "ok": false,
+      "error": "fetch failed"
     },
     "era5": {
-      "checkedAt": "2026-11-25T00:50:13.174Z",
+      "checkedAt": "2026-11-25T14:30:25.737Z",
       "lastSuccess": "2026-11-25T00:50:13.174Z",
       "ok": true,
       "error": null
     },
     "nino34": {
-      "checkedAt": "2026-11-25T00:50:13.174Z",
-      "lastSuccess": "2026-11-24T02:56:03.629Z",
+      "checkedAt": "2026-11-25T14:30:25.737Z",
+      "lastSuccess": "2026-11-25T14:30:25.737Z",
       "ok": true,
       "error": null
     },
     "weather-details": {
-      "checkedAt": "2026-11-25T00:50:13.174Z",
+      "checkedAt": "2026-11-25T14:30:25.737Z",
       "lastSuccess": "2026-11-25T00:50:13.174Z",
-      "ok": true,
-      "error": null
+      "ok": false,
+      "error": "Detailed source refresh failed; retain original dated snapshot"
     }
   }
 }
