@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-26T00:27:54.567Z",
+  "generatedAt": "2026-11-26T13:58:45.955Z",
   "weather": {
     "fetchedAt": "2026-11-26T00:27:54.567Z",
     "validAt": "2026-11-25T23:30:00.000Z",
@@ -1926,28 +1926,28 @@
   },
   "health": {
     "ecmwf": {
-      "checkedAt": "2026-11-26T00:27:54.567Z",
+      "checkedAt": "2026-11-26T13:58:45.955Z",
       "lastSuccess": "2026-11-26T00:27:54.567Z",
-      "ok": true,
-      "error": null
+      "ok": false,
+      "error": "fetch failed"
     },
     "era5": {
-      "checkedAt": "2026-11-26T00:27:54.567Z",
+      "checkedAt": "2026-11-26T13:58:45.955Z",
       "lastSuccess": "2026-11-26T00:27:54.567Z",
       "ok": true,
       "error": null
     },
     "nino34": {
-      "checkedAt": "2026-11-26T00:27:54.567Z",
+      "checkedAt": "2026-11-26T13:58:45.955Z",
       "lastSuccess": "2026-11-25T14:30:25.737Z",
       "ok": true,
       "error": null
     },
     "weather-details": {
-      "checkedAt": "2026-11-26T00:27:54.567Z",
+      "checkedAt": "2026-11-26T13:58:45.955Z",
       "lastSuccess": "2026-11-26T00:27:54.567Z",
-      "ok": true,
-      "error": null
+      "ok": false,
+      "error": "Detailed source refresh failed; retain original dated snapshot"
     }
   }
 }
